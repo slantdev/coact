@@ -1,0 +1,130 @@
+.card-hover .card-image {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.card-hover .card-text {
+  height: 100%;
+  width: 100%;
+  --tw-translate-y: 75%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  background-color: rgb(0 47 86 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.8;
+  padding: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+  @apply bg-brand-sea/80 w-full h-full p-4 text-white;
+}
+
+.card-hover {
+  &.card-brand-sea {
+    .card-text {
+      @apply bg-brand-sea/80;
+    }
+  }
+  &.card-brand-purple {
+    .card-text {
+      @apply bg-brand-purple/80;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-hover .card-text {
+    padding: 1.5rem;
+  }
+}
+
+.card-hover .card-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.card-hover .card-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+  line-height: 1.375;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@media (min-width: 768px) {
+  .card-hover .card-title {
+    font-size: 1.25rem;
+    line-height: 1.375;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-hover .card-title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    line-height: 1.375;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-hover .card-title {
+    font-size: 1.25rem;
+    line-height: 1.375;
+  }
+}
+
+.card-hover .card-excerpt {
+  margin-top: 2.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  opacity: 0;
+  transition-property: color, background-color, border-color, fill, stroke,
+    opacity, box-shadow, transform, filter, -webkit-text-decoration-color,
+    -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+
+@media (min-width: 1280px) {
+  .card-hover .card-excerpt {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+.card-hover:hover .card-text {
+  --tw-translate-y: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  padding-top: 2rem;
+}
+
+@media (min-width: 1280px) {
+  .card-hover:hover .card-text {
+    padding-top: 4rem;
+  }
+}
+
+.card-hover:hover .card-excerpt {
+  margin-top: 2rem;
+  opacity: 1;
+}

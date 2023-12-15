@@ -8,24 +8,34 @@
     "color": {
       "palette": [
         {
-          "name": "Primary",
-          "slug": "primary",
-          "color": "#0EA5E9"
+          "name": "Brand Sea",
+          "slug": "brand-sea",
+          "color": "#45C2BF"
         },
         {
-          "name": "Secondary",
-          "slug": "secondary",
-          "color": "#14B8A6"
+          "name": "Brand Orange",
+          "slug": "brand-orange",
+          "color": "#F26B49"
         },
         {
-          "name": "Dark",
-          "slug": "dark",
-          "color": "#1F2937"
+          "name": "Brand Yellow",
+          "slug": "brand-yellow",
+          "color": "#ECC72B"
         },
         {
-          "name": "Light",
-          "slug": "light",
-          "color": "#F9FAFB"
+          "name": "Brand Purple",
+          "slug": "brand-purple",
+          "color": "#B2519E"
+        },
+        {
+          "name": "Brand Black",
+          "slug": "brand-black",
+          "color": "#404041"
+        },
+        {
+          "name": "Brand Light Gray",
+          "slug": "brand-light-gray",
+          "color": "#F4F4F4"
         }
       ]
     },
