@@ -1,0 +1,164 @@
+{
+    "key": "group_5b2adbea058a2",
+    "title": "Section -- Related Tiles",
+    "fields": [
+        {
+            "key": "field_5b2adbf530c19",
+            "label": "Related Tiles Title",
+            "name": "related_tiles_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Please input some text to appear just above the related content tiles.\r\n\r\nPlease note: The related content tiles will still be displayed if this field is left empty.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "e.g Related Posts",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5b2adc9030c1a",
+            "label": "Related Tiles",
+            "name": "related_tiles",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Please create a maximum of two tiles that will related to the current post that you are editing.\r\n\r\nPlease note: The section will not be displayed on the page if there are no tiles created in this section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "acfe_repeater_stylised_button": 0,
+            "sub_fields": [
+                {
+                    "key": "field_5b2ae252b41b1",
+                    "label": "Tile Image",
+                    "name": "related_tile_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Please select an image to represent your tile.\r\n\r\nRecommended image size on desktop is 560px x 330px\r\n\r\nPlease note: If there is no image selected then the tile will not display",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "uploader": "",
+                    "acfe_thumbnail": 0,
+                    "parent_repeater": "field_5b2adc9030c1a"
+                },
+                {
+                    "key": "field_5b2ae2fcb41b2",
+                    "label": "Tile sup-title",
+                    "name": "related_tile_sup_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "This text field will be displayed above the main title of the tile.\r\n\r\nPlease note: The tile will not display if this field is not set.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": 30,
+                    "parent_repeater": "field_5b2adc9030c1a"
+                },
+                {
+                    "key": "field_5b2ae375b41b3",
+                    "label": "Tile Title",
+                    "name": "related_tile_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Please input some text to display as the title of your title.\r\n\r\nPlease note: The related content tiles will not be displayed if this field is left empty.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_5b2adc9030c1a"
+                },
+                {
+                    "key": "field_5b2ae3e9b41b4",
+                    "label": "Tile Link",
+                    "name": "related_tile_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Please give a valid URL to direct users to when the tile is clicked on. This can be an external URL or an internal URL.\r\n\r\nPlease note: The related content tiles will not be displayed if this field is left empty.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_5b2adc9030c1a"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1704759490
+}

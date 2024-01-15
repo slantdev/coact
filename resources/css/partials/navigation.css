@@ -1,0 +1,32 @@
+.main-nav--ul {
+  > li {
+    > a {
+      @apply relative block pt-3 pb-6 font-poppins font-semibold text-lg before:content-[''] before:h-1 before:rounded-full before:w-full before:absolute before:top-0 before:left-0 before:right-0 before:bg-transparent before:-translate-x-4 before:transition-all before:duration-300;
+      &:hover {
+        @apply before:bg-brand-sea before:-translate-x-0;
+      }
+      &.current-menu,
+      &.current-menu-ancestor {
+        @apply before:bg-brand-sea before:-translate-x-0;
+      }
+    }
+  }
+}
+.mega-menu {
+  @apply absolute left-0 right-0 -mx-4 rounded-xl overflow-hidden z-50 shadow-lg invisible opacity-0 transition-all duration-500 -translate-y-8;
+}
+.dropdown-menu {
+  @apply absolute -mx-4 rounded-md overflow-hidden z-50 shadow-lg invisible opacity-0 transition-all duration-500 -translate-y-8;
+}
+.has_submenu {
+  @apply static transition-all duration-500;
+  &:hover {
+    > a {
+      @apply before:bg-brand-sea before:-translate-x-0;
+    }
+    .mega-menu,
+    .dropdown-menu {
+      @apply visible opacity-100 -translate-y-0;
+    }
+  }
+}

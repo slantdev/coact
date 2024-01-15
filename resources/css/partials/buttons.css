@@ -1,0 +1,27 @@
+.btn {
+  @apply inline-flex h-auto min-h-min px-6 lg:px-8 py-2.5 lg:py-3 border-transparent text-base lg:text-lg font-poppins font-semibold normal-case no-underline rounded-full transition-all duration-300;
+  &.btn-filled {
+    @apply text-white;
+    &.btn-teal {
+      @apply bg-brand-sea border-transparent hover:brightness-[1.2];
+    }
+    &.btn-purple {
+      @apply bg-brand-purple border-transparent hover:brightness-[1.2];
+    }
+    &.btn-white {
+      @apply bg-white border-transparent hover:bg-black/5;
+    }
+  }
+  &.btn-outline {
+    @apply border border-white text-white hover:brightness-[1.2];
+    &.btn-teal {
+      @apply border-brand-sea text-brand-sea hover:bg-brand-sea hover:text-white;
+    }
+    &.btn-purple {
+      @apply border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white;
+    }
+    &.btn-white {
+      @apply border-white text-white hover:bg-black/5;
+    }
+  }
+}

@@ -10,11 +10,16 @@ function coact_enqueue_scripts()
   wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css', array(), '8.4.7');
   wp_enqueue_script('swiper', 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js', array(), '8.4.7');
 
-  wp_enqueue_style('tailpress', coact_asset('css/app.css'), array(), $theme->get('Version'));
-  wp_enqueue_script('tailpress', coact_asset('js/app.js'), array(), $theme->get('Version'));
+  wp_enqueue_style('coact', coact_asset('css/app.css'), array(), $theme->get('Version'));
+  wp_enqueue_script('counterup', coact_asset('js/counterup.js'), array(), '2.0.2', false);
+  wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . GOOGLE_MAPS_API . '&libraries=places,geometry', array(), $theme->get('Version'), true);
+  wp_enqueue_script('marker-clusterer', 'https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js', array('google-maps'), $theme->get('Version'), true);
+  wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), $theme->get('Version'), true);
+  wp_enqueue_script('service-locator', coact_asset('js/service-locator.js'), array('jquery'), $theme->get('Version'), true);
+  wp_enqueue_script('coact', coact_asset('js/app.js'), array('jquery'), $theme->get('Version'));
 }
 
-add_action('wp_enqueue_scripts', 'coact_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'coact_enqueue_scripts', 999);
 
 function coact_google_fonts()
 {
@@ -40,19 +45,19 @@ function coact_asset($path)
   return add_query_arg('time', time(),  get_stylesheet_directory_uri() . '/assets/' . $path);
 }
 
-function smc_admin_styles()
+function coact_admin_styles()
 {
   global $pagenow;
   $current_page = get_current_screen();
   $theme = wp_get_theme();
   wp_enqueue_style('admin_css', get_template_directory_uri() . '/assets/css/admin-style.css', false, filemtime(get_stylesheet_directory() . '/assets/css/admin-style.css'));
-  wp_enqueue_style('roboto', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap', false, $theme->get('Version'));
+  wp_enqueue_style('admin_gfonts', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap', false, $theme->get('Version'));
 
-  if (($current_page->post_type === 'page' && ($pagenow === 'post-new.php' || $pagenow === 'post.php'))) {
-    wp_enqueue_style('acf_layouts', get_template_directory_uri() . '/assets/css/acf-layouts.css', false, filemtime(get_stylesheet_directory() . '/assets/css/acf-layouts.css'));
-  }
-  if (($current_page->post_type === 'scholarship' && ($pagenow === 'post-new.php' || $pagenow === 'post.php'))) {
-    wp_enqueue_style('acf_layouts', get_template_directory_uri() . '/assets/css/acf-layouts.css', false, filemtime(get_stylesheet_directory() . '/assets/css/acf-layouts.css'));
-  }
+  // if (($current_page->post_type === 'page' && ($pagenow === 'post-new.php' || $pagenow === 'post.php'))) {
+  //   wp_enqueue_style('acf_layouts', get_template_directory_uri() . '/assets/css/acf-layouts.css', false, filemtime(get_stylesheet_directory() . '/assets/css/acf-layouts.css'));
+  // }
+  // if (($current_page->post_type === 'scholarship' && ($pagenow === 'post-new.php' || $pagenow === 'post.php'))) {
+  //   wp_enqueue_style('acf_layouts', get_template_directory_uri() . '/assets/css/acf-layouts.css', false, filemtime(get_stylesheet_directory() . '/assets/css/acf-layouts.css'));
+  // }
 }
-//add_action('admin_enqueue_scripts', 'smc_admin_styles');
+add_action('admin_enqueue_scripts', 'coact_admin_styles');

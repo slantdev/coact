@@ -12,7 +12,7 @@ get_header();
 <!-- Hero Banner -->
 <section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
   <div class="max-w-screen-5xl px-4 mx-auto">
-    <div class="aspect-w-16 aspect-h-7 rounded-3xl overflow-hidden">
+    <div class="aspect-w-16 aspect-h-5 rounded-3xl overflow-hidden">
       <div class="bg-zinc-300 w-full h-full">
         <img class="object-cover" src="<?php echo coact_asset('images/banner/banner-2.jpg') ?>" alt="">
         <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4"></div>

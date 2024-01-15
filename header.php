@@ -8,6 +8,16 @@
   <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
   <?php wp_head(); ?>
+
+  <script data-cfasync="false">
+    // Global variable to pass backend vars to javascript
+    var websiteData = {};
+    websiteData.urlWebsite = '<?php echo get_site_url(); ?>';
+    websiteData.urlTheme = '<?php echo get_template_directory_uri(); ?>';
+    websiteData.googleMapsApi = '<?php echo GOOGLE_MAPS_API; ?>';
+    websiteData.userIP = '<?php echo (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];  ?>';
+  </script>
+
 </head>
 
 <body <?php body_class('bg-white font-montserrat text-brand-black overflow-x-hidden'); ?>>
