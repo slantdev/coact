@@ -1,11 +1,11 @@
 {
     "key": "group_64fc2a6351140",
-    "title": "Site Settings - Main Navigation",
+    "title": "Site Settings - Header Logo",
     "fields": [
         {
             "key": "field_64fc2a635be1e",
-            "label": "Main Navigation",
-            "name": "main_navigation",
+            "label": "Header Logo",
+            "name": "header_logo",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -18,76 +18,13 @@
             },
             "layout": "block",
             "acfe_seamless_style": 1,
-            "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large",
             "sub_fields": [
-                {
-                    "key": "field_64fc2a635fe1f",
-                    "label": "Colors",
-                    "name": "colors",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "table",
-                    "acfe_seamless_style": 0,
-                    "acfe_group_modal": 0,
-                    "acfe_group_modal_close": 0,
-                    "acfe_group_modal_button": "",
-                    "acfe_group_modal_size": "large",
-                    "sub_fields": [
-                        {
-                            "key": "field_64fc2a6362e9a",
-                            "label": "Background Color",
-                            "name": "background_color",
-                            "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#000000",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_64fc2a6362eaf",
-                            "label": "Text Color",
-                            "name": "text_color",
-                            "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#ffffff",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        }
-                    ]
-                },
                 {
                     "key": "field_64fc2b007c415",
                     "label": "Site Logo",
                     "name": "site_logo",
                     "aria-label": "",
-                    "type": "group",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -96,17 +33,46 @@
                         "class": "",
                         "id": ""
                     },
+                    "uploader": "",
+                    "return_format": "array",
+                    "acfe_thumbnail": 0,
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
+                    "key": "field_65a49e5ee030c",
+                    "label": "Partners Logo",
+                    "name": "partners_logo",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_repeater_stylised_button": 1,
                     "layout": "table",
-                    "acfe_seamless_style": 0,
-                    "acfe_group_modal": 0,
-                    "acfe_group_modal_close": 0,
-                    "acfe_group_modal_button": "",
-                    "acfe_group_modal_size": "large",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Logo",
+                    "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_64fc2b217c416",
-                            "label": "Logo Primary",
-                            "name": "logo_primary",
+                            "key": "field_65a49e70e030d",
+                            "label": "Logo",
+                            "name": "logo",
                             "aria-label": "",
                             "type": "image",
                             "instructions": "",
@@ -128,38 +94,16 @@
                             "max_size": "",
                             "mime_types": "",
                             "preview_size": "thumbnail",
-                            "library": "all"
-                        },
-                        {
-                            "key": "field_64fc2b437c417",
-                            "label": "Logo White",
-                            "name": "logo_white",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "uploader": "",
-                            "return_format": "array",
-                            "acfe_thumbnail": 0,
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "preview_size": "thumbnail",
-                            "library": "all"
+                            "library": "all",
+                            "parent_repeater": "field_65a49e5ee030c"
                         }
                     ]
                 }
-            ]
+            ],
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         }
     ],
     "location": [
@@ -187,8 +131,8 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
+    "modified": 1705287331,
     "acfe_categories": {
         "site-settings": "Site Settings"
-    },
-    "modified": 1704648354
+    }
 }

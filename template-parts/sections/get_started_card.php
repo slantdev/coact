@@ -34,9 +34,9 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
     </div>
     <?php
     if ($content_cards) :
-      $content_cards_filter_id = uniqid('content-cards-filter-');
+      $content_cards_id = uniqid();
     ?>
-      <div class="<?php echo $content_cards_filter_id ?> relative container max-w-screen-xxl mx-auto">
+      <div class="content-cards-filter-<?php echo $content_cards_id ?> relative container max-w-screen-xxl mx-auto">
         <div class="px-12 lg:px-14 relative -mx-2 lg:-mx-0">
           <div class="swiper mt-10 px-2 pt-2 pb-4">
             <div class="swiper-wrapper filter-buttons">
@@ -57,7 +57,6 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
                   </div>
                 <?php endif; ?>
               <?php endforeach; ?>
-
             </div>
           </div>
           <button type="button" class="filter-button-prev absolute left-0 top-2 lg:top-[12px] w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center bg-white rounded-full shadow-md hover:bg-brand-sea text-gray-500 hover:text-white transition-all duration-200 swiper-button-disabled">
@@ -72,7 +71,7 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
           </button>
         </div>
         <script>
-          new Swiper('.<?php echo $content_cards_filter_id ?> .swiper', {
+          new Swiper('.content-cards-filter-<?php echo $content_cards_id ?> .swiper', {
             slidesPerView: 'auto',
             spaceBetween: 12,
             loop: false,
@@ -95,92 +94,107 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
           });
         </script>
       </div>
-      <div>
-        <div class="content-cards-loader pt-2 pb-4">
-          <div class="flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 text-fiap-teal rounded-full opacity-0" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="content-cards-grid relative">
-          <?php foreach ($content_cards as $key => $card) : ?>
-            <?php
-            if ($card) :
-              $contents = $card['contents']; // Repeater
-              $content_card_class = '';
-              if ($key != '0') {
-                $content_card_class = 'hidden';
-              }
-            ?>
-              <?php if ($contents) : ?>
-                <div class="content-card-<?php echo $key; ?> relative container max-w-screen-3xl mx-auto <?php echo $content_card_class ?>">
-                  <div class="swiper container max-w-screen-xxl mx-auto">
-                    <div class="swiper-wrapper">
-                      <?php foreach ($contents as $content) : ?>
-                        <div class="swiper-slide w-auto">
-                          <?php
-                          $post_id = $content->ID;
-                          $title = get_the_title($post_id);
-                          $permalink = get_the_permalink($post_id);
-                          $image = get_the_post_thumbnail_url($post_id, 'large');
-                          $excerpt = get_the_excerpt($post_id);
-                          ?>
-                          <a href="<?php echo $permalink; ?>" class="card-hover block h-full rounded-xl bg-slate-100 relative overflow-hidden cursor-pointer shadow-md">
-                            <div class="aspect-w-1 aspect-h-1">
-                              <?php if ($image) : ?>
-                                <img class="card-image object-center object-cover" src="<?php echo $image; ?>">
-                              <?php else : ?>
-                                <div class="w-full h-full bg-slate-100"></div>
-                              <?php endif; ?>
+      <div class="content-cards-grid-<?php echo $content_cards_id ?> relative mt-10">
+        <?php foreach ($content_cards as $key => $card) : ?>
+          <?php
+          if ($card) :
+            $contents = $card['contents']; // Repeater
+            $content_card_class = '';
+            if ($key != '0') {
+              $content_card_class = 'hidden';
+            }
+          ?>
+            <?php if ($contents) : ?>
+              <div class="content-card content-card-<?php echo $key; ?> relative container max-w-screen-3xl mx-auto <?php echo $content_card_class ?>">
+                <div class="swiper container max-w-screen-xxl mx-auto">
+                  <div class="swiper-wrapper">
+                    <?php foreach ($contents as $content) : ?>
+                      <div class="swiper-slide w-auto">
+                        <?php
+                        $post_id = $content->ID;
+                        $title = get_the_title($post_id);
+                        $permalink = get_the_permalink($post_id);
+                        $image = get_the_post_thumbnail_url($post_id, 'large');
+                        $excerpt = get_the_excerpt($post_id);
+                        ?>
+                        <a href="<?php echo $permalink; ?>" class="card-hover block h-full rounded-xl bg-slate-100 relative overflow-hidden cursor-pointer shadow-md">
+                          <div class="aspect-w-1 aspect-h-1">
+                            <?php if ($image) : ?>
+                              <img class="card-image object-center object-cover" src="<?php echo $image; ?>">
+                            <?php else : ?>
+                              <div class="w-full h-full bg-slate-100"></div>
+                            <?php endif; ?>
+                          </div>
+                          <div class="card-text">
+                            <h3 class="card-title"><?php echo $title; ?></h3>
+                            <div class="card-excerpt">
+                              <?php echo $excerpt; ?>
                             </div>
-                            <div class="card-text">
-                              <h3 class="card-title"><?php echo $title; ?></h3>
-                              <div class="card-excerpt">
-                                <?php echo $excerpt; ?>
-                              </div>
-                              <button type="button" class="bg-white p-4 absolute right-6 bottom-6 rounded-full w-8 h-8 xl:w-12 xl:h-12">
-                                <span class="block w-4 h-1 bg-brand-sea absolute top-1/2 -translate-y-1/2"></span>
-                                <span class="block w-1 h-4 bg-brand-sea absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"></span>
-                              </button>
-                            </div>
-                          </a>
-                        </div>
-                      <?php endforeach; ?>
-                    </div>
+                            <button type="button" class="bg-white p-4 absolute right-6 bottom-6 rounded-full w-8 h-8 xl:w-12 xl:h-12">
+                              <span class="block w-4 h-1 bg-brand-sea absolute top-1/2 -translate-y-1/2"></span>
+                              <span class="block w-1 h-4 bg-brand-sea absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"></span>
+                            </button>
+                          </div>
+                        </a>
+                      </div>
+                    <?php endforeach; ?>
                   </div>
-                  <div class="absolute left-0 -bottom-16 right-0">
-                    <div class="container max-w-screen-3xl mx-auto">
-                      <div class="swiper-pagination text-center relative [&>.swiper-pagination-bullet]:rounded-sm" style="--swiper-pagination-bullet-height:6px;--swiper-pagination-bullet-width:80px;--swiper-pagination-bullet-inactive-color:#E2E2E2;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
-                    </div>
-                  </div>
-                  <div class="swiper-button-prev left-0 lg:left-4 after:content-['prev'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
-                  <div class="swiper-button-next right-0 lg:right-4 after:content-['next'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
-                  <script>
-                    new Swiper('.content-card-<?php echo $key; ?> .swiper', {
-                      slidesPerView: 3,
-                      spaceBetween: 36,
-                      loop: false,
-                      watchOverflow: true,
-                      centerInsufficientSlides: true,
-                      navigation: {
-                        nextEl: '.content-card-<?php echo $key; ?> .swiper-button-next',
-                        prevEl: '.content-card-<?php echo $key; ?> .swiper-button-prev',
-                      },
-                      pagination: {
-                        el: ".content-card-<?php echo $key; ?> .swiper-pagination",
-                        clickable: true,
-                      },
-                    });
-                  </script>
                 </div>
-              <?php endif; ?>
+                <div class="absolute left-0 -bottom-16 right-0">
+                  <div class="container max-w-screen-3xl mx-auto">
+                    <div class="swiper-pagination text-center relative [&>.swiper-pagination-bullet]:rounded-sm" style="--swiper-pagination-bullet-height:6px;--swiper-pagination-bullet-width:80px;--swiper-pagination-bullet-inactive-color:#E2E2E2;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
+                  </div>
+                </div>
+                <div class="swiper-button-prev left-0 lg:left-4 after:content-['prev'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
+                <div class="swiper-button-next right-0 lg:right-4 after:content-['next'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
+                <script>
+                  new Swiper('.content-card-<?php echo $key; ?> .swiper', {
+                    slidesPerView: 3,
+                    spaceBetween: 36,
+                    loop: false,
+                    watchOverflow: true,
+                    centerInsufficientSlides: true,
+                    navigation: {
+                      nextEl: '.content-card-<?php echo $key; ?> .swiper-button-next',
+                      prevEl: '.content-card-<?php echo $key; ?> .swiper-button-prev',
+                    },
+                    pagination: {
+                      el: ".content-card-<?php echo $key; ?> .swiper-pagination",
+                      clickable: true,
+                    },
+                  });
+                </script>
+              </div>
             <?php endif; ?>
-          <?php endforeach; ?>
-          <div class="blocker absolute inset-0 bg-white bg-opacity-40" style="display: none;"></div>
+          <?php endif; ?>
+        <?php endforeach; ?>
+        <div class="content-cards-loader absolute inset-0 bg-white bg-opacity-80 z-10 hidden transition-all duration-500">
+          <div class="h-full w-full flex items-center justify-center">
+            <svg class="animate-spin h-8 w-8 text-brand-sea opacity-100" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </div>
         </div>
       </div>
     <?php endif; ?>
   </div>
+  <script>
+    jQuery(function($) {
+      $('.content-cards-grid-<?php echo $content_cards_id ?>').height($('.content-cards-grid-<?php echo $content_cards_id ?>').height());
+      $('.content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card').click(function(e) {
+        e.preventDefault();
+        let dataid = $(this).data('id');
+        $('.content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card').removeClass('filter-active');
+        $(this).addClass('filter-active');
+        $('.content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader').fadeIn('slow');
+        $('.content-cards-grid-<?php echo $content_cards_id ?> .content-card').fadeOut('slow', function() {
+          setTimeout(() => {
+            $('.content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader').fadeOut();
+            $('.content-cards-grid-<?php echo $content_cards_id ?> .content-card-' + dataid).fadeIn();
+          }, 1000);
+        });
+      });
+    });
+  </script>
 </section>

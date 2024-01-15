@@ -98,6 +98,36 @@
                     "acfe_permissions": ""
                 },
                 {
+                    "key": "field_65a4a06fcea6c",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "uploader": "",
+                    "return_format": "array",
+                    "acfe_thumbnail": 0,
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "acfe_permissions": "",
+                    "preview_size": "medium",
+                    "library": "all"
+                },
+                {
                     "key": "field_653f03ab903a2",
                     "label": "Subscribe Colors",
                     "name": "subscribe_colors",
@@ -192,8 +222,8 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
+    "modified": 1705287813,
     "acfe_categories": {
         "site-settings": "Site Settings"
-    },
-    "modified": 1704648368
+    }
 }

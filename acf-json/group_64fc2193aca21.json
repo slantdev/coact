@@ -24,68 +24,9 @@
             "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
-                    "key": "field_64fc21e910cb0",
-                    "label": "Colors",
-                    "name": "colors",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "table",
-                    "acfe_seamless_style": 0,
-                    "acfe_group_modal": 0,
-                    "acfe_group_modal_close": 0,
-                    "acfe_group_modal_button": "",
-                    "acfe_group_modal_size": "large",
-                    "sub_fields": [
-                        {
-                            "key": "field_64fc21fc10cb1",
-                            "label": "Background Color",
-                            "name": "background_color",
-                            "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#000000",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_64fc221e10cb2",
-                            "label": "Text Color",
-                            "name": "text_color",
-                            "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#ffffff",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        }
-                    ]
-                },
-                {
                     "key": "field_64fc224210cb3",
-                    "label": "Social Links",
-                    "name": "social_links",
+                    "label": "Links",
+                    "name": "links",
                     "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
@@ -96,21 +37,21 @@
                         "class": "",
                         "id": ""
                     },
-                    "acfe_repeater_stylised_button": 0,
+                    "acfe_repeater_stylised_button": 1,
                     "layout": "table",
                     "pagination": 0,
                     "min": 0,
                     "max": 0,
                     "collapsed": "",
-                    "button_label": "Add Row",
+                    "button_label": "Add Link",
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_64fc225d10cb4",
-                            "label": "Select Social Links",
-                            "name": "select_social_links",
+                            "key": "field_65a49de88139f",
+                            "label": "Link Icon",
+                            "name": "link_icon",
                             "aria-label": "",
-                            "type": "select",
+                            "type": "icon-picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -119,30 +60,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "twitter": "Twitter",
-                                "facebook": "Facebook",
-                                "instagram": "Instagram",
-                                "linkedin": "LinkedIn",
-                                "youtube": "YouTube",
-                                "email": "Email",
-                                "phone": "Phone"
-                            },
-                            "default_value": false,
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "allow_custom": 0,
-                            "search_placeholder": "",
+                            "initial_value": "",
                             "parent_repeater": "field_64fc224210cb3"
                         },
                         {
                             "key": "field_64fc22ca10cb5",
-                            "label": "Social Link",
-                            "name": "social_link",
+                            "label": "Link",
+                            "name": "link",
                             "aria-label": "",
                             "type": "link",
                             "instructions": "",
@@ -186,8 +110,8 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
+    "modified": 1705287184,
     "acfe_categories": {
         "site-settings": "Site Settings"
-    },
-    "modified": 1704648373
+    }
 }

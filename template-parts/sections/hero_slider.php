@@ -12,7 +12,7 @@ $hero_slider = get_sub_field('hero_slider');
 
 if ($hero_slider) : ?>
   <section class="relative bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
-    <div class="max-w-screen-5xl px-4 mx-auto">
+    <div class="max-w-screen-5xl px-4 4xl:px-12 mx-auto">
       <div id="hero-slider" class="swiper relative rounded-3xl">
         <div class="swiper-wrapper">
           <?php foreach ($hero_slider as $slide) : ?>

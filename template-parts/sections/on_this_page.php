@@ -9,7 +9,7 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 */
 ?>
 <section class="bg-white relative mt-10">
-  <div class="relative max-w-screen-3xl h-1">
+  <div class="relative max-w-screen-3xl mx-auto h-1">
     <div class="absolute top-0 right-0">
       <?php echo coact_svg(array('svg' => 'shape-1', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-orange w-[500px] h-auto')); ?>
     </div>

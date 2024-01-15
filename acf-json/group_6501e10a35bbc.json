@@ -24,65 +24,6 @@
             "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
-                    "key": "field_6501e12c47270",
-                    "label": "Copyright Colors",
-                    "name": "copyright_colors",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "table",
-                    "acfe_seamless_style": 1,
-                    "acfe_group_modal": 0,
-                    "acfe_group_modal_close": 0,
-                    "acfe_group_modal_button": "",
-                    "acfe_group_modal_size": "large",
-                    "sub_fields": [
-                        {
-                            "key": "field_6501e14547271",
-                            "label": "Background Color",
-                            "name": "background_color",
-                            "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#0031FF",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_6501e15747272",
-                            "label": "Text Color",
-                            "name": "text_color",
-                            "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#FFFFFF",
-                            "enable_opacity": 0,
-                            "return_format": "string"
-                        }
-                    ]
-                },
-                {
                     "key": "field_6501e18b47273",
                     "label": "Copyright Site Name",
                     "name": "copyright_site_name",
@@ -172,8 +113,8 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
+    "modified": 1705289273,
     "acfe_categories": {
         "site-settings": "Site Settings"
-    },
-    "modified": 1704648343
+    }
 }

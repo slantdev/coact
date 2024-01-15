@@ -57,9 +57,15 @@ $icon_links = $image_text['icon_links']; // Repeater
 
         <div class="w-full max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-2/5 relative <?php echo $column_img_class ?>">
           <?php if ($background_ornament) : ?>
-            <div class="absolute top-0 -left-1/2 -translate-x-[15%]">
-              <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[660px] h-auto')); ?>
-            </div>
+            <?php if ($image_column_position == 'right') : ?>
+              <div class="absolute top-0 -right-1/2 translate-x-[15%] scale-x-[-1]">
+                <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[660px] h-auto')); ?>
+              </div>
+            <?php else : ?>
+              <div class="absolute top-0 -left-1/2 -translate-x-[15%]">
+                <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[660px] h-auto')); ?>
+              </div>
+            <?php endif ?>
           <?php endif; ?>
           <?php if ($image) : ?>
             <div class="mb-8 mx-auto xl:mb-12 max-w-full aspect-w-1 aspect-h-1 overflow-hidden <?php echo $rounded_class ?>"><img src="<?php echo $image['url'] ?>" class="mx-auto h-full w-full object-center object-cover <?php echo $rounded_class ?>" alt=""></div>
