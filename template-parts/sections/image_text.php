@@ -51,6 +51,9 @@ $icon_links = $image_text['icon_links']; // Repeater
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto">
 
       <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
@@ -102,5 +105,8 @@ $icon_links = $image_text['icon_links']; // Repeater
       </div>
 
     </div>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+    <?php endif; ?>
   </div>
 </section>

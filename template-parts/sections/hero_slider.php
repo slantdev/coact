@@ -6,6 +6,10 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
  * $section_style
  * $section_padding_top
  * $section_padding_bottom
+ * $top_separator
+ * $top_separator_style
+ * $bottom_separator
+ * $bottom_separator_style
 */
 
 $hero_slider = get_sub_field('hero_slider');

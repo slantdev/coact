@@ -11,6 +11,7 @@ register_post_type('service-partner', array(
   'capability_type' => 'post',
   'map_meta_cap' => true,
   'hierarchical' => true,
+  'menu_icon' => 'dashicons-location',
   'rewrite' => array(
     'slug' => 'service-partner',
     'with_front' => false,

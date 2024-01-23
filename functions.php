@@ -17,6 +17,15 @@ require get_template_directory() . '/inc/enqueue.php';
 require get_template_directory() . '/inc/breadcrumb.php';
 //require get_template_directory() . '/inc/ajax.php';
 
+function setRestServicePartnerPerPage($args, $request)
+{
+  /* change amount of posts returned by REST API to unlimited */
+  $max = max((int)$request->get_param('per_page'), 999999);
+  $args['posts_per_page'] = $max;
+  return $args;
+}
+add_filter('rest_service-partner_query', array('setRestServicePartnerPerPage'), 10, 2);
+
 function coact_excerpt_length($length)
 {
   return 20;
@@ -31,7 +40,7 @@ function plain_card($link, $image, $title, $excerpt)
   echo '<img src="' . $image . '" alt="" class="object-cover">';
   echo '</a>';
   echo '<h4 class="text-xl font-semibold my-4"><a href="' . $link . '">' . $title . '</a></h4>';
-  echo '<div>' . $excerpt . '</div>';
+  echo '<div>' . wp_trim_words($excerpt, 20) . '</div>';
   echo '<a href="' . $link . '" class="text-brand-sea underline font-medium inline-block mt-4">LEARN MORE</a>';
   echo '</div>';
 }
@@ -44,7 +53,7 @@ function shadow_card($link, $image, $title, $excerpt)
   echo '</a>';
   echo '<div class="p-8 bg-white">';
   echo '<h4 class="text-xl font-semibold mb-4 text-brand-sea"><a href="' . $link . '">' . $title . '</a></h4>';
-  echo '<div class="text-sm">' . $excerpt . '</div>';
+  echo '<div class="text-sm">' . wp_trim_words($excerpt, 20) . '</div>';
   echo '<a href="' . $link . '" class="text-brand-sea text-sm underline font-medium inline-block mt-8">LEARN MORE</a>';
   echo '</div>';
   echo '</div>';

@@ -21,6 +21,9 @@ $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="container mx-auto">
       <div class="max-w-screen-lg text-center mx-auto relative z-[1]">
         <div class="text-center max-w-prose mx-auto mb-14">
@@ -32,5 +35,8 @@ $section_id = $section_id ? 'id="' . $section_id . '"' : '';
         <div class="mt-6 text-lg font-bold">Larissa, Job Seeker</div>
       </div>
     </div>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+    <?php endif; ?>
   </div>
 </section>

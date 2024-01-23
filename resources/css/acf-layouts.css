@@ -1,6 +1,9 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "partials/components.css";
+@import "partials/buttons.css";
 
 .acf-layout {
   @apply font-sans;
@@ -129,18 +132,18 @@
         }
       }
     }
-    [type='text'],
-    [type='email'],
-    [type='url'],
-    [type='password'],
-    [type='number'],
-    [type='date'],
-    [type='datetime-local'],
-    [type='month'],
-    [type='search'],
-    [type='tel'],
-    [type='time'],
-    [type='week'],
+    [type="text"],
+    [type="email"],
+    [type="url"],
+    [type="password"],
+    [type="number"],
+    [type="date"],
+    [type="datetime-local"],
+    [type="month"],
+    [type="search"],
+    [type="tel"],
+    [type="time"],
+    [type="week"],
     [multiple],
     textarea,
     select {
@@ -201,7 +204,7 @@
         line-height: 2rem;
       }
     }
-    .prose :where(h3):not(:where([class~='not-prose'] *)) {
+    .prose :where(h3):not(:where([class~="not-prose"] *)) {
       color: var(--tw-prose-headings);
       font-weight: 600;
       font-size: 1.25em;
@@ -209,18 +212,40 @@
       margin-bottom: 0.6em;
       line-height: 1.6;
     }
-    .prose :where(.prose > :first-child):not(:where([class~='not-prose'] *)) {
+    .prose :where(.prose > :first-child):not(:where([class~="not-prose"] *)) {
       margin-top: 0;
     }
-    .prose-lg :where(h3):not(:where([class~='not-prose'] *)) {
+    .prose-lg :where(h3):not(:where([class~="not-prose"] *)) {
       font-size: 1.3333333em;
       margin-top: 1.6666667em;
       margin-bottom: 0.6666667em;
       line-height: 1.5;
     }
     .prose-lg
-      :where(.prose-lg > :first-child):not(:where([class~='not-prose'] *)) {
+      :where(.prose-lg > :first-child):not(:where([class~="not-prose"] *)) {
       margin-top: 0;
     }
+  }
+  .acf-layout h3.card-title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    line-height: 1.375;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  .layout > .acfe-fc-placeholder > a {
+    @apply z-30;
+  }
+  .layout > .acfe-fc-placeholder .acfe-fc-overlay {
+    @apply z-20;
+  }
+  .layout > .acfe-fc-placeholder .acfe-fc-overlay.-hover,
+  .layout > .acfe-fc-placeholder:hover .acfe-fc-overlay {
+    @apply z-20;
   }
 }

@@ -112,11 +112,32 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array",
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "acfe_permissions": ""
+                },
+                {
+                    "key": "field_65aff7420b1a9",
+                    "label": "Button Color",
+                    "name": "button_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#45C2BF",
+                    "enable_opacity": 0,
+                    "return_format": "string",
                     "acfe_settings": "",
                     "acfe_validate": "",
                     "acfe_permissions": ""
@@ -312,7 +333,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1705007502,
+    "modified": 1706030956,
     "acfe_categories": {
         "layout": "Layout"
     }

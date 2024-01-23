@@ -52,7 +52,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "acfe_repeater_stylised_button": 0,
+                    "acfe_repeater_stylised_button": 1,
                     "layout": "table",
                     "pagination": 0,
                     "acfe_settings": "",
@@ -60,7 +60,7 @@
                     "max": 0,
                     "acfe_permissions": "",
                     "collapsed": "",
-                    "button_label": "Add Row",
+                    "button_label": "Add Anchor Link",
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
@@ -161,7 +161,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1705093792,
+    "modified": 1706034627,
     "acfe_categories": {
         "layout": "Layout"
     }

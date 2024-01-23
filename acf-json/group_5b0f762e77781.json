@@ -1,6 +1,6 @@
 {
     "key": "group_5b0f762e77781",
-    "title": "Section — Location Details",
+    "title": "Service Partner -- Location Details",
     "fields": [
         {
             "key": "field_5b29b02eecc19",
@@ -9,11 +9,11 @@
             "aria-label": "",
             "type": "select",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "hidden",
                 "id": ""
             },
             "choices": {
@@ -21,11 +21,11 @@
                 "purple": "Purple"
             },
             "default_value": false,
-            "allow_null": 0,
+            "return_format": "value",
             "multiple": 0,
+            "allow_null": 0,
             "ui": 0,
             "ajax": 0,
-            "return_format": "value",
             "placeholder": "",
             "allow_custom": 0,
             "search_placeholder": ""
@@ -41,14 +41,14 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "hidden",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_5b0f76cb28d45",
@@ -56,26 +56,6 @@
             "name": "location_site_name",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5b0f7790c834e",
-            "label": "Opening Hours",
-            "name": "opening_hours",
-            "aria-label": "",
-            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -85,11 +65,10 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
             "maxlength": "",
-            "rows": "",
-            "new_lines": "br",
-            "acfe_textarea_code": 0
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_5b0f76d928d46",
@@ -98,7 +77,7 @@
             "aria-label": "",
             "type": "google_map",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -124,13 +103,14 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "acfe_repeater_stylised_button": 1,
+            "layout": "table",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
-            "button_label": "Add Row",
+            "collapsed": "",
+            "button_label": "Add Contact Info",
             "rows_per_page": 20,
-            "acfe_repeater_stylised_button": 0,
             "sub_fields": [
                 {
                     "key": "field_5b29b187ed1a3",
@@ -190,13 +170,14 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
+            "acfe_repeater_stylised_button": 1,
+            "layout": "table",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
-            "button_label": "Add Row",
+            "collapsed": "",
+            "button_label": "Add Email",
             "rows_per_page": 20,
-            "acfe_repeater_stylised_button": 0,
             "sub_fields": [
                 {
                     "key": "field_5b29b1cf60de4",
@@ -240,6 +221,67 @@
                     "parent_repeater": "field_5b29b1cf60de3"
                 }
             ]
+        },
+        {
+            "key": "field_5b0f7790c834e",
+            "label": "Opening Hours",
+            "name": "opening_hours",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_65abf87000b59",
+            "label": "Traditional Place Name",
+            "name": "traditional_place_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65abf89200b5a",
+            "label": "Transportation",
+            "name": "transportation",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -267,7 +309,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1705114788,
+    "modified": 1705951657,
     "acfe_categories": {
         "service-locator": "Service Locator"
     }

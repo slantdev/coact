@@ -13,6 +13,11 @@ $posts_grid = get_sub_field('posts_grid'); // Group
 $headline = $posts_grid['headline'];
 $description = $posts_grid['description'];
 $button = $posts_grid['button'];
+$button_color = $posts_grid['button_color'];
+$button_syle = '';
+if ($button_color) {
+  $button_syle .= 'background-color : ' . $button_color . ';';
+}
 $select_category = $posts_grid['select_category'];
 $card_style = $posts_grid['card_style'];
 $posts_per_page = $posts_grid['posts_per_page'];
@@ -21,6 +26,9 @@ $posts_per_page = $posts_grid['posts_per_page'];
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto">
       <div class="relative z-10">
         <div>
@@ -39,7 +47,7 @@ $posts_per_page = $posts_grid['posts_per_page'];
             <?php endif; ?>
             <?php if (isset($button['url'])) : ?>
               <div class="w-full lg:w-1/3 text-right">
-                <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200"><?php echo $button['title'] ?></a>
+                <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200" style="<?php echo $button_syle ?>"><?php echo $button['title'] ?></a>
               </div>
             <?php endif; ?>
           </div>
@@ -99,14 +107,14 @@ $posts_per_page = $posts_grid['posts_per_page'];
               echo '</div>';
             }
           } else {
-            $myposts = get_posts(array(
+            $theposts = get_posts(array(
               'posts_per_page' => $posts_per_page,
               'category'       => $select_category
             ));
 
-            if ($myposts) {
+            if ($theposts) {
 
-              foreach ($myposts as $post) :
+              foreach ($theposts as $post) :
 
                 $post_id = $post->ID;
                 $title = $post->post_title;
@@ -131,5 +139,8 @@ $posts_per_page = $posts_grid['posts_per_page'];
         </div>
       </div>
     </div>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+    <?php endif; ?>
   </div>
 </section>

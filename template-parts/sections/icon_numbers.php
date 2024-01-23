@@ -6,6 +6,10 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
  * $section_style
  * $section_padding_top
  * $section_padding_bottom
+ * $top_separator
+ * $top_separator_style
+ * $bottom_separator
+ * $bottom_separator_style
 */
 
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
@@ -22,6 +26,9 @@ if ($icon_numbers) :
 
   <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
     <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+      <?php if ($top_separator) : ?>
+        <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+      <?php endif; ?>
       <div class="container max-w-screen-xxl mx-auto">
 
         <div class="<?php echo $grid_class ?> divide-brand-purple">
@@ -62,6 +69,9 @@ if ($icon_numbers) :
         </div>
 
       </div>
+      <?php if ($bottom_separator) : ?>
+        <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+      <?php endif; ?>
     </div>
   </section>
 

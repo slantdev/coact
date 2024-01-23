@@ -20,6 +20,9 @@ $image_cards = $who_we_help['image_cards']; // Repeater
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto">
       <?php if ($background_ornament) : ?>
         <div class="absolute top-0 left-0 rounded-full bg-brand-yellow w-[528px] h-[528px] -translate-y-[20%] -translate-x-1/2"></div>
@@ -74,5 +77,8 @@ $image_cards = $who_we_help['image_cards']; // Repeater
         <?php endif; ?>
       </div>
     </div>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+    <?php endif; ?>
   </div>
 </section>

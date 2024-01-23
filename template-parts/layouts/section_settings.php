@@ -36,6 +36,25 @@ $spacing_bottom_map = [
 $section_padding_top = $spacing_top_map[$spacing_top] ?? '';
 $section_padding_bottom = $spacing_bottom_map[$spacing_bottom] ?? '';
 
+$top_separator = $section_settings['line_separator']['top_separator']['show_top_separator'] ?? '';
+$top_separator_color = $section_settings['line_separator']['top_separator']['top_separator_color'] ?? '';
+$bottom_separator = $section_settings['line_separator']['bottom_separator']['show_bottom_separator'] ?? '';
+$bottom_separator_color = $section_settings['line_separator']['bottom_separator']['bottom_separator_color'] ?? '';
+$top_separator_style = '';
+if ($top_separator) {
+  $top_separator_style .= 'border-color : ' . $top_separator_color . ';';
+}
+$bottom_separator_style = '';
+if ($bottom_separator) {
+  $bottom_separator_style .= 'border-color : ' . $bottom_separator_color . ';';
+}
+$ornament_shape = $section_settings['background_ornament']['ornament_shape'] ?? '';
+$ornament_color = $section_settings['background_ornament']['ornament_color'] ?? '';
+$ornament_style = '';
+if ($ornament_shape !== 'none' && $ornament_color) {
+  $ornament_style .= 'color : ' . $ornament_color . ';';
+}
+
 $section_fullwidth = $section_settings['section_full_width'] ?? false;
 
 $section_container_class = $section_padding_top . ' ' . $section_padding_bottom  . ' ';

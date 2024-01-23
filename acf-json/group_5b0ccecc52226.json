@@ -1,6 +1,6 @@
 {
     "key": "group_5b0ccecc52226",
-    "title": "Section — Checkmark List",
+    "title": "Service Partner -- Checkmark List",
     "fields": [
         {
             "key": "field_5b0ccf3b4d49b",
@@ -73,5 +73,8 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1704759497
+    "modified": 1705628557,
+    "acfe_categories": {
+        "service-locator": "Service Locator"
+    }
 }

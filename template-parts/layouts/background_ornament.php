@@ -1,0 +1,14 @@
+<?php
+
+$shape = $args['shape'] ?? '';
+$style = $args['style'] ?? '';
+$class = $args['class'] ?? '';
+?>
+
+<?php if ($shape == 'orange-wave') : ?>
+  <div class="relative mx-auto h-1 <?php echo $class ?>">
+    <div class="absolute top-0 right-0 text-brand-orange" style="<?php echo $style ?>">
+      <?php echo coact_svg(array('svg' => 'shape-1', 'group' => 'shapes', 'size' => false, 'class' => 'w-[500px] h-auto')); ?>
+    </div>
+  </div>
+<?php endif; ?>

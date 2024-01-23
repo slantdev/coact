@@ -19,6 +19,9 @@ $logo_gallery = $logo_carousel['logo_gallery'];
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto">
       <?php if ($headline || $description) : ?>
         <div class="text-center max-w-prose mx-auto mb-14">
@@ -45,7 +48,7 @@ $logo_gallery = $logo_carousel['logo_gallery'];
             <?php foreach ($logo_gallery as $logo) : ?>
               <div class="swiper-slide">
                 <div class="flex flex-col items-center justify-center">
-                  <img class="w-full h-full object-contain" src="<?php echo esc_url($logo['url']); ?>" />
+                  <img class="w-full h-full object-contain max-h-[100px]" src="<?php echo esc_url($logo['url']); ?>" />
                 </div>
               </div>
             <?php endforeach; ?>
@@ -85,6 +88,9 @@ $logo_gallery = $logo_carousel['logo_gallery'];
           });
         </script>
       </div>
+    <?php endif; ?>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
     <?php endif; ?>
   </div>
 </section>

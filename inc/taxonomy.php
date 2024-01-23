@@ -9,7 +9,7 @@ register_taxonomy(
     'show_ui' => true,
     'query_var' => true,
     'show_in_rest' => true,
-    'show_admin_column' => false,
+    'show_admin_column' => true,
   )
 );
 

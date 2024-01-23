@@ -1,6 +1,6 @@
 {
     "key": "group_5b0dfa0600fb6",
-    "title": "Section — Featured Content",
+    "title": "Service Partner -- Featured Content",
     "fields": [
         {
             "key": "field_5b396814a421d",
@@ -13,18 +13,23 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "hidden",
                 "id": ""
             },
-            "post_type": [],
-            "taxonomy": [],
+            "post_type": "",
+            "post_status": "",
+            "taxonomy": "",
             "filters": [
                 "search"
             ],
-            "elements": "",
+            "return_format": "object",
+            "acfe_bidirectional": {
+                "acfe_bidirectional_enabled": "0"
+            },
             "min": "",
             "max": 3,
-            "return_format": "object",
+            "elements": "",
+            "bidirectional": 0,
             "bidirectional_target": []
         },
         {
@@ -38,14 +43,14 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "hidden",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         },
         {
             "key": "field_5b396bd9bf63b",
@@ -58,16 +63,17 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "hidden",
                 "id": ""
             },
-            "collapsed": "",
+            "acfe_repeater_stylised_button": 0,
+            "layout": "table",
+            "pagination": 0,
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "collapsed": "",
             "button_label": "Add Row",
             "rows_per_page": 20,
-            "acfe_repeater_stylised_button": 0,
             "sub_fields": [
                 {
                     "key": "field_5b396c17bf63c",
@@ -105,7 +111,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "service-partner"
             }
         ]
     ],
@@ -124,6 +130,9 @@
     ],
     "acfe_form": 0,
     "acfe_meta": "",
-    "acfe_note": "",
-    "modified": 1704759502
+    "acfe_note": "This field is not being used. The fields are hidden from the backend using class \"hidden\". It's not removed just in case it'll be used in the future.",
+    "modified": 1705766931,
+    "acfe_categories": {
+        "service-locator": "Service Locator"
+    }
 }

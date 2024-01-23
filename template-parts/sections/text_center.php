@@ -12,6 +12,11 @@ $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $text_center = get_sub_field('text_center');
 $headline = $text_center['headline'];
+$headline_color = $text_center['headline_color'];
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color:' . $headline_color . ';';
+}
 $description = $text_center['description'];
 
 $components = $text_center['components'];
@@ -26,18 +31,15 @@ $section_ornament = $column_settings['section_ornament'];
 ?>
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
-  <?php if ($section_ornament) : ?>
-    <div class="relative max-w-screen-4xl h-1">
-      <div class="absolute top-0 right-0">
-        <?php echo coact_svg(array('svg' => 'shape-1', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-orange w-[500px] h-auto')); ?>
-      </div>
-    </div>
-  <?php endif; ?>
+  <?php get_template_part('template-parts/layouts/background_ornament', '', array('shape' => $ornament_shape, 'style' => $ornament_style, 'class' => 'max-w-screen-4xl')); ?>
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="container mx-auto">
       <div class="max-w-screen-lg mx-auto text-center z-[1]">
         <?php if ($headline) : ?>
-          <h3 class="text-black text-3xl font-bold"><?php echo $headline ?></h3>
+          <h3 class="text-black text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
         <?php endif; ?>
         <?php if ($description) : ?>
           <div class="mt-6 text-lg font-medium"><?php echo $description ?></div>
@@ -45,5 +47,8 @@ $section_ornament = $column_settings['section_ornament'];
         <?php get_template_part('template-parts/components/components', '', array('field' => $components)); ?>
       </div>
     </div>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+    <?php endif; ?>
   </div>
 </section>

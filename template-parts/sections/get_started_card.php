@@ -6,6 +6,10 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
  * $section_style
  * $section_padding_top
  * $section_padding_bottom
+ * $top_separator
+ * $top_separator_style
+ * $bottom_separator
+ * $bottom_separator_style
 */
 
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
@@ -20,6 +24,9 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto">
       <?php if ($headline) : ?>
         <div class="max-w-screen-lg mx-auto text-center z-[1]">
@@ -45,13 +52,15 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
                 <?php
                 $cards_group_title = $card['cards_group_title'];
                 $filter_content_card_class = '';
+                $filter_content_card_disabled = '';
                 if ($key == '0') {
                   $filter_content_card_class = 'filter-active';
+                  $filter_content_card_disabled = 'disabled';
                 }
                 if ($cards_group_title) :
                 ?>
                   <div class="swiper-slide w-auto">
-                    <button type="button" class="filter-content-card inline-block rounded-full px-6 py-1.5 h-9 lg:h-auto text-sm lg:text-base lg:px-10 lg:py-2.5 bg-white border border-neutral-100 shadow-md hover:shadow-lg transition-all duration-200 <?php echo $filter_content_card_class ?>" data-id="<?php echo $key ?>">
+                    <button type="button" class="filter-content-card inline-block rounded-full px-6 py-1.5 h-9 lg:h-auto text-sm lg:text-base lg:px-10 lg:py-2.5 bg-white border border-neutral-100 shadow-md hover:shadow-lg transition-all duration-200 disabled:cursor-not-allowed disabled:hover:shadow-md <?php echo $filter_content_card_class ?>" data-id="<?php echo $key ?>" <?php echo $filter_content_card_disabled ?>>
                       <?php echo $cards_group_title; ?>
                     </button>
                   </div>
@@ -128,7 +137,7 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
                           <div class="card-text">
                             <h3 class="card-title"><?php echo $title; ?></h3>
                             <div class="card-excerpt">
-                              <?php echo $excerpt; ?>
+                              <?php echo wp_trim_words($excerpt, 20) ?>
                             </div>
                             <button type="button" class="bg-white p-4 absolute right-6 bottom-6 rounded-full w-8 h-8 xl:w-12 xl:h-12">
                               <span class="block w-4 h-1 bg-brand-sea absolute top-1/2 -translate-y-1/2"></span>
@@ -178,23 +187,69 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
         </div>
       </div>
     <?php endif; ?>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+    <?php endif; ?>
   </div>
   <script>
     jQuery(function($) {
       $('.content-cards-grid-<?php echo $content_cards_id ?>').height($('.content-cards-grid-<?php echo $content_cards_id ?>').height());
-      $('.content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card').click(function(e) {
-        e.preventDefault();
-        let dataid = $(this).data('id');
-        $('.content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card').removeClass('filter-active');
-        $(this).addClass('filter-active');
-        $('.content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader').fadeIn('slow');
-        $('.content-cards-grid-<?php echo $content_cards_id ?> .content-card').fadeOut('slow', function() {
-          setTimeout(() => {
-            $('.content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader').fadeOut();
-            $('.content-cards-grid-<?php echo $content_cards_id ?> .content-card-' + dataid).fadeIn();
-          }, 1000);
-        });
+
+      var isAnimating = false;
+
+      $(".content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card").on("click", function() {
+
+        if (isAnimating) {
+          return;
+        }
+
+        var tabId = $(this).data("id");
+        var contentCard = $(".content-cards-grid-<?php echo $content_cards_id ?> .content-card-" + tabId);
+
+        $(".content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card").prop("disabled", true);
+
+        // Remove active class from all buttons and add it to the clicked button
+        $(".content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card").removeClass("filter-active");
+        $(this).addClass("filter-active");
+
+        // Show loader with fade-in effect
+        $(".content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader").fadeIn(500);
+
+        isAnimating = true;
+
+        // Wait for 1 second
+        setTimeout(function() {
+          // Hide loader with fade-out effect
+          $(".content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader").fadeOut(500);
+
+          // Hide current content card with fade-out effect
+          $(".content-card").fadeOut(800, function() {
+            setTimeout(function() {
+              // Show selected content card with fade-in effect
+              contentCard.fadeIn(800, function() {
+                $(".content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card").prop("disabled", false);
+                $(this).prop("disabled", true);
+
+                isAnimating = false;
+              });
+            }, 1000);
+          });
+        }, 1000);
       });
+
+      // $('.content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card').click(function(e) {
+      //   e.preventDefault();
+      //   let dataid = $(this).data('id');
+      //   $('.content-cards-filter-<?php echo $content_cards_id ?> .filter-content-card').removeClass('filter-active');
+      //   $(this).addClass('filter-active');
+      //   $('.content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader').fadeIn('slow');
+      //   $('.content-cards-grid-<?php echo $content_cards_id ?> .content-card').fadeOut('slow', function() {
+      //     setTimeout(() => {
+      //       $('.content-cards-grid-<?php echo $content_cards_id ?> .content-cards-loader').fadeOut();
+      //       $('.content-cards-grid-<?php echo $content_cards_id ?> .content-card-' + dataid).fadeIn();
+      //     }, 1000);
+      //   });
+      // });
     });
   </script>
 </section>

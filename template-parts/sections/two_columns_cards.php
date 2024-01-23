@@ -11,6 +11,9 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 
 <section>
   <div class="relative container max-w-screen-xxl mx-auto pt-0 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
+    <?php if ($top_separator) : ?>
+      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
+    <?php endif; ?>
     <div class="relative z-10">
       <div class="text-center max-w-prose mx-auto mb-14">
         <div class="not-prose">
@@ -39,5 +42,8 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
         </div>
       </div>
     </div>
+    <?php if ($bottom_separator) : ?>
+      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
+    <?php endif; ?>
   </div>
 </section>

@@ -231,13 +231,14 @@
       addToSessionStorageObject("service_locator", "service_category", "");
       addToSessionStorageObject("service_locator", "pin_address", "");
     }
-    google.maps.event.addDomListener(window, "load", initializeMap);
+    window.addEventListener("load", initializeMap, { once: true });
     function putMarkers(type, serviceProvider, pinLatLng) {
       $(".service_locator-listing_tabs").empty();
       $(".service_locator-progress").css("z-index", 100).animate({ opacity: 1 }, 300);
       $.getJSON(serviceProvider, function(data) {
         var num = 0;
         var nearby_provider_obj = [];
+        console.log(data);
         $.each(data, function(key, value) {
           var provider_id = value.id;
           var lat = value.acf.location.lat;
@@ -352,7 +353,6 @@
     }
     function serviceLocatorList(serviceProvider) {
       $.getJSON(serviceProvider, function(data) {
-        console.log(data);
         $.each(data, function(key, value) {
           var provider_id = value.id;
           var location_name = value.title.rendered;
@@ -427,8 +427,16 @@
         service_type_tags += '<span class="inline-block text-sm px-3 py-1 rounded-md bg-white border border-brand-sea text-brand-sea shadow-md">' + tag[0] + "</span>";
       }
       var map_url = "https://www.google.com/maps/dir/?api=1&destination=" + location_lat + "," + location_lng;
-      var new_enquiries = contact_numbers[0].phone_number;
-      var existing_client = contact_numbers[1].phone_number;
+      var new_enquiries = "";
+      var existing_client = "";
+      if (contact_numbers) {
+        if (contact_numbers[0]) {
+          new_enquiries = contact_numbers[0].phone_number;
+        }
+        if (contact_numbers[1]) {
+          existing_client = contact_numbers[1].phone_number;
+        }
+      }
       $(".service_locator-listing_tabs").append(createProviderItem(link, location_name, location_address, map_url, new_enquiries, existing_client, service_type_tags));
     }
     $(".select_service_type").select2({
