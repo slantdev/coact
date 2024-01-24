@@ -73,14 +73,309 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
           <?php if ($subscribe_form_shortcode) : ?>
             <?php echo do_shortcode($subscribe_form_shortcode) ?>
           <?php else : ?>
-            <div class="my-6">
+            <div class="subscribe_section-form">
+              <style type="text/css">
+                /* .elq-form [type=email],
+                .elq-form [type=text] {
+                  display: block;
+                  width: 100%;
+                  padding: 0.8125rem 1rem;
+                  font-size: .75rem;
+                  line-height: 1.16667;
+                  color: #000;
+                  border: 1px solid hsla(240, 1%, 46%, .2);
+                  border-radius: 2px;
+                  background-color: #fff;
+                  font-weight: normal;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none;
+                  -webkit-transition: border-color .25s ease-in-out;
+                  transition: border-color .25s ease-in-out;
+                  will-change: border-color;
+                }
+                .elq-form [type=email]:focus,
+                .elq-form [type=text]:focus {
+                  outline: none;
+                  border: 1px solid #b2519e;
+                } */
+
+                .LV_invalid_field,
+                input.LV_invalid_field:active,
+                input.LV_invalid_field:hover,
+                textarea.LV_invalid_field:active,
+                textarea.LV_invalid_field:hover {
+                  outline: 1px solid #c00;
+                }
+
+                .LV_validation_message {
+                  font-weight: 700;
+                  margin: 5px 0 0 0;
+                  display: block;
+                  text-align: center;
+                }
+
+                .LV_valid {
+                  display: none
+                }
+
+                .LV_invalid {
+                  /* color: #c00; */
+                  color: #fff;
+                  font-size: 10px;
+                }
+
+                /* .elq-form [type=submit] {
+                  color: #fff;
+                  text-align: center;
+                  font-family: inherit;
+                  padding: 0.6875rem 1.5625rem;
+                  border: 2px solid transparent;
+                  border-radius: 2px;
+                  background-color: #b2519e;
+                  font-size: .875rem;
+                  line-height: 1;
+                  text-decoration: none;
+                  display: inline-block;
+                  vertical-align: middle;
+                  cursor: pointer;
+                  margin: 0;
+                  -webkit-transition: all .3s cubic-bezier(.74, .25, .01, 1);
+                  transition: all .3s cubic-bezier(.74, .25, .01, 1);
+                  -webkit-transition-property: background-color, color;
+                  transition-property: background-color, color;
+                  will-change: background-color, color;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                  appearance: none;
+                  outline: 0;
+                  width: 100%;
+                }
+
+                .elq-form [type=submit]:hover {
+                  color: #fff;
+                  background-color: #d46bbe;
+                } */
+
+                /* @media (min-width: 1024px) {
+                  .elq-form .layout {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 100%;
+                  }
+
+                  .elq-form .layout .form-element-layout {
+                    flex-grow: 1;
+                  }
+                } */
+              </style>
+              <form method="post" name="copyOfGeneralEnquiryFormWebsite-1669869759180" action="https://s1709896.t.eloqua.com/e/f2" onsubmit="return handleFormSubmit(this)" id="form45" class="elq-form">
+                <input value="copyOfGeneralEnquiryFormWebsite-1669869759180" type="hidden" name="elqFormName">
+                <input value="1709896" type="hidden" name="elqSiteId">
+                <input name="elqCampaignId" type="hidden">
+                <div class="layout grid grid-cols-2 gap-3">
+                  <div id="formElement0" class="elq-field-style form-element-layout">
+                    <div class="field-control-wrapper">
+                      <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="firstName" id="fe699" value="" placeholder="First Name *" style="width:100%;">
+                    </div>
+                  </div>
+                  <div id="formElement1" class="elq-field-style form-element-layout">
+                    <div class="field-control-wrapper">
+                      <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="lastName" id="fe700" value="" placeholder="Last Name *" style="width:100%;">
+                    </div>
+                  </div>
+                  <div id="formElement2" class="elq-field-style form-element-layout">
+                    <div class="field-control-wrapper">
+                      <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="emailAddress" id="fe701" value="" placeholder="Email Address *" style="width:100%;">
+                    </div>
+                  </div>
+                  <div id="formElement3" class="elq-field-style form-element-layout">
+                    <div class="field-control-wrapper">
+                      <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="zipPostal" id="fe734" value="" placeholder="Post Code *" style="width:100%;">
+                    </div>
+                  </div>
+                </div>
+                <div class="my-6">
+                  <div id="formElement4" class="elq-field-style form-element-layout">
+                    <div class="field-control-wrapper">
+                      <input type="Submit" class="submit-button-style bg-white cursor-pointer px-12 py-3 rounded-full text-black font-medium hover:shadow-lg" value="Subscribe" id="fe705">
+                    </div>
+                  </div>
+                  <input type="hidden" name="utm_source" id="fe706" value="Website">
+                </div>
+              </form>
+              <script type="text/javascript" src="https://img07.en25.com/i/livevalidation_standalone.compressed.js">
+              </script>
+              <script>
+                function handleFormSubmit(ele) {
+                  var submitButton = ele.querySelector('input[type=submit]');
+                  var spinner = document.createElement('span');
+                  spinner.setAttribute('class', 'loader');
+                  submitButton.setAttribute('disabled', true);
+                  submitButton.style.cursor = 'wait';
+                  submitButton.parentNode.appendChild(spinner);
+                  return true;
+                }
+
+                function resetSubmitButton(e) {
+                  var submitButtons = e.target.form.getElementsByClassName('submit-button');
+                  for (var i = 0; i < submitButtons.length; i++) {
+                    submitButtons[i].disabled = false;
+                  }
+                }
+
+                function addChangeHandler(elements) {
+                  for (var i = 0; i < elements.length; i++) {
+                    elements[i].addEventListener('change', resetSubmitButton);
+                  }
+                }
+                var form = document.getElementById('form45');
+                addChangeHandler(form.getElementsByTagName('input'));
+                addChangeHandler(form.getElementsByTagName('select'));
+                addChangeHandler(form.getElementsByTagName('textarea'));
+                var nodes = document.querySelectorAll('#form45 input[data-subscription]');
+                if (nodes) {
+                  for (var i = 0, len = nodes.length; i < len; i++) {
+                    var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription');
+                    if (status === 'true') {
+                      nodes[i].checked = true;
+                    }
+                  }
+                };
+                var nodes = document.querySelectorAll('#form45 select[data-value]');
+                if (nodes) {
+                  for (var i = 0; i < nodes.length; i++) {
+                    var node = nodes[i];
+                    var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value');
+                    if (selectedValue) {
+                      for (var j = 0; j < node.options.length; j++) {
+                        if (node.options[j].value === selectedValue) {
+                          node.options[j].selected = 'selected';
+                          break;
+                        }
+                      }
+                    }
+                  }
+                }
+                this.getParentElement = function(list) {
+                  return list[list.length - 1].parentElement
+                };
+                var dom0 = document.querySelector('#form45 #fe699');
+                var fe699 = new LiveValidation(dom0, {
+                  validMessage: "",
+                  onlyOnBlur: false,
+                  wait: 300,
+                  isPhoneField: false
+                });
+                fe699.add(Validate.Custom, {
+                  against: function(value) {
+                    return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i);
+                  },
+                  failureMessage: "Value must not contain any URL's"
+                });
+                fe699.add(Validate.Custom, {
+                  against: function(value) {
+                    return !value.match(/(<([^>]+)>)/ig);
+                  },
+                  failureMessage: "Value must not contain any HTML"
+                });
+                fe699.add(Validate.Length, {
+                  tooShortMessage: "Invalid length for field value",
+                  tooLongMessage: "Invalid length for field value",
+                  minimum: 0,
+                  maximum: 35
+                });
+                fe699.add(Validate.Presence, {
+                  failureMessage: "This field is required"
+                });
+                var dom1 = document.querySelector('#form45 #fe700');
+                var fe700 = new LiveValidation(dom1, {
+                  validMessage: "",
+                  onlyOnBlur: false,
+                  wait: 300,
+                  isPhoneField: false
+                });
+                fe700.add(Validate.Custom, {
+                  against: function(value) {
+                    return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i);
+                  },
+                  failureMessage: "Value must not contain any URL's"
+                });
+                fe700.add(Validate.Custom, {
+                  against: function(value) {
+                    return !value.match(/(<([^>]+)>)/ig);
+                  },
+                  failureMessage: "Value must not contain any HTML"
+                });
+                fe700.add(Validate.Length, {
+                  tooShortMessage: "Invalid length for field value",
+                  tooLongMessage: "Invalid length for field value",
+                  minimum: 0,
+                  maximum: 35
+                });
+                fe700.add(Validate.Presence, {
+                  failureMessage: "This field is required"
+                });
+                var dom2 = document.querySelector('#form45 #fe701');
+                var fe701 = new LiveValidation(dom2, {
+                  validMessage: "",
+                  onlyOnBlur: false,
+                  wait: 300,
+                  isPhoneField: false
+                });
+                fe701.add(Validate.Format, {
+                  pattern: /(^[A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~][A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~\.]{0,62}@(([A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)(\.[A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)+)$)/i,
+                  failureMessage: "A valid email address is required"
+                });
+                fe701.add(Validate.Format, {
+                  pattern: /\.\.|\.@/i,
+                  failureMessage: "A valid email address is required",
+                  negate: "true"
+                });
+                fe701.add(Validate.Presence, {
+                  failureMessage: "This field is required"
+                });
+                var dom3 = document.querySelector('#form45 #fe734');
+                var fe734 = new LiveValidation(dom3, {
+                  validMessage: "",
+                  onlyOnBlur: false,
+                  wait: 300,
+                  isPhoneField: false
+                });
+                fe734.add(Validate.Custom, {
+                  against: function(value) {
+                    return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i);
+                  },
+                  failureMessage: "Value must not contain any URL's"
+                });
+                fe734.add(Validate.Custom, {
+                  against: function(value) {
+                    return !value.match(/(<([^>]+)>)/ig);
+                  },
+                  failureMessage: "Value must not contain any HTML"
+                });
+                fe734.add(Validate.Length, {
+                  tooShortMessage: "Invalid length for field value",
+                  tooLongMessage: "Invalid length for field value",
+                  minimum: 0,
+                  maximum: 35
+                });
+                fe734.add(Validate.Presence, {
+                  failureMessage: "This field is required"
+                });
+              </script>
+            </div>
+            <!-- <div class="my-6">
               <div class="grid grid-cols-2 gap-3">
                 <input type="text" placeholder="First name*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
                 <input type="text" placeholder="Last name*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
                 <input type="text" placeholder="Email*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
                 <input type="text" placeholder="Postcode*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
               </div>
-            </div>
+              <div class="mt-3">
+                <button type="button" class="bg-white px-12 py-3 rounded-full text-black font-medium hover:shadow-lg">Subscribe</button>
+              </div>
+            </div> -->
           <?php endif ?>
           <?php if ($subscribe_desciption) : ?>
             <div class="prose max-w-none leading-snug mr-auto text-left mb-6 xl:mb-6 text-white">

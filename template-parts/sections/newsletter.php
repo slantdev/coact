@@ -11,9 +11,6 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 
 <section class="bg-brand-purple">
   <div class="relative container max-w-screen-xxl mx-auto py-12">
-    <?php if ($top_separator) : ?>
-      <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
-    <?php endif; ?>
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24 items-center">
       <div class="w-full order-2 max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-1/2 relative">
         <div class="mb-8 mx-auto xl:mb-0 max-w-full"><img src="<?php echo coact_asset('images/content/illustration-2.png') ?>" class="" alt=""></div>
@@ -35,8 +32,5 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
         </div>
       </div>
     </div>
-    <?php if ($bottom_separator) : ?>
-      <div class="absolute h-12 w-px bottom-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $bottom_separator_style ?>"></div>
-    <?php endif; ?>
   </div>
 </section>
