@@ -6616,6 +6616,8 @@ select {
   border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
 #poststuff .acf-layout [type="text"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="email"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="url"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="password"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="number"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="date"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="datetime-local"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="month"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="search"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="tel"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="time"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="week"].btn.btn-filled.btn-white, #poststuff .acf-layout [multiple].btn.btn-filled.btn-white, #poststuff .acf-layout textarea.btn.btn-filled.btn-white, #poststuff .acf-layout select.btn.btn-filled.btn-white {
