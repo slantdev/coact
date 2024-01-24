@@ -447,51 +447,6 @@
                     "acfe_flexible_settings_size": "medium",
                     "acfe_flexible_category": false
                 },
-                "layout_659c1ef35cd22": {
-                    "key": "layout_659c1ef35cd22",
-                    "name": "newsletter",
-                    "label": "Newsletter",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_659c1ef35cd24",
-                            "label": "Newsletter",
-                            "name": "newsletter",
-                            "aria-label": "",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_659c1ed90930f"
-                            ],
-                            "display": "seamless",
-                            "layout": "",
-                            "prefix_label": 0,
-                            "prefix_name": 0,
-                            "acfe_seamless_style": 0,
-                            "acfe_clone_modal": 0,
-                            "acfe_clone_modal_close": 0,
-                            "acfe_clone_modal_button": "",
-                            "acfe_clone_modal_size": "large"
-                        }
-                    ],
-                    "min": "",
-                    "max": "",
-                    "acfe_flexible_render_template": "acf-layouts\/newsletter.php",
-                    "acfe_flexible_render_style": "",
-                    "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
-                    "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_settings": false,
-                    "acfe_flexible_settings_size": "medium",
-                    "acfe_flexible_category": false
-                },
                 "layout_65a1aafd4c50a": {
                     "key": "layout_65a1aafd4c50a",
                     "name": "on_this_page",
@@ -709,5 +664,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706059003
+    "modified": 1706068548
 }
