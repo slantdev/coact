@@ -46,6 +46,9 @@ if (have_rows('section', $the_id)) :
     elseif (get_row_layout() == 'newsletter') :
       get_template_part('template-parts/sections/newsletter');
 
+    elseif (get_row_layout() == 'form') :
+      get_template_part('template-parts/sections/form');
+
     endif;
 
   // End loop.

@@ -115,3 +115,27 @@ function accordion_layout_thumbnail($thumbnail, $field, $layout)
 {
   return get_stylesheet_directory_uri() . '/assets/images/layouts/accordion.jpg';
 }
+
+
+/* helper function to get formidable forms to ACF: */
+function get_formidable_forms()
+{
+  $results = array();
+  foreach (FrmForm::get_published_forms() as $published_form) {
+    $results[$published_form->id] = $published_form->name;
+  }
+  return $results;
+}
+/* auto populate acf field with form IDs */
+function load_forms_function($field)
+{
+  $result = get_formidable_forms();
+  if (is_array($result)) {
+    $field['choices'] = array();
+    foreach ($result as $key => $match) {
+      $field['choices'][$key] = $match;
+    }
+  }
+  return $field;
+}
+add_filter('acf/load_field/name=select_formidable_form', 'load_forms_function');
