@@ -13,7 +13,7 @@ register_post_type('service-partner', array(
   'hierarchical' => true,
   'menu_icon' => 'dashicons-location',
   'rewrite' => array(
-    'slug' => 'service-partners',
+    'slug' => 'service-partner',
     'with_front' => false,
   ),
   'query_var' => true,
@@ -38,11 +38,11 @@ register_post_type('service-partner', array(
   )
 ));
 
-// $post_type = 'service-partner';
-// add_filter("rest_{$post_type}_collection_params", function ($params) {
-//   $params['per_page']['maximum'] = 500; // number of posts fetched
-//   return $params;
-// });
+$post_type = 'service-partner';
+add_filter("rest_{$post_type}_collection_params", function ($params) {
+  $params['per_page']['maximum'] = 500; // number of posts fetched
+  return $params;
+});
 
 // add_filter('rest_service_partner_params', 'my_prefix_change_post_per_page', 10, 1);
 // function my_prefix_change_post_per_page($params)
