@@ -336,7 +336,7 @@ jQuery(function ($) {
     geocoder = new google.maps.Geocoder();
     var initMapCenter = map.getCenter();
     var providerJson =
-      "/wp-json/wp/v2/service-partner?status=publish&per_page=99";
+      "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
     //console.log(initMapCenter);
     putMarkers("", providerJson, initMapCenter);
     serviceLocatorList(providerJson);
@@ -365,7 +365,7 @@ jQuery(function ($) {
       // Create nearby provider array
       var nearby_provider_obj = [];
 
-      console.log(data);
+      //console.log(data);
 
       // Add markers to the map.
       $.each(data, function (key, value) {
@@ -405,6 +405,11 @@ jQuery(function ($) {
               location_city: location_city,
               location_postcode: location_postcode,
               service_types: service_types,
+              location_address: location_address,
+              link: link,
+              location_lat: location_lat,
+              location_lng: location_lng,
+              contact_numbers: contact_numbers,
             };
 
             nearby_provider_obj.push(list_provider_obj);
@@ -732,10 +737,10 @@ jQuery(function ($) {
       var providerJson =
         "/wp-json/wp/v2/service-partner?status=publish&service_types=" +
         service_provider_category +
-        "&per_page=99";
+        "&per_page=500";
     } else {
       var providerJson =
-        "/wp-json/wp/v2/service-partner?status=publish&per_page=99";
+        "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
     }
 
     addToSessionStorageObject(

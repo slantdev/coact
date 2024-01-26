@@ -4953,10 +4953,6 @@ select {
   margin-top: 2rem;
 }
 
-.mt-auto {
-  margin-top: auto;
-}
-
 .block {
   display: block;
 }
@@ -6264,12 +6260,6 @@ select {
 .shadow-\[0_-14px_0_0_rgb\(69\2c 194\2c 191\)\] {
   --tw-shadow: 0 -14px 0 0 rgb(69,194,191);
   --tw-shadow-colored: 0 -14px 0 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-\[0_0px_24px_rgba\(0\2c 0\2c 0\2c 0\.12\)\] {
-  --tw-shadow: 0 0px 24px rgba(0,0,0,0.12);
-  --tw-shadow-colored: 0 0px 24px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 

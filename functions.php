@@ -17,14 +17,10 @@ require get_template_directory() . '/inc/enqueue.php';
 require get_template_directory() . '/inc/breadcrumb.php';
 require get_template_directory() . '/inc/ajax.php';
 
-function setRestServicePartnerPerPage($args, $request)
-{
-  /* change amount of posts returned by REST API to unlimited */
-  $max = max((int)$request->get_param('per_page'), 999999);
-  $args['posts_per_page'] = $max;
-  return $args;
-}
-add_filter('rest_service-partner_query', array('setRestServicePartnerPerPage'), 10, 2);
+add_filter("rest_service-partner_collection_params", function ($params) {
+  $params['per_page']['maximum'] = 500; // number of posts fetched
+  return $params;
+});
 
 function coact_excerpt_length($length)
 {

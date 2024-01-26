@@ -222,7 +222,7 @@
       });
       geocoder = new google.maps.Geocoder();
       var initMapCenter = map.getCenter();
-      var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=99";
+      var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
       putMarkers("", providerJson, initMapCenter);
       serviceLocatorList(providerJson);
       postcodeAutocomplete(providerJson);
@@ -238,7 +238,6 @@
       $.getJSON(serviceProvider, function(data) {
         var num = 0;
         var nearby_provider_obj = [];
-        console.log(data);
         $.each(data, function(key, value) {
           var provider_id = value.id;
           var lat = value.acf.location.lat;
@@ -264,7 +263,12 @@
                 location_name,
                 location_city,
                 location_postcode,
-                service_types
+                service_types,
+                location_address,
+                link,
+                location_lat,
+                location_lng,
+                contact_numbers
               };
               nearby_provider_obj.push(list_provider_obj);
               var marker = new google.maps.Marker({
@@ -459,9 +463,9 @@
     });
     function selectServiceType(service_provider_category) {
       if (service_provider_category) {
-        var providerJson = "/wp-json/wp/v2/service-partner?status=publish&service_types=" + service_provider_category + "&per_page=99";
+        var providerJson = "/wp-json/wp/v2/service-partner?status=publish&service_types=" + service_provider_category + "&per_page=500";
       } else {
-        var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=99";
+        var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
       }
       addToSessionStorageObject("service_locator", "service_category", service_provider_category);
       addToSessionStorageObject("service_locator", "provider_data", providerJson);
