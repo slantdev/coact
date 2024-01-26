@@ -140,3 +140,26 @@ function coact_svg($atts = array())
 
   return $svg;
 }
+
+function get_video_thumbnail_uri($video_uri, $max_width = 960, $max_height = 540)
+{
+  // https://support.advancedcustomfields.com/forums/topic/youtube-thumbnail-object-with-oembed-field/
+  $thumbnail_uri = '';
+
+  //get wp_oEmed object, not a public method. new WP_oEmbed() would also be possible
+  $oembed = new WP_oEmbed();
+  //get provider
+  $provider = $oembed->get_provider($video_uri);
+  //fetch oembed data as an object
+  $oembed_data = $oembed->fetch($provider, $video_uri, array('width' => $max_width, 'height' => $max_height));
+  //print_r($oembed_data);
+  $thumbnail_uri = $oembed_data->thumbnail_url;
+
+  // get default/placeholder thumbnail
+  if (empty($thumbnail_uri) || is_wp_error($thumbnail_uri)) {
+    $thumbnail_uri = '';
+  }
+
+  //return thumbnail uri
+  return $thumbnail_uri;
+}

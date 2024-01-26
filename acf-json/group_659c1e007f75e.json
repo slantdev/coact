@@ -66,7 +66,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "70",
                         "class": "",
                         "id": ""
                     },
@@ -74,9 +74,31 @@
                     "acfe_settings": "",
                     "acfe_validate": "",
                     "maxlength": "",
+                    "acfe_permissions": "",
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_65b0815444030",
+                    "label": "Headline Color",
+                    "name": "headline_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#45C2BF",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "acfe_permissions": ""
                 },
                 {
                     "key": "field_659c1e00aac2b",
@@ -144,7 +166,7 @@
                 },
                 {
                     "key": "field_65a058641d397",
-                    "label": "Posts Setting",
+                    "label": "Posts Settings",
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
@@ -166,7 +188,7 @@
                     "name": "select_category",
                     "aria-label": "",
                     "type": "acfe_taxonomy_terms",
-                    "instructions": "",
+                    "instructions": "Leave blank to show all posts",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -209,7 +231,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "33.33",
                         "class": "",
                         "id": ""
                     },
@@ -221,15 +243,15 @@
                     "default_value": false,
                     "return_format": "value",
                     "multiple": 0,
-                    "allow_custom": 0,
-                    "placeholder": "",
-                    "search_placeholder": "",
                     "acfe_settings": "",
                     "acfe_validate": "",
                     "allow_null": 0,
                     "acfe_permissions": "",
                     "ui": 0,
-                    "ajax": 0
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": ""
                 },
                 {
                     "key": "field_65a059641d39a",
@@ -241,7 +263,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "33.33",
                         "class": "",
                         "id": ""
                     },
@@ -255,6 +277,228 @@
                     "step": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_65b1ad5c93507",
+                    "label": "Show Pagination",
+                    "name": "show_pagination",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "acfe_permissions": "",
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_65b07bdb30b5e",
+                    "label": "Filter Settings",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "left",
+                    "endpoint": 0,
+                    "acfe_permissions": ""
+                },
+                {
+                    "key": "field_65b07beb30b5f",
+                    "label": "Filter Settings",
+                    "name": "filter_settings",
+                    "aria-label": "",
+                    "type": "group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "label-hidden",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "acfe_seamless_style": 1,
+                    "acfe_settings": "",
+                    "acfe_permissions": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_65b07c1530b60",
+                            "label": "Show Filter",
+                            "name": "show_filter",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "40",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "message": "",
+                            "default_value": 0,
+                            "acfe_settings": "",
+                            "acfe_validate": "",
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "ui": 1
+                        },
+                        {
+                            "key": "field_65b07c2530b61",
+                            "label": "Filter Style",
+                            "name": "filter_style",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_65b07c1530b60",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "60",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "choices": {
+                                "tabs": "Tabs",
+                                "dropdown": "Dropdown"
+                            },
+                            "default_value": "tabs",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_custom": 0,
+                            "search_placeholder": "",
+                            "acfe_settings": "",
+                            "acfe_validate": "",
+                            "allow_null": 0,
+                            "ui": 1,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_65b07c4630b62",
+                            "label": "Filter Categories",
+                            "name": "filter_categories",
+                            "aria-label": "",
+                            "type": "acfe_taxonomy_terms",
+                            "instructions": "Select Categories to be added to the filter",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_65b07c1530b60",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "taxonomy": [
+                                "category"
+                            ],
+                            "allow_terms": "",
+                            "allow_level": "",
+                            "field_type": "select",
+                            "default_value": [],
+                            "return_format": "object",
+                            "ui": 1,
+                            "allow_null": 1,
+                            "placeholder": "",
+                            "multiple": 1,
+                            "ajax": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "acfe_settings": "",
+                            "acfe_validate": "",
+                            "choices": [],
+                            "search_placeholder": "",
+                            "layout": "",
+                            "toggle": 0,
+                            "allow_custom": 0,
+                            "other_choice": 0
+                        },
+                        {
+                            "key": "field_65b07f6d36c55",
+                            "label": "Filter Tags",
+                            "name": "filter_tags",
+                            "aria-label": "",
+                            "type": "acfe_taxonomy_terms",
+                            "instructions": "Select Tags to be added to the filter",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_65b07c1530b60",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "taxonomy": [
+                                "post_tag"
+                            ],
+                            "allow_terms": "",
+                            "allow_level": "",
+                            "field_type": "select",
+                            "default_value": [],
+                            "return_format": "object",
+                            "ui": 1,
+                            "allow_null": 1,
+                            "placeholder": "",
+                            "multiple": 1,
+                            "ajax": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "acfe_settings": "",
+                            "acfe_validate": "",
+                            "choices": [],
+                            "search_placeholder": "",
+                            "layout": "",
+                            "toggle": 0,
+                            "allow_custom": 0,
+                            "other_choice": 0
+                        }
+                    ],
+                    "acfe_group_modal": 0,
+                    "acfe_group_modal_close": 0,
+                    "acfe_group_modal_button": "",
+                    "acfe_group_modal_size": "large"
                 }
             ],
             "acfe_group_modal": 0,
@@ -333,7 +577,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706030956,
+    "modified": 1706143211,
     "acfe_categories": {
         "layout": "Layout"
     }

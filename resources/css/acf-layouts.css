@@ -226,17 +226,22 @@
       margin-top: 0;
     }
   }
-  .acf-layout h3.card-title {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    font-weight: 600;
-    line-height: 1.375;
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  .acf-layout {
+    h3.card-title {
+      --tw-text-opacity: 1;
+      color: rgb(255 255 255 / var(--tw-text-opacity));
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+    h3.card-title,
+    h4.post-title {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      font-weight: 600;
+      line-height: 1.375;
+    }
   }
   .layout > .acfe-fc-placeholder > a {
     @apply z-30;
