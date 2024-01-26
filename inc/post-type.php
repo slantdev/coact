@@ -13,7 +13,7 @@ register_post_type('service-partner', array(
   'hierarchical' => true,
   'menu_icon' => 'dashicons-location',
   'rewrite' => array(
-    'slug' => 'service-partner',
+    'slug' => 'service-partners',
     'with_front' => false,
   ),
   'query_var' => true,
