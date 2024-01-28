@@ -213,6 +213,190 @@ function pagination_load_posts()
           <?php } ?>
         </ul>
       </div>
+    <?php
+    endif;
+  }
+  exit();
+}
+
+add_action('wp_ajax_pagination_load_coact_tv', 'pagination_load_coact_tv');
+add_action('wp_ajax_nopriv_pagination_load_coact_tv', 'pagination_load_coact_tv');
+function pagination_load_coact_tv()
+{
+  global $wpdb;
+  // Set default variables
+  $msg = '';
+  if (isset($_POST['page'])) {
+    // Sanitize the received page
+    $page = sanitize_text_field($_POST['page']);
+    $per_page = sanitize_text_field($_POST['per_page']);
+    $pagination = sanitize_text_field($_POST['pagination']);
+    $card_style = sanitize_text_field($_POST['card_style']);
+    $terms = sanitize_text_field($_POST['terms']);
+    $terms = json_decode(stripslashes($terms));
+    $cur_page = $page;
+    $page -= 1;
+    $previous_btn = true;
+    $next_btn = true;
+    $first_btn = true;
+    $last_btn = true;
+    $start = $page * $per_page;
+
+    if ($terms) {
+      $all_blog_posts = new WP_Query(
+        array(
+          'post_type'         => 'coact-tv',
+          'post_status '      => 'publish',
+          'orderby'           => 'post_date',
+          'order'             => 'DESC',
+          'posts_per_page'    => $per_page,
+          'offset'            => $start,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'coact-tv-category',
+              'field' => 'id',
+              'terms' => json_decode($terms),
+            ),
+          ),
+        )
+      );
+      $count = new WP_Query(
+        array(
+          'post_type'         => 'coact-tv',
+          'post_status '      => 'publish',
+          'posts_per_page'    => -1,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'coact-tv-category',
+              'field' => 'id',
+              'terms' => json_decode($terms),
+            ),
+          ),
+        )
+      );
+    } else {
+      $all_blog_posts = new WP_Query(
+        array(
+          'post_type'         => 'coact-tv',
+          'post_status '      => 'publish',
+          'orderby'           => 'post_date',
+          'order'             => 'DESC',
+          'posts_per_page'    => $per_page,
+          'offset'            => $start
+        )
+      );
+      $count = new WP_Query(
+        array(
+          'post_type'         => 'coact-tv',
+          'post_status '      => 'publish',
+          'posts_per_page'    => -1
+        )
+      );
+    }
+
+    $count = $count->post_count;
+    if ($all_blog_posts->have_posts()) {
+      $postCount = 0;
+      //echo $count;
+      echo '<div class="grid grid-cols-3 gap-8">';
+      while ($all_blog_posts->have_posts()) {
+        $postCount++;
+        $all_blog_posts->the_post();
+        $id = get_the_ID();
+        //$image = get_the_post_thumbnail_url($id, 'large');
+        $title =  get_the_title();
+        $video_uri = get_post_meta($id, 'video_embed', true);
+        $date =  get_the_date();
+        $image = get_video_thumbnail_uri($video_uri);
+        $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
+        $link = get_the_permalink();
+        if ($card_style == 'card') {
+          shadow_card($link, $image, $title, $excerpt);
+        } else if ($card_style == 'featured') {
+          if ($count > 1 && $postCount == 1) {
+            echo '<div class="col-span-2">';
+            featured_card($link, $image, $title, true);
+            echo '</div>';
+          } else {
+            if ($count > 1 && $postCount == 2) {
+              echo '<div class="col-span-1 grid grid-cols-1 gap-4">';
+              featured_card($link, $image, $title, false);
+            }
+            if ($count == 2 && $postCount == 2) {
+              echo '</div>';
+            }
+            if ($count > 2 && $postCount == 3) {
+              featured_card($link, $image, $title, false);
+              echo '</div>';
+            }
+            if ($count > 2 && $postCount > 3) {
+              featured_card($link, $image, $title, false);
+            }
+          }
+        } else {
+          plain_card($link, $image, $title, $excerpt);
+        }
+      }
+      echo '</div>';
+    }
+
+    if ($pagination) :
+      // Paginations
+      $no_of_paginations = ceil($count / $per_page);
+      if ($cur_page >= 7) {
+        $start_loop = $cur_page - 3;
+        if ($no_of_paginations > $cur_page + 3)
+          $end_loop = $cur_page + 3;
+        else if ($cur_page <= $no_of_paginations && $cur_page > $no_of_paginations - 6) {
+          $start_loop = $no_of_paginations - 6;
+          $end_loop = $no_of_paginations;
+        } else {
+          $end_loop = $no_of_paginations;
+        }
+      } else {
+        $start_loop = 1;
+        if ($no_of_paginations > 7)
+          $end_loop = 7;
+        else
+          $end_loop = $no_of_paginations;
+      }
+      // Pagination Buttons logic
+    ?>
+      <div class='posts-pagination mt-10 pt-4 border-t border-slate-200'>
+        <ul>
+          <?php if ($first_btn && $cur_page > 1) { ?>
+            <li data-page='1' class='active'>&laquo;</li>
+          <?php } else if ($first_btn) { ?>
+            <li data-page='1' class='inactive'>&laquo;</li>
+          <?php } ?>
+          <?php if ($previous_btn && $cur_page > 1) {
+            $pre = $cur_page - 1;
+          ?>
+            <li data-page='<?php echo $pre; ?>' class='active'>&lsaquo;</li>
+          <?php } else if ($previous_btn) { ?>
+            <li class='inactive p-2'>&lsaquo;</li>
+          <?php } ?>
+          <?php for ($i = $start_loop; $i <= $end_loop; $i++) {
+            if ($cur_page == $i) {
+          ?>
+              <li data-page='<?php echo $i; ?>' class='selected'><?php echo $i; ?></li>
+            <?php } else { ?>
+              <li data-page='<?php echo $i; ?>' class='active'><?php echo $i; ?></li>
+          <?php }
+          } ?>
+          <?php if ($next_btn && $cur_page < $no_of_paginations) {
+            $nex = $cur_page + 1; ?>
+            <li data-page='<?php echo $nex; ?>' class='active'>&rsaquo;</li>
+          <?php } else if ($next_btn) { ?>
+            <li class='inactive'>&rsaquo;</li>
+          <?php } ?>
+          <?php if ($last_btn && $cur_page < $no_of_paginations) { ?>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='active'>&raquo;</li>
+          <?php } else if ($last_btn) { ?>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive'>&raquo;</li>
+          <?php } ?>
+        </ul>
+      </div>
 <?php
     endif;
   }

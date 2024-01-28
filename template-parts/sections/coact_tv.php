@@ -9,7 +9,7 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 */
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
-$posts_grid = get_sub_field('posts_grid'); // Group
+$posts_grid = get_sub_field('coact_tv'); // Group
 $headline = $posts_grid['headline'];
 $headline_color = $posts_grid['headline_color'];
 $headline_style = '';
@@ -142,20 +142,28 @@ $posts_grid_id = uniqid();
       <?php endif; ?>
       <div class="relative pt-10">
         <div class="posts-grid-<?php echo $posts_grid_id ?>">
-          <div class="grid grid-cols-3 gap-8">
+          <!-- <div class="grid grid-cols-3 gap-8">
             <?php
             global $post;
             if ($card_style == 'featured') {
               if ($select_category) {
                 $firstpost = get_posts(array(
+                  'post_type'         => 'coact-tv',
                   'post_status '      => 'publish',
                   'orderby'           => 'post_date',
                   'order'             => 'DESC',
                   'posts_per_page' => '1',
-                  'category'       => $select_category
+                  'tax_query' => array(
+                    array(
+                      'taxonomy' => 'coact-tv-category',
+                      'field' => 'id',
+                      'terms' => json_decode($select_category),
+                    ),
+                  ),
                 ));
               } else {
                 $firstpost = get_posts(array(
+                  'post_type'         => 'coact-tv',
                   'post_status '      => 'publish',
                   'orderby'           => 'post_date',
                   'order'             => 'DESC',
@@ -176,15 +184,23 @@ $posts_grid_id = uniqid();
               }
               if ($select_category) {
                 $otherposts = get_posts(array(
+                  'post_type'         => 'coact-tv',
                   'post_status '      => 'publish',
                   'orderby'           => 'post_date',
                   'order'             => 'DESC',
                   'posts_per_page' => '2',
                   'offset' => '1',
-                  'category'       => $select_category
+                  'tax_query' => array(
+                    array(
+                      'taxonomy' => 'coact-tv-category',
+                      'field' => 'id',
+                      'terms' => json_decode($select_category),
+                    ),
+                  ),
                 ));
               } else {
                 $otherposts = get_posts(array(
+                  'post_type'         => 'coact-tv',
                   'post_status '      => 'publish',
                   'orderby'           => 'post_date',
                   'order'             => 'DESC',
@@ -240,7 +256,7 @@ $posts_grid_id = uniqid();
               }
             }
             ?>
-          </div>
+          </div> -->
         </div>
         <div class="posts-loader absolute inset-0 bg-white bg-opacity-80 z-10 transition-all duration-500 hidden">
           <div class="h-full w-full flex justify-center">
@@ -271,7 +287,7 @@ $posts_grid_id = uniqid();
               per_page: <?php echo $posts_per_page ?>,
               terms: termsString,
               pagination: pagination,
-              action: 'pagination_load_posts',
+              action: 'pagination_load_coact_tv',
             };
             //console.log(data);
             $.post(ajaxurl, data, function(response) {

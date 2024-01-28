@@ -37,6 +37,9 @@ if (have_rows('section', $the_id)) :
     elseif (get_row_layout() == 'posts_grid') :
       get_template_part('template-parts/sections/posts_grid');
 
+    elseif (get_row_layout() == 'coact_tv') :
+      get_template_part('template-parts/sections/coact_tv');
+
     elseif (get_row_layout() == 'two_columns_cards') :
       get_template_part('template-parts/sections/two_columns_cards');
 
