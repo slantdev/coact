@@ -45,6 +45,7 @@
 	},
 	"dependencies": {
 		"@fancyapps/ui": "^5.0.33",
+		"animate.css": "^4.1.1",
 		"counterup2": "^2.0.2"
 	}
 }

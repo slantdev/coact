@@ -24,7 +24,7 @@ $section_id = $section_id ? 'id="' . $section_id . '"' : '';
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
-    <div class="container mx-auto">
+    <div class="container mx-auto <?php echo $entrance_animation_class ?>">
       <div class="max-w-screen-lg text-center mx-auto relative z-[1]">
         <div class="text-center max-w-prose mx-auto mb-14">
           <div class="not-prose">

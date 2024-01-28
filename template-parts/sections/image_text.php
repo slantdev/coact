@@ -19,6 +19,7 @@ if ($headline_color) {
 }
 $lead_text = $image_text['lead_text'];
 $content = $image_text['content'];
+$components = $image_text['components'];
 $image = $image_text['image'];
 $rounded_corner = $image_text['rounded_corner'];
 
@@ -54,7 +55,7 @@ $icon_links = $image_text['icon_links']; // Repeater
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
-    <div class="relative container max-w-screen-xxl mx-auto">
+    <div class="relative container max-w-screen-xxl mx-auto <?php echo $entrance_animation_class ?>">
 
       <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
 
@@ -101,6 +102,7 @@ $icon_links = $image_text['icon_links']; // Repeater
               <?php echo $content ?>
             </div>
           <?php endif; ?>
+          <?php get_template_part('template-parts/components/components', '', array('field' => $components)); ?>
         </div>
       </div>
 

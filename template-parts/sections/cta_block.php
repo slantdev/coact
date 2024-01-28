@@ -24,8 +24,12 @@ $button = $cta_block['button'];
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
-    <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24 items-center">
+    <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24 items-center <?php echo $entrance_animation_class ?>">
       <?php if ($image) : ?>
+        <div class="w-full order-1 max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-2/5 relative">
+          <div class="mb-8 mx-auto xl:mb-0 max-w-full"><img src="<?php echo $image['url'] ?>" class="" alt=""></div>
+        </div>
+      <?php else : ?>
         <div class="w-full order-1 max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-2/5 relative">
           <div class="mb-8 mx-auto xl:mb-0 max-w-full"><img src="<?php echo coact_asset('images/content/illustration-1.png') ?>" class="" alt=""></div>
         </div>

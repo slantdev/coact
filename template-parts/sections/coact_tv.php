@@ -54,7 +54,7 @@ $posts_grid_id = uniqid();
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
-    <div class="relative container max-w-screen-xxl mx-auto z-10">
+    <div class="relative container max-w-screen-xxl mx-auto z-10 <?php echo $entrance_animation_class ?>">
       <div>
         <?php if ($headline) : ?>
           <div class="not-prose">

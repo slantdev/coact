@@ -27,7 +27,7 @@ $image_cards = $who_we_help['image_cards']; // Repeater
       <?php if ($background_ornament) : ?>
         <div class="absolute top-0 left-0 rounded-full bg-brand-yellow w-[528px] h-[528px] -translate-y-[20%] -translate-x-1/2"></div>
       <?php endif; ?>
-      <div class="relative z-10">
+      <div class="relative z-10 <?php echo $entrance_animation_class ?>">
         <div>
           <?php if ($headline) : ?>
             <div class="not-prose">

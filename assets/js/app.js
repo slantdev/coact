@@ -25,5 +25,31 @@
       const counters = document.querySelectorAll(".counterNumber");
       IO.observe(el);
     }
+    $(window).scroll(function() {
+      $(".toAnim").each(function() {
+        var _win = $(window), _ths = $(this), _pos = _ths.offset().top, _scroll = _win.scrollTop(), _height = _win.height();
+        _scroll > _pos - _height * 0.7 ? _ths.addClass("anim") : _ths.removeClass("anim");
+      });
+    });
+    let observerOptions = {
+      rootMargin: "0px",
+      threshold: 0.2
+    };
+    var observer = new IntersectionObserver(observerCallback, observerOptions);
+    function observerCallback(entries, observer2) {
+      entries.forEach((entry) => {
+        const node = entry.target;
+        if (entry.isIntersecting) {
+          node.classList.add("animated");
+          return;
+        }
+      });
+    }
+    let target = ".animation-item";
+    document.querySelectorAll(target).forEach((i) => {
+      if (i) {
+        observer.observe(i);
+      }
+    });
   });
 })();

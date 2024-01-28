@@ -36,8 +36,8 @@ $section_ornament = $column_settings['section_ornament'];
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
-    <div class="container mx-auto">
-      <div class="max-w-screen-lg mx-auto text-center z-[1]">
+    <div class="container mx-auto animation-wrapper">
+      <div class="max-w-screen-lg mx-auto text-center z-[1] <?php echo $entrance_animation_class ?>">
         <?php if ($headline) : ?>
           <h3 class="text-black text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
         <?php endif; ?>

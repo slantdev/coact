@@ -1,9 +1,9 @@
 {
-    "key": "group_659bdf0a1dd00",
-    "title": "Layout - Text Center",
+    "key": "group_65b67437e71bb",
+    "title": "Layout - Steps",
     "fields": [
         {
-            "key": "field_659bdf0a3a40a",
+            "key": "field_65b674388484e",
             "label": "Content Settings",
             "name": "",
             "aria-label": "",
@@ -20,9 +20,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_659bdf28985ce",
-            "label": "Text Center",
-            "name": "text_center",
+            "key": "field_65b6743884857",
+            "label": "Steps",
+            "name": "steps",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -39,7 +39,7 @@
             "acfe_permissions": "",
             "sub_fields": [
                 {
-                    "key": "field_659bdf8a985cf",
+                    "key": "field_65b6743a6036d",
                     "label": "Headline",
                     "name": "headline",
                     "aria-label": "",
@@ -62,7 +62,7 @@
                     "append": ""
                 },
                 {
-                    "key": "field_65b01777fa39d",
+                    "key": "field_65b6743a60374",
                     "label": "Headline Color",
                     "name": "headline_color",
                     "aria-label": "",
@@ -83,7 +83,7 @@
                     "acfe_permissions": ""
                 },
                 {
-                    "key": "field_659bdf98985d0",
+                    "key": "field_65b6743a6037b",
                     "label": "Description",
                     "name": "description",
                     "aria-label": "",
@@ -105,121 +105,175 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_65a18eadbeed4",
-                    "label": "Components",
-                    "name": "components",
+                    "key": "field_65b67478d902b",
+                    "label": "Steps",
+                    "name": "steps",
                     "aria-label": "",
-                    "type": "clone",
+                    "type": "repeater",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
-                        "class": "",
+                        "class": "label-hidden",
                         "id": ""
                     },
-                    "clone": [
-                        "group_65a18e0bbb8ac"
-                    ],
-                    "display": "seamless",
+                    "acfe_repeater_stylised_button": 0,
                     "layout": "block",
-                    "prefix_label": 0,
-                    "prefix_name": 0,
+                    "pagination": 0,
                     "acfe_settings": "",
+                    "min": 0,
+                    "max": 0,
                     "acfe_permissions": "",
-                    "acfe_seamless_style": 0,
-                    "acfe_clone_modal": 0,
-                    "acfe_clone_modal_close": 0,
-                    "acfe_clone_modal_button": "",
-                    "acfe_clone_modal_size": "large"
-                },
-                {
-                    "key": "field_659bdfce985d1",
-                    "label": "Column Settings",
-                    "name": "column_settings",
-                    "aria-label": "",
-                    "type": "group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "block",
-                    "acfe_seamless_style": 0,
-                    "acfe_group_modal": 0,
-                    "acfe_settings": "",
+                    "collapsed": "",
+                    "button_label": "Add Step",
+                    "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_659be034985d2",
-                            "label": "Alignment",
-                            "name": "alignment",
+                            "key": "field_65b67484d902c",
+                            "label": "Step Circle",
+                            "name": "step_circle",
                             "aria-label": "",
-                            "type": "button_group",
+                            "type": "group",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "acfe_permissions": "",
-                            "choices": {
-                                "left": "<span class=\"dashicons dashicons-editor-alignleft\"><\/span>",
-                                "center": "<span class=\"dashicons dashicons-editor-aligncenter\"><\/span>",
-                                "right": "<span class=\"dashicons dashicons-editor-alignright\"><\/span>"
-                            },
-                            "default_value": "center",
-                            "return_format": "value",
+                            "layout": "block",
+                            "acfe_seamless_style": 1,
                             "acfe_settings": "",
-                            "acfe_validate": "",
-                            "allow_null": 0,
-                            "layout": "horizontal"
+                            "sub_fields": [
+                                {
+                                    "key": "field_65b674b6d902d",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "acfe_permissions": "",
+                                    "default_value": "",
+                                    "acfe_settings": "",
+                                    "acfe_validate": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": ""
+                                },
+                                {
+                                    "key": "field_65b674bed902e",
+                                    "label": "Color",
+                                    "name": "color",
+                                    "aria-label": "",
+                                    "type": "color_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "50",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "acfe_permissions": "",
+                                    "default_value": "",
+                                    "enable_opacity": 0,
+                                    "return_format": "string",
+                                    "acfe_settings": "",
+                                    "acfe_validate": ""
+                                }
+                            ],
+                            "acfe_group_modal": 0,
+                            "acfe_group_modal_close": 0,
+                            "acfe_group_modal_button": "",
+                            "acfe_group_modal_size": "large",
+                            "parent_repeater": "field_65b67478d902b"
                         },
                         {
-                            "key": "field_659be05d985d3",
-                            "label": "Max Width",
-                            "name": "max_width",
+                            "key": "field_65b674d4d902f",
+                            "label": "Icon",
+                            "name": "icon",
                             "aria-label": "",
-                            "type": "select",
+                            "type": "icon-picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "25",
                                 "class": "",
                                 "id": ""
                             },
                             "acfe_permissions": "",
-                            "choices": {
-                                "default": "Default",
-                                "none": "None",
-                                "xs": "XS",
-                                "sm": "SM",
-                                "md": "MD",
-                                "lg": "LG",
-                                "xl": "XL",
-                                "2xl": "2XL"
-                            },
-                            "default_value": false,
-                            "return_format": "value",
-                            "multiple": 0,
                             "acfe_settings": "",
                             "acfe_validate": "",
-                            "allow_null": 0,
-                            "ui": 0,
-                            "ajax": 0,
+                            "initial_value": "",
+                            "parent_repeater": "field_65b67478d902b"
+                        },
+                        {
+                            "key": "field_65b674ebd9030",
+                            "label": "Text",
+                            "name": "text",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "75",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "default_value": "",
+                            "acfe_textarea_code": 0,
+                            "acfe_settings": "",
+                            "acfe_validate": "",
+                            "maxlength": "",
+                            "rows": 2,
                             "placeholder": "",
-                            "allow_custom": 0,
-                            "search_placeholder": ""
+                            "new_lines": "",
+                            "parent_repeater": "field_65b67478d902b"
+                        },
+                        {
+                            "key": "field_65b674f8d9031",
+                            "label": "Button",
+                            "name": "button",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "label-hidden",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "clone": [
+                                "group_62af6b15dc7c2"
+                            ],
+                            "display": "group",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0,
+                            "acfe_seamless_style": 1,
+                            "acfe_settings": "",
+                            "acfe_clone_modal": 0,
+                            "acfe_clone_modal_close": 0,
+                            "acfe_clone_modal_button": "",
+                            "acfe_clone_modal_size": "large",
+                            "parent_repeater": "field_65b67478d902b"
                         }
-                    ],
-                    "acfe_group_modal_close": 0,
-                    "acfe_group_modal_button": "",
-                    "acfe_group_modal_size": "large"
+                    ]
                 }
             ],
             "acfe_group_modal": 0,
@@ -228,7 +282,7 @@
             "acfe_group_modal_size": "large"
         },
         {
-            "key": "field_659bdf0a3a42c",
+            "key": "field_65b674388485f",
             "label": "Section Settings",
             "name": "",
             "aria-label": "",
@@ -245,7 +299,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_659bdf0a3a433",
+            "key": "field_65b6743884866",
             "label": "Section Settings",
             "name": "section_settings",
             "aria-label": "",
@@ -298,7 +352,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706452626,
+    "modified": 1706461896,
     "acfe_categories": {
         "layout": "Layout"
     }

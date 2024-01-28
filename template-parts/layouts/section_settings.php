@@ -72,3 +72,10 @@ if ($section_background_color) {
 if ($section_text_color && $section_text_color !== 'default') {
   $section_style .= ' color:' . $section_text_color . ';';
 }
+
+$entrance_animation = $section_settings['animations']['entrance_animation'] ?? '';
+$entrance_animation_map = [
+  'none' => '',
+  'fadeInUp' => 'animation-item animation-fadeInUp',
+];
+$entrance_animation_class = $entrance_animation_map[$entrance_animation] ?? '';

@@ -29,7 +29,7 @@ if ($icon_numbers) :
       <?php if ($top_separator) : ?>
         <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
       <?php endif; ?>
-      <div class="container max-w-screen-xxl mx-auto">
+      <div class="container max-w-screen-xxl mx-auto <?php echo $entrance_animation_class ?>">
 
         <div class="<?php echo $grid_class ?> divide-brand-purple">
           <?php if ($icon_numbers) : ?>

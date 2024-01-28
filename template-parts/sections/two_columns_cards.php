@@ -14,7 +14,7 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
-    <div class="relative z-10">
+    <div class="relative z-10 <?php echo $entrance_animation_class ?>">
       <div class="text-center max-w-prose mx-auto mb-14">
         <div class="not-prose">
           <h3 class="mb-8 xl:mb-12 text-4xl font-bold">Working with us</h3>

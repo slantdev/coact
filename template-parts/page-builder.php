@@ -52,6 +52,9 @@ if (have_rows('section', $the_id)) :
     elseif (get_row_layout() == 'form') :
       get_template_part('template-parts/sections/form');
 
+    elseif (get_row_layout() == 'steps') :
+      get_template_part('template-parts/sections/steps');
+
     endif;
 
   // End loop.

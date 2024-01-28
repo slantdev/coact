@@ -19,7 +19,7 @@ $select_formidable_form = $forms['select_formidable_form'];
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
     <?php get_template_part('template-parts/layouts/background_ornament', '', array('shape' => $ornament_shape, 'style' => $ornament_style, 'class' => 'max-w-screen-3xl')); ?>
-    <div class="relative container max-w-screen-md mx-auto z-10">
+    <div class="relative container max-w-screen-md mx-auto z-10 <?php echo $entrance_animation_class ?>">
       <?php if ($headline || $description) : ?>
         <div class="mb-8">
           <?php if ($headline) : ?>

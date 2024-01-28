@@ -54,7 +54,7 @@ $posts_grid_id = uniqid();
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
-    <div class="relative container max-w-screen-xxl mx-auto z-10">
+    <div class="relative container max-w-screen-xxl mx-auto z-10 <?php echo $entrance_animation_class ?>">
       <div>
         <?php if ($headline) : ?>
           <div class="not-prose">
@@ -142,7 +142,7 @@ $posts_grid_id = uniqid();
       <?php endif; ?>
       <div class="relative pt-10">
         <div class="posts-grid-<?php echo $posts_grid_id ?>">
-          <div class="grid grid-cols-3 gap-8">
+          <!-- <div class="grid grid-cols-3 gap-8">
             <?php
             global $post;
             if ($card_style == 'featured') {
@@ -240,7 +240,7 @@ $posts_grid_id = uniqid();
               }
             }
             ?>
-          </div>
+          </div> -->
         </div>
         <div class="posts-loader absolute inset-0 bg-white bg-opacity-80 z-10 transition-all duration-500 hidden">
           <div class="h-full w-full flex justify-center">
