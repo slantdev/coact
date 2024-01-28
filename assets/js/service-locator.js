@@ -279,7 +279,7 @@
               markers.push(marker);
               google.maps.event.addListener(marker, "click", function(evt) {
                 map.panTo(marker.getPosition());
-                serviceLocatorPane(provider_id);
+                serviceLocatorInfoWindow(provider_id, map, marker);
               });
               num++;
             }
@@ -309,11 +309,37 @@
             markers.push(marker);
             google.maps.event.addListener(marker, "click", function(evt) {
               map.panTo(marker.getPosition());
-              serviceLocatorPane(provider_id);
+              serviceLocatorInfoWindow(provider_id, map, marker);
             });
             num++;
           }
         });
+        function serviceLocatorInfoWindow(provider_id, map2, marker) {
+          $.getJSON("/wp-json/wp/v2/service-partner/" + provider_id, function(data2) {
+            var title = data2.title.rendered;
+            var service_types_data = data2.service_types;
+            var details_service_type = "";
+            var address_data = data2.acf.location.address;
+            var contact_numbers = data2.acf.contact_numbers;
+            var link = data2.link;
+            var list_contact_numbers = "";
+            contact_numbers.forEach(function(element) {
+              var tel = element.phone_number;
+              tel = tel.replace(/\s+/g, "");
+              list_contact_numbers += '<div class="mb-1">' + element.phone_label + ':&nbsp;<a href="tel:' + tel + '" class="underline">' + element.phone_number + "</a></div>";
+            });
+            const contentString = '<div class="max-w-md p-2"><h4 class="text-lg font-bold mb-2">' + title + '</h4><div class="mb-3">' + address_data + '</div><div class="mb-3">' + list_contact_numbers + '</div><div class="mt-5"><a href="' + link + '" class="uppercase text-brand-sea underline font-semibold">More Details</a></div></div></div>';
+            const infowindow = new google.maps.InfoWindow({
+              content: contentString,
+              ariaLabel: title
+            });
+            infowindow.open({
+              anchor: marker,
+              map: map2
+            });
+          }).done(function(data2) {
+          });
+        }
         var nearby_provider = nearby_provider_obj.sort(function(a, b) {
           return parseFloat(a.distance) - parseFloat(b.distance);
         });
