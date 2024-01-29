@@ -61,7 +61,7 @@ if ($enable_page_header) :
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
       <div class="w-full order-1 lg:w-2/3 xl:w-2/3 pt-4">
         <div class="not-prose">
-          <h3 class="mb-8 xl:mb-12 text-left text-2xl font-bold"><?php the_title() ?></h3>
+          <h2 class="mb-8 xl:mb-12 text-left text-3xl font-bold"><?php echo get_the_title() ?></h2>
         </div>
         <div class="prose max-w-none xl:prose-lg mr-auto text-left mb-6 xl:mb-8">
           <?php the_content() ?>
