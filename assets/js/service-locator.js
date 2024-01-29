@@ -240,6 +240,7 @@
         var nearby_provider_obj = [];
         $.each(data, function(key, value) {
           var provider_id = value.id;
+          var title = value.title.rendered;
           var lat = value.acf.location.lat;
           var lng = value.acf.location.lng;
           var latLng = new google.maps.LatLng(lat, lng);
@@ -277,9 +278,12 @@
                 icon: markerImage
               });
               markers.push(marker);
+              var activeInfoWindow;
+              var infowindow = new google.maps.InfoWindow();
               google.maps.event.addListener(marker, "click", function(evt) {
                 map.panTo(marker.getPosition());
-                serviceLocatorInfoWindow(provider_id, map, marker);
+                infowindow.close();
+                serviceLocatorInfoWindow(provider_id, map, marker, infowindow);
               });
               num++;
             }
@@ -307,39 +311,34 @@
               icon: markerImage
             });
             markers.push(marker);
-            google.maps.event.addListener(marker, "click", function(evt) {
-              map.panTo(marker.getPosition());
-              serviceLocatorInfoWindow(provider_id, map, marker);
-            });
-            num++;
-          }
-        });
-        function serviceLocatorInfoWindow(provider_id, map2, marker) {
-          $.getJSON("/wp-json/wp/v2/service-partner/" + provider_id, function(data2) {
-            var title = data2.title.rendered;
-            var service_types_data = data2.service_types;
-            var details_service_type = "";
-            var address_data = data2.acf.location.address;
-            var contact_numbers = data2.acf.contact_numbers;
-            var link = data2.link;
+            var service_type_tags = "";
+            for (var i = 0; i < service_types.length; i++) {
+              var tag = $.map(service_types_tax, function(val) {
+                return val.term_id == service_types[i] ? val.term_name : null;
+              });
+              service_type_tags += '<span class="inline-block text-[11px] px-3 py-0.5 rounded-md bg-white border border-brand-sea text-brand-sea">' + tag[0] + "</span>";
+            }
             var list_contact_numbers = "";
             contact_numbers.forEach(function(element) {
               var tel = element.phone_number;
               tel = tel.replace(/\s+/g, "");
-              list_contact_numbers += '<div class="mb-1">' + element.phone_label + ':&nbsp;<a href="tel:' + tel + '" class="underline">' + element.phone_number + "</a></div>";
+              list_contact_numbers += '<div class="mb-1">' + element.phone_label + ':&nbsp;<a href="tel:' + tel + '" class="underline font-medium hover:no-underline">' + element.phone_number + "</a></div>";
             });
-            const contentString = '<div class="max-w-md p-2"><h4 class="text-lg font-bold mb-2">' + title + '</h4><div class="mb-3">' + address_data + '</div><div class="mb-3">' + list_contact_numbers + '</div><div class="mt-5"><a href="' + link + '" class="uppercase text-brand-sea underline font-semibold">More Details</a></div></div></div>';
-            const infowindow = new google.maps.InfoWindow({
-              content: contentString,
-              ariaLabel: title
+            var activeInfoWindow;
+            var infowindow = new google.maps.InfoWindow();
+            google.maps.event.addListener(marker, "click", function(evt) {
+              map.panTo(marker.getPosition());
+              var contentString = "<div class='max-w-md p-2'><h4 class='text-lg font-bold mb-2'>" + title + "</h4><div class='flex flex-wrap gap-3 mb-3'>" + service_type_tags + "</div><div class='mb-3'>" + location_address + ". <a href='https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lng + "' target='_blank' class='underline font-medium hover:no-underline'>Get Direction</a></div><div class='mb-3'>" + list_contact_numbers + "</div><div class='mt-8 flex gap-x-4'><a href='" + link + "' class='uppercase text-brand-sea font-semibold hover:underline'>More Details</a><a href='" + link + "#enquiry-form' class='uppercase text-brand-sea font-semibold hover:underline'>Register</a></div></div></div>";
+              infowindow.close();
+              infowindow.setContent(contentString);
+              infowindow.open({
+                anchor: marker,
+                map
+              });
             });
-            infowindow.open({
-              anchor: marker,
-              map: map2
-            });
-          }).done(function(data2) {
-          });
-        }
+            num++;
+          }
+        });
         var nearby_provider = nearby_provider_obj.sort(function(a, b) {
           return parseFloat(a.distance) - parseFloat(b.distance);
         });

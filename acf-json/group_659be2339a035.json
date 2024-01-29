@@ -204,8 +204,11 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "acfe_permissions": "",
                             "post_type": [
-                                "post"
+                                "post",
+                                "service",
+                                "coact-tv"
                             ],
                             "post_status": "",
                             "taxonomy": "",
@@ -306,7 +309,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1705078867,
+    "modified": 1706494634,
     "acfe_categories": {
         "layout": "Layout"
     }

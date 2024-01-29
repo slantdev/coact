@@ -6063,6 +6063,16 @@ select {
   padding-bottom: 2rem;
 }
 
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -6268,6 +6278,10 @@ select {
 .\!text-xs {
   font-size: 0.75rem !important;
   line-height: 1rem !important;
+}
+
+.text-\[11px\] {
+  font-size: 11px;
 }
 
 .font-bold {

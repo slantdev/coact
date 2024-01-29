@@ -370,6 +370,7 @@ jQuery(function ($) {
       // Add markers to the map.
       $.each(data, function (key, value) {
         var provider_id = value.id;
+        var title = value.title.rendered;
         var lat = value.acf.location.lat;
         var lng = value.acf.location.lng;
         var latLng = new google.maps.LatLng(lat, lng);
@@ -421,10 +422,14 @@ jQuery(function ($) {
             });
             markers.push(marker);
 
+            var activeInfoWindow;
+            var infowindow = new google.maps.InfoWindow();
+
             // Add Listener on marker clicked
             google.maps.event.addListener(marker, "click", function (evt) {
               map.panTo(marker.getPosition());
-              serviceLocatorInfoWindow(provider_id, map, marker);
+              infowindow.close();
+              serviceLocatorInfoWindow(provider_id, map, marker, infowindow);
             });
 
             num++;
@@ -462,10 +467,74 @@ jQuery(function ($) {
           });
           markers.push(marker);
 
+          var service_type_tags = "";
+          for (var i = 0; i < service_types.length; i++) {
+            var tag = $.map(service_types_tax, function (val) {
+              return val.term_id == service_types[i] ? val.term_name : null;
+            });
+            service_type_tags +=
+              '<span class="inline-block text-[11px] px-3 py-0.5 rounded-md bg-white border border-brand-sea text-brand-sea">' +
+              tag[0] +
+              "</span>";
+          }
+
+          var list_contact_numbers = "";
+          contact_numbers.forEach(function (element) {
+            //console.log(element.phone_label);
+            var tel = element.phone_number;
+            tel = tel.replace(/\s+/g, "");
+
+            list_contact_numbers +=
+              '<div class="mb-1">' +
+              element.phone_label +
+              ":&nbsp;" +
+              '<a href="tel:' +
+              tel +
+              '" class="underline font-medium hover:no-underline">' +
+              element.phone_number +
+              "</a>" +
+              "</div>";
+          });
+
+          var activeInfoWindow;
+          var infowindow = new google.maps.InfoWindow();
+
           // Add Listener on marker clicked
           google.maps.event.addListener(marker, "click", function (evt) {
             map.panTo(marker.getPosition());
-            serviceLocatorInfoWindow(provider_id, map, marker);
+
+            var contentString =
+              "<div class='max-w-md p-2'>" +
+              "<h4 class='text-lg font-bold mb-2'>" +
+              title +
+              "</h4>" +
+              "<div class='flex flex-wrap gap-3 mb-3'>" +
+              service_type_tags +
+              "</div>" +
+              "<div class='mb-3'>" +
+              location_address +
+              ". <a href='https://www.google.com/maps/dir/?api=1&destination=" +
+              lat +
+              "," +
+              lng +
+              "' target='_blank' class='underline font-medium hover:no-underline'>Get Direction</a></div>" +
+              "<div class='mb-3'>" +
+              list_contact_numbers +
+              "</div>" +
+              "<div class='mt-8 flex gap-x-4'><a href='" +
+              link +
+              "' class='uppercase text-brand-sea font-semibold hover:underline'>More Details</a><a href='" +
+              link +
+              "#enquiry-form' class='uppercase text-brand-sea font-semibold hover:underline'>Register</a></div>" +
+              "</div>" +
+              "</div>";
+            infowindow.close();
+            infowindow.setContent(contentString);
+
+            infowindow.open({
+              anchor: marker,
+              map,
+            });
           });
           num++;
         }
@@ -479,192 +548,6 @@ jQuery(function ($) {
       //     zIndex: 10000
       // });
       // centerMarker.push(centerDot);
-
-      function serviceLocatorInfoWindow(provider_id, map, marker) {
-        $.getJSON(
-          "/wp-json/wp/v2/service-partner/" + provider_id,
-          function (data) {
-            var title = data.title.rendered;
-            var service_types_data = data.service_types;
-            var details_service_type = "";
-            var address_data = data.acf.location.address;
-            var contact_numbers = data.acf.contact_numbers;
-            var link = data.link;
-            var list_contact_numbers = "";
-            contact_numbers.forEach(function (element) {
-              //console.log(element.phone_label);
-              var tel = element.phone_number;
-              tel = tel.replace(/\s+/g, "");
-
-              list_contact_numbers +=
-                '<div class="mb-1">' +
-                element.phone_label +
-                ":&nbsp;" +
-                '<a href="tel:' +
-                tel +
-                '" class="underline">' +
-                element.phone_number +
-                "</a>" +
-                "</div>";
-            });
-
-            const contentString =
-              '<div class="max-w-md p-2">' +
-              '<h4 class="text-lg font-bold mb-2">' +
-              title +
-              "</h4>" +
-              '<div class="mb-3">' +
-              address_data +
-              "</div>" +
-              '<div class="mb-3">' +
-              list_contact_numbers +
-              "</div>" +
-              '<div class="mt-5"><a href="' +
-              link +
-              '" class="uppercase text-brand-sea underline font-semibold">More Details</a></div>' +
-              "</div>" +
-              "</div>";
-            const infowindow = new google.maps.InfoWindow({
-              content: contentString,
-              ariaLabel: title,
-            });
-
-            infowindow.open({
-              anchor: marker,
-              map,
-            });
-
-            // for (var i = 0; i < service_types_data.length; i++) {
-            //   var tag = $.map(service_types_tax, function (val) {
-            //     return val.term_id == service_types_data[i] ? val.term_name : null;
-            //   });
-            //   if (i > 0) {
-            //     details_service_type +=
-            //       '&comma;&nbsp;<span class="service_locator-listing_tag tag">' +
-            //       tag[0] +
-            //       "</span>";
-            //   } else {
-            //     details_service_type +=
-            //       '<span class="service_locator-listing_tag tag">' +
-            //       tag[0] +
-            //       "</span>";
-            //   }
-            // }
-            // var contact_numbers = data.acf.contact_numbers;
-            // var list_contact_numbers = "";
-            // contact_numbers.forEach(function (element) {
-            //   //console.log(element.phone_label);
-            //   var tel = element.phone_number;
-            //   tel = tel.replace(/\s+/g, "");
-
-            //   list_contact_numbers +=
-            //     '<div class="service_locator-proofPoint">' +
-            //     '<span class="svg_icon"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="injected-svg" data-src="' +
-            //     '/wp-content/themes/coact/assets/images/service-locator/common-phone.svg"><path class="svg_inherit" d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"></path></svg></div></div></span>' +
-            //     '<a href="tel:' +
-            //     tel +
-            //     '" class="phantom-phone-number">' +
-            //     element.phone_label +
-            //     ":&nbsp;" +
-            //     element.phone_number +
-            //     "</a>" +
-            //     "</div>";
-            // });
-
-            // var address_data = data.acf.location.address;
-            // var description_data = data.acf.description;
-
-            // var checkmark_data = data.acf.checkmark_list;
-            // var checkmark_list = "";
-            // checkmark_data.forEach(function (element) {
-            //   checkmark_list +=
-            //     '<div class="service_locator-proofPoint"><span class="svg_icon"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="injected-svg" data-src="' +
-            //     '/wp-content/themes/coact/assets/images/service-locator/common-tick.svg"><title>icon / tick</title><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"></path><path fill="#45C2BF" fill-rule="nonzero" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path></g></svg></div></div></span><span>' +
-            //     element.point +
-            //     "</span></div>";
-            // });
-
-            // var link_data = data.link;
-
-            // var details_body = "";
-
-            // details_body +=
-            //   '<div class="service_locator-details_title details_block">';
-            // if (title) {
-            //   details_body += "<h3>" + title + "</h3>";
-            // }
-            // if (details_service_type) {
-            //   details_body +=
-            //     '<div class="service_locator-details_tags"><div class="tags">';
-            //   details_body += details_service_type;
-            //   details_body += "</div></div>";
-            // }
-            // details_body += "</div>";
-
-            // details_body += '<div class="details_block">';
-            // details_body +=
-            //   '<div class="service_locator-details_contact list_block">';
-
-            // if (address_data) {
-            //   details_body +=
-            //     '<div class="service_locator-proofPoint">' +
-            //     '<span class="svg_icon"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="injected-svg" data-src="' +
-            //     '/wp-content/themes/coact/assets/images/service-locator/common-location.svg"><path class="svg_inherit" d="M12 0C7.3 0 3.5 3.76 3.5 8.4 3.5 14.7 12 24 12 24s8.5-9.3 8.5-15.6C20.5 3.76 16.7 0 12 0zm0 12a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"></path></svg></div></div></span>' +
-            //     "<span>" +
-            //     address_data +
-            //     "</span>" +
-            //     "</div>";
-            // }
-
-            // if (list_contact_numbers) {
-            //   details_body += list_contact_numbers;
-            // }
-
-            // details_body += "</div>"; // .list_block
-
-            // if (description_data) {
-            //   details_body +=
-            //     '<div class="service_locator-details_description">' +
-            //     description_data +
-            //     "</div>";
-            // }
-
-            // details_body += "</div>"; // .details_block
-
-            // if (checkmark_list) {
-            //   details_body +=
-            //     '<div class="service_locator-details_proofpoints details_block list_block">';
-
-            //   details_body += checkmark_list;
-
-            //   details_body += "</div>"; // .list_block
-            // }
-
-            // $(".service_locator-details_body").append(details_body);
-
-            // // Footer
-            // details_footer = "";
-            // if (link_data) {
-            //   details_footer +=
-            //     '<a href="' +
-            //     link_data +
-            //     '#enquiry_form" class="button register-button">Register your interest</a>';
-            //   details_footer +=
-            //     '<a href="' +
-            //     link_data +
-            //     '" class="button button--secondary">Learn More</a>';
-            // }
-
-            // $(".service_locator-details_footer").append(details_footer);
-          }
-        ).done(function (data) {
-          // $(".service_locator-progress")
-          //   .css("z-index", -1)
-          //   .animate({ opacity: 0 }, 300);
-          // $(".service_locator-details").addClass("open");
-          // $("body").addClass("overflow-hidden");
-        });
-      }
 
       var nearby_provider = nearby_provider_obj.sort(function (a, b) {
         return parseFloat(a.distance) - parseFloat(b.distance);
