@@ -5,6 +5,8 @@ function filter_posts()
   $data_id = $_POST['data_id'];
   $data_taxonomy = $_POST['data_taxonomy'];
   $data_style = $_POST['data_style'];
+  $data_category = sanitize_text_field($_POST['data_category']);
+  $data_category = json_decode(stripslashes($data_category));
   if (isset($_POST['per_page'])) {
     $postsPerPage = $_POST['per_page'];
   } else {
@@ -12,13 +14,30 @@ function filter_posts()
   }
 
   if ($data_id == 'all') {
-    $args = array(
-      'post_type' => 'post',
-      'posts_per_page' => $postsPerPage,
-      'orderby' => 'date',
-      'order' => 'DESC',
-      'post_status' => 'publish',
-    );
+    if ($data_category) {
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'category',
+            'field' => 'id',
+            'terms' => $data_category,
+          ),
+        ),
+      );
+    } else {
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+      );
+    }
   } else {
     if ($data_taxonomy) {
       $args = array(
@@ -102,17 +121,29 @@ function pagination_load_posts()
           'post_status '      => 'publish',
           'orderby'           => 'post_date',
           'order'             => 'DESC',
-          'category__in'      => json_decode($terms),
           'posts_per_page'    => $per_page,
-          'offset'            => $start
+          'offset'            => $start,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'category',
+              'field' => 'id',
+              'terms' => $terms,
+            ),
+          ),
         )
       );
       $count = new WP_Query(
         array(
           'post_type'         => 'post',
           'post_status '      => 'publish',
-          'category__in'      => json_decode($terms),
-          'posts_per_page'    => -1
+          'posts_per_page'    => -1,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'category',
+              'field' => 'id',
+              'terms' => $terms,
+            ),
+          ),
         )
       );
     } else {

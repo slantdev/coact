@@ -142,105 +142,6 @@ $posts_grid_id = uniqid();
       <?php endif; ?>
       <div class="relative pt-10">
         <div class="posts-grid-<?php echo $posts_grid_id ?>">
-          <!-- <div class="grid grid-cols-3 gap-8">
-            <?php
-            global $post;
-            if ($card_style == 'featured') {
-              if ($select_category) {
-                $firstpost = get_posts(array(
-                  'post_status '      => 'publish',
-                  'orderby'           => 'post_date',
-                  'order'             => 'DESC',
-                  'posts_per_page' => '1',
-                  'category'       => $select_category
-                ));
-              } else {
-                $firstpost = get_posts(array(
-                  'post_status '      => 'publish',
-                  'orderby'           => 'post_date',
-                  'order'             => 'DESC',
-                  'posts_per_page' => '1',
-                ));
-              }
-              if ($firstpost) {
-                echo '<div class="col-span-2">';
-                foreach ($firstpost as $post) :
-                  $post_id = $post->ID;
-                  $title = $post->post_title;
-                  $link = get_the_permalink($post_id);
-                  $image = get_the_post_thumbnail_url($post_id);
-                  featured_card($link, $image, $title, true);
-                endforeach;
-                wp_reset_postdata();
-                echo '</div>';
-              }
-              if ($select_category) {
-                $otherposts = get_posts(array(
-                  'post_status '      => 'publish',
-                  'orderby'           => 'post_date',
-                  'order'             => 'DESC',
-                  'posts_per_page' => '2',
-                  'offset' => '1',
-                  'category'       => $select_category
-                ));
-              } else {
-                $otherposts = get_posts(array(
-                  'post_status '      => 'publish',
-                  'orderby'           => 'post_date',
-                  'order'             => 'DESC',
-                  'posts_per_page' => '2',
-                  'offset' => '1',
-                ));
-              }
-              if ($otherposts) {
-                echo '<div class="col-span-1 grid grid-cols-1 gap-4">';
-                foreach ($otherposts as $post) :
-                  $post_id = $post->ID;
-                  $title = $post->post_title;
-                  $link = get_the_permalink($post_id);
-                  $image = get_the_post_thumbnail_url($post_id);
-                  featured_card($link, $image, $title);
-                endforeach;
-                wp_reset_postdata();
-                echo '</div>';
-              }
-            } else {
-              if ($select_category) {
-                $theposts = get_posts(array(
-                  'posts_per_page' => $posts_per_page,
-                  'category'       => $select_category,
-                  'post_status '      => 'publish',
-                  'orderby'           => 'post_date',
-                  'order'             => 'DESC',
-                ));
-              } else {
-                $theposts = get_posts(array(
-                  'posts_per_page' => $posts_per_page,
-                  'post_status '      => 'publish',
-                  'orderby'           => 'post_date',
-                  'order'             => 'DESC',
-                ));
-              }
-              if ($theposts) {
-                foreach ($theposts as $post) :
-                  $post_id = $post->ID;
-                  $title = $post->post_title;
-                  $link = get_the_permalink($post_id);
-                  $excerpt = get_the_excerpt($post_id);
-                  $image = get_the_post_thumbnail_url($post_id);
-                  if ($card_style == 'card') {
-                    shadow_card($link, $image, $title, $excerpt);
-                  } else if ($card_style == 'featured') {
-                    featured_card($link, $image, $title);
-                  } else {
-                    plain_card($link, $image, $title, $excerpt);
-                  }
-                endforeach;
-                wp_reset_postdata();
-              }
-            }
-            ?>
-          </div> -->
         </div>
         <div class="posts-loader absolute inset-0 bg-white bg-opacity-80 z-10 transition-all duration-500 hidden">
           <div class="h-full w-full flex justify-center">
@@ -259,17 +160,16 @@ $posts_grid_id = uniqid();
             $('.posts-grid-<?php echo $posts_grid_id ?>').next('.posts-loader').show();
             let select_category = <?php echo json_encode($select_category) ?>;
             let terms = '';
-            let termsString = '';
             let pagination = '<?php echo $show_pagination ?>';
             if (select_category) {
-              termsString = JSON.stringify(select_category);
+              terms = JSON.stringify(select_category);
             }
             //console.log(terms);
             let data = {
               page: page,
               card_style: '<?php echo $card_style ?>',
               per_page: <?php echo $posts_per_page ?>,
-              terms: termsString,
+              terms: terms,
               pagination: pagination,
               action: 'pagination_load_posts',
             };
@@ -300,6 +200,11 @@ $posts_grid_id = uniqid();
             $('.posts-filter-<?php echo $posts_grid_id ?> .filter-button').removeClass('filter-active');
             $(this).addClass('filter-active');
             let data_id = $(this).data('id');
+            let select_category = <?php echo json_encode($select_category) ?>;
+            let data_category = '';
+            if (select_category) {
+              data_category = JSON.stringify(select_category);
+            }
             let data_taxonomy = $(this).data('taxonomy');
             let data_style = '<?php echo $card_style ?>';
             let pagination = '<?php echo $show_pagination ?>';
@@ -310,6 +215,7 @@ $posts_grid_id = uniqid();
               data: {
                 action: 'filter_posts',
                 data_id: data_id,
+                data_category: data_category,
                 data_taxonomy: data_taxonomy,
                 data_style: data_style,
                 per_page: <?php echo $posts_per_page ?>,
