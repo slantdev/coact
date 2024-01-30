@@ -428,54 +428,7 @@
                             },
                             "acfe_permissions": "",
                             "taxonomy": [
-                                "category"
-                            ],
-                            "allow_terms": "",
-                            "allow_level": "",
-                            "field_type": "select",
-                            "default_value": [],
-                            "return_format": "object",
-                            "ui": 1,
-                            "allow_null": 1,
-                            "placeholder": "",
-                            "multiple": 1,
-                            "ajax": 0,
-                            "save_terms": 0,
-                            "load_terms": 0,
-                            "acfe_settings": "",
-                            "acfe_validate": "",
-                            "choices": [],
-                            "search_placeholder": "",
-                            "layout": "",
-                            "toggle": 0,
-                            "allow_custom": 0,
-                            "other_choice": 0
-                        },
-                        {
-                            "key": "field_65b53d902af38",
-                            "label": "Filter Tags",
-                            "name": "filter_tags",
-                            "aria-label": "",
-                            "type": "acfe_taxonomy_terms",
-                            "instructions": "Select Tags to be added to the filter",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_65b53d902aede",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "acfe_permissions": "",
-                            "taxonomy": [
-                                "post_tag"
+                                "coact-tv-category"
                             ],
                             "allow_terms": "",
                             "allow_level": "",
@@ -577,7 +530,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706376646,
+    "modified": 1706579283,
     "acfe_categories": {
         "layout": "Layout"
     }

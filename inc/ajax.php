@@ -1,96 +1,10 @@
 <?php
+/* ######
+ * Ajax function load posts with pagination 
+ * ###### 
+ */
 
-function filter_posts()
-{
-  $data_id = $_POST['data_id'];
-  $data_taxonomy = $_POST['data_taxonomy'];
-  $data_style = $_POST['data_style'];
-  $data_category = sanitize_text_field($_POST['data_category']);
-  $data_category = json_decode(stripslashes($data_category));
-  if (isset($_POST['per_page'])) {
-    $postsPerPage = $_POST['per_page'];
-  } else {
-    $postsPerPage = -1;
-  }
-
-  if ($data_id == 'all') {
-    if ($data_category) {
-      $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => $postsPerPage,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_status' => 'publish',
-        'tax_query' => array(
-          array(
-            'taxonomy' => 'category',
-            'field' => 'id',
-            'terms' => $data_category,
-          ),
-        ),
-      );
-    } else {
-      $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => $postsPerPage,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_status' => 'publish',
-      );
-    }
-  } else {
-    if ($data_taxonomy) {
-      $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => $postsPerPage,
-        'orderby' => 'date',
-        'order' => 'DESC',
-        'post_status' => 'publish',
-        'tax_query' => array(
-          array(
-            'taxonomy' => $data_taxonomy,
-            'field'    => 'term_id',
-            'terms'    => $data_id,
-          ),
-        ),
-      );
-    }
-  }
-
-  $ajaxposts = new WP_Query($args);
-
-  $response = '';
-
-  if ($ajaxposts->have_posts()) {
-    echo '<div class="grid grid-cols-3 gap-8">';
-    while ($ajaxposts->have_posts()) {
-      $ajaxposts->the_post();
-      $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
-      $title =  get_the_title();
-      $date =  get_the_date();
-      $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
-      $link = get_the_permalink();
-      if ($data_style == 'card') {
-        shadow_card($link, $image, $title, $excerpt);
-      } else if ($data_style == 'featured') {
-        featured_card($link, $image, $title);
-      } else {
-        plain_card($link, $image, $title, $excerpt);
-      }
-    }
-    echo '</div>';
-  } else {
-    $response = '<div class="text-center py-4 px-8">No Posts Found</div>';
-  }
-
-  echo $response;
-  exit;
-}
-add_action('wp_ajax_filter_posts', 'filter_posts');
-add_action('wp_ajax_nopriv_filter_posts', 'filter_posts');
-
-
-/* ###### Ajax function for pagination ###### */
+// Load Posts
 add_action('wp_ajax_pagination_load_posts', 'pagination_load_posts');
 add_action('wp_ajax_nopriv_pagination_load_posts', 'pagination_load_posts');
 function pagination_load_posts()
@@ -250,6 +164,7 @@ function pagination_load_posts()
   exit();
 }
 
+// Load Coact TV
 add_action('wp_ajax_pagination_load_coact_tv', 'pagination_load_coact_tv');
 add_action('wp_ajax_nopriv_pagination_load_coact_tv', 'pagination_load_coact_tv');
 function pagination_load_coact_tv()
@@ -286,7 +201,7 @@ function pagination_load_coact_tv()
             array(
               'taxonomy' => 'coact-tv-category',
               'field' => 'id',
-              'terms' => json_decode($terms),
+              'terms' => $terms,
             ),
           ),
         )
@@ -300,7 +215,7 @@ function pagination_load_coact_tv()
             array(
               'taxonomy' => 'coact-tv-category',
               'field' => 'id',
-              'terms' => json_decode($terms),
+              'terms' => $terms,
             ),
           ),
         )
@@ -433,3 +348,211 @@ function pagination_load_coact_tv()
   }
   exit();
 }
+
+/* ######
+ * Ajax function filter posts
+ * ###### 
+ */
+// Filter Coact TV
+function filter_posts()
+{
+  $data_id = $_POST['data_id'];
+  $data_taxonomy = $_POST['data_taxonomy'];
+  $data_style = $_POST['data_style'];
+  $data_category = sanitize_text_field($_POST['data_category']);
+  $data_category = json_decode(stripslashes($data_category));
+  if (isset($_POST['per_page'])) {
+    $postsPerPage = $_POST['per_page'];
+  } else {
+    $postsPerPage = -1;
+  }
+
+  if ($data_id == 'all') {
+    if ($data_category) {
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'category',
+            'field' => 'id',
+            'terms' => $data_category,
+          ),
+        ),
+      );
+    } else {
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+      );
+    }
+  } else {
+    if ($data_taxonomy) {
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+        'tax_query' => array(
+          array(
+            'taxonomy' => $data_taxonomy,
+            'field'    => 'term_id',
+            'terms'    => $data_id,
+          ),
+        ),
+      );
+    }
+  }
+
+  $ajaxposts = new WP_Query($args);
+
+  $response = '';
+
+  if ($ajaxposts->have_posts()) {
+    echo '<div class="grid grid-cols-3 gap-8">';
+    while ($ajaxposts->have_posts()) {
+      $ajaxposts->the_post();
+      $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
+      $title =  get_the_title();
+      $date =  get_the_date();
+      $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
+      $link = get_the_permalink();
+      if ($data_style == 'card') {
+        shadow_card($link, $image, $title, $excerpt);
+      } else if ($data_style == 'featured') {
+        featured_card($link, $image, $title);
+      } else {
+        plain_card($link, $image, $title, $excerpt);
+      }
+    }
+    echo '</div>';
+  } else {
+    $response = '<div class="text-center py-4 px-8">No Posts Found</div>';
+  }
+
+  echo $response;
+  exit;
+}
+add_action('wp_ajax_filter_posts', 'filter_posts');
+add_action('wp_ajax_nopriv_filter_posts', 'filter_posts');
+
+// Filter Coact TV
+function filter_coact_tv()
+{
+  $data_id = $_POST['data_id'];
+  $data_taxonomy = $_POST['data_taxonomy'];
+  $data_style = $_POST['data_style'];
+  $data_category = sanitize_text_field($_POST['data_category']);
+  $data_category = json_decode(stripslashes($data_category));
+  if (isset($_POST['per_page'])) {
+    $postsPerPage = $_POST['per_page'];
+  } else {
+    $postsPerPage = -1;
+  }
+
+  if ($data_id == 'all') {
+    if ($data_category) {
+      $args = array(
+        'post_type' => 'coact-tv',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'coact-tv-category',
+            'field' => 'term_id',
+            'terms' => $data_category,
+          ),
+        ),
+      );
+    } else {
+      $args = array(
+        'post_type' => 'coact-tv',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+      );
+    }
+  } else {
+    if ($data_taxonomy) {
+      $args = array(
+        'post_type' => 'coact-tv',
+        'posts_per_page' => $postsPerPage,
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'post_status' => 'publish',
+        'tax_query' => array(
+          array(
+            'taxonomy' => $data_taxonomy,
+            'field'    => 'term_id',
+            'terms'    => $data_id,
+          ),
+        ),
+      );
+    }
+  }
+
+  $ajaxposts = new WP_Query($args);
+
+  $response = '';
+
+  $count = $ajaxposts->post_count;
+  if ($ajaxposts->have_posts()) {
+    $postCount = 0;
+    //echo $count;
+    echo '<div class="grid grid-cols-3 gap-8">';
+    while ($ajaxposts->have_posts()) {
+      $postCount++;
+      $ajaxposts->the_post();
+      $id = get_the_ID();
+      //$image = get_the_post_thumbnail_url($id, 'large');
+      $title =  get_the_title();
+      $video_uri = get_post_meta($id, 'video_embed', true);
+      $date =  get_the_date();
+      $image = get_video_thumbnail_uri($video_uri);
+      $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
+      $link = get_the_permalink();
+      if ($data_style == 'card') {
+        shadow_card($link, $image, $title, $excerpt);
+      } else if ($data_style == 'featured') {
+        if ($count > 1 && $postCount == 1) {
+          echo '<div class="col-span-2">';
+          featured_card($link, $image, $title, true);
+          echo '</div>';
+        } else {
+          if ($count > 1 && $postCount == 2) {
+            echo '<div class="col-span-1 grid grid-cols-1 gap-4">';
+            featured_card($link, $image, $title, false);
+          }
+          if ($count == 2 && $postCount == 2) {
+            echo '</div>';
+          }
+          if ($count > 2 && $postCount == 3) {
+            featured_card($link, $image, $title, false);
+            echo '</div>';
+          }
+          if ($count > 2 && $postCount > 3) {
+            featured_card($link, $image, $title, false);
+          }
+        }
+      } else {
+        plain_card($link, $image, $title, $excerpt);
+      }
+    }
+    echo '</div>';
+  }
+
+  echo $response;
+  exit;
+}
+add_action('wp_ajax_filter_coact_tv', 'filter_coact_tv');
+add_action('wp_ajax_nopriv_filter_coact_tv', 'filter_coact_tv');
