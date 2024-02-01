@@ -101,6 +101,8 @@ var markerImage =
   "/assets/images/service-locator/common-location-purple.png";
 var centerMarkerImage =
   websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
+var searchBoxInput = document.getElementById("pac-input");
+var searchBox = new google.maps.places.SearchBox(searchBoxInput);
 
 /**
  * jQuery Functions
@@ -341,6 +343,7 @@ jQuery(function ($) {
     putMarkers("", providerJson, initMapCenter);
     serviceLocatorList(providerJson);
     postcodeAutocomplete(providerJson);
+    searchSuburbListener();
 
     // Reset Session Storage
     sessionStorage.removeItem("service_locator");
@@ -915,9 +918,61 @@ jQuery(function ($) {
     input.addEventListener = addEventListenerWrapper;
   }
 
+  // Search places based on states filter > suburb button click
+  $(document).on("click", ".button-suburb", function (e) {
+    //https://stackoverflow.com/questions/20407045/google-maps-trigger-search-box-on-button-click
+    var buttonText = $(this).text();
+    $("#pac-input").val(buttonText);
+
+    function noop() {}
+    google.maps.event.trigger(searchBoxInput, "focus", {});
+    setTimeout(() => {
+      google.maps.event.trigger(searchBoxInput, "keydown", {
+        keyCode: 40, // arrow down
+        stopPropagation: noop, // because these get called
+        preventDefault: noop,
+      });
+      google.maps.event.trigger(searchBoxInput, "keydown", { keyCode: 13 });
+      google.maps.event.trigger(this, "focus", {});
+    }, 500);
+
+    document
+      .getElementById("service-locator")
+      .scrollIntoView({ behavior: "smooth" });
+  });
+
+  function searchSuburbListener() {
+    google.maps.event.addListener(searchBox, "places_changed", function () {
+      const place = searchBox.getPlaces()[0];
+      //console.log(place);
+
+      var address = place.formatted_address;
+      var sessionObj = JSON.parse(sessionStorage.getItem("service_locator"));
+      var providerJson = sessionObj.provider_data;
+      //console.log(address);
+
+      if (!place.place_id) {
+        return;
+      }
+      $("#pac-input").val("");
+
+      //console.log(providerJson);
+      addToSessionStorageObject(
+        "service_locator",
+        "provider_data",
+        providerJson
+      );
+      addToSessionStorageObject("service_locator", "pin_address", address);
+      //$('#service_locator-list').show();
+      showNearbySites(providerJson, address);
+    });
+  }
+
   // Show nearby location
   function showNearbySites(serviceProvider, address) {
     // Remove all radius and markers from map before displaying new ones
+    //console.log(radius_circle);
+
     if (radius_circle) {
       radius_circle.setMap(null);
       radius_circle = null;
@@ -1119,6 +1174,7 @@ jQuery(function ($) {
 
   // Sets the map on all markers in the array.
   function setMapOnAll(map) {
+    //console.log(map);
     for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(map);
     }
@@ -1139,6 +1195,7 @@ jQuery(function ($) {
 
   // Deletes all markers in the array by removing references to them.
   function deleteMarkers() {
+    //console.log(markers);
     hideMarkers();
     markers = [];
   }

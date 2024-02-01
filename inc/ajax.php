@@ -349,11 +349,77 @@ function pagination_load_coact_tv()
   exit();
 }
 
+// Load State Suburb
+add_action('wp_ajax_pagination_load_state_suburb', 'load_state_suburb');
+add_action('wp_ajax_nopriv_load_state_suburb', 'load_state_suburb');
+function load_state_suburb()
+{
+  if (isset($_POST['data_id'])) {
+    // Sanitize the received page
+    $data_id = sanitize_text_field($_POST['data_id']);
+    $data_title = sanitize_text_field($_POST['data_title']);
+
+    //echo $data_title;
+
+    $taxonomy = 'state-suburb';
+    $parent_term_id = $data_id;
+    $child_terms = get_term_children($parent_term_id, $taxonomy);
+
+    if ($data_title) {
+      echo '<h4 class="text-2xl text-brand-sea mb-8 mt-4 font-bold">' . $data_title . '</h4>';
+    }
+
+    if (!empty($child_terms) && !is_wp_error($child_terms)) {
+      echo '<ul class="columns-4">';
+      foreach ($child_terms as $child_term_id) {
+        $child_term = get_term_by('id', $child_term_id, $taxonomy);
+        echo '<li>';
+        echo '<button class="button-suburb text-xl underline hover:font-medium py-3" type="button">' . $child_term->name . '</button>';
+        echo '</li>';
+      }
+      echo '</ul>';
+    } else {
+      echo '<div class="text-center">No suburb found for this state.</div>';
+    }
+  }
+  exit();
+}
+
 /* ######
  * Ajax function filter posts
  * ###### 
  */
-// Filter Coact TV
+// Filter Posts
+function filter_state_suburb()
+{
+  $data_id = sanitize_text_field($_POST['data_id']);
+  $data_title = sanitize_text_field($_POST['data_title']);
+  $taxonomy = 'state-suburb';
+  $parent_term_id = $data_id;
+  $child_terms = get_term_children($parent_term_id, $taxonomy);
+  $response = '';
+  if ($data_title) {
+    $response .= '<h4 class="text-2xl text-brand-sea mb-8 mt-4 font-bold">' . $data_title . '</h4>';
+  }
+  if (!empty($child_terms) && !is_wp_error($child_terms)) {
+    $response .= '<ul class="columns-4">';
+    foreach ($child_terms as $child_term_id) {
+      $child_term = get_term_by('id', $child_term_id, $taxonomy);
+      $response .= '<li>';
+      $response .= '<button class="button-suburb text-xl underline hover:font-medium py-3" type="button">' . $child_term->name . '</button>';
+      $response .= '</li>';
+    }
+    $response .= '</ul>';
+  } else {
+    $response .= '<div class="text-center">No suburb found for this state.</div>';
+  }
+  echo $response;
+  exit;
+}
+add_action('wp_ajax_filter_state_suburb', 'filter_state_suburb');
+add_action('wp_ajax_nopriv_filter_state_suburb', 'filter_state_suburb');
+
+// Filter Posts
 function filter_posts()
 {
   $data_id = $_POST['data_id'];

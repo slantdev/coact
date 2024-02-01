@@ -164,6 +164,9 @@
   &.swiper-button-disabled {
     @apply opacity-20 hover:bg-white hover:text-brand-black;
   }
+  &.swiper-button-lock {
+    @apply hidden;
+  }
 }
 
 /* Posts Pagination */

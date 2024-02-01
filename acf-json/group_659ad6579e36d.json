@@ -733,6 +733,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "template-parts\/template-service-locator.php"
             }
         ]
     ],
@@ -754,5 +759,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706456400
+    "modified": 1706811772
 }

@@ -16,6 +16,8 @@
   var location_distance;
   var markerImage = websiteData.urlTheme + "/assets/images/service-locator/common-location-purple.png";
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
+  var searchBoxInput = document.getElementById("pac-input");
+  var searchBox = new google.maps.places.SearchBox(searchBoxInput);
   jQuery(function($) {
     function setMapHeight() {
       const site_header_height = $(".site-header").outerHeight();
@@ -226,6 +228,7 @@
       putMarkers("", providerJson, initMapCenter);
       serviceLocatorList(providerJson);
       postcodeAutocomplete(providerJson);
+      searchSuburbListener();
       sessionStorage.removeItem("service_locator");
       addToSessionStorageObject("service_locator", "provider_data", providerJson);
       addToSessionStorageObject("service_locator", "service_category", "");
@@ -562,6 +565,38 @@
         _addEventListener.apply(input, [type, listener]);
       };
       input.addEventListener = addEventListenerWrapper;
+    }
+    $(document).on("click", ".button-suburb", function(e) {
+      var buttonText = $(this).text();
+      $("#pac-input").val(buttonText);
+      function noop() {
+      }
+      google.maps.event.trigger(searchBoxInput, "focus", {});
+      setTimeout(() => {
+        google.maps.event.trigger(searchBoxInput, "keydown", {
+          keyCode: 40,
+          stopPropagation: noop,
+          preventDefault: noop
+        });
+        google.maps.event.trigger(searchBoxInput, "keydown", { keyCode: 13 });
+        google.maps.event.trigger(this, "focus", {});
+      }, 500);
+      document.getElementById("service-locator").scrollIntoView({ behavior: "smooth" });
+    });
+    function searchSuburbListener() {
+      google.maps.event.addListener(searchBox, "places_changed", function() {
+        const place = searchBox.getPlaces()[0];
+        var address = place.formatted_address;
+        var sessionObj = JSON.parse(sessionStorage.getItem("service_locator"));
+        var providerJson = sessionObj.provider_data;
+        if (!place.place_id) {
+          return;
+        }
+        $("#pac-input").val("");
+        addToSessionStorageObject("service_locator", "provider_data", providerJson);
+        addToSessionStorageObject("service_locator", "pin_address", address);
+        showNearbySites(providerJson, address);
+      });
     }
     function showNearbySites(serviceProvider, address) {
       if (radius_circle) {
