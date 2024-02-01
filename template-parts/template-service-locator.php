@@ -245,14 +245,14 @@ $description = $site_locator_settings['description'];
             data_title: title,
             action: 'load_state_suburb',
           };
-          //console.log(data);
+          console.log(data);
           $.post(ajaxurl, data, function(response) {
-            //console.log(response);
+            console.log(response);
             $('.suburb-grid').html('').prepend(response);
             $('.suburb-grid').next('.posts-loader').hide();
           });
         }
-        load_suburb(<?php echo $firstLoadId ?>, '<?php echo $firstLoadTitle ?>');
+        load_suburb('<?php echo $firstLoadId ?>', '<?php echo $firstLoadTitle ?>');
 
         $('.states-filter .filter-button').on('click', function(event) {
           $('.states-filter .filter-button').removeClass('filter-active');
