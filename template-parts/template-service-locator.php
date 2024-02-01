@@ -239,17 +239,22 @@ $description = $site_locator_settings['description'];
         let ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
 
         function load_suburb(id, title) {
-          $('.suburb-grid').next('.posts-loader').show();
-          let data = {
-            data_id: id,
-            data_title: title,
-            action: 'load_state_suburb',
-          };
-          console.log(data);
-          $.post(ajaxurl, data, function(response) {
-            console.log(response);
-            $('.suburb-grid').html('').prepend(response);
-            $('.suburb-grid').next('.posts-loader').hide();
+          $.ajax({
+            type: 'POST',
+            url: ajaxurl,
+            dataType: 'html',
+            data: {
+              action: 'filter_state_suburb',
+              data_id: id,
+              data_title: title,
+            },
+            beforeSend: function() {
+              $('.suburb-grid').next('.posts-loader').show();
+            },
+            success: function(res) {
+              $('.suburb-grid').html('').prepend(res);
+              $('.suburb-grid').next('.posts-loader').hide();
+            },
           });
         }
         load_suburb('<?php echo $firstLoadId ?>', '<?php echo $firstLoadTitle ?>');
