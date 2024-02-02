@@ -8,6 +8,7 @@ if ($columns) {
   $column_count = count($columns);
 }
 $about = $site_footer['about'];
+$address_heading = $about['address_heading'];
 $address = $about['address'];
 $phone = $about['phone'];
 $email = $about['email'];
@@ -423,12 +424,25 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
   <div class="mx-auto max-w-screen-4xl px-4 relative">
     <div class="flex gap-x-24">
       <div class="w-1/4">
-        <a href="<?php echo site_url() ?>"><img src="<?php echo coact_asset('images/logo/logo-coact-white.svg') ?>" alt="CoAct" class="h-[128px] w-auto"></a>
+        <?php if ($logo) : ?>
+          <a href="<?php echo site_url() ?>"><img src="<?php echo $logo['url'] ?>" alt="CoAct" class="h-[128px] w-auto"></a>
+        <?php else : ?>
+          <a href="<?php echo site_url() ?>"><img src="<?php echo coact_asset('images/logo/logo-coact-white.svg') ?>" alt="CoAct" class="h-[128px] w-auto"></a>
+        <?php endif; ?>
         <div class="text-white mt-6">
-          <h5 class="text-lg font-bold">CoAct Head Office</h5>
+          <?php if ($address_heading) : ?>
+            <h5 class="text-lg font-bold"><?php echo $address_heading ?></h5>
+          <?php endif; ?>
           <div class="text-sm">
-            level 1/416 Logan Rd, Greenslopes QLD 4120<br />
-            <strong>Freecall:</strong> 1800 860 770 &nbsp;&nbsp;<span class="text-brand-sea">|</span>&nbsp;&nbsp; <strong>Email:</strong> mail@coact.org.au
+            <?php if ($address) : ?>
+              <?php echo $address ?><br />
+            <?php endif; ?>
+            <?php if ($phone) : ?>
+            <?php endif; ?>
+            <strong>Freecall:</strong> <a href="<?php echo $phone['url'] ?>" class="hover:underline"><?php echo $phone['title'] ?></a> &nbsp;&nbsp;<span class="text-brand-sea">|</span>
+            <?php if ($email) : ?>
+              &nbsp;&nbsp; <strong>Email:</strong> <a href="<?php echo $email['url'] ?>" class="hover:underline"><?php echo $email['title'] ?></a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
