@@ -55,21 +55,28 @@ $image_cards = $who_we_help['image_cards']; // Repeater
               <?php
               $image = $card['image'];
               $label = $card['label'];
+              $link = $card['link'];
               ?>
               <div class="relative block">
-                <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-2xl">
-                  <?php if ($image) : ?>
-                    <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" class="object-cover">
-                  <?php else : ?>
-                    <div class="bg-slate-100"></div>
+                <?php if (isset($link['url'])) : ?>
+                  <a href="<?php echo $link['url'] ?>" class="block hover:[&_img]:scale-110">
                   <?php endif; ?>
-                </div>
-                <?php if ($label) : ?>
-                  <div class="absolute bottom-0 left-0 right-0">
-                    <div class="mb-4 ml-4">
-                      <div class="inline-block bg-white rounded-lg py-3 px-4 font-bold"><?php echo $label ?></div>
-                    </div>
+                  <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-2xl">
+                    <?php if ($image) : ?>
+                      <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" class="object-cover transition duration-300">
+                    <?php else : ?>
+                      <div class="bg-slate-100"></div>
+                    <?php endif; ?>
                   </div>
+                  <?php if ($label) : ?>
+                    <div class="absolute bottom-0 left-0 right-0">
+                      <div class="mb-4 ml-4">
+                        <div class="inline-block bg-white rounded-lg py-3 px-4 font-bold"><?php echo $label ?></div>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                  <?php if (isset($link['url'])) : ?>
+                  </a>
                 <?php endif; ?>
               </div>
             <?php endforeach; ?>
