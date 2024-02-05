@@ -224,7 +224,7 @@ $description = $site_locator_settings['description'];
             },
             1280: {
               slidesPerView: 'auto',
-              spaceBetween: 44
+              spaceBetween: 40
             }
           }
         });
