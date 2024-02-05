@@ -9,6 +9,10 @@
 get_header();
 
 $site_locator_settings = get_field('site_locator_settings'); // Group
+
+$intro_description = $site_locator_settings['intro_description'];
+$button_link = $site_locator_settings['button_link'];
+
 $headline = $site_locator_settings['headline'];
 $headline_color = $site_locator_settings['headline_color'];
 $headline_style = '';
@@ -30,14 +34,18 @@ $description = $site_locator_settings['description'];
           <svg class="h-10 w-10" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M42.6656 18.3328C42.6649 14.9472 41.7267 11.628 39.955 8.74296C38.1834 5.85795 35.6474 3.51988 32.6282 1.98794C29.6091 0.455994 26.2247 -0.20999 22.8502 0.0638118C19.4757 0.337613 16.2429 1.5405 13.5102 3.53914C10.7775 5.53778 8.65168 8.2541 7.36828 11.387C6.08488 14.5199 5.69409 17.947 6.23921 21.2884C6.78434 24.6298 8.24409 27.755 10.4567 30.3176C12.6692 32.8801 15.5482 34.7799 18.7744 35.8064L24.2912 48L29.7632 35.848C33.5015 34.6876 36.7704 32.3616 39.0919 29.2101C41.4134 26.0586 42.6657 22.247 42.6656 18.3328ZM24.3328 26.08C22.8006 26.08 21.3027 25.6256 20.0287 24.7744C18.7547 23.9231 17.7617 22.7132 17.1753 21.2975C16.589 19.8819 16.4355 18.3242 16.7345 16.8214C17.0334 15.3186 17.7712 13.9382 18.8547 12.8547C19.9382 11.7713 21.3186 11.0334 22.8214 10.7345C24.3242 10.4355 25.8819 10.589 27.2975 11.1753C28.7131 11.7617 29.9231 12.7547 30.7744 14.0287C31.6256 15.3027 32.08 16.8006 32.08 18.3328C32.0802 19.3503 31.88 20.3578 31.4907 21.2978C31.1015 22.2378 30.5308 23.0919 29.8114 23.8114C29.0919 24.5308 28.2378 25.1015 27.2978 25.4907C26.3578 25.88 25.3502 26.0802 24.3328 26.08Z" fill="#000000" />
           </svg>
-          <h2 class="text-4xl font-bold whitespace-nowrap">Site locator</h2>
+          <h2 class="text-4xl font-bold whitespace-nowrap"><?php echo get_the_title() ?></h2>
         </div>
         <div class="max-w-screen-md">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+          <?php if ($intro_description) : ?>
+            <?php echo $intro_description ?>
+          <?php endif; ?>
         </div>
       </div>
       <div class="ml-auto">
-        <a href="#" class="inline-block bg-brand-sea px-6 py-4 rounded-full text-white whitespace-nowrap">Locate by State</a>
+        <?php if (isset($button_link['url'])) : ?>
+          <a href="<?php echo $button_link['url'] ?>" class="inline-block bg-brand-sea px-6 py-4 rounded-full text-white whitespace-nowrap"><?php echo $button_link['title'] ?></a>
+        <?php endif; ?>
       </div>
     </div>
     <div class="service_locator">
@@ -122,7 +130,7 @@ $description = $site_locator_settings['description'];
 
 </div>
 
-<div class="bg-white px-6 py-16">
+<div id="filter-state" class="bg-white px-6 py-16">
   <div class="relative container max-w-screen-xxl mx-auto">
     <div>
       <?php if ($headline) : ?>

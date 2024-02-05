@@ -370,6 +370,14 @@ function load_state_suburb()
     }
 
     if (!empty($child_terms) && !is_wp_error($child_terms)) {
+
+      // Sort the child terms alphabetically by name
+      usort($child_terms, function ($a, $b) {
+        $term_a = get_term($a, 'state-suburb');
+        $term_b = get_term($b, 'state-suburb');
+        return strcmp($term_a->name, $term_b->name);
+      });
+
       echo '<ul class="columns-4">';
       foreach ($child_terms as $child_term_id) {
         $child_term = get_term_by('id', $child_term_id, $taxonomy);
@@ -402,6 +410,12 @@ function filter_state_suburb()
     $response .= '<h4 class="text-2xl text-brand-sea mb-8 mt-4 font-bold">' . $data_title . '</h4>';
   }
   if (!empty($child_terms) && !is_wp_error($child_terms)) {
+    // Sort the child terms alphabetically by name
+    usort($child_terms, function ($a, $b) {
+      $term_a = get_term($a, 'state-suburb');
+      $term_b = get_term($b, 'state-suburb');
+      return strcmp($term_a->name, $term_b->name);
+    });
     $response .= '<ul class="columns-4">';
     foreach ($child_terms as $child_term_id) {
       $child_term = get_term_by('id', $child_term_id, $taxonomy);
