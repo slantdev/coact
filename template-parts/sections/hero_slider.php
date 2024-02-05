@@ -25,7 +25,19 @@ if ($hero_slider) : ?>
             $slide_image = $background['background_image'];
             $bg_overlay = $background['background_overlay_color'];
             $headline = $slide['headline'];
+            $headline_text = $headline['headline'];
+            $headline_color = $headline['headline_color'];
+            $headline_style = '';
+            if ($headline_color) {
+              $headline_style .= 'color: ' . $headline_color . ';';
+            }
             $description = $slide['description'];
+            $description_text = $description['description'];
+            $description_color = $description['description_color'];
+            $description_style = '';
+            if ($description_color) {
+              $description_style .= 'color: ' . $description_color . ';';
+            }
             $buttons = $slide['buttons'];
 
             $overlay_style = '';
@@ -44,12 +56,12 @@ if ($hero_slider) : ?>
                 <div class="absolute inset-0 flex items-center">
                   <div class="container max-w-screen-3xl mx-auto">
                     <div class="w-full xl:w-1/2 font-montserrat">
-                      <?php if ($headline) : ?>
-                        <h2 class="hero-headline text-5xl lg:text-[64px] lg:leading-tight text-brand-black font-bold mb-4 [&>span]:text-brand-sea"><?php echo $headline; ?></h2>
+                      <?php if ($headline_text) : ?>
+                        <h2 class="hero-headline text-5xl lg:text-[64px] lg:leading-tight text-brand-black font-bold mb-4" style="<?php echo $headline_style ?>"><?php echo $headline_text; ?></h2>
                       <?php endif; ?>
-                      <?php if ($description) : ?>
-                        <div class="hero-description text-xl lg:text-2xl text-2xl font-medium mt-4">
-                          <?php echo $description; ?>
+                      <?php if ($description_text) : ?>
+                        <div class="hero-description text-xl lg:text-2xl text-2xl font-medium mt-4" style="<?php echo $description_style ?>">
+                          <?php echo $description_text; ?>
                         </div>
                       <?php endif; ?>
                       <?php get_template_part('template-parts/components/buttons', '', array('field' => $buttons, 'class' => 'hero-buttons mt-6 xl:mt-10')); ?>
