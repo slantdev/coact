@@ -127,9 +127,9 @@
                         "id": ""
                     },
                     "layout": "block",
-                    "acfe_seamless_style": 0,
-                    "acfe_group_modal": 0,
+                    "acfe_seamless_style": 1,
                     "acfe_settings": "",
+                    "acfe_permissions": "",
                     "sub_fields": [
                         {
                             "key": "field_65c124125da14",
@@ -175,6 +175,7 @@
                             "acfe_validate": ""
                         }
                     ],
+                    "acfe_group_modal": 0,
                     "acfe_group_modal_close": 0,
                     "acfe_group_modal_button": "",
                     "acfe_group_modal_size": "large",
@@ -358,7 +359,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707157014,
+    "modified": 1707157162,
     "acfe_categories": {
         "layout": "Layout"
     }
