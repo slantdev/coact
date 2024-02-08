@@ -1,9 +1,9 @@
 {
-    "key": "group_65a1af0007532",
-    "title": "Layout - Two Column Card",
+    "key": "group_65c537191578c",
+    "title": "Layout - Text Card Grid",
     "fields": [
         {
-            "key": "field_65a1af0033e3c",
+            "key": "field_65c5371959306",
             "label": "Content Settings",
             "name": "",
             "aria-label": "",
@@ -20,9 +20,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_65a1af0033e5a",
-            "label": "Two Column Card",
-            "name": "two_column_card",
+            "key": "field_65c537195930f",
+            "label": "Text Card Grid",
+            "name": "text_card_grid",
             "aria-label": "",
             "type": "group",
             "instructions": "",
@@ -39,7 +39,7 @@
             "acfe_permissions": "",
             "sub_fields": [
                 {
-                    "key": "field_65a1af0036568",
+                    "key": "field_65c537195cd98",
                     "label": "Intro",
                     "name": "",
                     "aria-label": "",
@@ -56,7 +56,7 @@
                     "endpoint": 0
                 },
                 {
-                    "key": "field_65a1af0036582",
+                    "key": "field_65c537195cda1",
                     "label": "Intro",
                     "name": "intro",
                     "aria-label": "",
@@ -79,7 +79,7 @@
                     "acfe_group_modal_size": "large",
                     "sub_fields": [
                         {
-                            "key": "field_65a1af003859d",
+                            "key": "field_65c537195f30a",
                             "label": "Headline",
                             "name": "headline",
                             "aria-label": "",
@@ -101,7 +101,7 @@
                             "append": ""
                         },
                         {
-                            "key": "field_65a1af00385b5",
+                            "key": "field_65c537195f311",
                             "label": "Description",
                             "name": "description",
                             "aria-label": "",
@@ -126,8 +126,8 @@
                     ]
                 },
                 {
-                    "key": "field_65a1af0036588",
-                    "label": "Content Cards",
+                    "key": "field_65c537195cdaa",
+                    "label": "Text Cards",
                     "name": "",
                     "aria-label": "",
                     "type": "tab",
@@ -144,9 +144,9 @@
                     "acfe_permissions": ""
                 },
                 {
-                    "key": "field_65a1af0036590",
-                    "label": "Content Cards",
-                    "name": "content_cards",
+                    "key": "field_65c537195cdbe",
+                    "label": "Text Cards",
+                    "name": "text_cards",
                     "aria-label": "",
                     "type": "repeater",
                     "instructions": "",
@@ -169,38 +169,7 @@
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_65a1af618e4fe",
-                            "label": "Image",
-                            "name": "image",
-                            "aria-label": "",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "acfe_permissions": "",
-                            "uploader": "",
-                            "return_format": "array",
-                            "acfe_thumbnail": 0,
-                            "acfe_settings": "",
-                            "acfe_validate": "",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "parent_repeater": "field_65a1af0036590"
-                        },
-                        {
-                            "key": "field_65a1af003d0c8",
+                            "key": "field_65c5371965dc5",
                             "label": "Title",
                             "name": "title",
                             "aria-label": "",
@@ -221,10 +190,10 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "parent_repeater": "field_65a1af0036590"
+                            "parent_repeater": "field_65c537195cdbe"
                         },
                         {
-                            "key": "field_65a1af498e4fc",
+                            "key": "field_65c5371965dcc",
                             "label": "Excerpt",
                             "name": "excerpt",
                             "aria-label": "",
@@ -246,10 +215,10 @@
                             "rows": 3,
                             "placeholder": "",
                             "new_lines": "br",
-                            "parent_repeater": "field_65a1af0036590"
+                            "parent_repeater": "field_65c537195cdbe"
                         },
                         {
-                            "key": "field_65a1af568e4fd",
+                            "key": "field_65c5371965dd2",
                             "label": "Link",
                             "name": "link",
                             "aria-label": "",
@@ -266,7 +235,7 @@
                             "return_format": "array",
                             "acfe_settings": "",
                             "acfe_validate": "",
-                            "parent_repeater": "field_65a1af0036590"
+                            "parent_repeater": "field_65c537195cdbe"
                         }
                     ]
                 }
@@ -277,7 +246,7 @@
             "acfe_group_modal_size": "large"
         },
         {
-            "key": "field_65a1af0033e65",
+            "key": "field_65c5371959317",
             "label": "Section Settings",
             "name": "",
             "aria-label": "",
@@ -294,7 +263,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_65a1af0033e84",
+            "key": "field_65c537195931e",
             "label": "Section Settings",
             "name": "section_settings",
             "aria-label": "",
@@ -347,7 +316,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707416459,
+    "modified": 1707423575,
     "acfe_categories": {
         "layout": "Layout"
     }

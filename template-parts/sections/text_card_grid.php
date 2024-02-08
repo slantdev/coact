@@ -10,11 +10,11 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
-$two_column_card = get_sub_field('two_column_card');
-$intro = $two_column_card['intro'];
+$text_card_grid = get_sub_field('text_card_grid');
+$intro = $text_card_grid['intro'];
 $headline = $intro['headline'];
 $description = $intro['description'];
-$content_cards = $two_column_card['content_cards']; // Repeater
+$text_cards = $text_card_grid['text_cards']; // Repeater
 
 ?>
 
@@ -40,43 +40,29 @@ $content_cards = $two_column_card['content_cards']; // Repeater
             <?php endif; ?>
           </div>
         <?php endif; ?>
-        <?php if ($content_cards) : ?>
-          <div class="grid grid-cols-2 gap-x-8 gap-y-12">
-            <?php foreach ($content_cards as $card) : ?>
+        <?php if ($text_cards) : ?>
+          <div class="grid grid-cols-3 gap-8">
+            <?php foreach ($text_cards as $card) : ?>
               <?php
-              $image = $card['image'];
               $title = $card['title'];
               $excerpt = $card['excerpt'];
               $link = $card['link'];
               ?>
-              <div class="relative block">
-                <?php if ($link) {
-                  echo '<a href="' . $link['url'] . '" class="block aspect-w-16 aspect-h-10 overflow-hidden rounded-2xl">';
-                } else {
-                  echo '<div class="block aspect-w-16 aspect-h-10 overflow-hidden rounded-2xl">>';
-                } ?>
-                <?php if ($image) : ?>
-                  <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" class="object-cover">
-                <?php else : ?>
-                  <div class="bg-slate-200 w-full h-full"></div>
-                <?php endif; ?>
-                <?php if ($link) {
-                  echo '</a>';
-                } else {
-                  echo '</div>';
-                } ?>
+              <div class="relative flex flex-col shadow-lg p-8 rounded-lg border border-solid border-gray-200">
                 <?php if ($title) { ?>
                   <?php if ($link) {
-                    echo '<h4 class="text-xl font-semibold my-4"><a href="' . $link['url'] . '" class="hover:underline">' . $title . '</a></h4>';
+                    echo '<h4 class="text-2xl font-semibold my-4"><a href="' . $link['url'] . '" class="hover:underline">' . $title . '</a></h4>';
                   } else {
-                    echo '<h4 class="text-xl font-semibold my-4">' . $title . '</h4>';
+                    echo '<h4 class="text-2xl font-semibold my-4">' . $title . '</h4>';
                   } ?>
                 <?php } ?>
                 <?php if ($excerpt) {
                   echo '<div>' . $excerpt . '</div>';
                 } ?>
                 <?php if ($link) {
+                  echo '<div class="mt-auto">';
                   echo '<a href="' . $link['url'] . '" class="text-brand-purple underline uppercase font-medium inline-block mt-4 hover:no-underline">' . $link['title'] . '</a>';
+                  echo '</div>';
                 } ?>
               </div>
 

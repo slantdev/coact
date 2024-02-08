@@ -17,7 +17,10 @@
   var markerImage = websiteData.urlTheme + "/assets/images/service-locator/common-location-purple.png";
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
   var searchBoxInput = document.getElementById("pac-input");
-  var searchBox = new google.maps.places.SearchBox(searchBoxInput);
+  var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
+    types: ["(regions)"],
+    componentRestrictions: { country: "au" }
+  });
   jQuery(function($) {
     function setMapHeight() {
       const site_header_height = $(".site-header").outerHeight();
@@ -584,11 +587,11 @@
       document.getElementById("service-locator").scrollIntoView({ behavior: "smooth" });
     });
     function searchSuburbListener() {
-      google.maps.event.addListener(searchBox, "places_changed", function() {
-        const place = searchBox.getPlaces()[0];
-        var address = place.formatted_address;
+      google.maps.event.addListener(searchBox, "place_changed", function() {
+        var address = $("#pac-input").val();
         var sessionObj = JSON.parse(sessionStorage.getItem("service_locator"));
         var providerJson = sessionObj.provider_data;
+        const place = searchBox.getPlace();
         if (!place.place_id) {
           return;
         }

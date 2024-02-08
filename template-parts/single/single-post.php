@@ -42,11 +42,10 @@ if ($enable_page_header) :
                 <?php if ($title) : ?>
                   <h2 class="text-4xl text-black font-bold mb-4"><?php echo $title ?></h2>
                 <?php endif; ?>
-                <?php if ($description) : ?>
-                  <div class="text-xl text-black font-medium mt-4">
-                    <?php echo $description ?>
-                  </div>
-                <?php endif; ?>
+                <?php
+                $post_date = get_the_date('d F Y');
+                echo '<div class="text-lg text-black font-medium mt-8">' . $post_date . '</div>';
+                ?>
               </div>
             </div>
           </div>
@@ -66,7 +65,157 @@ if ($enable_page_header) :
         <div class="prose max-w-none xl:prose-lg mr-auto text-left mb-6 xl:mb-8">
           <?php the_content() ?>
         </div>
+        <?php
+        $tags = get_the_tags();
+        if ($tags) {
+          echo '<div class="mt-20">';
+          echo '<strong>Tagged:</strong>&nbsp; &nbsp;';
+          $tag_links = array();
+          foreach ($tags as $tag) {
+            $tag_link = '<a href="' . esc_url(get_tag_link($tag->term_id)) . '" class="underline hover:no-underline">' . esc_html($tag->name) . '</a>';
+            $tag_links[] = $tag_link;
+          }
+          echo implode(', ', $tag_links);
+
+          echo '</div>';
+        }
+        ?>
+      </div>
+      <div class="w-full order-2 lg:w-1/3 xl:w-1/3 pt-4">
+        <div class="mb-12">
+          <h4 class="text-2xl font-semibold text-brand-sea mb-4">Post categories</h4>
+          <?php
+          $categories = get_categories(array(
+            'hide_empty' => true,
+            'orderby' => 'name',
+            'order' => 'ASC',
+          ));
+          if ($categories) {
+            echo '<ul class="flex flex-col gap-3">';
+          }
+          // Loop through each category
+          foreach ($categories as $category) {
+            echo '<li>';
+            echo '<a href="' . get_category_link($category->term_id) . '" class="text-lg hover:underline">' . $category->name . '</a>';
+
+            // Output post count after category name
+            echo ' (' . $category->count . ')';
+
+            // Add a line break after each category
+            echo '</li>';
+          }
+          if ($categories) {
+            echo '</ul>';
+          }
+          ?>
+        </div>
+        <div class="mb-12">
+          <h4 class="text-2xl font-semibold text-brand-sea mb-6">Recent posts</h4>
+          <?php
+          // Define query arguments to get the three most recent posts
+          $args = array(
+            'posts_per_page' => 3, // Number of posts to retrieve
+            'post_status' => 'publish', // Retrieve only published posts
+            'orderby' => 'date', // Order by date
+            'order' => 'DESC', // Sort in descending order (most recent first)
+          );
+
+          // Create a new query
+          $query = new WP_Query($args);
+
+          // Check if there are posts
+          if ($query->have_posts()) {
+            // Start the loop
+            while ($query->have_posts()) {
+              $query->the_post();
+          ?>
+              <div class="flex gap-x-8 mb-6">
+                <div class="w-1/3">
+                  <a href="<?php the_permalink(); ?>" class="block">
+                    <?php if (has_post_thumbnail()) { ?>
+                      <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+                        <?php the_post_thumbnail('thumbnail'); ?>
+                      </div>
+                    <?php } else { ?>
+                      <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+                        <div class="bg-slate-200"></div>
+                      </div>
+                    <?php } ?>
+                  </a>
+                </div>
+                <div class="w-2/3">
+                  <h2 class="text-lg font-semibold"><a href="<?php the_permalink(); ?>" class="hover:underline"><?php the_title(); ?></a></h2>
+                  <div class="mt-4"><?php echo get_the_date('d F Y'); ?></div>
+                </div>
+              </div>
+          <?php
+            }
+            // Restore original post data
+            wp_reset_postdata();
+          } else {
+            // If no posts found
+            echo 'No posts found.';
+          }
+          ?>
+
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="bg-brand-light-gray">
+  <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-20 pb-12 lg:pb-20 xl:pb-36">
+    <?php
+    $previous_post = get_previous_post();
+    $next_post = get_next_post();
+    if ($previous_post) {
+      echo '<div class="grid grid-cols-2 gap-x-60">';
+    ?>
+      <div>
+        <div class="text-brand-sea text-xl font-   mb-6">Previous Post</div>
+        <a href="<?php echo esc_url(get_permalink($previous_post->ID)); ?>" class="hover:underline">
+          <?php
+          $the_thumbnail = get_the_post_thumbnail_url($previous_post->ID, 'large');
+          if ($the_thumbnail) {
+            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+            echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
+            echo '</div>';
+          } else {
+            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+            echo '<div class="bg-slate-200 w-full h-full"></div>';
+            echo '</div>';
+          }
+          ?>
+          <h4 class="text-xl font-medium mt-5"><?php echo esc_html($previous_post->post_title); ?></h4>
+        </a>
+      </div>
+    <?php
+    }
+    if ($next_post) {
+    ?>
+      <div>
+        <div class="text-brand-sea text-xl font-semibold mb-6 text-right">Next Post</div>
+        <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="hover:underline">
+          <?php
+          $the_thumbnail = get_the_post_thumbnail_url($next_post->ID, 'large');
+          if ($the_thumbnail) {
+            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+            echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
+            echo '</div>';
+          } else {
+            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+            echo '<div class="bg-slate-200 w-full h-full"></div>';
+            echo '</div>';
+          }
+          ?>
+          <h4 class="text-xl font-medium mt-5"><?php echo esc_html($next_post->post_title); ?></h4>
+        </a>
+      </div>
+    <?php
+      echo '</div>';
+    }
+    ?>
+
   </div>
 </section>

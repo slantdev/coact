@@ -102,7 +102,12 @@ var markerImage =
 var centerMarkerImage =
   websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
 var searchBoxInput = document.getElementById("pac-input");
-var searchBox = new google.maps.places.SearchBox(searchBoxInput);
+//var searchBox = new google.maps.places.SearchBox(searchBoxInput);
+var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
+  types: ["(regions)"],
+  //types: ['geocode'],
+  componentRestrictions: { country: "au" },
+});
 
 /**
  * jQuery Functions
@@ -918,9 +923,9 @@ jQuery(function ($) {
     input.addEventListener = addEventListenerWrapper;
   }
 
-  // Search places based on states filter > suburb button click
   $(document).on("click", ".button-suburb", function (e) {
     //https://stackoverflow.com/questions/20407045/google-maps-trigger-search-box-on-button-click
+    //https://stackoverflow.com/questions/34502896/restricting-search-based-on-a-particular-country-in-the-google-maps-places-api
     var buttonText = $(this).text();
     $("#pac-input").val(buttonText);
 
@@ -942,20 +947,16 @@ jQuery(function ($) {
   });
 
   function searchSuburbListener() {
-    google.maps.event.addListener(searchBox, "places_changed", function () {
-      const place = searchBox.getPlaces()[0];
-      //console.log(place);
-
-      var address = place.formatted_address;
+    google.maps.event.addListener(searchBox, "place_changed", function () {
+      var address = $("#pac-input").val();
       var sessionObj = JSON.parse(sessionStorage.getItem("service_locator"));
       var providerJson = sessionObj.provider_data;
       //console.log(address);
-
+      const place = searchBox.getPlace();
       if (!place.place_id) {
         return;
       }
       $("#pac-input").val("");
-
       //console.log(providerJson);
       addToSessionStorageObject(
         "service_locator",

@@ -43,6 +43,9 @@ if (have_rows('section', $the_id)) :
     elseif (get_row_layout() == 'two_columns_cards') :
       get_template_part('template-parts/sections/two_columns_cards');
 
+    elseif (get_row_layout() == 'text_card_grid') :
+      get_template_part('template-parts/sections/text_card_grid');
+
     elseif (get_row_layout() == 'testimonials') :
       get_template_part('template-parts/sections/testimonials');
 
