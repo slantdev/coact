@@ -31,7 +31,8 @@
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.3s;
-  @apply bg-brand-sea/80 w-full h-full p-4 text-white;
+  @apply w-full h-full p-4 text-white bg-opacity-80;
+  background-color: var(--section-card-hover-bg-color);
 }
 
 .card-hover {
@@ -144,6 +145,8 @@
 .filter-content-card {
   &.filter-active {
     @apply bg-brand-sea border-brand-sea text-white;
+    background-color: var(--section-link-color);
+    border-color: var(--section-link-color);
   }
 }
 .content-cards-grid {
@@ -157,10 +160,15 @@
 .filter-button {
   &.filter-active {
     @apply bg-brand-sea border-brand-sea text-white;
+    background-color: var(--section-link-color);
+    border-color: var(--section-link-color);
   }
 }
 .filter-button-prev,
 .filter-button-next {
+  &:hover {
+    background-color: var(--section-link-color);
+  }
   &.swiper-button-disabled {
     @apply opacity-20 hover:bg-white hover:text-brand-black;
   }
@@ -176,11 +184,15 @@
     @apply flex items-center justify-end gap-x-1;
     > li {
       @apply p-2 flex w-10 h-10 justify-center items-center rounded-full cursor-pointer hover:text-brand-sea;
+      &:hover {
+        color: var(--section-link-color);
+      }
       &.inactive {
         @apply opacity-50 cursor-not-allowed;
       }
       &.selected {
         @apply bg-brand-sea text-white;
+        background-color: var(--section-link-color);
       }
       &:first-child,
       &:last-child {
@@ -195,6 +207,7 @@
     @apply p-2 flex w-10 h-10 justify-center items-center rounded-full cursor-pointer;
     &.current {
       @apply bg-brand-sea text-white;
+      background-color: var(--section-link-color);
     }
     &.prev,
     &.next {

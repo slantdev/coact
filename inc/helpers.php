@@ -163,3 +163,17 @@ function get_video_thumbnail_uri($video_uri, $max_width = 960, $max_height = 540
   //return thumbnail uri
   return $thumbnail_uri;
 }
+
+function hexToRgb($hex)
+{
+  // Remove '#' if present
+  $hex = str_replace('#', '', $hex);
+
+  // Split the hex code into R, G, B components
+  $r = hexdec(substr($hex, 0, 2));
+  $g = hexdec(substr($hex, 2, 2));
+  $b = hexdec(substr($hex, 4, 2));
+
+  // Return the RGB values as an associative array
+  return array('r' => $r, 'g' => $g, 'b' => $b);
+}

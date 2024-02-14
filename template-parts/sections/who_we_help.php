@@ -15,6 +15,11 @@ $headline = $who_we_help['headline'];
 $description = $who_we_help['description'];
 $background_ornament = $who_we_help['background_ornament'];
 $button = $who_we_help['button'];
+$button_color = $who_we_help['button_color'];
+$button_style = '';
+if ($button_color) {
+  $button_style .= 'background-color : ' . $button_color . ';';
+}
 $image_cards = $who_we_help['image_cards']; // Repeater
 ?>
 
@@ -44,7 +49,7 @@ $image_cards = $who_we_help['image_cards']; // Repeater
             <?php endif; ?>
             <?php if (isset($button['url'])) : ?>
               <div class="w-full pt-4 lg:pt-0 lg:w-1/3 lg:text-right">
-                <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200"><?php echo $button['title'] ?></a>
+                <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200" style="<?php echo $button_style ?>"><?php echo $button['title'] ?></a>
               </div>
             <?php endif; ?>
           </div>

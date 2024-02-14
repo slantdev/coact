@@ -6,6 +6,7 @@
 $section_settings = get_sub_field('section_settings') ?: [];
 $section_background_color = $section_settings['section_background_color'] ?? '';
 $section_text_color = $section_settings['section_text_color'] ?? '';
+$section_link_color = $section_settings['section_link_color'] ?? '';
 $add_section_anchor = $section_settings['add_section_anchor'] ?? false;
 $section_id = $add_section_anchor ? ($section_settings['section_id'] ?? '') : '';
 
@@ -71,6 +72,14 @@ if ($section_background_color) {
 }
 if ($section_text_color && $section_text_color !== 'default') {
   $section_style .= ' color:' . $section_text_color . ';';
+}
+if ($section_link_color) {
+  // Example usage:
+  //$hex = '#ff0000'; // Red color
+  // $rgb = hexToRgb($section_link_color);
+  // $section_link_color = 'rgb(' . $rgb["r"] . ' ' . $rgb["g"] . ' ' . $rgb["b"] . ' / var(--tw-bg-opacity))';
+  //echo 'R: ' . $rgb['r'] . ', G: ' . $rgb['g'] . ', B: ' . $rgb['b']; // Output: R: 255, G: 0, B: 0
+  $section_style .= ' --section-link-color:' . $section_link_color . ';';
 }
 
 $entrance_animation = $section_settings['animations']['entrance_animation'] ?? '';

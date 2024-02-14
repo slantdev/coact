@@ -61,7 +61,7 @@ $text_cards = $text_card_grid['text_cards']; // Repeater
                 } ?>
                 <?php if ($link) {
                   echo '<div class="mt-auto">';
-                  echo '<a href="' . $link['url'] . '" class="text-brand-purple underline uppercase font-medium inline-block mt-4 hover:no-underline">' . $link['title'] . '</a>';
+                  echo '<a href="' . $link['url'] . '" class="text-brand-purple underline uppercase font-medium inline-block mt-4 hover:no-underline" style="color: var(--section-link-color)">' . $link['title'] . '</a>';
                   echo '</div>';
                 } ?>
               </div>
