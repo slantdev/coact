@@ -606,22 +606,22 @@ function filter_coact_tv()
       } else if ($data_style == 'featured') {
         if ($count > 1 && $postCount == 1) {
           echo '<div class="col-span-2">';
-          featured_card($link, $image, $title, true);
+          featured_card($link, $image, $title, $excerpt, true);
           echo '</div>';
         } else {
           if ($count > 1 && $postCount == 2) {
             echo '<div class="col-span-1 grid grid-cols-1 gap-4">';
-            featured_card($link, $image, $title, false);
+            featured_card($link, $image, $title, $excerpt, false);
           }
           if ($count == 2 && $postCount == 2) {
             echo '</div>';
           }
           if ($count > 2 && $postCount == 3) {
-            featured_card($link, $image, $title, false);
+            featured_card($link, $image, $title, $excerpt, false);
             echo '</div>';
           }
           if ($count > 2 && $postCount > 3) {
-            featured_card($link, $image, $title, false);
+            featured_card($link, $image, $title, $excerpt, false);
           }
         }
       } else {

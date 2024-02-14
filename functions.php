@@ -67,7 +67,7 @@ function featured_card($link, $image, $title, $excerpt, $first = false)
 {
   echo '<div class="relative block">';
   if ($first) {
-    echo '<a href="' . $link . '" class="block aspect-w-16 aspect-h-9 lg:aspect-h-10 overflow-hidden rounded-lg lg:rounded-2xl group">';
+    echo '<a href="' . $link . '" class="block aspect-w-16 aspect-h-9 lg:aspect-h-11 overflow-hidden rounded-lg lg:rounded-2xl group">';
   } else {
     echo '<a href="' . $link . '" class="block aspect-w-16 aspect-h-9 overflow-hidden rounded-lg lg:rounded-2xl group">';
   }
@@ -83,12 +83,12 @@ function featured_card($link, $image, $title, $excerpt, $first = false)
   }
   echo '</a>';
   if ($first) {
-    echo '<h4 class="post-title text-base lg:text-2xl font-semibold mt-3 mb-3 lg:mt-4 lg:mb-4"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h4>';
+    echo '<h4 class="post-title text-base lg:text-2xl font-semibold mt-3 mb-2"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h4>';
   } else {
-    echo '<h4 class="post-title text-base font-semibold mt-3 mb-3 lg:mt-4 lg:mb-4"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h4>';
+    echo '<h4 class="post-title text-base font-semibold mt-3 mb-2"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h4>';
   }
   if ($excerpt) {
-    echo '<div class="text-sm">' . wp_trim_words($excerpt, 20) . '</div>';
+    echo '<div class="text-sm">' . wp_trim_words($excerpt, 10) . '</div>';
   }
   echo '</div>';
 }

@@ -9102,6 +9102,18 @@ button.link_overlay-btn {
   .lg\:aspect-h-10 {
     --tw-aspect-h: 10;
   }
+
+  .lg\:aspect-h-9 {
+    --tw-aspect-h: 9;
+  }
+
+  .lg\:aspect-h-12 {
+    --tw-aspect-h: 12;
+  }
+
+  .lg\:aspect-h-11 {
+    --tw-aspect-h: 11;
+  }
 }
 
 @media (min-width: 1280px) {
