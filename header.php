@@ -24,7 +24,7 @@
 
   <?php do_action('coact_site_before'); ?>
 
-  <div id="page" class="min-h-screen flex flex-col">
+  <div id="page" class="min-h-screen flex flex-col overflow-hidden">
 
     <?php do_action('coact_header'); ?>
 
