@@ -77,9 +77,12 @@ $icon_links = $image_text['icon_links']; // Repeater
           <?php if ($icon_links) : ?>
             <div class="flex flex-col gap-6">
               <?php foreach ($icon_links as $link) : ?>
+                <?php
+                $link_color = $link['color'];
+                ?>
                 <div class="flex gap-x-6">
-                  <div class="flex-none"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '36', 'class' => 'text-brand-purple')); ?></div>
-                  <div class="text-2xl font-medium"><a href="<?php echo $link['link']['url'] ?>" class="text-brand-purple hover:underline"><?php echo $link['link']['title'] ?></a></div>
+                  <div class="flex-none" style="color: <?php echo $link_color ?>;"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '36', 'class' => '')); ?></div>
+                  <div class="text-2xl font-medium"><a href="<?php echo $link['link']['url'] ?>" class="hover:underline" style="color: <?php echo $link_color ?>;"><?php echo $link['link']['title'] ?></a></div>
                 </div>
               <?php endforeach ?>
             </div>
