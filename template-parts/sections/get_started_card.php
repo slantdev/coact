@@ -125,6 +125,21 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
                           $title = get_the_title($post_id);
                           $permalink = get_the_permalink($post_id);
                           $image = get_the_post_thumbnail_url($post_id, 'large');
+                          if (get_post_type($post_id) == 'service') {
+                            $service_images = get_field('service_images', $post_id);
+                            $page_banner_image = $service_images['page_banner_image'];
+                            $card_image = $service_images['card_image'];
+                            //preint_r($service_images);
+                            if ($card_image) {
+                              $image = $card_image['url'];
+                            } else {
+                              if ($page_banner_image) {
+                                $image = $page_banner_image['url'];
+                              } else {
+                                $image = get_the_post_thumbnail_url($post_id, 'large');
+                              }
+                            }
+                          }
                           $excerpt = get_the_excerpt($post_id);
                           ?>
                           <a href="<?php echo $permalink; ?>" class="card-hover block h-full rounded-lg md:rounded-xl bg-slate-100 relative overflow-hidden cursor-pointer shadow-md">

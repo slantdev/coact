@@ -20,6 +20,12 @@ if ($enable_page_header) :
 
   $enable_breadcrumbs = true;
 
+  $service_images = get_field('service_images');
+  $page_banner_image = $service_images['page_banner_image'];
+  if ($page_banner_image) {
+    $background_image = $page_banner_image['url'];
+  }
+
 ?>
   <section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
     <div class="max-w-screen-5xl px-4 mx-auto">

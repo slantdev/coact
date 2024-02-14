@@ -107,6 +107,7 @@ function output_megamenu($megamenu_items)
       <div class="flex">
         <?php
         $menu_heading = isset($megamenu_items['menu_heading']) ? $megamenu_items['menu_heading'] : '';
+        $menu_heading_link = isset($megamenu_items['menu_heading_link']) ? $megamenu_items['menu_heading_link'] : '';
         $menu_description = isset($megamenu_items['menu_description']) ? $megamenu_items['menu_description'] : '';
         $menu_background = isset($megamenu_items['menu_background']) ? 'background-color:' . $megamenu_items['menu_background'] . ';' : '';
         $menu_cta_button = isset($megamenu_items['menu_cta_button']) ? $megamenu_items['menu_cta_button'] : [];
@@ -117,7 +118,15 @@ function output_megamenu($megamenu_items)
         <div class="w-1/4 p-12 bg-brand-sea" <?= $menu_heading_style ?>>
           <?php
           if (!empty($menu_heading)) {
-            echo '<h4 class="text-[34px] font-bold text-white">' . esc_html($menu_heading) . '</h4>';
+            echo '<h4 class="text-[34px] font-bold text-white">';
+            if (isset($menu_heading_link['url'])) {
+              echo '<a href="' . $menu_heading_link['url'] . '" class="hover:underline">';
+            }
+            echo esc_html($menu_heading);
+            if (isset($menu_heading_link['url'])) {
+              echo '</a>';
+            }
+            echo '</h4>';
           }
           if (!empty($menu_description)) {
             echo '<div class="mt-6 text-white text-lg">' . esc_html($menu_description) . '</div>';
