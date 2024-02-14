@@ -1,4 +1,4 @@
-<div class="main-nav--div relative flex pt-3 items-center">
+<div class="main-nav--div relative hidden xl:flex pt-3 px-4 items-center">
   <?php
   $current_post_id = get_queried_object_id();
   $post_ancestors = get_post_ancestors($current_post_id);

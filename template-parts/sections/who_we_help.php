@@ -25,13 +25,13 @@ $image_cards = $who_we_help['image_cards']; // Repeater
     <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto">
       <?php if ($background_ornament) : ?>
-        <div class="absolute top-0 left-0 rounded-full bg-brand-yellow w-[528px] h-[528px] -translate-y-[20%] -translate-x-1/2"></div>
+        <div class="absolute top-0 left-0 rounded-full bg-brand-yellow w-[320px] h-[320px] lg:w-[528px] lg:h-[528px] -translate-y-[10%] lg:-translate-y-[20%] -translate-x-1/2"></div>
       <?php endif; ?>
       <div class="relative z-10 <?php echo $entrance_animation_class ?>">
         <div>
           <?php if ($headline) : ?>
             <div class="not-prose">
-              <h3 class="mb-4 xl:mb-8 text-left text-4xl font-bold"><?php echo $headline ?></h3>
+              <h3 class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"><?php echo $headline ?></h3>
             </div>
           <?php endif; ?>
           <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24 pb-12">
@@ -43,14 +43,14 @@ $image_cards = $who_we_help['image_cards']; // Repeater
               </div>
             <?php endif; ?>
             <?php if (isset($button['url'])) : ?>
-              <div class="w-full lg:w-1/3 text-right">
+              <div class="w-full pt-4 lg:pt-0 lg:w-1/3 lg:text-right">
                 <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200"><?php echo $button['title'] ?></a>
               </div>
             <?php endif; ?>
           </div>
         </div>
         <?php if ($image_cards) : ?>
-          <div class="grid grid-cols-3 gap-5">
+          <div class="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
             <?php foreach ($image_cards as $card) : ?>
               <?php
               $image = $card['image'];
@@ -61,7 +61,7 @@ $image_cards = $who_we_help['image_cards']; // Repeater
                 <?php if (isset($link['url'])) : ?>
                   <a href="<?php echo $link['url'] ?>" class="block hover:[&_img]:scale-110">
                   <?php endif; ?>
-                  <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-2xl">
+                  <div class="aspect-w-16 aspect-h-10 overflow-hidden rounded-lg lg:rounded-2xl">
                     <?php if ($image) : ?>
                       <img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt'] ?>" class="object-cover transition duration-300">
                     <?php else : ?>
@@ -70,8 +70,8 @@ $image_cards = $who_we_help['image_cards']; // Repeater
                   </div>
                   <?php if ($label) : ?>
                     <div class="absolute bottom-0 left-0 right-0">
-                      <div class="mb-4 ml-4">
-                        <div class="inline-block bg-white rounded-lg py-3 px-4 font-bold"><?php echo $label ?></div>
+                      <div class="mb-4 ml-4 mr-4">
+                        <div class="inline-block bg-white rounded lg:rounded-lg py-2 px-3 lg:py-3 lg:px-4 text-sm lg:text-base font-bold"><?php echo $label ?></div>
                       </div>
                     </div>
                   <?php endif; ?>

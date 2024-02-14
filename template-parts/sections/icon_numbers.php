@@ -20,7 +20,7 @@ $icon_numbers = $icon_numbers['icon_numbers']; // Repeater
 if ($icon_numbers) :
 
   $grid_count = count($icon_numbers);
-  $grid_class = 'grid grid-cols-' . $grid_count . ' divide-x';
+  $grid_class = 'grid grid-cols-1 gap-y-8 md:grid-cols-' . $grid_count . ' md:divide-x';
 
 ?>
 
@@ -51,17 +51,17 @@ if ($icon_numbers) :
                 <?php if ($svg_icon || $image_icon) : ?>
                   <div class="mb-4" style="<?php echo $color_style ?>">
                     <?php if ($svg_icon) {
-                      echo coact_icon(array('icon' => $svg_icon, 'group' => 'content', 'size' => '96', 'class' => 'mx-auto'));
+                      echo coact_icon(array('icon' => $svg_icon, 'group' => 'content', 'size' => '96', 'class' => 'w-20 h-20 md:w-24 md:h-24 mx-auto'));
                     } else if ($image_icon) {
                       echo '<img src="' . $image_icon['url'] . '" />';
                     } ?>
                   </div>
                 <?php endif; ?>
                 <?php if ($number) : ?>
-                  <div class="text-6xl font-bold mb-4" style="<?php echo $color_style ?>"><?php echo (!empty($prefix)) ? $prefix : ''; ?><?php echo '<span class="counterNumber">' . number_format($number) . '</span>' ?><?php echo (!empty($suffix)) ? $suffix : ''; ?></div>
+                  <div class="text-4xl md:text-6xl font-bold mb-3 md:mb-4" style="<?php echo $color_style ?>"><?php echo (!empty($prefix)) ? $prefix : ''; ?><?php echo '<span class="counterNumber">' . number_format($number) . '</span>' ?><?php echo (!empty($suffix)) ? $suffix : ''; ?></div>
                 <?php endif; ?>
                 <?php if ($label) : ?>
-                  <div class="text-2xl font-medium"><?php echo $label ?></div>
+                  <div class="text-lg md:text-2xl font-medium"><?php echo $label ?></div>
                 <?php endif; ?>
               </div>
             <?php endforeach; ?>

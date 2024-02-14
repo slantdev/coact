@@ -32,10 +32,10 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
         <?php if ($headline) : ?>
           <div class="max-w-screen-lg mx-auto text-center z-[1]">
             <div class="not-prose">
-              <h3 class="mb-4 xl:mb-8 text-center text-4xl font-bold"><?php echo $headline ?></h3>
+              <h3 class="mb-4 xl:mb-8 text-center text-2xl md:text-4xl font-bold"><?php echo $headline ?></h3>
             </div>
             <?php if ($description) : ?>
-              <div class="mt-6 text-lg font-medium"><?php echo $description ?></div>
+              <div class="mt-6 text-base md:text-lg font-medium"><?php echo $description ?></div>
             <?php endif; ?>
           </div>
         <?php endif; ?>
@@ -46,7 +46,7 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
       ?>
         <div class="content-cards-filter-<?php echo $content_cards_id ?> relative container max-w-screen-xxl mx-auto">
           <div class="px-12 lg:px-14 relative -mx-2 lg:-mx-0">
-            <div class="swiper mt-10 px-2 pt-2 pb-4">
+            <div class="swiper mt-6 md:mt-10 px-2 pt-2 pb-4">
               <div class="swiper-wrapper filter-buttons">
 
                 <?php foreach ($content_cards as $key => $card) : ?>
@@ -104,7 +104,7 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
             });
           </script>
         </div>
-        <div class="content-cards-grid-<?php echo $content_cards_id ?> relative mt-10">
+        <div class="content-cards-grid-<?php echo $content_cards_id ?> relative mt-6 md:mt-10">
           <?php foreach ($content_cards as $key => $card) : ?>
             <?php
             if ($card) :
@@ -127,7 +127,7 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
                           $image = get_the_post_thumbnail_url($post_id, 'large');
                           $excerpt = get_the_excerpt($post_id);
                           ?>
-                          <a href="<?php echo $permalink; ?>" class="card-hover block h-full rounded-xl bg-slate-100 relative overflow-hidden cursor-pointer shadow-md">
+                          <a href="<?php echo $permalink; ?>" class="card-hover block h-full rounded-lg md:rounded-xl bg-slate-100 relative overflow-hidden cursor-pointer shadow-md">
                             <div class="aspect-w-1 aspect-h-1">
                               <?php if ($image) : ?>
                                 <img class="card-image object-center object-cover" src="<?php echo $image; ?>">
@@ -152,15 +152,15 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
                   </div>
                   <div class="absolute left-0 -bottom-16 right-0">
                     <div class="container max-w-screen-3xl mx-auto">
-                      <div class="swiper-pagination text-center relative [&>.swiper-pagination-bullet]:rounded-sm" style="--swiper-pagination-bullet-height:6px;--swiper-pagination-bullet-width:80px;--swiper-pagination-bullet-inactive-color:#E2E2E2;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
+                      <div class="swiper-pagination text-center relative [&>.swiper-pagination-bullet]:rounded-sm [&>.swiper-pagination-bullet]:w-10 md:[&>.swiper-pagination-bullet]:w-20" style="--swiper-pagination-bullet-height:6px;--swiper-pagination-bullet-inactive-color:#E2E2E2;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
                     </div>
                   </div>
                   <div class="swiper-button-prev left-0 lg:left-4 after:content-['prev'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
                   <div class="swiper-button-next right-0 lg:right-4 after:content-['next'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
                   <script>
                     new Swiper('.content-card-<?php echo $key; ?> .swiper', {
-                      slidesPerView: 3,
-                      spaceBetween: 36,
+                      slidesPerView: 1,
+                      spaceBetween: 16,
                       loop: false,
                       watchOverflow: true,
                       centerInsufficientSlides: true,
@@ -171,6 +171,20 @@ $content_cards = $get_started_cards['content_cards']; // Repeater
                       pagination: {
                         el: ".content-card-<?php echo $key; ?> .swiper-pagination",
                         clickable: true,
+                      },
+                      breakpoints: {
+                        640: {
+                          slidesPerView: 2,
+                          spaceBetween: 16,
+                        },
+                        768: {
+                          slidesPerView: 2,
+                          spaceBetween: 16,
+                        },
+                        1024: {
+                          slidesPerView: 3,
+                          spaceBetween: 32,
+                        },
                       },
                     });
                   </script>

@@ -68,7 +68,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
         <div class="w-full order-1 lg:w-2/3 xl:w-1/2 pt-10">
           <?php if ($subscribe_heading) : ?>
             <div class="not-prose">
-              <h3 class="mb-8 xl:mb-8 text-left text-[48px] leading-tight font-bold text-white"><?php echo $subscribe_heading ?></h3>
+              <h3 class="mb-6 xl:mb-8 text-left text-3xl lg:text-5xl font-bold text-white"><?php echo $subscribe_heading ?></h3>
             </div>
           <?php endif ?>
           <?php if ($subscribe_form_shortcode) : ?>
@@ -392,7 +392,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
 <section class="bg-brand-light-gray">
   <div class="relative container max-w-screen-xxl mx-auto py-16">
     <?php if ($columns) : ?>
-      <div class="grid grid-cols-<?php echo $column_count ?> gap-12">
+      <div class="grid grid-cols-1 lg:grid-cols-<?php echo $column_count ?> gap-10 lg:gap-12">
         <?php foreach ($columns as $column) : ?>
           <div>
             <?php
@@ -420,14 +420,14 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
   </div>
 </section>
 
-<div class="bg-brand-black py-28">
+<div class="bg-brand-black py-14 lg:py-28">
   <div class="mx-auto max-w-screen-4xl px-4 relative">
-    <div class="flex gap-x-24">
-      <div class="w-1/4">
+    <div class="flex flex-col md:flex-row md:gap-x-24">
+      <div class="w-full md:w-1/4 pb-6 lg:pb-0">
         <?php if ($logo) : ?>
-          <a href="<?php echo site_url() ?>"><img src="<?php echo $logo['url'] ?>" alt="CoAct" class="h-[128px] w-auto"></a>
+          <a href="<?php echo site_url() ?>"><img src="<?php echo $logo['url'] ?>" alt="CoAct" class="h-24 lg:h-[128px] w-auto"></a>
         <?php else : ?>
-          <a href="<?php echo site_url() ?>"><img src="<?php echo coact_asset('images/logo/logo-coact-white.svg') ?>" alt="CoAct" class="h-[128px] w-auto"></a>
+          <a href="<?php echo site_url() ?>"><img src="<?php echo coact_asset('images/logo/logo-coact-white.svg') ?>" alt="CoAct" class="h-24 lg:h-[128px] w-auto"></a>
         <?php endif; ?>
         <div class="text-white mt-6">
           <?php if ($address_heading) : ?>
@@ -446,16 +446,16 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-3 gap-x-16">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-x-16">
         <div class="px-6 relative">
           <div class="h-28 w-px bg-brand-sea absolute top-0 left-0"></div>
           <?php if ($popular_heading) : ?>
-            <h5 class="text-brand-sea font-bold text-2xl mb-4"><?php echo $popular_heading ?></h5>
+            <h5 class="text-brand-sea font-bold text-xl md:text-2xl mb-4"><?php echo $popular_heading ?></h5>
           <?php endif; ?>
           <?php if ($popular_links) : ?>
             <ul class="flex flex-col gap-3 text-white">
               <?php foreach ($popular_links as $link) : ?>
-                <li class="">
+                <li class="text-sm lg:text-base">
                   <?php if ($link['link']) : ?>
                     <div><a href="<?php echo $link['link']['url'] ?>" class="hover:underline"><?php echo $link['link']['title'] ?></a></div>
                   <?php endif; ?>
@@ -467,12 +467,12 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
         <div class="px-6 relative">
           <div class="h-28 w-px bg-brand-sea absolute top-0 left-0"></div>
           <?php if ($connect_heading) : ?>
-            <h5 class="text-brand-sea font-bold text-2xl mb-4"><?php echo $connect_heading ?></h5>
+            <h5 class="text-brand-sea font-bold text-xl md:text-2xl mb-4"><?php echo $connect_heading ?></h5>
           <?php endif; ?>
           <?php if ($connect_links) : ?>
             <ul class="flex flex-col gap-3 text-white">
               <?php foreach ($connect_links as $link) : ?>
-                <li class="flex gap-x-4">
+                <li class="flex gap-x-4 text-sm lg:text-base">
                   <?php if ($link['icon']) : ?>
                     <div class="flex-none"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
                   <?php endif; ?>
@@ -487,12 +487,12 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
         <div class="px-6 relative">
           <div class="h-28 w-px bg-brand-sea absolute top-0 left-0"></div>
           <?php if ($quick_links_heading) : ?>
-            <h5 class="text-brand-sea font-bold text-2xl mb-4"><?php echo $quick_links_heading ?></h5>
+            <h5 class="text-brand-sea font-bold text-xl md:text-2xl mb-4"><?php echo $quick_links_heading ?></h5>
           <?php endif; ?>
           <?php if ($quick_links_links) : ?>
             <ul class="flex flex-col gap-3 text-white">
               <?php foreach ($quick_links_links as $link) : ?>
-                <li class="">
+                <li class="text-sm lg:text-base">
                   <?php if ($link['link']) : ?>
                     <div><a href="<?php echo $link['link']['url'] ?>" class="hover:underline"><?php echo $link['link']['title'] ?></a></div>
                   <?php endif; ?>
@@ -510,10 +510,10 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
   <div class="mx-auto max-w-screen-4xl px-4 py-4 relative">
     <div class="flex justify-between text-white">
       <?php if ($copyright_site_name) : ?>
-        <div class="font-bold">&copy; <?php echo date('Y') ?> <?php echo $copyright_site_name ?></div>
+        <div class="text-sm md:text-base font-bold">&copy; <?php echo date('Y') ?> <?php echo $copyright_site_name ?></div>
       <?php endif ?>
       <?php if ($copyright_site_name) : ?>
-        <div>
+        <div class="text-sm md:text-base">
           <?php foreach ($copyright_links as $link) : ?>
             <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="hover:underline font-semibold"><?php echo $link['link']['title'] ?></a>
           <?php endforeach ?>

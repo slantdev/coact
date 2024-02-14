@@ -63,11 +63,11 @@ $icon_links = $image_text['icon_links']; // Repeater
           <?php if ($background_ornament) : ?>
             <?php if ($image_column_position == 'right') : ?>
               <div class="absolute top-0 -right-1/2 translate-x-[15%] scale-x-[-1]">
-                <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[660px] h-auto')); ?>
+                <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[380px] lg:w-[660px] h-auto')); ?>
               </div>
             <?php else : ?>
               <div class="absolute top-0 -left-1/2 -translate-x-[15%]">
-                <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[660px] h-auto')); ?>
+                <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[380px] lg:w-[660px] h-auto')); ?>
               </div>
             <?php endif ?>
           <?php endif; ?>
@@ -86,19 +86,19 @@ $icon_links = $image_text['icon_links']; // Repeater
           <?php endif; ?>
         </div>
 
-        <div class="w-full lg:w-2/3 xl:w-3/5 pt-6 <?php echo $column_text_class ?>">
+        <div class="relative z-10 w-full lg:w-2/3 xl:w-3/5 pt-6 <?php echo $column_text_class ?>">
           <?php if ($headline) : ?>
             <div class="not-prose">
-              <h3 class="mb-8 xl:mb-12 text-left text-4xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
+              <h3 class="mb-8 xl:mb-12 text-left text-3xl lg:text-4xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
             </div>
           <?php endif; ?>
           <?php if ($lead_text) : ?>
-            <div class="prose prose-xl max-w-none font-medium mb-6">
+            <div class="prose prose-lg lg:prose-xl max-w-none font-medium mb-6">
               <?php echo $lead_text ?>
             </div>
           <?php endif; ?>
           <?php if ($content) : ?>
-            <div class="prose max-w-none xl:prose-lg mr-auto text-left mb-6 xl:mb-8">
+            <div class="prose max-w-none lg:prose-lg mr-auto text-left mb-6 xl:mb-8">
               <?php echo $content ?>
             </div>
           <?php endif; ?>

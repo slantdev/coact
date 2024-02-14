@@ -39,10 +39,10 @@ $section_ornament = $column_settings['section_ornament'];
     <div class="container mx-auto animation-wrapper">
       <div class="max-w-screen-lg mx-auto text-center z-[1] <?php echo $entrance_animation_class ?>">
         <?php if ($headline) : ?>
-          <h3 class="text-black text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
+          <h3 class="text-black text-2xl md:text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
         <?php endif; ?>
         <?php if ($description) : ?>
-          <div class="mt-6 text-lg font-medium"><?php echo $description ?></div>
+          <div class="mt-6 text-base md:text-lg font-medium"><?php echo $description ?></div>
         <?php endif; ?>
         <?php get_template_part('template-parts/components/components', '', array('field' => $components)); ?>
       </div>

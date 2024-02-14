@@ -25,14 +25,14 @@ $logo_gallery = $logo_carousel['logo_gallery'];
     <div class="<?php echo $entrance_animation_class ?>">
       <div class="relative container max-w-screen-xxl mx-auto">
         <?php if ($headline || $description) : ?>
-          <div class="text-center max-w-prose mx-auto mb-14">
+          <div class="text-center max-w-prose mx-auto lg:mb-14">
             <?php if ($headline) : ?>
               <div class="not-prose">
-                <h3 class="mb-8 xl:mb-12 text-4xl font-bold"><?php echo $headline ?></h3>
+                <h3 class="mb-8 xl:mb-12 text-3xl lg:text-4xl font-bold"><?php echo $headline ?></h3>
               </div>
             <?php endif; ?>
             <?php if ($description) : ?>
-              <div class="prose prose-xl max-w-none font-medium mb-6">
+              <div class="prose prose-lg lg:prose-xl max-w-none font-medium mb-6">
                 <?php echo $description ?>
               </div>
             <?php endif; ?>
@@ -43,8 +43,8 @@ $logo_gallery = $logo_carousel['logo_gallery'];
         <?php
         $carousel_id = uniqid('carousel-');
         ?>
-        <div class="py-6 lg:py-0 mt-20 container mx-auto">
-          <div id="<?php echo $carousel_id ?>" class="swiper px-24" style="--swiper-navigation-color: #45C2BF; --swiper-navigation-size: 24px">
+        <div class="py-6 lg:py-0 mt-6 lg:mt-20 container mx-auto">
+          <div id="<?php echo $carousel_id ?>" class="swiper px-12 lg:px-24" style="--swiper-navigation-color: #45C2BF; --swiper-navigation-size: 24px">
             <div class="swiper-wrapper items-center">
               <?php foreach ($logo_gallery as $logo) : ?>
                 <div class="swiper-slide">
@@ -59,8 +59,8 @@ $logo_gallery = $logo_carousel['logo_gallery'];
           </div>
           <script>
             new Swiper("#<?php echo $carousel_id ?>", {
-              slidesPerView: "1",
-              spaceBetween: 16,
+              slidesPerView: "2",
+              spaceBetween: 24,
               watchOverflow: true,
               centerInsufficientSlides: true,
               breakpoints: {

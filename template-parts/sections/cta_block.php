@@ -35,10 +35,10 @@ $button = $cta_block['button'];
         </div>
       <?php endif; ?>
       <?php if ($headline || $description) : ?>
-        <div class="w-full order-2 lg:w-2/3 xl:w-3/5 pt-10">
+        <div class="w-full order-2 lg:w-2/3 xl:w-3/5 lg:pt-10">
           <?php if ($headline) : ?>
             <div class="not-prose">
-              <h3 class="mb-8 xl:mb-8 text-left text-[48px] font-bold text-white"><?php echo $headline ?></h3>
+              <h3 class="mb-6 lg:mb-8 text-left text-4xl lg:text-5xl font-bold text-white"><?php echo $headline ?></h3>
             </div>
           <?php endif; ?>
           <?php if ($description) : ?>

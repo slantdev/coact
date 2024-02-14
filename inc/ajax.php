@@ -82,7 +82,7 @@ function pagination_load_posts()
 
     $count = $count->post_count;
     if ($all_blog_posts->have_posts()) {
-      echo '<div class="grid grid-cols-3 gap-8">';
+      echo '<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">';
       while ($all_blog_posts->have_posts()) {
         $all_blog_posts->the_post();
         $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
@@ -93,7 +93,7 @@ function pagination_load_posts()
         if ($card_style == 'card') {
           shadow_card($link, $image, $title, $excerpt);
         } else if ($card_style == 'featured') {
-          featured_card($link, $image, $title);
+          featured_card($link, $image, $title, $excerpt);
         } else {
           plain_card($link, $image, $title, $excerpt);
         }
@@ -244,7 +244,7 @@ function pagination_load_coact_tv()
     if ($all_blog_posts->have_posts()) {
       $postCount = 0;
       //echo $count;
-      echo '<div class="grid grid-cols-3 gap-8">';
+      echo '<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">';
       while ($all_blog_posts->have_posts()) {
         $postCount++;
         $all_blog_posts->the_post();
@@ -260,23 +260,23 @@ function pagination_load_coact_tv()
           shadow_card($link, $image, $title, $excerpt);
         } else if ($card_style == 'featured') {
           if ($count > 1 && $postCount == 1) {
-            echo '<div class="col-span-2">';
-            featured_card($link, $image, $title, true);
+            echo '<div class="lg:col-span-2">';
+            featured_card($link, $image, $title, $excerpt, true);
             echo '</div>';
           } else {
             if ($count > 1 && $postCount == 2) {
-              echo '<div class="col-span-1 grid grid-cols-1 gap-4">';
-              featured_card($link, $image, $title, false);
+              echo '<div class="lg:col-span-1 grid grid-cols-1 gap-4">';
+              featured_card($link, $image, $title, $excerpt, false);
             }
             if ($count == 2 && $postCount == 2) {
               echo '</div>';
             }
             if ($count > 2 && $postCount == 3) {
-              featured_card($link, $image, $title, false);
+              featured_card($link, $image, $title, $excerpt, false);
               echo '</div>';
             }
             if ($count > 2 && $postCount > 3) {
-              featured_card($link, $image, $title, false);
+              featured_card($link, $image, $title, $excerpt, false);
             }
           }
         } else {
@@ -496,7 +496,7 @@ function filter_posts()
   $response = '';
 
   if ($ajaxposts->have_posts()) {
-    echo '<div class="grid grid-cols-3 gap-8">';
+    echo '<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">';
     while ($ajaxposts->have_posts()) {
       $ajaxposts->the_post();
       $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
@@ -507,7 +507,7 @@ function filter_posts()
       if ($data_style == 'card') {
         shadow_card($link, $image, $title, $excerpt);
       } else if ($data_style == 'featured') {
-        featured_card($link, $image, $title);
+        featured_card($link, $image, $title, $excerpt);
       } else {
         plain_card($link, $image, $title, $excerpt);
       }
@@ -589,7 +589,7 @@ function filter_coact_tv()
   if ($ajaxposts->have_posts()) {
     $postCount = 0;
     //echo $count;
-    echo '<div class="grid grid-cols-3 gap-8">';
+    echo '<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">';
     while ($ajaxposts->have_posts()) {
       $postCount++;
       $ajaxposts->the_post();
