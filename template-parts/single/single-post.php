@@ -22,7 +22,7 @@ if ($enable_page_header) :
 
 ?>
   <section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
-    <div class="max-w-screen-5xl px-4 mx-auto">
+    <div class="max-w-screen-5xl px-4 mx-auto 4xl:px-8">
       <div class="aspect-w-16 aspect-h-5 rounded-3xl overflow-hidden">
         <div class="bg-zinc-300 w-full h-full">
           <?php if ($background_image) : ?>

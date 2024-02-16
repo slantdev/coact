@@ -244,18 +244,17 @@ function pagination_load_coact_tv()
     if ($all_blog_posts->have_posts()) {
       $postCount = 0;
       //echo $count;
-      echo '<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">';
+      echo '<div class="grid grid-cols-1 gap-4">';
       while ($all_blog_posts->have_posts()) {
         $postCount++;
         $all_blog_posts->the_post();
         $id = get_the_ID();
-        //$image = get_the_post_thumbnail_url($id, 'large');
+        $image = get_the_post_thumbnail_url($id, 'large');
         $title =  get_the_title();
         $video_uri = get_post_meta($id, 'video_embed', true);
-        $date =  get_the_date();
-        $image = get_video_thumbnail_uri($video_uri);
         $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
         $link = get_the_permalink();
+
         if ($card_style == 'card') {
           shadow_card($link, $image, $title, $excerpt);
         } else if ($card_style == 'featured') {
@@ -309,6 +308,167 @@ function pagination_load_coact_tv()
       // Pagination Buttons logic
     ?>
       <div class='posts-pagination mt-10 pt-4 border-t border-slate-200'>
+        <ul>
+          <?php if ($first_btn && $cur_page > 1) { ?>
+            <li data-page='1' class='active'>&laquo;</li>
+          <?php } else if ($first_btn) { ?>
+            <li data-page='1' class='inactive'>&laquo;</li>
+          <?php } ?>
+          <?php if ($previous_btn && $cur_page > 1) {
+            $pre = $cur_page - 1;
+          ?>
+            <li data-page='<?php echo $pre; ?>' class='active'>&lsaquo;</li>
+          <?php } else if ($previous_btn) { ?>
+            <li class='inactive p-2'>&lsaquo;</li>
+          <?php } ?>
+          <?php for ($i = $start_loop; $i <= $end_loop; $i++) {
+            if ($cur_page == $i) {
+          ?>
+              <li data-page='<?php echo $i; ?>' class='selected'><?php echo $i; ?></li>
+            <?php } else { ?>
+              <li data-page='<?php echo $i; ?>' class='active'><?php echo $i; ?></li>
+          <?php }
+          } ?>
+          <?php if ($next_btn && $cur_page < $no_of_paginations) {
+            $nex = $cur_page + 1; ?>
+            <li data-page='<?php echo $nex; ?>' class='active'>&rsaquo;</li>
+          <?php } else if ($next_btn) { ?>
+            <li class='inactive'>&rsaquo;</li>
+          <?php } ?>
+          <?php if ($last_btn && $cur_page < $no_of_paginations) { ?>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='active'>&raquo;</li>
+          <?php } else if ($last_btn) { ?>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive'>&raquo;</li>
+          <?php } ?>
+        </ul>
+      </div>
+    <?php
+    endif;
+  }
+  exit();
+}
+
+// Load Jobs
+add_action('wp_ajax_pagination_load_jobs', 'pagination_load_jobs');
+add_action('wp_ajax_nopriv_pagination_load_jobs', 'pagination_load_jobs');
+function pagination_load_jobs()
+{
+  global $wpdb;
+  // Set default variables
+  $msg = '';
+  if (isset($_POST['page'])) {
+    // Sanitize the received page
+    $page = sanitize_text_field($_POST['page']);
+    $per_page = sanitize_text_field($_POST['per_page']);
+    $pagination = sanitize_text_field($_POST['pagination']);
+    $card_style = sanitize_text_field($_POST['card_style']);
+    $terms = sanitize_text_field($_POST['terms']);
+    $terms = json_decode(stripslashes($terms));
+    $cur_page = $page;
+    $page -= 1;
+    $previous_btn = true;
+    $next_btn = true;
+    $first_btn = true;
+    $last_btn = true;
+    $start = $page * $per_page;
+
+    if ($terms) {
+      $all_blog_posts = new WP_Query(
+        array(
+          'post_type'         => 'job',
+          'post_status '      => 'publish',
+          'orderby'           => 'post_date',
+          'order'             => 'DESC',
+          'posts_per_page'    => $per_page,
+          'offset'            => $start,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'position-type',
+              'field' => 'id',
+              'terms' => $terms,
+            ),
+          ),
+        )
+      );
+      $count = new WP_Query(
+        array(
+          'post_type'         => 'job',
+          'post_status '      => 'publish',
+          'posts_per_page'    => -1,
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'position-type',
+              'field' => 'id',
+              'terms' => $terms,
+            ),
+          ),
+        )
+      );
+    } else {
+      $all_blog_posts = new WP_Query(
+        array(
+          'post_type'         => 'job',
+          'post_status '      => 'publish',
+          'orderby'           => 'post_date',
+          'order'             => 'DESC',
+          'posts_per_page'    => $per_page,
+          'offset'            => $start
+        )
+      );
+      $count = new WP_Query(
+        array(
+          'post_type'         => 'job',
+          'post_status '      => 'publish',
+          'posts_per_page'    => -1
+        )
+      );
+    }
+
+    $count = $count->post_count;
+    if ($all_blog_posts->have_posts()) {
+      echo '<div class="grid grid-cols-1 gap-4">';
+      while ($all_blog_posts->have_posts()) {
+        $all_blog_posts->the_post();
+        $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
+        $title =  get_the_title();
+        $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
+        $link = get_the_permalink();
+        echo '<div class="border-b border-solid border-slate-200 py-6">';
+        echo '<h3 class="text-2xl font-medium"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h3>';
+        echo '<div class="flex items-center gap-8 pt-4">';
+        echo '<div class="w-full lg:w-3/4">' . $excerpt . '</div>';
+        echo '<div class="w-full pt-4 lg:pt-0 lg:w-1/4 lg:text-right">
+              <a href="' . $link . '" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-lg lg:px-8 lg:py-3 bg-brand-orange text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View Details</a>
+            </div>';
+        echo '</div>';
+        echo '</div>';
+      }
+      echo '</div>';
+    }
+
+    if ($pagination) :
+      // Paginations
+      $no_of_paginations = ceil($count / $per_page);
+      if ($cur_page >= 7) {
+        $start_loop = $cur_page - 3;
+        if ($no_of_paginations > $cur_page + 3)
+          $end_loop = $cur_page + 3;
+        else if ($cur_page <= $no_of_paginations && $cur_page > $no_of_paginations - 6) {
+          $start_loop = $no_of_paginations - 6;
+          $end_loop = $no_of_paginations;
+        } else {
+          $end_loop = $no_of_paginations;
+        }
+      } else {
+        $start_loop = 1;
+        if ($no_of_paginations > 7)
+          $end_loop = 7;
+        else
+          $end_loop = $no_of_paginations;
+      }
+      // Pagination Buttons logic
+    ?>
+      <div class='ajax-pagination mt-10 pt-4'>
         <ul>
           <?php if ($first_btn && $cur_page > 1) { ?>
             <li data-page='1' class='active'>&laquo;</li>
