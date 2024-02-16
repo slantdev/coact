@@ -244,17 +244,18 @@ function pagination_load_coact_tv()
     if ($all_blog_posts->have_posts()) {
       $postCount = 0;
       //echo $count;
-      echo '<div class="grid grid-cols-1 gap-4">';
+      echo '<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">';
       while ($all_blog_posts->have_posts()) {
         $postCount++;
         $all_blog_posts->the_post();
         $id = get_the_ID();
-        $image = get_the_post_thumbnail_url($id, 'large');
+        //$image = get_the_post_thumbnail_url($id, 'large');
         $title =  get_the_title();
         $video_uri = get_post_meta($id, 'video_embed', true);
+        $date =  get_the_date();
+        $image = get_video_thumbnail_uri($video_uri);
         $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
         $link = get_the_permalink();
-
         if ($card_style == 'card') {
           shadow_card($link, $image, $title, $excerpt);
         } else if ($card_style == 'featured') {
