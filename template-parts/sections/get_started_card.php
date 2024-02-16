@@ -23,7 +23,7 @@ $headline = $intro['headline'];
 $description = $intro['description'];
 $content_cards = $get_started_cards['content_cards']; // Repeater
 $content_cards_count = count($content_cards);
-preint_r($content_cards_count);
+//preint_r($content_cards_count);
 
 
 ?>

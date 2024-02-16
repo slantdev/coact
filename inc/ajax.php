@@ -20,6 +20,8 @@ function pagination_load_posts()
     $card_style = sanitize_text_field($_POST['card_style']);
     $terms = sanitize_text_field($_POST['terms']);
     $terms = json_decode(stripslashes($terms));
+    $tags = sanitize_text_field($_POST['tags']);
+    $tags = json_decode(stripslashes($tags));
     $cur_page = $page;
     $page -= 1;
     $previous_btn = true;
@@ -29,37 +31,83 @@ function pagination_load_posts()
     $start = $page * $per_page;
 
     if ($terms) {
-      $all_blog_posts = new WP_Query(
-        array(
-          'post_type'         => 'post',
-          'post_status '      => 'publish',
-          'orderby'           => 'post_date',
-          'order'             => 'DESC',
-          'posts_per_page'    => $per_page,
-          'offset'            => $start,
-          'tax_query' => array(
-            array(
-              'taxonomy' => 'category',
-              'field' => 'id',
-              'terms' => $terms,
+      if (!empty($tags)) {
+        $all_blog_posts = new WP_Query(
+          array(
+            'post_type'         => 'post',
+            'post_status '      => 'publish',
+            'orderby'           => 'post_date',
+            'order'             => 'DESC',
+            'posts_per_page'    => $per_page,
+            'offset'            => $start,
+            'tax_query' => array(
+              'relation' => 'AND',
+              array(
+                'taxonomy' => 'category',
+                'field' => 'id',
+                'terms' => $terms,
+              ),
+              array(
+                'taxonomy' => 'post_tag',
+                'field' => 'id',
+                'terms' => $tags,
+              ),
             ),
-          ),
-        )
-      );
-      $count = new WP_Query(
-        array(
-          'post_type'         => 'post',
-          'post_status '      => 'publish',
-          'posts_per_page'    => -1,
-          'tax_query' => array(
-            array(
-              'taxonomy' => 'category',
-              'field' => 'id',
-              'terms' => $terms,
+          )
+        );
+        $count = new WP_Query(
+          array(
+            'post_type'         => 'post',
+            'post_status '      => 'publish',
+            'posts_per_page'    => -1,
+            'tax_query' => array(
+              'relation' => 'AND',
+              array(
+                'taxonomy' => 'category',
+                'field' => 'id',
+                'terms' => $terms,
+              ),
+              array(
+                'taxonomy' => 'post_tag',
+                'field' => 'id',
+                'terms' => $tags,
+              ),
             ),
-          ),
-        )
-      );
+          )
+        );
+      } else {
+        $all_blog_posts = new WP_Query(
+          array(
+            'post_type'         => 'post',
+            'post_status '      => 'publish',
+            'orderby'           => 'post_date',
+            'order'             => 'DESC',
+            'posts_per_page'    => $per_page,
+            'offset'            => $start,
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'category',
+                'field' => 'id',
+                'terms' => $terms,
+              ),
+            ),
+          )
+        );
+        $count = new WP_Query(
+          array(
+            'post_type'         => 'post',
+            'post_status '      => 'publish',
+            'posts_per_page'    => -1,
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'category',
+                'field' => 'id',
+                'terms' => $terms,
+              ),
+            ),
+          )
+        );
+      }
     } else {
       $all_blog_posts = new WP_Query(
         array(
