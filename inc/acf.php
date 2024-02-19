@@ -3,37 +3,37 @@
 function coact_acf_init()
 {
   if (function_exists('get_field')) {
-    acf_add_options_page(array(
-      'menu_slug' => 'site_settings',
-      'page_title' => 'Site Settings',
-      'active' => true,
-      'menu_title' => 'Site Settings',
-      'capability' => 'edit_posts',
-      'parent_slug' => '',
-      'position' => '',
-      'icon_url' => '',
-      'redirect' => true,
-      'post_id' => 'options',
-      'autoload' => false,
-      'update_button' => 'Update',
-      'updated_message' => 'Options Updated',
-    ));
+    // acf_add_options_page(array(
+    //   'menu_slug' => 'site_settings',
+    //   'page_title' => 'Site Settings',
+    //   'active' => true,
+    //   'menu_title' => 'Site Settings',
+    //   'capability' => 'edit_posts',
+    //   'parent_slug' => '',
+    //   'position' => '',
+    //   'icon_url' => '',
+    //   'redirect' => true,
+    //   'post_id' => 'options',
+    //   'autoload' => false,
+    //   'update_button' => 'Update',
+    //   'updated_message' => 'Options Updated',
+    // ));
 
-    acf_add_options_page(array(
-      'menu_slug' => 'theme_settings',
-      'page_title' => 'Theme Settings',
-      'active' => true,
-      'menu_title' => 'Theme Settings',
-      'capability' => 'edit_posts',
-      'parent_slug' => 'site_settings',
-      'position' => '',
-      'icon_url' => '',
-      'redirect' => true,
-      'post_id' => 'options',
-      'autoload' => false,
-      'update_button' => 'Update',
-      'updated_message' => 'Options Updated',
-    ));
+    // acf_add_options_page(array(
+    //   'menu_slug' => 'theme_settings',
+    //   'page_title' => 'Theme Settings',
+    //   'active' => true,
+    //   'menu_title' => 'Theme Settings',
+    //   'capability' => 'edit_posts',
+    //   'parent_slug' => 'site_settings',
+    //   'position' => '',
+    //   'icon_url' => '',
+    //   'redirect' => true,
+    //   'post_id' => 'options',
+    //   'autoload' => false,
+    //   'update_button' => 'Update',
+    //   'updated_message' => 'Options Updated',
+    // ));
     if (defined('GOOGLE_MAPS_API')) {
       acf_update_setting('google_api_key', GOOGLE_MAPS_API);
     }
