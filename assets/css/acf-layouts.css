@@ -9004,6 +9004,16 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (min-width: 1280px) {
+  .xl\:my-5 {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .xl\:my-6 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
   .xl\:mb-0 {
     margin-bottom: 0px;
   }
