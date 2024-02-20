@@ -166,6 +166,7 @@ $posts_grid_id = uniqid();
             if (select_category) {
               terms = JSON.stringify(select_category);
             }
+            tags = '';
             if (select_tag) {
               tags = JSON.stringify(select_tag);
             }
