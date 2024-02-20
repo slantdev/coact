@@ -6524,6 +6524,14 @@ body {
 }
 
 @media (min-width: 1280px) {
+  .xl\:left-8 {
+    left: 2rem;
+  }
+
+  .xl\:right-8 {
+    right: 2rem;
+  }
+
   .xl\:my-5 {
     margin-top: 1.25rem;
     margin-bottom: 1.25rem;

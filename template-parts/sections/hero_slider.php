@@ -16,7 +16,7 @@ $hero_slider = get_sub_field('hero_slider');
 
 if ($hero_slider) : ?>
   <section class="relative bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
-    <div class="max-w-screen-5xl px-4 4xl:px-12 mx-auto <?php echo $entrance_animation_class ?>">
+    <div class="max-w-screen-5xl px-4 4xl:px-8 mx-auto <?php echo $entrance_animation_class ?>">
       <div id="hero-slider" class="swiper relative rounded-xl md:rounded-2xl lg:rounded-3xl">
         <div class="swiper-wrapper">
           <?php foreach ($hero_slider as $slide) : ?>
@@ -79,8 +79,8 @@ if ($hero_slider) : ?>
             <div class="swiper-pagination text-left relative" style="--swiper-pagination-bullet-size:12px;--swiper-pagination-bullet-inactive-color:#fff;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
           </div>
         </div>
-        <div class="swiper-button-prev hidden md:block left-0 lg:left-4 after:content-['prev'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
-        <div class="swiper-button-next hidden md:block right-0 lg:right-4 after:content-['next'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
+        <div class="swiper-button-prev hidden md:block left-0 lg:left-4 xl:left-8 after:content-['prev'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
+        <div class="swiper-button-next hidden md:block right-0 lg:right-4 xl:right-8 after:content-['next'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
       </div>
       <script>
         const swiper = new Swiper('#hero-slider', {
