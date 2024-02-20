@@ -10,6 +10,7 @@ $partners_logo = $header_logo['partners_logo'];
 <header class="site-header bg-brand-light-gray relative z-40">
   <div class="hidden lg:block bg-brand-sea h-6"></div>
   <div class="mx-auto max-w-screen-4xl relative">
+
     <div class="lg:absolute lg:right-0 lg:px-4">
       <div class="block lg:flex">
         <div class="hidden lg:block rounded-tr-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
@@ -39,7 +40,10 @@ $partners_logo = $header_logo['partners_logo'];
         <div class="hidden lg:block rounded-tl-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
       </div>
     </div>
-    <div class="px-4 py-4 lg:py-8 flex items-center justify-center lg:justify-normal">
+    <div class="px-4 py-4 lg:py-8 flex items-center justify-between lg:justify-normal">
+      <button class="menu-open-btn xl:hidden">
+        <?php echo coact_icon(array('icon' => 'menu', 'group' => 'utilities', 'size' => '24', 'class' => 'w-7 h-7')); ?>
+      </button>
       <?php if ($site_logo) : ?>
         <a href="<?php echo site_url() ?>"><img src="<?php echo $site_logo['url'] ?>" alt="CoAct" class="h-20 lg:h-[100px] w-auto"></a>
       <?php else : ?>
@@ -53,6 +57,9 @@ $partners_logo = $header_logo['partners_logo'];
           <?php endforeach ?>
         </div>
       <?php endif; ?>
+      <button class="menu-search-btn xl:hidden">
+        <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>
+      </button>
     </div>
     <?php get_template_part('template-parts/components/megamenu'); ?>
   </div>

@@ -1,4 +1,9 @@
-<div class="main-nav--div relative hidden xl:flex pt-3 px-4 items-center">
+<div class="main-nav--div">
+  <div class="menu-close-wrapper">
+    <button class="menu-close-btn">
+      <?php echo coact_icon(array('icon' => 'close', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>
+    </button>
+  </div>
   <?php
   $current_post_id = get_queried_object_id();
   $post_ancestors = get_post_ancestors($current_post_id);
@@ -6,7 +11,7 @@
 
   if ($menu_items) :
   ?>
-    <ul class="main-nav--ul flex justify-between grow">
+    <ul class="main-nav--ul">
       <?php foreach ($menu_items as $menu_id => $menu) :
         $menu_item = $menu['menu_item'];
         $submenu_type = $menu['submenu_type'];
@@ -24,8 +29,11 @@
           $link_class = get_menu_link_class($current_post_id, $link_post_id, $post_ancestors, $megamenu_items, $dropdown_menu_items);
 
           // Output menu item
-          echo '<li class="' . $li_class . '">
-                <a href="' . esc_url($menu_url) . '" target="' . esc_attr($menu_item['target']) . '" data-id="' . esc_attr($link_post_id) . '" class="' . esc_attr($link_class) . '">' . esc_html($menu_item['title']) . '</a>';
+          echo '<li class="' . $li_class . '">';
+          echo '<a href="' . esc_url($menu_url) . '" target="' . esc_attr($menu_item['target']) . '" data-id="' . esc_attr($link_post_id) . '" class="' . esc_attr($link_class) . '">' . esc_html($menu_item['title']) . '</a>';
+          echo '<button class="menu-right-btn">';
+          echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 -rotate-90'));
+          echo '</button>';
 
           // Output submenu if exists
           if ($submenu_type == 'megamenu' && $megamenu_items) {
@@ -40,10 +48,10 @@
     </ul>
   <?php endif; ?>
 
-  <div class="flex-none pl-16 pb-3 ml-auto">
+  <div class="flex-none border-t border-solid border-slate-200 px-4 py-6 mt-4 xl:border-0 xl:pl-16 xl:pr-0 xl:pt-0 xl:pb-3 xl:mt-0 xl:ml-auto">
     <div class="relative">
       <form action="#" class="relative">
-        <input type="text" placeholder="Search Website" class="w-64 border-none shadow-inner rounded-full bg-white px-6 py-3">
+        <input type="text" placeholder="Search Website" class="w-auto xl:w-64 border-none shadow-inner rounded-full bg-white px-6 py-3">
         <button class="absolute right-4 top-3"><?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea')); ?></button>
       </form>
     </div>
@@ -103,67 +111,72 @@ function output_megamenu($megamenu_items)
   }
 ?>
   <div class="mega-menu" tabindex="0">
-    <div class="bg-white shadow-xl">
-      <div class="flex">
-        <?php
-        $menu_heading = isset($megamenu_items['menu_heading']) ? $megamenu_items['menu_heading'] : '';
-        $menu_heading_link = isset($megamenu_items['menu_heading_link']) ? $megamenu_items['menu_heading_link'] : '';
-        $menu_description = isset($megamenu_items['menu_description']) ? $megamenu_items['menu_description'] : '';
-        $menu_background = isset($megamenu_items['menu_background']) ? 'background-color:' . $megamenu_items['menu_background'] . ';' : '';
-        $menu_cta_button = isset($megamenu_items['menu_cta_button']) ? $megamenu_items['menu_cta_button'] : [];
-        $submenu_group = isset($megamenu_items['submenu_group']) ? $megamenu_items['submenu_group'] : [];
+    <div class="menu-back-wrapper">
+      <button class="menu-back-btn">
+        <?php echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 rotate-90')); ?><span class="text-sm font-semibold">Back</span>
+      </button>
+    </div>
+    <div class="mega-menu--wrapper">
+      <?php
+      $menu_heading = isset($megamenu_items['menu_heading']) ? $megamenu_items['menu_heading'] : '';
+      $menu_heading_link = isset($megamenu_items['menu_heading_link']) ? $megamenu_items['menu_heading_link'] : '';
+      $menu_description = isset($megamenu_items['menu_description']) ? $megamenu_items['menu_description'] : '';
+      $menu_background = isset($megamenu_items['menu_background']) ? 'background-color:' . $megamenu_items['menu_background'] . ';' : '';
+      $menu_cta_button = isset($megamenu_items['menu_cta_button']) ? $megamenu_items['menu_cta_button'] : [];
+      $submenu_group = isset($megamenu_items['submenu_group']) ? $megamenu_items['submenu_group'] : [];
 
-        $menu_heading_style = $menu_background ? 'style="' . esc_attr($menu_background) . '"' : '';
+      $menu_heading_style = $menu_background ? 'style="' . esc_attr($menu_background) . '"' : '';
+      ?>
+      <div class="mega-menu--col-header" <?= $menu_heading_style ?>>
+        <?php
+        if (!empty($menu_heading)) {
+          echo '<h4 class="col-header--heading">';
+          if (isset($menu_heading_link['url'])) {
+            echo '<a href="' . $menu_heading_link['url'] . '" class="hover:underline">';
+          }
+          echo esc_html($menu_heading);
+          if (isset($menu_heading_link['url'])) {
+            echo '</a>';
+          }
+          echo '</h4>';
+        }
+        if (!empty($menu_description)) {
+          echo '<div class="col-header--desc">' . esc_html($menu_description) . '</div>';
+        }
+        if (!empty($menu_cta_button['button_link']['url'])) {
+          echo '<div class="col-header--button"><a href="' . esc_url($menu_cta_button['button_link']['url']) . '" class="col-header--btn">';
+          if (!empty($menu_cta_button['button_icon'])) {
+            echo coact_icon(array('icon' => $menu_cta_button['button_icon'], 'group' => 'content', 'size' => '16', 'class' => 'mx-auto'));
+          }
+          echo esc_html($menu_cta_button['button_link']['title']) . '</a></div>';
+        }
         ?>
-        <div class="w-1/4 p-12 bg-brand-sea" <?= $menu_heading_style ?>>
-          <?php
-          if (!empty($menu_heading)) {
-            echo '<h4 class="text-[34px] font-bold text-white">';
-            if (isset($menu_heading_link['url'])) {
-              echo '<a href="' . $menu_heading_link['url'] . '" class="hover:underline">';
+      </div>
+      <div class="mega-menu--col-content">
+        <?php
+        if (!empty($submenu_group)) {
+          echo '<div class="col-content--grid">';
+          foreach ($submenu_group as $submenu) {
+            $submenu_heading = isset($submenu['submenu_heading']) ? $submenu['submenu_heading'] : '';
+            $submenu_items = isset($submenu['submenu_items']) ? $submenu['submenu_items'] : [];
+            echo '<div>';
+            if (!empty($submenu_heading)) {
+              echo '<h4 class="col-content--heading">' . esc_html($submenu_heading) . '</h4>';
             }
-            echo esc_html($menu_heading);
-            if (isset($menu_heading_link['url'])) {
-              echo '</a>';
-            }
-            echo '</h4>';
-          }
-          if (!empty($menu_description)) {
-            echo '<div class="mt-6 text-white text-lg">' . esc_html($menu_description) . '</div>';
-          }
-          if (!empty($menu_cta_button['button_link']['url'])) {
-            echo '<div class="mt-6"><a href="' . esc_url($menu_cta_button['button_link']['url']) . '" class="inline-flex items-center gap-x-3 py-2 px-6 rounded-full bg-white shadow-md font-medium hover:shadow-lg transition duration-300 cursor-pointer">';
-            if (!empty($menu_cta_button['button_icon'])) {
-              echo coact_icon(array('icon' => $menu_cta_button['button_icon'], 'group' => 'content', 'size' => '16', 'class' => 'mx-auto'));
-            }
-            echo esc_html($menu_cta_button['button_link']['title']) . '</a></div>';
-          }
-          ?>
-        </div>
-        <div class="w-3/4 p-12 bg-white">
-          <?php
-          if (!empty($submenu_group)) {
-            echo '<div class="grid lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 gap-12">';
-            foreach ($submenu_group as $submenu) {
-              $submenu_heading = isset($submenu['submenu_heading']) ? $submenu['submenu_heading'] : '';
-              $submenu_items = isset($submenu['submenu_items']) ? $submenu['submenu_items'] : [];
-              echo '<div>';
-              if (!empty($submenu_heading)) {
-                echo '<h4 class="text-xl font-bold text-brand-sea mb-4">' . esc_html($submenu_heading) . '</h4>';
-              }
-              if (!empty($submenu_items)) {
-                foreach ($submenu_items as $item) {
-                  if (!empty($item['submenu_link']['url'])) {
-                    echo '<ul><li><a href="' . esc_url($item['submenu_link']['url']) . '" target="' . esc_attr($item['submenu_link']['target']) . '" class="block text-[15px] hover:underline cursor-pointer py-1.5">' . esc_html($item['submenu_link']['title']) . '</a></li></ul>';
-                  }
+            if (!empty($submenu_items)) {
+              echo '<ul>';
+              foreach ($submenu_items as $item) {
+                if (!empty($item['submenu_link']['url'])) {
+                  echo '<li><a href="' . esc_url($item['submenu_link']['url']) . '" target="' . esc_attr($item['submenu_link']['target']) . '" class="col-content--link">' . esc_html($item['submenu_link']['title']) . '</a></li>';
                 }
               }
-              echo '</div>';
+              echo '</ul>';
             }
             echo '</div>';
           }
-          ?>
-        </div>
+          echo '</div>';
+        }
+        ?>
       </div>
     </div>
   </div>
@@ -177,7 +190,12 @@ function output_dropdown_menu($dropdown_menu_items)
   }
 ?>
   <div class="dropdown-menu" tabindex="0">
-    <div class="p-2 bg-white min-w-[200px]">
+    <div class="menu-back-wrapper">
+      <button class="menu-back-btn">
+        <?php echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 rotate-90')); ?><span class="text-sm font-semibold">Back</span>
+      </button>
+    </div>
+    <div class="dropdown-wrapper">
       <ul>
         <?php foreach ($dropdown_menu_items as $item) : ?>
           <?php
@@ -186,7 +204,7 @@ function output_dropdown_menu($dropdown_menu_items)
             continue;
           }
           ?>
-          <li><a href="<?php echo esc_url($submenu_link['url']); ?>" target="<?php echo esc_attr($submenu_link['target']); ?>" class="block py-2 px-3 rounded text-base leading-snug hover:bg-slate-100"><?php echo esc_html($submenu_link['title']); ?></a></li>
+          <li><a href="<?php echo esc_url($submenu_link['url']); ?>" target="<?php echo esc_attr($submenu_link['target']); ?>" class=""><?php echo esc_html($submenu_link['title']); ?></a></li>
         <?php endforeach; ?>
       </ul>
     </div>

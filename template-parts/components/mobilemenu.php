@@ -1,4 +1,4 @@
-<div class="mobile-nav--div fixed bg-white top-0 left-0 bottom-0 p-4 w-60 z-50">
+<div class="mobile-nav--div fixed bg-white top-0 left-0 bottom-0 w-60 z-50">
   <?php
   $current_post_id = get_queried_object_id();
   $post_ancestors = get_post_ancestors($current_post_id);
@@ -6,7 +6,7 @@
 
   if ($menu_items) :
   ?>
-    <div class="mobile-nav--ul flex flex-col">
+    <div class="mobile-nav--ul flex flex-col py-4">
       <?php foreach ($menu_items as $menu_id => $menu) :
         $menu_item = $menu['menu_item'];
         $submenu_type = $menu['submenu_type'];
@@ -15,7 +15,7 @@
         $li_class = '';
 
         if ($submenu_type && ($megamenu_items || $dropdown_menu_items)) {
-          $li_class = 'collapse collapse-arrow border border-base-300 bg-base-200';
+          $li_class = 'has_submenu';
         }
 
         if ($menu_item) :
@@ -24,7 +24,7 @@
           $link_class = get_mobilemenu_link_class($current_post_id, $link_post_id, $post_ancestors, $megamenu_items, $dropdown_menu_items);
 
           // Output menu item
-          echo '<div tabindex="0" class="' . $li_class . '">
+          echo '<div tabindex="0" class="px-4 py-2 ' . $li_class . '">
                 <a href="' . esc_url($menu_url) . '" target="' . esc_attr($menu_item['target']) . '" data-id="' . esc_attr($link_post_id) . '" class="' . esc_attr($link_class) . '">' . esc_html($menu_item['title']) . '</a>';
 
           // Output submenu if exists

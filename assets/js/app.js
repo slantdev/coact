@@ -51,5 +51,25 @@
         observer.observe(i);
       }
     });
+    $(".menu-open-btn").click(function(e) {
+      e.preventDefault();
+      $(".main-nav--div").addClass("open");
+      $("body").addClass("overflow-hidden");
+    });
+    $(".menu-close-btn").click(function(e) {
+      e.preventDefault();
+      $(".main-nav--div").removeClass("open");
+      $("body").removeClass("overflow-hidden");
+    });
+    $(".menu-right-btn").click(function(e) {
+      e.preventDefault();
+      $(this).siblings(".mega-menu").addClass("active");
+      $(this).siblings(".dropdown-menu").addClass("active");
+    });
+    $(".menu-back-btn").click(function(e) {
+      e.preventDefault();
+      $(this).parents(".mega-menu").removeClass("active");
+      $(this).parents(".dropdown-menu").removeClass("active");
+    });
   });
 })();
