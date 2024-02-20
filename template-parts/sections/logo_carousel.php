@@ -14,6 +14,7 @@ $logo_carousel = get_sub_field('logo_carousel'); // Group
 $headline = $logo_carousel['headline'];
 $description = $logo_carousel['description'];
 $logo_gallery = $logo_carousel['logo_gallery'];
+$logo_link = $logo_carousel['logo_link']; // Repeater
 
 ?>
 
@@ -39,7 +40,7 @@ $logo_gallery = $logo_carousel['logo_gallery'];
           </div>
         <?php endif; ?>
       </div>
-      <?php if ($logo_gallery) : ?>
+      <?php if ($logo_link) : ?>
         <?php
         $carousel_id = uniqid('carousel-');
         ?>
@@ -47,12 +48,26 @@ $logo_gallery = $logo_carousel['logo_gallery'];
           <div class="relative" style="--swiper-navigation-color: #45C2BF; --swiper-navigation-size: 24px">
             <div id="<?php echo $carousel_id ?>" class="swiper mx-12 lg:px-24">
               <div class="swiper-wrapper items-center">
-                <?php foreach ($logo_gallery as $logo) : ?>
-                  <div class="swiper-slide">
-                    <div class="flex flex-col items-center justify-center">
-                      <img class="w-full h-full object-contain max-h-[100px]" src="<?php echo esc_url($logo['url']); ?>" />
+                <?php foreach ($logo_link as $logo) : ?>
+                  <?php
+                  $logo_image = isset($logo['logo_image']) ? $logo['logo_image'] : '';
+                  $logo_link = isset($logo['logo_link']) ? $logo['logo_link'] : '';
+                  if ($logo_image) :
+                  ?>
+                    <div class="swiper-slide">
+                      <div class="flex flex-col items-center justify-center">
+                        <?php
+                        if ($logo_link) {
+                          echo '<a href="' . $logo_link . '" target="_blank">';
+                        } ?>
+                        <img class="w-full h-full object-contain max-h-[100px]" src="<?php echo esc_url($logo_image['url']); ?>" />
+                        <?php
+                        if ($logo_link) {
+                          echo '</a>';
+                        } ?>
+                      </div>
                     </div>
-                  </div>
+                  <?php endif; ?>
                 <?php endforeach; ?>
               </div>
             </div>
