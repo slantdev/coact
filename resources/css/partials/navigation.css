@@ -26,13 +26,13 @@
 }
 .mega-menu {
   @apply absolute top-0 left-0 bottom-0 w-64 overflow-y-auto z-40 translate-x-full transition-all duration-500;
-  @apply xl:absolute xl:top-16 xl:left-0 xl:right-0 xl:bottom-auto xl:w-full xl:z-50 xl:invisible xl:opacity-0 xl:translate-x-0 xl:-translate-y-8;
+  @apply xl:absolute xl:top-16 xl:left-0 xl:right-0 xl:bottom-auto xl:w-full xl:z-50 xl:invisible xl:opacity-0 xl:translate-x-0 xl:-translate-y-8 xl:overflow-visible;
   &.active {
     @apply translate-x-0;
   }
   .mega-menu--wrapper {
     @apply bg-white;
-    @apply xl:flex xl:mx-4 4xl:mx-8 xl:shadow-lg xl:overflow-hidden xl:rounded-3xl;
+    @apply xl:flex xl:mx-4 4xl:-mx-11 xl:shadow-lg xl:overflow-hidden xl:rounded-3xl;
   }
   .mega-menu--col-header {
     @apply p-4;
