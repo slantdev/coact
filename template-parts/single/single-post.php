@@ -168,49 +168,65 @@ if ($enable_page_header) :
   <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-20 pb-12 lg:pb-20 xl:pb-36">
     <?php
     $previous_post = get_previous_post();
+    $previous_post_link = get_permalink($previous_post->ID);
     $next_post = get_next_post();
+    $next_post_link = get_permalink($next_post->ID);
     if ($previous_post) {
-      echo '<div class="grid grid-cols-2 gap-x-60">';
+      echo '<div class="grid grid-cols-2 divide-x divide-slate-300">';
     ?>
-      <div>
-        <div class="text-brand-sea text-xl font-   mb-6">Previous Post</div>
-        <a href="<?php echo esc_url(get_permalink($previous_post->ID)); ?>" class="hover:underline">
-          <?php
-          $the_thumbnail = get_the_post_thumbnail_url($previous_post->ID, 'large');
-          if ($the_thumbnail) {
-            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
-            echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
-            echo '</div>';
-          } else {
-            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
-            echo '<div class="bg-slate-200 w-full h-full"></div>';
-            echo '</div>';
-          }
-          ?>
-          <h4 class="text-xl font-medium mt-5"><?php echo esc_html($previous_post->post_title); ?></h4>
-        </a>
+      <div class="flex justify-start">
+        <div class="max-w-md">
+          <div class="mb-8 flex justify-start">
+            <a class="flex gap-x-3 items-center text-brand-sea text-xl font-semibold" href="<?php echo esc_url($previous_post_link); ?>">
+              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-6 h-6 rotate-180 text-brand-sea')); ?>
+              <span class="inline-block py-2 border-b border-solid border-brand-sea">Previous post</span>
+            </a>
+          </div>
+          <a href="<?php echo esc_url($previous_post_link); ?>" class="hover:underline">
+            <?php
+            $the_thumbnail = get_the_post_thumbnail_url($previous_post->ID, 'large');
+            if ($the_thumbnail) {
+              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
+              echo '</div>';
+            } else {
+              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<div class="bg-slate-200 w-full h-full"></div>';
+              echo '</div>';
+            }
+            ?>
+            <h4 class="text-xl font-medium mt-5"><?php echo esc_html($previous_post->post_title); ?></h4>
+          </a>
+        </div>
       </div>
     <?php
     }
     if ($next_post) {
     ?>
-      <div>
-        <div class="text-brand-sea text-xl font-semibold mb-6 text-right">Next Post</div>
-        <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="hover:underline">
-          <?php
-          $the_thumbnail = get_the_post_thumbnail_url($next_post->ID, 'large');
-          if ($the_thumbnail) {
-            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
-            echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
-            echo '</div>';
-          } else {
-            echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
-            echo '<div class="bg-slate-200 w-full h-full"></div>';
-            echo '</div>';
-          }
-          ?>
-          <h4 class="text-xl font-medium mt-5"><?php echo esc_html($next_post->post_title); ?></h4>
-        </a>
+      <div class="flex justify-end">
+        <div class="max-w-md">
+          <div class="mb-8 flex justify-end">
+            <a class="flex gap-x-3 items-center text-brand-sea text-xl font-semibold" href="<?php echo esc_url($next_post_link); ?>">
+              <span class="inline-block py-2 border-b border-solid border-brand-sea">Next post</span>
+              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-6 h-6 text-brand-sea')); ?>
+            </a>
+          </div>
+          <a href="<?php echo esc_url($next_post_link); ?>" class="hover:underline">
+            <?php
+            $the_thumbnail = get_the_post_thumbnail_url($next_post->ID, 'large');
+            if ($the_thumbnail) {
+              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
+              echo '</div>';
+            } else {
+              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<div class="bg-slate-200 w-full h-full"></div>';
+              echo '</div>';
+            }
+            ?>
+            <h4 class="text-xl font-medium mt-5"><?php echo esc_html($next_post->post_title); ?></h4>
+          </a>
+        </div>
       </div>
     <?php
       echo '</div>';
