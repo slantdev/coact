@@ -24,7 +24,7 @@ if ($button_color) {
   $button_style .= 'background-color : ' . $button_color . ';';
 }
 $select_category = $posts_grid['select_category'];
-$select_tag = $posts_grid['select_tag'];
+$select_tag = isset($posts_grid['select_tag']) ? $posts_grid['select_tag'] : '';
 $card_style = $posts_grid['card_style'];
 $posts_per_page = $posts_grid['posts_per_page'];
 $show_pagination = $posts_grid['show_pagination'];
