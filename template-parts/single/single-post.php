@@ -23,28 +23,30 @@ if ($enable_page_header) :
 ?>
   <section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
     <div class="max-w-screen-5xl px-4 mx-auto 4xl:px-8">
-      <div class="aspect-w-16 aspect-h-5 rounded-3xl overflow-hidden">
+      <div class="relative rounded-lg xl:aspect-w-16 xl:aspect-h-6 xl:rounded-3xl overflow-hidden">
         <div class="bg-zinc-300 w-full h-full">
           <?php if ($background_image) : ?>
-            <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image; ?>" alt="">
+            <div class="absolute inset-0">
+              <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image['url'] ?>" alt="">
+            </div>
           <?php endif; ?>
           <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
-          <div class="absolute inset-0 flex items-center p-12">
+          <div class="relative z-10 px-4 py-8 xl:absolute xl:inset-0 xl:flex xl:items-center xl:p-12">
             <div class="container max-w-screen-xxl mx-auto">
               <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
                 <?php if ($enable_breadcrumbs) : ?>
                   <?php
                   if (function_exists('yoast_breadcrumb')) {
-                    yoast_breadcrumb('<div class="breadcrumbs mb-10 text-black">', '</div>');
+                    yoast_breadcrumb('<div class="breadcrumbs text-sm lg:text-base mb-8 xl:mb-16">', '</div>');
                   }
                   ?>
                 <?php endif; ?>
                 <?php if ($title) : ?>
-                  <h2 class="text-4xl text-black font-bold mb-4"><?php echo $title ?></h2>
+                  <h2 class="text-xl xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
                 <?php endif; ?>
                 <?php
                 $post_date = get_the_date('d F Y');
-                echo '<div class="text-lg text-black font-medium mt-8">' . $post_date . '</div>';
+                echo '<div class="text-base lg:text-lg text-black font-medium mt-8">' . $post_date . '</div>';
                 ?>
               </div>
             </div>
@@ -60,7 +62,7 @@ if ($enable_page_header) :
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
       <div class="w-full order-1 lg:w-2/3 xl:w-2/3 pt-4">
         <div class="not-prose">
-          <h2 class="mb-8 xl:mb-12 text-left text-3xl font-bold"><?php echo get_the_title() ?></h2>
+          <h2 class="text-2xl mb-8 xl:mb-12 text-left lg:text-3xl font-bold"><?php echo get_the_title() ?></h2>
         </div>
         <div class="prose max-w-none xl:prose-lg mr-auto text-left mb-6 xl:mb-8">
           <?php the_content() ?>

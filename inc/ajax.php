@@ -475,7 +475,7 @@ function pagination_load_jobs()
 
     $count = $count->post_count;
     if ($all_blog_posts->have_posts()) {
-      echo '<div class="grid grid-cols-1 gap-4">';
+      echo '<div class="grid grid-cols-1 lg:gap-4">';
       while ($all_blog_posts->have_posts()) {
         $all_blog_posts->the_post();
         $image = get_the_post_thumbnail_url(get_the_ID(), 'large');
@@ -483,9 +483,9 @@ function pagination_load_jobs()
         $excerpt = wp_trim_words(get_the_excerpt(), $num_words = 30, $more = null);
         $link = get_the_permalink();
         echo '<div class="border-b border-solid border-slate-200 py-6">';
-        echo '<h3 class="text-2xl font-medium"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h3>';
-        echo '<div class="flex items-center gap-8 pt-4">';
-        echo '<div class="w-full lg:w-3/4">' . $excerpt . '</div>';
+        echo '<h3 class="text-xl lg:text-2xl font-medium"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h3>';
+        echo '<div class="flex flex-col lg:flex-row lg:items-center lg:gap-8 pt-4">';
+        echo '<div class="w-full lg:w-3/4 text-sm lg:text-base">' . $excerpt . '</div>';
         echo '<div class="w-full pt-4 lg:pt-0 lg:w-1/4 lg:text-right">
               <a href="' . $link . '" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-lg lg:px-8 lg:py-3 bg-brand-orange text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View Details</a>
             </div>';

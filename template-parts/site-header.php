@@ -10,7 +10,6 @@ $partners_logo = $header_logo['partners_logo'];
 <header class="site-header bg-brand-light-gray relative z-40">
   <div class="hidden lg:block bg-brand-sea h-6"></div>
   <div class="mx-auto max-w-screen-4xl relative">
-
     <div class="lg:absolute lg:right-0 lg:px-4">
       <div class="block lg:flex">
         <div class="hidden lg:block rounded-tr-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>

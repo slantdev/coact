@@ -31,15 +31,15 @@ $testimonials_id = uniqid('testimonials-');
         <div class="text-center max-w-prose mx-auto mb-14">
           <?php if ($headline) : ?>
             <div class="not-prose">
-              <h3 class="mb-8 xl:mb-12 text-4xl font-bold"><?php echo $headline ?></h3>
+              <h3 class="mb-6 xl:mb-12 text-2xl xl:text-4xl font-bold"><?php echo $headline ?></h3>
             </div>
           <?php endif; ?>
           <?php if ($description) : ?>
-            <div class="mt-6 text-lg font-medium"><?php echo $description ?></div>
+            <div class="mt-6 text-base xl:text-lg font-medium"><?php echo $description ?></div>
           <?php endif; ?>
         </div>
         <?php if ($dynamic_custom == 'custom' && $choose_testimonial) : ?>
-          <div id="<?php echo $testimonials_id ?>" class="testimonial-swiper relative pb-20">
+          <div id="<?php echo $testimonials_id ?>" class="testimonial-swiper relative pb-16 xl:pb-20">
             <div class="swiper container max-w-screen-lg mx-auto">
               <div class="swiper-wrapper">
                 <?php foreach ($choose_testimonial as $testimony) : ?>
@@ -49,10 +49,10 @@ $testimonials_id = uniqid('testimonials-');
                   ?>
                   <div class="swiper-slide text-center">
                     <?php if ($testimonial_text) {
-                      echo '<div class="text-brand-purple text-3xl font-bold" style="color: var(--section-link-color)">' . $testimonial_text . '</div>';
+                      echo '<div class="text-brand-purple text-lg xl:text-3xl font-bold" style="color: var(--section-link-color)">' . $testimonial_text . '</div>';
                     } ?>
                     <?php if ($testimonial_title) {
-                      echo '<div class="mt-6 text-lg font-bold">' . $testimonial_title . '</div>';
+                      echo '<div class="mt-6 text-base xl:text-lg font-bold">' . $testimonial_title . '</div>';
                     } ?>
                   </div>
                 <?php endforeach; ?>
@@ -63,8 +63,8 @@ $testimonials_id = uniqid('testimonials-');
                 <div class="swiper-pagination text-center relative [&>.swiper-pagination-bullet]:rounded-full" style="--swiper-pagination-bullet-height:12px;--swiper-pagination-bullet-width:12px;--swiper-pagination-bullet-inactive-color:#E2E2E2;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:var(--section-link-color);--swiper-pagination-bullet-inactive-opacity:1;"></div>
               </div>
             </div>
-            <div class="swiper-button-prev left-0 lg:left-8 after:content-['prev'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full"></div>
-            <div class="swiper-button-next right-0 lg:right-8 after:content-['next'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full"></div>
+            <div class="swiper-button-prev -left-4 lg:left-8 after:content-['prev'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full"></div>
+            <div class="swiper-button-next -right-4 lg:right-8 after:content-['next'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full"></div>
           </div>
         <?php endif; ?>
         <?php if ($dynamic_custom == 'dynamic' && $select_testimonial_categories) : ?>
@@ -103,10 +103,10 @@ $testimonials_id = uniqid('testimonials-');
                     ?>
                     <div class="swiper-slide text-center">
                       <?php if ($testimonial_text) {
-                        echo '<div class="text-brand-purple text-3xl font-bold" style="color: var(--section-link-color)">' . $testimonial_text . '</div>';
+                        echo '<div class="text-brand-purple text-lg xl:text-3xl font-bold" style="color: var(--section-link-color)">' . $testimonial_text . '</div>';
                       } ?>
                       <?php if ($testimonial_title) {
-                        echo '<div class="mt-6 text-lg font-bold">' . $testimonial_title . '</div>';
+                        echo '<div class="mt-6 text-base xl:text-lg font-bold">' . $testimonial_title . '</div>';
                       } ?>
                     </div>
                 <?php
@@ -124,8 +124,8 @@ $testimonials_id = uniqid('testimonials-');
                 <div class="swiper-pagination text-center relative [&>.swiper-pagination-bullet]:rounded-full" style="--swiper-pagination-bullet-height:12px;--swiper-pagination-bullet-width:12px;--swiper-pagination-bullet-inactive-color:#E2E2E2;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:var(--section-link-color);--swiper-pagination-bullet-inactive-opacity:1;"></div>
               </div>
             </div>
-            <div class="swiper-button-prev left-0 lg:left-8 after:content-['prev'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full" style="color: var(--section-link-color)"></div>
-            <div class="swiper-button-next right-0 lg:right-8 after:content-['next'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full" style="color: var(--section-link-color)"></div>
+            <div class="swiper-button-prev -left-4 lg:left-8 after:content-['prev'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full" style="color: var(--section-link-color)"></div>
+            <div class="swiper-button-next -right-4 lg:right-8 after:content-['next'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full" style="color: var(--section-link-color)"></div>
           </div>
         <?php endif; ?>
         <script>

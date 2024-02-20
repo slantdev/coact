@@ -75,14 +75,14 @@ $icon_links = $image_text['icon_links']; // Repeater
             <div class="mb-8 mx-auto xl:mb-12 max-w-full aspect-w-1 aspect-h-1 overflow-hidden <?php echo $rounded_class ?>"><img src="<?php echo $image['url'] ?>" class="mx-auto h-full w-full object-center object-cover <?php echo $rounded_class ?>" alt=""></div>
           <?php endif; ?>
           <?php if ($icon_links) : ?>
-            <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-3 lg:gap-6">
               <?php foreach ($icon_links as $link) : ?>
                 <?php
                 $link_color = $link['color'];
                 ?>
-                <div class="flex gap-x-6">
-                  <div class="flex-none" style="color: <?php echo $link_color ?>;"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '36', 'class' => '')); ?></div>
-                  <div class="text-2xl font-medium"><a href="<?php echo $link['link']['url'] ?>" class="hover:underline" style="color: <?php echo $link_color ?>;"><?php echo $link['link']['title'] ?></a></div>
+                <div class="flex gap-x-6 ">
+                  <div class="flex-none" style="color: <?php echo $link_color ?>;"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '36', 'class' => 'w-6 h-6 lg:w-9 lg:h-9')); ?></div>
+                  <div class="text-lg lg:text-2xl font-medium"><a href="<?php echo $link['link']['url'] ?>" class="hover:underline" style="color: <?php echo $link_color ?>;"><?php echo $link['link']['title'] ?></a></div>
                 </div>
               <?php endforeach ?>
             </div>

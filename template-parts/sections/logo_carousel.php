@@ -32,7 +32,7 @@ $logo_gallery = $logo_carousel['logo_gallery'];
               </div>
             <?php endif; ?>
             <?php if ($description) : ?>
-              <div class="prose prose-lg lg:prose-xl max-w-none font-medium mb-6">
+              <div class="prose lg:prose-xl max-w-none font-medium mb-6">
                 <?php echo $description ?>
               </div>
             <?php endif; ?>
@@ -44,18 +44,20 @@ $logo_gallery = $logo_carousel['logo_gallery'];
         $carousel_id = uniqid('carousel-');
         ?>
         <div class="py-6 lg:py-0 mt-6 lg:mt-20 container mx-auto">
-          <div id="<?php echo $carousel_id ?>" class="swiper px-12 lg:px-24" style="--swiper-navigation-color: #45C2BF; --swiper-navigation-size: 24px">
-            <div class="swiper-wrapper items-center">
-              <?php foreach ($logo_gallery as $logo) : ?>
-                <div class="swiper-slide">
-                  <div class="flex flex-col items-center justify-center">
-                    <img class="w-full h-full object-contain max-h-[100px]" src="<?php echo esc_url($logo['url']); ?>" />
+          <div class="relative" style="--swiper-navigation-color: #45C2BF; --swiper-navigation-size: 24px">
+            <div id="<?php echo $carousel_id ?>" class="swiper mx-12 lg:px-24">
+              <div class="swiper-wrapper items-center">
+                <?php foreach ($logo_gallery as $logo) : ?>
+                  <div class="swiper-slide">
+                    <div class="flex flex-col items-center justify-center">
+                      <img class="w-full h-full object-contain max-h-[100px]" src="<?php echo esc_url($logo['url']); ?>" />
+                    </div>
                   </div>
-                </div>
-              <?php endforeach; ?>
+                <?php endforeach; ?>
+              </div>
             </div>
-            <div class="<?php echo $carousel_id ?>--button-prev swiper-button-prev"></div>
-            <div class="<?php echo $carousel_id ?>--button-next swiper-button-next"></div>
+            <div class="<?php echo $carousel_id ?>--button-prev swiper-button-prev -left-2 lg:left-0"></div>
+            <div class="<?php echo $carousel_id ?>--button-next swiper-button-next -right-2 lg:right-0"></div>
           </div>
           <script>
             new Swiper("#<?php echo $carousel_id ?>", {

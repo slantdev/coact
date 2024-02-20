@@ -5042,6 +5042,22 @@ details.collapse summary::-webkit-details-marker {
   top: 87px;
 }
 
+.-left-4 {
+  left: -1rem;
+}
+
+.-right-4 {
+  right: -1rem;
+}
+
+.-left-2 {
+  left: -0.5rem;
+}
+
+.-right-2 {
+  right: -0.5rem;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -5119,6 +5135,11 @@ details.collapse summary::-webkit-details-marker {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+
+.mx-12 {
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .\!mb-0 {
@@ -6382,6 +6403,11 @@ details.collapse summary::-webkit-details-marker {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pb-0 {
@@ -8404,6 +8430,26 @@ details.collapse summary::-webkit-details-marker {
   .xl\:prose-lg :where(.xl\:prose-lg > :last-child):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
     margin-bottom: 0;
   }
+
+  .xl\:aspect-h-6 {
+    --tw-aspect-h: 6;
+  }
+
+  .xl\:aspect-w-16 {
+    position: relative;
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+    --tw-aspect-w: 16;
+  }
+
+  .xl\:aspect-w-16 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .placeholder\:text-white\/50::-moz-placeholder {
@@ -8682,6 +8728,10 @@ details.collapse summary::-webkit-details-marker {
     top: 12px;
   }
 
+  .lg\:left-0 {
+    left: 0px;
+  }
+
   .lg\:col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -8743,6 +8793,10 @@ details.collapse summary::-webkit-details-marker {
     height: auto;
   }
 
+  .lg\:h-9 {
+    height: 2.25rem;
+  }
+
   .lg\:w-1\/2 {
     width: 50%;
   }
@@ -8783,6 +8837,10 @@ details.collapse summary::-webkit-details-marker {
     width: 75%;
   }
 
+  .lg\:w-9 {
+    width: 2.25rem;
+  }
+
   .lg\:max-w-none {
     max-width: none;
   }
@@ -8812,8 +8870,16 @@ details.collapse summary::-webkit-details-marker {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
+  .lg\:flex-row {
+    flex-direction: row;
+  }
+
   .lg\:flex-nowrap {
     flex-wrap: nowrap;
+  }
+
+  .lg\:items-center {
+    align-items: center;
   }
 
   .lg\:justify-normal {
@@ -8834,6 +8900,14 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:gap-8 {
     gap: 2rem;
+  }
+
+  .lg\:gap-4 {
+    gap: 1rem;
+  }
+
+  .lg\:gap-6 {
+    gap: 1.5rem;
   }
 
   .lg\:gap-x-16 {
@@ -9055,6 +9129,11 @@ details.collapse summary::-webkit-details-marker {
     font-size: 1.25rem;
   }
 
+  .lg\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .lg\:leading-tight {
     line-height: 1.25;
   }
@@ -9073,6 +9152,14 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (min-width: 1280px) {
+  .xl\:absolute {
+    position: absolute;
+  }
+
+  .xl\:inset-0 {
+    inset: 0px;
+  }
+
   .xl\:left-8 {
     left: 2rem;
   }
@@ -9131,6 +9218,10 @@ details.collapse summary::-webkit-details-marker {
     margin-top: 0px;
   }
 
+  .xl\:mb-16 {
+    margin-bottom: 4rem;
+  }
+
   .xl\:flex {
     display: flex;
   }
@@ -9175,13 +9266,25 @@ details.collapse summary::-webkit-details-marker {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .xl\:items-center {
+    align-items: center;
+  }
+
   .xl\:gap-x-16 {
     -moz-column-gap: 4rem;
          column-gap: 4rem;
   }
 
+  .xl\:rounded-3xl {
+    border-radius: 1.75rem;
+  }
+
   .xl\:border-0 {
     border-width: 0px;
+  }
+
+  .xl\:p-12 {
+    padding: 3rem;
   }
 
   .xl\:px-4 {
@@ -9192,6 +9295,16 @@ details.collapse summary::-webkit-details-marker {
   .xl\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .xl\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .xl\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
   }
 
   .xl\:pb-14 {
@@ -9274,6 +9387,34 @@ details.collapse summary::-webkit-details-marker {
   .xl\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .xl\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .xl\:text-xl {
+    font-size: 1.25rem;
+  }
+
+  .xl\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .xl\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .xl\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .xl\:leading-snug {
+    line-height: 1.375;
   }
 }
 
