@@ -16,7 +16,7 @@ $on_this_page = get_sub_field('on_this_page')['on_this_page'];
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
     <?php get_template_part('template-parts/layouts/background_ornament', '', array('shape' => $ornament_shape, 'style' => $ornament_style, 'class' => 'max-w-screen-3xl')); ?>
-    <div class="container max-w-screen-md relative z-10 pt-24 <?php echo $entrance_animation_class ?>">
+    <div class="container max-w-screen-md relative z-20 pt-24 <?php echo $entrance_animation_class ?>">
       <div class="dropdown dropdown-end w-full">
         <label tabindex="0" class="my-1 relative flex justify-between items-center w-full text-lg bg-white border border-zinc-300 rounded-full py-4 px-8">
           <span>On this page</span>

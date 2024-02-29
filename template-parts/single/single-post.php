@@ -27,7 +27,7 @@ if ($enable_page_header) :
         <div class="bg-zinc-300 w-full h-full">
           <?php if ($background_image) : ?>
             <div class="absolute inset-0">
-              <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image['url'] ?>" alt="">
+              <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image ?>" alt="">
             </div>
           <?php endif; ?>
           <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
