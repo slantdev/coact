@@ -121,7 +121,8 @@ jQuery(function ($) {
     ).outerHeight();
     // const service_locator_infobar_height = $('#service_locator-info_bar').outerHeight();
     const service_locator_infobar_height = 0;
-    const map_height = $(window).height() - site_header_height;
+    //const map_height = $(window).height() - site_header_height;
+    const map_height = $(window).height() - site_header_height + 150;
     //$('.service_locator, .service_locator-content_wrapper, .service_locator-wrap').css('height', 'auto');
     $(".service_locator-map").css("height", map_height + "px");
     $(".service_locator-sidepane").css("height", "auto");
@@ -672,19 +673,19 @@ jQuery(function ($) {
   ) {
     return `
       <li class="block bg-[#F4F4F4]">
-          <div class="pl-14 pr-8 pt-8 pb-8">
-              <h4 class="text-xl leading-tight font-bold mb-2">
+          <div class="pl-14 pr-8 pt-4 pb-4">
+              <h4 class="text-lg leading-tight font-bold mb-2">
                   <a href="${link}" class="hover:underline">${location_name}</a>
               </h4>
               <div class="relative">
                   <svg class="absolute -left-10 h-6 w-6" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M42.6656 18.3328C42.6649 14.9472 41.7267 11.628 39.955 8.74296C38.1834 5.85795 35.6474 3.51988 32.6282 1.98794C29.6091 0.455994 26.2247 -0.20999 22.8502 0.0638118C19.4757 0.337613 16.2429 1.5405 13.5102 3.53914C10.7775 5.53778 8.65168 8.2541 7.36828 11.387C6.08488 14.5199 5.69409 17.947 6.23921 21.2884C6.78434 24.6298 8.24409 27.755 10.4567 30.3176C12.6692 32.8801 15.5482 34.7799 18.7744 35.8064L24.2912 48L29.7632 35.848C33.5015 34.6876 36.7704 32.3616 39.0919 29.2101C41.4134 26.0586 42.6657 22.247 42.6656 18.3328ZM24.3328 26.08C22.8006 26.08 21.3027 25.6256 20.0287 24.7744C18.7547 23.9231 17.7617 22.7132 17.1753 21.2975C16.589 19.8819 16.4355 18.3242 16.7345 16.8214C17.0334 15.3186 17.7712 13.9382 18.8547 12.8547C19.9382 11.7713 21.3186 11.0334 22.8214 10.7345C24.3242 10.4355 25.8819 10.589 27.2975 11.1753C28.7131 11.7617 29.9231 12.7547 30.7744 14.0287C31.6256 15.3027 32.08 16.8006 32.08 18.3328C32.0802 19.3503 31.88 20.3578 31.4907 21.2978C31.1015 22.2378 30.5308 23.0919 29.8114 23.8114C29.0919 24.5308 28.2378 25.1015 27.2978 25.4907C26.3578 25.88 25.3502 26.0802 24.3328 26.08Z" fill="#000000" />
                   </svg>
-                  <div class="text-base">${location_address}<br />
+                  <div class="text-sm">${location_address}<br />
                       <a href="${map_url}" target="_blank" class="font-medium underline">Get Directions</a>
                   </div>
               </div>
-              <div class="text-base my-4">
+              <div class="text-sm my-4">
                   New enquiries: <a href="tel:61${new_enquiries
                     .split(" ")
                     .join(
@@ -696,25 +697,25 @@ jQuery(function ($) {
                       ""
                     )}" class="underline hover:no-underline">${existing_client}</a>
               </div>
-              <div class="mt-6">
+              <div class="mt-4">
                   <div class="flex flex-wrap gap-3">${service_type_tags}</div>
               </div>
           </div>
           <div class="flex bg-[#E2E2E2] border-t border-b border-[#CCCCCC]">
               <div class="w-1/2 border-r border-[#CCC]">
-                  <a href="${link}/#enquiry-form" class="inline-flex gap-3 items-center hover:underline px-8 py-4">
-                      <svg class="w-6 h-6 text-brand-purple" width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <a href="${link}/#enquiry-form" class="inline-flex gap-3 items-center hover:underline px-8 py-3">
+                      <svg class="w-4 h-4 text-brand-purple" width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M24.1072 0C19.3604 0 14.7203 1.40758 10.7735 4.04473C6.82672 6.68188 3.75058 10.4302 1.93408 14.8156C0.117577 19.201 -0.357704 24.0266 0.568342 28.6822C1.49439 33.3377 3.78017 37.6141 7.13663 40.9706C10.4931 44.327 14.7695 46.6128 19.425 47.5388C24.0806 48.4649 28.9062 47.9896 33.2916 46.1731C37.677 44.3566 41.4253 41.2805 44.0625 37.3337C46.6996 33.3869 48.1072 28.7468 48.1072 24C48.1072 17.6348 45.5786 11.5303 41.0778 7.02944C36.5769 2.52856 30.4724 0 24.1072 0ZM21.0368 38.6192L16.04 33.6208L25.6592 24L16.04 14.3808L21.0368 9.384L35.656 24L21.0368 38.6192Z" fill="currentColor" />
                       </svg>
-                      <span class="text-black font-bold text-base">Register</span>
+                      <span class="text-black font-bold text-sm">Register</span>
                   </a>
               </div>
               <div class="w-1/2">
-                  <a href="${link}" class="inline-flex gap-3 items-center hover:underline px-8 py-4">
-                      <svg class="w-6 h-6 text-brand-purple" width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <a href="${link}" class="inline-flex gap-3 items-center hover:underline px-8 py-3">
+                      <svg class="w-4 h-4 text-brand-purple" width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M24.1072 0C19.3604 0 14.7203 1.40758 10.7735 4.04473C6.82672 6.68188 3.75058 10.4302 1.93408 14.8156C0.117577 19.201 -0.357704 24.0266 0.568342 28.6822C1.49439 33.3377 3.78017 37.6141 7.13663 40.9706C10.4931 44.327 14.7695 46.6128 19.425 47.5388C24.0806 48.4649 28.9062 47.9896 33.2916 46.1731C37.677 44.3566 41.4253 41.2805 44.0625 37.3337C46.6996 33.3869 48.1072 28.7468 48.1072 24C48.1072 17.6348 45.5786 11.5303 41.0778 7.02944C36.5769 2.52856 30.4724 0 24.1072 0ZM21.0368 38.6192L16.04 33.6208L25.6592 24L16.04 14.3808L21.0368 9.384L35.656 24L21.0368 38.6192Z" fill="currentColor" />
                       </svg>
-                      <span class="text-black font-bold text-base">More details</span>
+                      <span class="text-black font-bold text-sm">More details</span>
                   </a>
               </div>
           </div>
@@ -749,7 +750,7 @@ jQuery(function ($) {
         return val.term_id == service_types[i] ? val.term_name : null;
       });
       service_type_tags +=
-        '<span class="inline-block text-sm px-3 py-1 rounded-md bg-white border border-brand-sea text-brand-sea shadow-md">' +
+        '<span class="inline-block text-[11px] px-3 py-1 rounded-md bg-white border border-brand-sea text-brand-sea shadow-sm">' +
         tag[0] +
         "</span>";
     }

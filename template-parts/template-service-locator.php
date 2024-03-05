@@ -28,13 +28,13 @@ $description = $site_locator_settings['description'];
 <div id="service-locator" class="bg-[#F4F4F4] px-6 pb-16">
 
   <div class="service_locator-wrap bg-white rounded-xl shadow-xl pb-8">
-    <div class="flex items-center py-10 px-8 gap-x-10">
+    <div class="flex items-center py-3 xl:py-8 px-8 gap-x-10">
       <div class="flex gap-x-16">
         <div class="inline-flex gap-x-4">
           <svg class="h-10 w-10" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M42.6656 18.3328C42.6649 14.9472 41.7267 11.628 39.955 8.74296C38.1834 5.85795 35.6474 3.51988 32.6282 1.98794C29.6091 0.455994 26.2247 -0.20999 22.8502 0.0638118C19.4757 0.337613 16.2429 1.5405 13.5102 3.53914C10.7775 5.53778 8.65168 8.2541 7.36828 11.387C6.08488 14.5199 5.69409 17.947 6.23921 21.2884C6.78434 24.6298 8.24409 27.755 10.4567 30.3176C12.6692 32.8801 15.5482 34.7799 18.7744 35.8064L24.2912 48L29.7632 35.848C33.5015 34.6876 36.7704 32.3616 39.0919 29.2101C41.4134 26.0586 42.6657 22.247 42.6656 18.3328ZM24.3328 26.08C22.8006 26.08 21.3027 25.6256 20.0287 24.7744C18.7547 23.9231 17.7617 22.7132 17.1753 21.2975C16.589 19.8819 16.4355 18.3242 16.7345 16.8214C17.0334 15.3186 17.7712 13.9382 18.8547 12.8547C19.9382 11.7713 21.3186 11.0334 22.8214 10.7345C24.3242 10.4355 25.8819 10.589 27.2975 11.1753C28.7131 11.7617 29.9231 12.7547 30.7744 14.0287C31.6256 15.3027 32.08 16.8006 32.08 18.3328C32.0802 19.3503 31.88 20.3578 31.4907 21.2978C31.1015 22.2378 30.5308 23.0919 29.8114 23.8114C29.0919 24.5308 28.2378 25.1015 27.2978 25.4907C26.3578 25.88 25.3502 26.0802 24.3328 26.08Z" fill="#000000" />
           </svg>
-          <h2 class="text-4xl font-bold whitespace-nowrap"><?php echo get_the_title() ?></h2>
+          <h2 class="text-3xl font-bold whitespace-nowrap"><?php echo get_the_title() ?></h2>
         </div>
         <div class="max-w-screen-md">
           <?php if ($intro_description) : ?>
@@ -59,7 +59,7 @@ $description = $site_locator_settings['description'];
         <div class="service_locator-content flex">
           <div class="service_locator-sidepane flex flex-col relative w-[500px] shrink-0 overflow-hidden z-10 border-b border-[#ccc] bg-white rounded-tr-lg">
             <div class="service_locator-search grow-0 border-b border-[#ccc]">
-              <div class="service_locator-panel bg-brand-sea rounded-lg shadow-md p-10 relative z-20">
+              <div class="service_locator-panel bg-brand-sea rounded-lg shadow-md p-4 xl:py-6 xl:px-10 relative z-20">
                 <div class="service_locator-title font-bold flex gap-x-3">
                   <svg class="w-6 h-6" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M46.9728 41.7348L35.6995 29.8938C38.2936 25.8236 39.2828 20.9303 38.4742 16.1683C37.6656 11.4062 35.1172 7.11703 31.3261 4.13722C27.5349 1.15742 22.7728 -0.299274 17.9687 0.0512528C13.1646 0.401779 8.6629 2.53439 5.34173 6.03313C2.02056 9.53188 0.118065 14.1458 0.00531363 18.9751C-0.107438 23.8043 1.57764 28.5025 4.73188 32.1533C7.88613 35.8041 12.2833 38.1457 17.0658 38.7213C21.8483 39.2969 26.6732 38.0654 30.5993 35.2668L41.6312 46.8529C42.3079 47.5639 43.2386 47.9761 44.2185 47.999C45.1983 48.0218 46.1471 47.6534 46.8561 46.9747C47.5651 46.296 47.9762 45.3627 47.999 44.38C48.0218 43.3973 47.6544 42.4458 46.9776 41.7348M5.97252 19.4461C5.97284 16.7856 6.75983 14.1848 8.23399 11.9728C9.70815 9.76077 11.8033 8.03678 14.2544 7.01885C16.7056 6.00091 19.4026 5.73474 22.0046 6.25398C24.6066 6.77323 26.9966 8.05458 28.8725 9.936C30.7483 11.8174 32.0257 14.2144 32.5432 16.8239C33.0607 19.4334 32.7949 22.1381 31.7796 24.5961C30.7643 27.0541 29.0449 29.155 26.839 30.6331C24.6331 32.1112 22.0397 32.9002 19.3867 32.9002C17.625 32.9002 15.8805 32.5522 14.2529 31.876C12.6254 31.1999 11.1465 30.2088 9.90087 28.9595C8.65523 27.7101 7.66719 26.227 6.99316 24.5946C6.31913 22.9623 5.97231 21.2129 5.97252 19.4461Z" fill="currentColor" />
@@ -72,7 +72,7 @@ $description = $site_locator_settings['description'];
               <!-- <div class="service_locator-view-mode">
                 <button id="view-as-list" class="active" type="button">View as List</button><button id="view-on-map" class="" type="button">View on Map</button>
               </div> -->
-              <div class="service_locator-listing_title relative z-10 bg-white pt-10 pl-14 pr-8 pb-6 -mt-4">Showing all Service Partners</div>
+              <div class="service_locator-listing_title relative z-10 bg-white pt-8 pl-14 pr-8 pb-4 -mt-4">Showing all Service Partners</div>
             </div>
             <div id="service_locator-listing" class="service_locator-listing grow overflow-y-auto relative z-20">
               <!-- <ul class="">
@@ -130,7 +130,7 @@ $description = $site_locator_settings['description'];
 
 </div>
 
-<div id="filter-state" class="bg-white px-6 py-16">
+<div id="filter-state" class="bg-white px-6 py-16" style="--section-link-color:#45C2BF;">
   <div class="relative container max-w-screen-xxl mx-auto">
     <div>
       <?php if ($headline) : ?>
