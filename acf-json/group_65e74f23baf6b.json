@@ -1,0 +1,129 @@
+{
+    "key": "group_65e74f23baf6b",
+    "title": "Eloqua Shortcodes",
+    "fields": [
+        {
+            "key": "field_65e74f24417e6",
+            "label": "Eloqua Shortcodes",
+            "name": "eloqua_shortcodes",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "acfe_seamless_style": 1,
+            "sub_fields": [
+                {
+                    "key": "field_65e74f2449d2f",
+                    "label": "Eloqua Shortcode",
+                    "name": "eloqua_shortcode",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "Use eg. [eloqua id=\"1\"] to display the embed form in posts.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_repeater_stylised_button": 0,
+                    "layout": "block",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_65e7523d2e639",
+                    "button_label": "Add Eloqua Form",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_65e7523d2e639",
+                            "label": "Title",
+                            "name": "title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_65e74f2449d2f"
+                        },
+                        {
+                            "key": "field_65e74f4f1a08f",
+                            "label": "Eloqua Embed Code",
+                            "name": "eloqua_embed_code",
+                            "aria-label": "",
+                            "type": "acfe_code_editor",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "mode": "text\/html",
+                            "lines": 1,
+                            "indent_unit": 4,
+                            "maxlength": "",
+                            "rows": 10,
+                            "max_rows": "",
+                            "return_format": [],
+                            "parent_repeater": "field_65e74f2449d2f"
+                        }
+                    ]
+                }
+            ],
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "eloqua"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1709660153,
+    "acfe_categories": {
+        "site-settings": "Site Settings"
+    }
+}
