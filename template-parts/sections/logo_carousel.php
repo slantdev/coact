@@ -44,9 +44,9 @@ $logo_link = $logo_carousel['logo_link']; // Repeater
         <?php
         $carousel_id = uniqid('carousel-');
         ?>
-        <div class="py-6 lg:py-0 mt-6 lg:mt-20 container mx-auto">
+        <div class="py-6 lg:py-0 mt-6 lg:mt-20 container max-w-none mx-auto">
           <div class="relative" style="--swiper-navigation-color: #45C2BF; --swiper-navigation-size: 24px">
-            <div id="<?php echo $carousel_id ?>" class="swiper mx-12 lg:px-24">
+            <div id="<?php echo $carousel_id ?>" class="swiper mx-6 md:mx-16 lg:mx-24 px-0">
               <div class="swiper-wrapper items-center">
                 <?php foreach ($logo_link as $logo) : ?>
                   <?php
@@ -71,8 +71,8 @@ $logo_link = $logo_carousel['logo_link']; // Repeater
                 <?php endforeach; ?>
               </div>
             </div>
-            <div class="<?php echo $carousel_id ?>--button-prev swiper-button-prev -left-2 lg:left-0"></div>
-            <div class="<?php echo $carousel_id ?>--button-next swiper-button-next -right-2 lg:right-0"></div>
+            <div class="<?php echo $carousel_id ?>--button-prev swiper-button-prev -left-2 lg:left-0 after:content-['prev'] after:text-[16px] md:after:text-[24px]"></div>
+            <div class="<?php echo $carousel_id ?>--button-next swiper-button-next -right-2 lg:right-0 after:content-['next'] after:text-[16px] md:after:text-[24px]"></div>
           </div>
           <script>
             new Swiper("#<?php echo $carousel_id ?>", {
@@ -82,16 +82,20 @@ $logo_link = $logo_carousel['logo_link']; // Repeater
               centerInsufficientSlides: true,
               breakpoints: {
                 768: {
+                  slidesPerView: "2",
+                  spaceBetween: 64
+                },
+                1024: {
                   slidesPerView: "3",
-                  spaceBetween: 32
+                  spaceBetween: 64
                 },
                 1280: {
-                  slidesPerView: "5",
+                  slidesPerView: "4",
                   spaceBetween: 80
                 },
-                1440: {
+                1536: {
                   slidesPerView: "5",
-                  spaceBetween: 120
+                  spaceBetween: 80
                 }
               },
               navigation: {

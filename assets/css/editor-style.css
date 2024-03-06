@@ -3111,6 +3111,16 @@
   margin-bottom: 2rem;
 }
 
+.mx-16 {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
 .\!mb-0 {
   margin-bottom: 0px !important;
 }
@@ -4319,6 +4329,11 @@
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .pb-0 {
@@ -5628,6 +5643,11 @@ body {
   line-height: 1.75rem;
 }
 
+.after\:text-\[16px\]::after {
+  content: var(--tw-content);
+  font-size: 16px;
+}
+
 .after\:content-\[\'next\'\]::after {
   --tw-content: 'next';
   content: var(--tw-content);
@@ -5734,6 +5754,21 @@ body {
   .md\:my-6 {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+
+  .md\:mx-12 {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  .md\:mx-24 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+
+  .md\:mx-16 {
+    margin-left: 4rem;
+    margin-right: 4rem;
   }
 
   .md\:mb-4 {
@@ -5869,6 +5904,11 @@ body {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+
+  .md\:after\:text-\[24px\]::after {
+    content: var(--tw-content);
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -5915,6 +5955,11 @@ body {
   .lg\:-mx-0 {
     margin-left: -0px;
     margin-right: -0px;
+  }
+
+  .lg\:mx-24 {
+    margin-left: 6rem;
+    margin-right: 6rem;
   }
 
   .lg\:mb-14 {
