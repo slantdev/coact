@@ -1,0 +1,8 @@
+.searchwp-highlight {
+  @apply bg-transparent text-brand-black font-bold;
+}
+.search-title {
+  .searchwp-highlight {
+    @apply text-brand-sea;
+  }
+}

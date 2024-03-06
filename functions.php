@@ -18,14 +18,4 @@ require get_template_directory() . '/inc/breadcrumb.php';
 require get_template_directory() . '/inc/ajax.php';
 require get_template_directory() . '/inc/shortcodes.php';
 require get_template_directory() . '/inc/cards.php';
-
-add_filter("rest_service-partner_collection_params", function ($params) {
-  $params['per_page']['maximum'] = 500; // number of posts fetched
-  return $params;
-});
-
-function coact_excerpt_length($length)
-{
-  return 20;
-}
-add_filter('excerpt_length', 'coact_excerpt_length', 999);
+require get_template_directory() . '/inc/rest.php';

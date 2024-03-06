@@ -1,4 +1,11 @@
 <?php
+
+function coact_excerpt_length($length)
+{
+  return 30;
+}
+add_filter('excerpt_length', 'coact_excerpt_length', 999);
+
 function plain_card($link, $image, $title, $excerpt)
 {
   echo '<div class="relative block pb-4 group">';

@@ -30,20 +30,21 @@ if (!empty($search_query) && class_exists('\\SearchWP\\Query')) {
 }
 ?>
 
-<section class="relative bg-[#232C39]">
-  <div class="container max-w-screen-xl relative z-10 pt-52 lg:pt-[200px] 2xl:pt-[158px] h-full">
-    <div class="flex flex-col md:flex-row h-full items-center text-white py-16 lg:py-24">
-      <div class="w-full lg:w-1/2">
-        <h1 class="font-bold text-[40px] lg:text-[50px] leading-tight">Search Results : <?php echo $search_query ?></h1>
-      </div>
-    </div>
+<section class="relative border-t border-slate-200">
+  <div class="container max-w-4xl relative py-16">
+    <form id="" class="relative" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+      <input id="searchresult-input" type="text" class="w-full shadow-inner rounded-full bg-white px-6 py-3 border border-solid border-slate-200 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="<?php echo $search_query ?>">
+      <button type="submit" class="absolute right-4 top-3" style="<?php echo $search_icon_style ?>">
+        <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea')); ?>
+      </button>
+    </form>
   </div>
 </section>
 
 
 <section class="relative">
-  <div class="container mx-auto max-w-4xl relative py-16 lg:py-24">
-    <ul class="search-results">
+  <div class="container mx-auto max-w-4xl relative pb-16 lg:pb-24">
+    <ul class="search-results" style="--section-link-color:#45C2BF;">
       <?php
       if (!empty($search_query) && !empty($search_results)) :
       ?>
@@ -54,90 +55,39 @@ if (!empty($search_query) && class_exists('\\SearchWP\\Query')) {
           $show_post = TRUE;
           $post_type = $post->post_type;
           //echo $post_type;
-          if ($post_type == 'whats-on') {
-            $id = $post->ID;
-          } elseif ($post_type == 'report') {
-            $id = $post->ID;
-            $report_pdf = get_field('report_pdf', $id);
-            $external_link_report = get_field('external_link_report', $id);
-            $target = '_blank';
-            if ($report_pdf) {
-              $link = $report_pdf['url'];
-            } elseif ($external_link_report) {
-              $link = $external_link_report;
-            } else {
-              $show_post = FALSE;
-            }
-          } elseif ($post_type == 'policy') {
-            $id = $post->ID;
-            $policy_pdf = get_field('policy_pdf', $id);
-            $external_link_policy = get_field('external_link_policy', $id);
-            $target = '_blank';
-            if ($policy_pdf) {
-              $link = $policy_pdf['url'];
-            } elseif ($external_link_policy) {
-              $link = $external_link_policy;
-            } else {
-              $show_post = FALSE;
-            }
-          } else {
-            $link = get_the_permalink();
-            $target = '_self';
-          }
+          $link = get_the_permalink();
+          $target = '_self';
+          $content = get_the_excerpt();
           ?>
           <li class="mb-4 lg:mb-8">
-            <?php
-            if ($post_type == 'whats-on') :
-              $id = $post->ID;
-              $custom_link = get_field('custom_link', $id);
-              $content = get_the_excerpt();
-              if ($custom_link) {
-                echo '<a href="' . $custom_link['url'] . '" target="' . $custom_link['target'] . '" class="block bg-white shadow-md border border-gray-200 rounded-lg transition duration-300 hover:shadow-xl">';
-              } else {
-                echo '<div class="block bg-white shadow-md border border-gray-200 rounded-lg">';
-              }
-            ?>
+            <a href="<?php echo $link; ?>" target="<?php echo $target; ?>" class="block bg-white shadow-md border border-gray-200 rounded-lg transition duration-300 hover:shadow-xl">
               <div class="flex flex-wrap md:flex-nowrap">
                 <div class="w-full p-4 lg:p-8">
-                  <h4 class="font-medium text-sm mb-3 text-slate-500">WHAT'S ON</h4>
-                  <h3 class="font-bold text-brand-bluedark text-xl lg:text-2xl"><?php the_title(); ?></h3>
+                  <?php if ($post_type == 'post') {
+                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">NEWS & RESOURCES</h4>';
+                  } elseif ($post_type == 'page') {
+                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">PAGE</h4>';
+                  } elseif ($post_type == 'coact-tv') {
+                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">COACT TV</h4>';
+                  } elseif ($post_type == 'service-partner') {
+                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">SERVICE PARTNER</h4>';
+                  } elseif ($post_type == 'services') {
+                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">SERVICES</h4>';
+                  } elseif ($post_type == 'job') {
+                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">CAREER</h4>';
+                  } ?>
+                  <h3 class="search-title font-medium text-brand-sea text-xl lg:text-2xl"><?php the_title(); ?></h3>
                   <?php if ($content) : ?>
-                    <div class="text-sm mt-2"><?php the_excerpt() ?></div>
+                    <div class="search-excerpt text-sm mt-2 font-default text-slate-600"><?php the_excerpt() ?></div>
                   <?php endif; ?>
                 </div>
               </div>
-              <?php
-              if ($custom_link) {
-                echo '</a>';
-              } else {
-                echo '</div>';
-              }
-              ?>
-            <?php else :
-              $link = get_the_permalink();
-              $target = '_self';
-              $content = get_the_excerpt();
-            ?>
-              <a href="<?php echo $link; ?>" target="<?php echo $target; ?>" class="block bg-white shadow-md border border-gray-200 rounded-lg transition duration-300 hover:shadow-xl">
-                <div class="flex flex-wrap md:flex-nowrap">
-                  <div class="w-full p-4 lg:p-8">
-                    <?php if ($post_type == 'store') : ?>
-                      <h4 class="font-medium text-sm mb-3 text-slate-500">STORES & SERVICES</h4>
-                    <?php endif; ?>
-                    <h3 class="font-bold text-brand-bluedark text-xl lg:text-2xl"><?php the_title(); ?></h3>
-                    <?php if ($content) : ?>
-                      <div class="text-sm mt-2"><?php the_excerpt() ?></div>
-                    <?php endif; ?>
-                  </div>
-                </div>
-              </a>
-            <?php endif; ?>
-
+            </a>
           </li>
           <?php wp_reset_postdata(); ?>
         <?php endforeach; ?>
         <?php if ($searchwp_query->max_num_pages > 1) : ?>
-          <div class="navigation pagination" role="navigation">
+          <div class="navigation pagination mt-16" role="navigation" style="--section-link-color:#45C2BF;">
             <h2 class="screen-reader-text">Results navigation</h2>
             <div class="nav-links"><?php echo wp_kses_post($search_pagination); ?></div>
           </div>

@@ -5866,11 +5866,6 @@ select {
   border-right-color: rgb(161 161 170 / var(--tw-border-opacity));
 }
 
-.bg-\[\#232C39\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(35 44 57 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#E2E2E2\] {
   --tw-bg-opacity: 1;
   background-color: rgb(226 226 226 / var(--tw-bg-opacity));
@@ -6052,10 +6047,6 @@ select {
 .object-top {
   -o-object-position: top;
      object-position: top;
-}
-
-.p-10 {
-  padding: 2.5rem;
 }
 
 .p-12 {
@@ -6284,10 +6275,6 @@ select {
   padding-top: 1rem;
 }
 
-.pt-52 {
-  padding-top: 13rem;
-}
-
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -6310,6 +6297,10 @@ select {
 
 .text-right {
   text-align: right;
+}
+
+.font-default {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .font-montserrat {
@@ -6365,10 +6356,6 @@ select {
 
 .text-\[34px\] {
   font-size: 34px;
-}
-
-.text-\[40px\] {
-  font-size: 40px;
 }
 
 .text-\[48px\] {
@@ -6494,6 +6481,11 @@ select {
   color: rgb(100 116 139 / var(--tw-text-opacity));
 }
 
+.text-slate-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -6571,15 +6563,15 @@ select {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-xl {
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -9016,6 +9008,18 @@ button.link_overlay-btn {
   }
 }
 
+.searchwp-highlight {
+  background-color: transparent;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(64 64 65 / var(--tw-text-opacity));
+}
+
+.search-title .searchwp-highlight {
+  --tw-text-opacity: 1;
+  color: rgb(69 194 191 / var(--tw-text-opacity));
+}
+
 @media (min-width: 782px) {
   .md\:aspect-h-7 {
     --tw-aspect-h: 7;
@@ -9881,6 +9885,16 @@ button.link_overlay-btn {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.focus\:border-brand-sea:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(69 194 191 / var(--tw-border-opacity));
+}
+
+.focus\:ring-brand-sea:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(69 194 191 / var(--tw-ring-opacity));
+}
+
 .focus\:ring-white\/20:focus {
   --tw-ring-color: rgb(255 255 255 / 0.2);
 }
@@ -10350,11 +10364,6 @@ button.link_overlay-btn {
     padding-bottom: 0.625rem;
   }
 
-  .lg\:py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
   .lg\:py-28 {
     padding-top: 7rem;
     padding-bottom: 7rem;
@@ -10439,10 +10448,6 @@ button.link_overlay-btn {
     padding-top: 2rem;
   }
 
-  .lg\:pt-\[200px\] {
-    padding-top: 200px;
-  }
-
   .lg\:text-right {
     text-align: right;
   }
@@ -10465,10 +10470,6 @@ button.link_overlay-btn {
   .lg\:text-5xl {
     font-size: 3rem;
     line-height: 1;
-  }
-
-  .lg\:text-\[50px\] {
-    font-size: 50px;
   }
 
   .lg\:text-\[64px\] {
@@ -10632,6 +10633,11 @@ button.link_overlay-btn {
     padding: 3rem;
   }
 
+  .xl\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .xl\:px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -10652,19 +10658,14 @@ button.link_overlay-btn {
     padding-bottom: 0.75rem;
   }
 
-  .xl\:py-8 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-
-  .xl\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-
   .xl\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  .xl\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .xl\:pb-14 {
@@ -10781,10 +10782,6 @@ button.link_overlay-btn {
 @media (min-width: 1440px) {
   .\32xl\:gap-10 {
     gap: 2.5rem;
-  }
-
-  .\32xl\:pt-\[158px\] {
-    padding-top: 158px;
   }
 }
 

@@ -39,6 +39,7 @@ module.exports = {
         tailpress.theme("settings.typography.fontSizes", theme)
       ),
       fontFamily: {
+        default: [...defaultTheme.fontFamily.sans],
         sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
         montserrat: ["Montserrat", ...defaultTheme.fontFamily.sans],
         poppins: ["Poppins", ...defaultTheme.fontFamily.sans],

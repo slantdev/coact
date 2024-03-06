@@ -50,9 +50,11 @@
 
   <div class="flex-none border-t border-solid border-slate-200 px-4 py-6 mt-4 xl:border-0 xl:pl-16 xl:pr-0 xl:pt-0 xl:pb-3 xl:mt-0 xl:ml-auto">
     <div class="relative">
-      <form action="#" class="relative">
-        <input type="text" placeholder="Search Website" class="w-auto xl:w-64 border-none shadow-inner rounded-full bg-white px-6 py-3">
-        <button class="absolute right-4 top-3"><?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea')); ?></button>
+      <form id="header-searchform" class="relative" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+        <input id="searchform-input" type="text" class="w-auto xl:w-64 border-none shadow-inner rounded-full bg-white px-6 py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="">
+        <button type="submit" class="absolute right-4 top-3" style="<?php echo $search_icon_style ?>">
+          <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea')); ?>
+        </button>
       </form>
     </div>
   </div>
