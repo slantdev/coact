@@ -44,7 +44,7 @@ $logo_link = $logo_carousel['logo_link']; // Repeater
         <?php
         $carousel_id = uniqid('carousel-');
         ?>
-        <div class="py-6 lg:py-0 mt-6 lg:mt-20 container max-w-none mx-auto">
+        <div class="py-6 lg:py-0 mt-6 lg:mt-20 container max-w-screen-4xl mx-auto">
           <div class="relative" style="--swiper-navigation-color: #45C2BF; --swiper-navigation-size: 24px">
             <div id="<?php echo $carousel_id ?>" class="swiper mx-6 md:mx-16 lg:mx-24 px-0">
               <div class="swiper-wrapper items-center">
@@ -96,7 +96,7 @@ $logo_link = $logo_carousel['logo_link']; // Repeater
                 1536: {
                   slidesPerView: "5",
                   spaceBetween: 80
-                }
+                },
               },
               navigation: {
                 nextEl: ".<?php echo $carousel_id ?>--button-next",
