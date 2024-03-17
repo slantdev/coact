@@ -78,9 +78,6 @@ if ($enable_page_header) :
                   $button_link = isset($button['url']) ? $button['url'] : '';
                   $button_target = isset($button['target']) ? $button['target'] : '_self';
                   $button_title = isset($button['title']) ? $button['title'] : '';
-                  $button_link = '#';
-                  $button_target = '_self';
-                  $button_title = 'Need some extra support';
                   ?>
                   <div class="flex gap-x-4 mt-8">
                     <a href="<?php echo $button_link ?>" target="<?php echo $button_target; ?>" class="px-6 py-3 rounded-full border border-solid font-semibold font-poppins text-xl bg-white border-transparent text-black"><?php echo $button_title; ?></a>
