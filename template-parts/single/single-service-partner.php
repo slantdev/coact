@@ -694,11 +694,12 @@ if ($enable_partner_stats && $partner_stats_numbers) :
 
 <?php endif; ?>
 
-<?php if (isset($why_coact['headline'])) :
-  $why_headline = isset($why_coact['headline']) ? $why_coact['headline'] : '';
-  $why_lead_text = isset($why_coact['lead_text']) ? $why_coact['lead_text'] : '';
-  $why_content = isset($why_coact['content']) ? $why_coact['content'] : '';
-  $why_image = isset($why_coact['image']) ? $why_coact['image'] : '';
+<?php
+$why_headline = isset($why_coact['headline']) ? $why_coact['headline'] : '';
+$why_lead_text = isset($why_coact['lead_text']) ? $why_coact['lead_text'] : '';
+$why_content = isset($why_coact['content']) ? $why_coact['content'] : '';
+$why_image = isset($why_coact['image']) ? $why_coact['image'] : '';
+if ($why_headline) :
 ?>
   <section class="bg-white">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
