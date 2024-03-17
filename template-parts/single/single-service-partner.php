@@ -646,7 +646,7 @@ if ($enable_partner_stats && $partner_stats_numbers) :
 
   <section class="partner-stats bg-brand-light-gray">
     <div class="relative pb-12 lg:pb-20 xl:pb-36">
-      <div class="container max-w-screen-xxl mx-auto <?php echo $entrance_animation_class ?>">
+      <div class="container max-w-screen-xxl mx-auto">
 
         <div class="<?php echo $grid_class ?> divide-brand-purple">
           <?php if ($partner_stats_numbers) : ?>
