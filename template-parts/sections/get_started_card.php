@@ -135,8 +135,8 @@ $content_cards_count = count($content_cards);
                           $image = get_the_post_thumbnail_url($post_id, 'large');
                           if (get_post_type($post_id) == 'service') {
                             $service_images = get_field('service_images', $post_id);
-                            $page_banner_image = $service_images['page_banner_image'];
-                            $card_image = $service_images['card_image'];
+                            $page_banner_image = isset($service_images['page_banner_image']) ? $service_images['page_banner_image'] : '';
+                            $card_image = isset($service_images['card_image']) ? $service_images['card_image'] : '';
                             //preint_r($service_images);
                             if ($card_image) {
                               $image = $card_image['url'];

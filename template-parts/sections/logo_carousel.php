@@ -11,10 +11,10 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $logo_carousel = get_sub_field('logo_carousel'); // Group
-$headline = $logo_carousel['headline'];
-$description = $logo_carousel['description'];
-$logo_gallery = $logo_carousel['logo_gallery'];
-$logo_link = $logo_carousel['logo_link']; // Repeater
+$headline = isset($logo_carousel['headline']) ? $logo_carousel['headline'] : '';
+$description = isset($logo_carousel['description']) ? $logo_carousel['description'] : '';
+$logo_gallery = isset($logo_carousel['logo_gallery']) ? $logo_carousel['logo_gallery'] : '';
+$logo_link = isset($logo_carousel['logo_link']) ? $logo_carousel['logo_link'] : ''; // Repeater
 
 ?>
 
@@ -51,7 +51,7 @@ $logo_link = $logo_carousel['logo_link']; // Repeater
                 <?php foreach ($logo_link as $logo) : ?>
                   <?php
                   $logo_image = isset($logo['logo_image']) ? $logo['logo_image'] : '';
-                  $logo_link = isset($logo['logo_link']) ? $logo['logo_link'] : '';
+                  $logo_link = isset($logo['logo_link']['url']) ? $logo['logo_link']['url'] : '';
                   if ($logo_image) :
                   ?>
                     <div class="swiper-slide">
@@ -60,7 +60,7 @@ $logo_link = $logo_carousel['logo_link']; // Repeater
                         if ($logo_link) {
                           echo '<a href="' . $logo_link . '" target="_blank">';
                         } ?>
-                        <img class="w-full h-full object-contain max-h-[100px]" src="<?php echo esc_url($logo_image['url']); ?>" />
+                        <img class="w-full h-full object-contain" src="<?php echo esc_url($logo_image['url']); ?>" />
                         <?php
                         if ($logo_link) {
                           echo '</a>';

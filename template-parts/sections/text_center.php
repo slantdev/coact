@@ -11,23 +11,22 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $text_center = get_sub_field('text_center');
-$headline = $text_center['headline'];
-$headline_color = $text_center['headline_color'];
+$headline = isset($text_center['headline']) ? $text_center['headline'] : '';
+$headline_color = isset($text_center['headline_color']) ? $text_center['headline_color'] : '';
 $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color:' . $headline_color . ';';
 }
 $description = $text_center['description'];
+$description = isset($text_center['description']) ? $text_center['description'] : '';
 
-$components = $text_center['components'];
+$components = isset($text_center['components']) ? $text_center['components'] : '';
 
 // Notes:
 // Columns settings doesn't work yet
 $column_settings = $text_center['column_settings'];
 $alignment = $column_settings['alignment'];
 $max_width = $column_settings['max_width'];
-$section_ornament = $column_settings['section_ornament'];
-
 ?>
 
 <section <?php echo $section_id ?> style="<?php echo $section_style ?>">
