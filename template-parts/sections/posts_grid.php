@@ -17,6 +17,11 @@ if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
 $description = $posts_grid['description'];
+$description_color = $posts_grid['description_color'];
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
 $button = $posts_grid['button'];
 $button_color = $posts_grid['button_color'];
 $button_style = '';
@@ -65,7 +70,7 @@ $posts_grid_id = uniqid();
         <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24">
           <?php if ($description) : ?>
             <div class="w-full lg:w-2/3">
-              <div class="prose xl:prose-lg mr-auto text-left">
+              <div class="prose xl:prose-lg mr-auto text-left" style="<?php echo $description_style ?>">
                 <?php echo $description ?>
               </div>
             </div>

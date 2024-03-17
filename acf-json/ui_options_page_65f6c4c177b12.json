@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_65f6c4c177b12",
+    "title": "Partner Stats",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Partner Stats",
+    "menu_slug": "partner-stats",
+    "parent_slug": "edit.php?post_type=service-partner",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1710671170
+}

@@ -13,7 +13,7 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "field-hidden",
                 "id": ""
             },
             "acfe_repeater_stylised_button": 0,
@@ -158,6 +158,26 @@
                     "parent_repeater": "field_5af29b3ab6397"
                 }
             ]
+        },
+        {
+            "key": "field_65f6ca92c041c",
+            "label": "Enable Partner Stats",
+            "name": "enable_partner_stats",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "Enable",
+            "ui_off_text": "Disable",
+            "ui": 1
         }
     ],
     "location": [
@@ -185,7 +205,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1705637647,
+    "modified": 1710672590,
     "acfe_categories": {
         "service-locator": "Service Locator"
     }
