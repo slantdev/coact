@@ -2,7 +2,7 @@
     "key": "post_type_65b015a6eda8c",
     "title": "FAQs",
     "menu_order": 0,
-    "active": false,
+    "active": true,
     "post_type": "faq",
     "advanced_configuration": true,
     "import_source": "",
@@ -84,5 +84,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "",
-    "modified": 1709686748
+    "modified": 1710723107
 }

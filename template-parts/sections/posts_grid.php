@@ -10,34 +10,33 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $posts_grid = get_sub_field('posts_grid'); // Group
-$headline = $posts_grid['headline'];
-$headline_color = $posts_grid['headline_color'];
+$headline = isset($posts_grid['headline']) ? $posts_grid['headline'] : '';
+$headline_color = isset($posts_grid['headline_color']) ? $posts_grid['headline_color'] : '';
 $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
-$description = $posts_grid['description'];
-$description_color = $posts_grid['description_color'];
+$description = isset($posts_grid['description']) ? $posts_grid['description'] : '';
+$description_color = isset($posts_grid['description_color']) ? $posts_grid['description_color'] : '';
 $description_style = '';
 if ($description_color) {
   $description_style .= 'color : ' . $description_color . ';';
 }
-$button = $posts_grid['button'];
-$button_color = $posts_grid['button_color'];
+$button = isset($posts_grid['button']) ? $posts_grid['button'] : '';
+$button_color = isset($posts_grid['button_color']) ? $posts_grid['button_color'] : '';
 $button_style = '';
 if ($button_color) {
   $button_style .= 'background-color : ' . $button_color . ';';
 }
-$select_category = $posts_grid['select_category'];
-$select_tag = isset($posts_grid['select_tag']) ? $posts_grid['select_tag'] : '';
-$card_style = $posts_grid['card_style'];
-$posts_per_page = $posts_grid['posts_per_page'];
-$show_pagination = $posts_grid['show_pagination'];
-$filter_settings = $posts_grid['filter_settings'];
-$show_filter = $filter_settings['show_filter'];
-$filter_style = $filter_settings['filter_style'];
-$filter_categories = $filter_settings['filter_categories'];
-$filter_tags = $filter_settings['filter_tags'];
+$select_category = isset($posts_grid['select_category']) ? $posts_grid['select_category'] : '';
+$card_style = isset($posts_grid['card_style']) ? $posts_grid['card_style'] : '';
+$posts_per_page = isset($posts_grid['posts_per_page']) ? $posts_grid['posts_per_page'] : '';
+$show_pagination = isset($posts_grid['show_pagination']) ? $posts_grid['show_pagination'] : '';
+$filter_settings = isset($posts_grid['filter_settings']) ? $posts_grid['filter_settings'] : '';
+$show_filter = isset($posts_grid['show_filter']) ? $posts_grid['show_filter'] : '';
+$filter_style = isset($posts_grid['filter_style']) ? $posts_grid['filter_style'] : '';
+$filter_categories = isset($posts_grid['filter_categories']) ? $posts_grid['filter_categories'] : '';
+$filter_tags = isset($posts_grid['filter_tags']) ? $posts_grid['filter_tags'] : '';
 
 //preint_r($filter_categories);
 // preint_r($filter_tags);

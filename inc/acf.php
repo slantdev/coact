@@ -38,6 +38,14 @@ function coact_acf_init()
       acf_update_setting('google_api_key', GOOGLE_MAPS_API);
     }
   }
+
+  // Disable ACFE Modules
+  acf_update_setting('acfe/modules/options', false);
+  acf_update_setting('acfe/modules/block_types', false);
+  acf_update_setting('acfe/modules/options_pages', false);
+  acf_update_setting('acfe/modules/post_types', false);
+  acf_update_setting('acfe/modules/taxonomies', false);
+  acf_update_setting('acfe/modules/forms', false);
 }
 add_action('acf/init', 'coact_acf_init');
 
