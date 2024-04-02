@@ -21,7 +21,7 @@ $spacing_top_map = [
   'lg' => 'pt-10 lg:pt-16 xl:pt-28',
   'xl' => 'pt-12 lg:pt-20 xl:pt-36',
   '2xl' => 'pt-12 lg:pt-24 xl:pt-40',
-  'default' => 'pt-12 lg:pt-20 xl:pt-36'
+  'default' => 'pt-8 lg:pt-12 xl:pt-20'
 ];
 $spacing_bottom_map = [
   'none' => 'pb-0',
@@ -31,7 +31,7 @@ $spacing_bottom_map = [
   'lg' => 'pb-10 lg:pb-16 xl:pb-28',
   'xl' => 'pb-12 lg:pb-20 xl:pb-36',
   '2xl' => 'pb-12 lg:pb-24 xl:pb-40',
-  'default' => 'pb-12 lg:pb-20 xl:pb-36'
+  'default' => 'pb-8 lg:pb-12 xl:pb-20'
 ];
 
 $section_padding_top = $spacing_top_map[$spacing_top] ?? '';
@@ -74,11 +74,6 @@ if ($section_text_color && $section_text_color !== 'default') {
   $section_style .= ' color:' . $section_text_color . ';';
 }
 if ($section_link_color) {
-  // Example usage:
-  //$hex = '#ff0000'; // Red color
-  // $rgb = hexToRgb($section_link_color);
-  // $section_link_color = 'rgb(' . $rgb["r"] . ' ' . $rgb["g"] . ' ' . $rgb["b"] . ' / var(--tw-bg-opacity))';
-  //echo 'R: ' . $rgb['r'] . ', G: ' . $rgb['g'] . ', B: ' . $rgb['b']; // Output: R: 255, G: 0, B: 0
   $section_style .= ' --section-link-color:' . $section_link_color . ';';
 }
 

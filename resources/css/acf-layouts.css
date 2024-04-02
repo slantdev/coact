@@ -4,6 +4,7 @@
 
 @import "partials/components.css";
 @import "partials/buttons.css";
+@import "partials/table.css";
 
 .acf-layout {
   @apply font-sans;

@@ -18,7 +18,7 @@ function plain_card($link, $image, $title, $excerpt)
   echo '</a>';
   echo '<h4 class="post-title text-lg lg:text-xl font-semibold my-4"><a href="' . $link . '" class="group-hover:underline">' . $title . '</a></h4>';
   echo '<div class="text-sm lg:text-base">' . wp_trim_words($excerpt, 20) . '</div>';
-  echo '<a href="' . $link . '" class="text-sm lg:text-base text-brand-sea underline font-medium inline-block mt-4" style="color: var(--section-link-color);">LEARN MORE</a>';
+  echo '<a href="' . $link . '" class="text-sm lg:text-base text-brand-sea underline font-medium inline-block mt-4" style="color: var(--section-link-color);">Read more</a>';
   echo '</div>';
 }
 
@@ -35,7 +35,7 @@ function shadow_card($link, $image, $title, $excerpt)
   echo '<div class="p-6 lg:p-8 bg-white">';
   echo '<h4 class="post-title text-lg lg:text-xl font-semibold mb-4 text-brand-sea" style="color: var(--section-link-color);"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h4>';
   echo '<div class="text-sm">' . wp_trim_words($excerpt, 20) . '</div>';
-  echo '<a href="' . $link . '" class="text-brand-sea text-sm underline font-medium inline-block mt-8" style="color: var(--section-link-color);">LEARN MORE</a>';
+  echo '<a href="' . $link . '" class="text-brand-sea text-sm underline font-medium inline-block mt-8" style="color: var(--section-link-color);">Read more</a>';
   echo '</div>';
   echo '</div>';
 }

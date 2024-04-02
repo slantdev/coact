@@ -743,7 +743,7 @@ if (isset($proof_points['checkmark_list'])) :
 ?>
   <section class="bg-white">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 pb-12 lg:pb-20 xl:pb-36">
-      <h3 class="mb-8 xl:mb-12 text-left text-4xl font-bold">The CoAct difference</h3>
+      <h3 class="mb-8 xl:mb-12 text-center text-4xl font-bold">Our promise to you</h3>
       <div class="grid grid-cols-<?php echo $count ?> gap-x-8">
         <?php foreach ($proof_points['checkmark_list'] as $check) : ?>
           <div class="bg-white shadow-lg rounded p-12 flex flex-col items-center">
@@ -753,6 +753,9 @@ if (isset($proof_points['checkmark_list'])) :
             <div class="text-center text-lg mt-8"><?php echo $check['point'] ?></div>
           </div>
         <?php endforeach; ?>
+      </div>
+      <div class="mt-6 xl:mt-12 text-center">
+        <a href="/our-promise-to-you/" target="" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View our customer promise</a>
       </div>
     </div>
   </section>

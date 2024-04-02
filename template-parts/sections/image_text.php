@@ -18,6 +18,11 @@ if ($headline_color) {
   $headline_style = 'color:' . $headline_color . ';';
 }
 $lead_text = $image_text['lead_text'];
+$leadtext_color = $image_text['leadtext_color'];
+$leadtext_style = '';
+if ($leadtext_color) {
+  $leadtext_style = 'color:' . $leadtext_color . ';';
+}
 $content = $image_text['content'];
 $components = $image_text['components'];
 $image = $image_text['image'];
@@ -78,11 +83,24 @@ $icon_links = $image_text['icon_links']; // Repeater
             <div class="flex flex-col gap-3 lg:gap-6">
               <?php foreach ($icon_links as $link) : ?>
                 <?php
-                $link_color = $link['color'];
+                $link_icon = $link['icon'] ?? '';
+                $link_color = $link['color'] ?? '';
+                $link_style = $link_color ? "color: " . $link_color . ';' : '';
+                $link_url = $link['link']['url'] ?? '';
+                $link_title = $link['link']['title'] ?? '';
+                $link_target = $link['target'] ?? '_self';
                 ?>
                 <div class="flex gap-x-6 ">
-                  <div class="flex-none" style="color: <?php echo $link_color ?>;"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '36', 'class' => 'w-6 h-6 lg:w-9 lg:h-9')); ?></div>
-                  <div class="text-lg lg:text-2xl font-medium"><a href="<?php echo $link['link']['url'] ?>" class="hover:underline" style="color: <?php echo $link_color ?>;"><?php echo $link['link']['title'] ?></a></div>
+                  <div class="flex-none" style="<?php echo $link_style ?>">
+                    <?php if ($link_icon) : ?>
+                      <?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '36', 'class' => 'w-6 h-6 lg:w-9 lg:h-9')); ?>
+                    <?php endif ?>
+                  </div>
+                  <div class="text-lg lg:text-2xl font-medium">
+                    <a href="<?php echo $link_url ?>" class="hover:underline" style="<?php echo $$link_style ?>">
+                      <?php echo $link_title ?>
+                    </a>
+                  </div>
                 </div>
               <?php endforeach ?>
             </div>
@@ -96,7 +114,7 @@ $icon_links = $image_text['icon_links']; // Repeater
             </div>
           <?php endif; ?>
           <?php if ($lead_text) : ?>
-            <div class="prose prose-lg lg:prose-xl max-w-none font-medium mb-6">
+            <div class="prose prose-lg lg:prose-xl max-w-none font-medium mb-6" style="<?php echo $leadtext_style ?>">
               <?php echo $lead_text ?>
             </div>
           <?php endif; ?>

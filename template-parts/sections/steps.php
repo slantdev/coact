@@ -54,7 +54,7 @@ $steps_repeater = $steps['steps'];
             $lastElement = end($steps_repeater);
             ?>
             <div class="text-center max-w-[240px] relative">
-              <div class="w-48 h-48 rounded-full mx-auto flex text-white items-center justify-center font-bold text-3xl p-12" style="<?php echo $circle_style ?>"><?php echo $cicle_title ?></div>
+              <div class="w-48 h-48 rounded-full mx-auto flex text-white items-center justify-center font-bold text-xl xl:text-2xl p-12" style="<?php echo $circle_style ?>"><?php echo $cicle_title ?></div>
               <?php if ($step != $lastElement) {
                 echo '<div class="absolute top-16 -right-24 -translate-x-1">' . coact_icon(array('icon' => 'steps-arrow', 'group' => 'utilities', 'size' => '80', 'class' => 'mx-auto text-gray-300')) . '</div>';
               } ?>

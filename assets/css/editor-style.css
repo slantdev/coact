@@ -6863,6 +6863,11 @@ body {
     font-size: 1.25rem;
   }
 
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .xl\:leading-snug {
     line-height: 1.375;
   }

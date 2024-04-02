@@ -38,16 +38,19 @@ $filter_style = isset($posts_grid['filter_style']) ? $posts_grid['filter_style']
 $filter_categories = isset($posts_grid['filter_categories']) ? $posts_grid['filter_categories'] : '';
 $filter_tags = isset($posts_grid['filter_tags']) ? $posts_grid['filter_tags'] : '';
 
-//preint_r($filter_categories);
+// preint_r($filter_categories);
 // preint_r($filter_tags);
 
-$mergedFilters = array_merge((array) $filter_categories, (array) $filter_tags);
+$mergedFilters = [];
+if ($filter_categories && $filter_tags) {
+  $mergedFilters = array_merge((array) $filter_categories, (array) $filter_tags);
+  usort($mergedFilters, function ($a, $b) {
+    return strcmp($a->name, $b->name);
+  });
+}
 
-usort($mergedFilters, function ($a, $b) {
-  return strcmp($a->name, $b->name);
-});
 
-// preint_r($mergedFilters);
+//preint_r($mergedFilters);
 
 $posts_grid_id = uniqid();
 
@@ -81,7 +84,7 @@ $posts_grid_id = uniqid();
           <?php endif; ?>
         </div>
       </div>
-      <?php if ($show_filter && $filter_style == 'tabs') : ?>
+      <?php if ($show_filter && $filter_style == 'tabs' && $mergedFilters) : ?>
         <div class="posts-filter-<?php echo $posts_grid_id ?> relative pt-10">
           <div class="px-12 lg:px-14 relative -mx-2 lg:-mx-0">
             <div class="swiper px-2 pt-2 pb-4">

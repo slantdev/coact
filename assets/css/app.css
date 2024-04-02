@@ -7852,6 +7852,75 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(0 0 0 / 0.05);
 }
 
+.container .prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  line-height: 1.375em;
+}
+
+.container .prose a {
+  color: var(--section-link-color);
+  text-decoration-line: none;
+}
+
+.container .prose a:hover {
+  text-decoration-line: underline;
+}
+
+.container .prose table {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--tw-prose-td-borders);
+}
+
+.container .prose table :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.container .prose :where(tbody td:first-child, tfoot td:first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+  padding-left: 0.5714286em;
+}
+
+@media (min-width: 1024px) {
+  .container .prose :where(tbody td:first-child, tfoot td:first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+    padding-left: 0.75em;
+  }
+}
+
+.container .prose :where(tbody td:last-child, tfoot td:last-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+  padding-right: 0.75em;
+}
+
+.container .prose :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  border-color: var(--tw-prose-td-borders);
+  border-bottom-width: 2px;
+}
+
+.container .prose :where(thead th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  padding: 0.5714286em;
+}
+
+.container .prose :where(thead th:first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+  padding-left: 0.5714286em;
+}
+
+.container .prose :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(231 229 228 / var(--tw-bg-opacity));
+}
+
+.container .prose :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 244 / var(--tw-bg-opacity));
+}
+
 .select2-container {
   position: relative;
   margin: 0px;
@@ -11029,6 +11098,11 @@ button.link_overlay-btn {
   .xl\:\!text-base {
     font-size: 1rem !important;
     line-height: 1.5rem !important;
+  }
+
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .xl\:text-3xl {

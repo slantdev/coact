@@ -76,7 +76,7 @@ $content_cards = $two_column_card['content_cards']; // Repeater
                   echo '<div>' . $excerpt . '</div>';
                 } ?>
                 <?php if ($link) {
-                  echo '<a href="' . $link['url'] . '" class="text-brand-purple underline uppercase font-medium inline-block mt-4 hover:no-underline" style="color: var(--section-link-color)">' . $link['title'] . '</a>';
+                  echo '<a href="' . $link['url'] . '" class="text-brand-purple underline font-medium inline-block mt-4 hover:no-underline" style="color: var(--section-link-color)">' . $link['title'] . '</a>';
                 } ?>
               </div>
 
