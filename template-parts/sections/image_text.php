@@ -88,7 +88,7 @@ $icon_links = $image_text['icon_links']; // Repeater
                 $link_style = $link_color ? "color: " . $link_color . ';' : '';
                 $link_url = $link['link']['url'] ?? '';
                 $link_title = $link['link']['title'] ?? '';
-                $link_target = $link['target'] ?? '_self';
+                $link_target = $link['link']['target'] ?? '_self';
                 ?>
                 <div class="flex gap-x-6 ">
                   <div class="flex-none" style="<?php echo $link_style ?>">
