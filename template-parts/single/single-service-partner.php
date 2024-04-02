@@ -919,13 +919,19 @@ if ($select_category) :
     <div class="relative container max-w-screen-md mx-auto z-10">
       <div class="mb-8">
         <div class="not-prose">
-          <h3 class="mb-4 xl:mb-8 text-center text-4xl font-bold">Enquire Now</h3>
+          <h3 class="mb-4 xl:mb-8 text-center text-4xl font-bold">Register your interest</h3>
         </div>
-        <div class="prose max-w-prose text-center">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</div>
+        <div class="prose max-w-prose text-center">Need help to find and keep a job? Call us on 1800 226 228 or complete our form and we’ll get back to you within the next 24 hours.</div>
       </div>
-      <div>
+      <?php
+      if (shortcode_exists('eloqua')) {
+        echo do_shortcode('[eloqua id="1"]');
+      }
+      ?>
+      <!-- <div>
+        <?php do_shortcode('[eloqua id="1"]') ?>
         <?php echo FrmFormsController::get_form_shortcode(array('id' => 2)); ?>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
