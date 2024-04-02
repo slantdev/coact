@@ -928,10 +928,6 @@ if ($select_category) :
         echo do_shortcode('[eloqua id="1"]');
       }
       ?>
-      <!-- <div>
-        <?php do_shortcode('[eloqua id="1"]') ?>
-        <?php echo FrmFormsController::get_form_shortcode(array('id' => 2)); ?>
-      </div> -->
     </div>
   </div>
 </section>
