@@ -97,7 +97,7 @@ $icon_links = $image_text['icon_links']; // Repeater
                     <?php endif ?>
                   </div>
                   <div class="text-lg lg:text-2xl font-medium">
-                    <a href="<?php echo $link_url ?>" class="hover:underline" style="<?php echo $$link_style ?>">
+                    <a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline" style="<?php echo $$link_style ?>">
                       <?php echo $link_title ?>
                     </a>
                   </div>
