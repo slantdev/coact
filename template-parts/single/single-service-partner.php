@@ -920,7 +920,7 @@ $headline = $register_form['headline'] ?? '';
 $description = $register_form['description'] ?? '';
 $form_shortcode = $register_form['form_shortcode'] ?? '';
 $section_anchor = $register_form['section_anchor'] ?? '';
-$section_id = $section_anchor ? 'id="#' . $section_anchor . '"' : '';
+$section_id = $section_anchor ? 'id="' . $section_anchor . '"' : '';
 if ($form_shortcode) :
 ?>
   <section <?php echo $section_id ?> class="bg-brand-light-gray">
