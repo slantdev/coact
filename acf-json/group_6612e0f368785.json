@@ -1,0 +1,158 @@
+{
+    "key": "group_6612e0f368785",
+    "title": "Service Partner - Form",
+    "fields": [
+        {
+            "key": "field_6612e0f494613",
+            "label": "Register Form",
+            "name": "register_form",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "label-hidden",
+                "id": ""
+            },
+            "layout": "block",
+            "acfe_seamless_style": 1,
+            "acfe_settings": "",
+            "acfe_permissions": "",
+            "sub_fields": [
+                {
+                    "key": "field_6612e147f8adb",
+                    "label": "Headline",
+                    "name": "headline",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Register your interest",
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "maxlength": "",
+                    "acfe_permissions": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6612e183f8adc",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Need help to find and keep a job? Call us on <a href=\"tel:1800226228\" target=\"_blank\">1800 226 228<\/a> or complete our form and we’ll get back to you within the next 24 hours.",
+                    "acfe_textarea_code": 0,
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "maxlength": "",
+                    "acfe_permissions": "",
+                    "rows": 3,
+                    "placeholder": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_6612e198f8add",
+                    "label": "Form Shortcode",
+                    "name": "form_shortcode",
+                    "aria-label": "",
+                    "type": "acfe_code_editor",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "[eloqua id=\"1\"]",
+                    "placeholder": "",
+                    "mode": "text\/html",
+                    "lines": 1,
+                    "indent_unit": 4,
+                    "maxlength": "",
+                    "rows": 2,
+                    "max_rows": "",
+                    "return_format": [],
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "acfe_permissions": ""
+                },
+                {
+                    "key": "field_6612e251bb472",
+                    "label": "Section Anchor",
+                    "name": "section_anchor",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "job-register",
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "maxlength": "",
+                    "acfe_permissions": "",
+                    "placeholder": "",
+                    "prepend": "#",
+                    "append": ""
+                }
+            ],
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "service-partner-form"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "field",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_permissions": "",
+    "acfe_form": 1,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1712514186,
+    "acfe_categories": {
+        "service-locator": "Service Locator"
+    }
+}

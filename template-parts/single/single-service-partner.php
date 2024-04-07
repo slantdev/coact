@@ -914,20 +914,34 @@ if ($select_category) :
   </section>
 <?php endif; ?>
 
-<section id="enquiry-form" class="bg-brand-light-gray">
-  <div class="relative container max-w-screen-xxl mx-auto pt-0 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
-    <div class="relative container max-w-screen-md mx-auto z-10">
-      <div class="mb-8">
-        <div class="not-prose">
-          <h3 class="mb-4 xl:mb-8 text-center text-4xl font-bold">Register your interest</h3>
+<?php
+$register_form = get_field('register_form', 'option'); // Group
+$headline = $register_form['headline'] ?? '';
+$description = $register_form['description'] ?? '';
+$form_shortcode = $register_form['form_shortcode'] ?? '';
+$section_anchor = $register_form['section_anchor'] ?? '';
+$section_id = $section_anchor ? 'id="#' . $section_anchor . '"' : '';
+if ($form_shortcode) :
+?>
+  <section <?php echo $section_id ?> class="bg-brand-light-gray">
+    <div class="relative container max-w-screen-xxl mx-auto pt-0 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
+      <div class="relative container max-w-screen-md mx-auto z-10">
+        <div class="mb-8">
+          <?php if ($headline) : ?>
+            <div class="not-prose">
+              <h3 class="mb-4 xl:mb-8 text-center text-4xl font-bold"><?php echo $headline ?></h3>
+            </div>
+          <?php endif ?>
+          <?php if ($headline) : ?>
+            <div class="prose max-w-prose text-center"><?php echo $description ?></div>
+          <?php endif ?>
         </div>
-        <div class="prose max-w-prose text-center">Need help to find and keep a job? Call us on 1800 226 228 or complete our form and we’ll get back to you within the next 24 hours.</div>
+        <?php
+        if (shortcode_exists('eloqua')) {
+          echo do_shortcode($form_shortcode);
+        }
+        ?>
       </div>
-      <?php
-      if (shortcode_exists('eloqua')) {
-        echo do_shortcode('[eloqua id="1"]');
-      }
-      ?>
     </div>
-  </div>
-</section>
+  </section>
+<?php endif ?>

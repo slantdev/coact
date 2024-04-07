@@ -52,7 +52,21 @@ $partners_logo = $header_logo['partners_logo'];
         <div class="hidden xl:flex items-center gap-x-8">
           <div class="pl-8 h-16 border-r border-r-zinc-400 border-solid w-px"></div>
           <?php foreach ($partners_logo as $partner) : ?>
-            <img src="<?php echo $partner['logo']['url'] ?>" alt="<?php echo $partner['logo']['alt'] ?>" class="w-auto h-16">
+            <?php
+            $logo = $partner['logo']['url'] ?? '';
+            $alt = $partner['logo']['alt'] ?? '';
+            $url = $partner['link']['url'] ?? '';
+            $target = $partner['link']['target'] ?? '_self';
+            if ($url) {
+              echo '<a href="' . $url . '" target="' . $target . '">';
+            }
+            if ($logo) {
+              echo '<img src="' . $logo . '" alt="' . $alt . '" class="w-auto h-16">';
+            }
+            if ($url) {
+              echo '</a>';
+            }
+            ?>
           <?php endforeach ?>
         </div>
       <?php endif; ?>

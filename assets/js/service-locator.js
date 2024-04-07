@@ -284,12 +284,30 @@
                 icon: markerImage
               });
               markers.push(marker);
+              var service_type_tags = "";
+              for (var i = 0; i < service_types.length; i++) {
+                var tag = $.map(service_types_tax, function(val) {
+                  return val.term_id == service_types[i] ? val.term_name : null;
+                });
+                service_type_tags += '<span class="inline-block text-[11px] px-3 py-0.5 rounded-md bg-white border border-brand-sea text-brand-sea">' + tag[0] + "</span>";
+              }
+              var list_contact_numbers = "";
+              contact_numbers.forEach(function(element) {
+                var tel = element.phone_number;
+                tel = tel.replace(/\s+/g, "");
+                list_contact_numbers += '<div class="mb-1">' + element.phone_label + ':&nbsp;<a href="tel:' + tel + '" class="underline font-medium hover:no-underline">' + element.phone_number + "</a></div>";
+              });
               var activeInfoWindow;
               var infowindow = new google.maps.InfoWindow();
               google.maps.event.addListener(marker, "click", function(evt) {
                 map.panTo(marker.getPosition());
+                var contentString = "<div class='max-w-md p-2'><h4 class='text-lg font-bold mb-2'>" + title + "</h4><div class='flex flex-wrap gap-3 mb-3'>" + service_type_tags + "</div><div class='mb-3'>" + location_address + ". <a href='https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lng + "' target='_blank' class='underline font-medium hover:no-underline'>Get Direction</a></div><div class='mb-3'>" + list_contact_numbers + "</div><div class='mt-8 flex gap-x-4'><a href='" + link + "' class='uppercase text-brand-sea font-semibold hover:underline'>More Details</a><a href='" + link + "#enquiry-form' class='uppercase text-brand-sea font-semibold hover:underline'>Register</a></div></div></div>";
                 infowindow.close();
-                serviceLocatorInfoWindow(provider_id, map, marker, infowindow);
+                infowindow.setContent(contentString);
+                infowindow.open({
+                  anchor: marker,
+                  map
+                });
               });
               num++;
             }

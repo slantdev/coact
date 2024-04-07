@@ -4220,6 +4220,11 @@ details.collapse summary::-webkit-details-marker {
   border-color: rgb(212 212 216 / var(--tw-border-opacity));
 }
 
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
 .border-r-zinc-400 {
   --tw-border-opacity: 1;
   border-right-color: rgb(161 161 170 / var(--tw-border-opacity));
@@ -6834,6 +6839,11 @@ body {
     line-height: 1.5rem !important;
   }
 
+  .xl\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .xl\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -6861,11 +6871,6 @@ body {
 
   .xl\:text-xl {
     font-size: 1.25rem;
-  }
-
-  .xl\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .xl\:leading-snug {

@@ -76,31 +76,6 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
           <?php else : ?>
             <div class="subscribe_section-form">
               <style type="text/css">
-                /* .elq-form [type=email],
-                .elq-form [type=text] {
-                  display: block;
-                  width: 100%;
-                  padding: 0.8125rem 1rem;
-                  font-size: .75rem;
-                  line-height: 1.16667;
-                  color: #000;
-                  border: 1px solid hsla(240, 1%, 46%, .2);
-                  border-radius: 2px;
-                  background-color: #fff;
-                  font-weight: normal;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  -webkit-transition: border-color .25s ease-in-out;
-                  transition: border-color .25s ease-in-out;
-                  will-change: border-color;
-                }
-                .elq-form [type=email]:focus,
-                .elq-form [type=text]:focus {
-                  outline: none;
-                  border: 1px solid #b2519e;
-                } */
-
                 .LV_invalid_field,
                 input.LV_invalid_field:active,
                 input.LV_invalid_field:hover,
@@ -121,56 +96,11 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                 }
 
                 .LV_invalid {
-                  /* color: #c00; */
                   color: #fff;
                   font-size: 10px;
                 }
-
-                /* .elq-form [type=submit] {
-                  color: #fff;
-                  text-align: center;
-                  font-family: inherit;
-                  padding: 0.6875rem 1.5625rem;
-                  border: 2px solid transparent;
-                  border-radius: 2px;
-                  background-color: #b2519e;
-                  font-size: .875rem;
-                  line-height: 1;
-                  text-decoration: none;
-                  display: inline-block;
-                  vertical-align: middle;
-                  cursor: pointer;
-                  margin: 0;
-                  -webkit-transition: all .3s cubic-bezier(.74, .25, .01, 1);
-                  transition: all .3s cubic-bezier(.74, .25, .01, 1);
-                  -webkit-transition-property: background-color, color;
-                  transition-property: background-color, color;
-                  will-change: background-color, color;
-                  -webkit-appearance: none;
-                  -moz-appearance: none;
-                  appearance: none;
-                  outline: 0;
-                  width: 100%;
-                }
-
-                .elq-form [type=submit]:hover {
-                  color: #fff;
-                  background-color: #d46bbe;
-                } */
-
-                /* @media (min-width: 1024px) {
-                  .elq-form .layout {
-                    display: flex;
-                    flex-wrap: wrap;
-                    width: 100%;
-                  }
-
-                  .elq-form .layout .form-element-layout {
-                    flex-grow: 1;
-                  }
-                } */
               </style>
-              <form method="post" name="copyOfGeneralEnquiryFormWebsite-1669869759180" action="https://s1709896.t.eloqua.com/e/f2" onsubmit="return handleFormSubmit(this)" id="form45" class="elq-form">
+              <form method="post" name="copyOfGeneralEnquiryFormWebsite-1669869759180" action="https://s1709896.t.eloqua.com/e/f2" onsubmit="return form45HandleFormSubmit(this)" id="form45" class="elq-form">
                 <input value="copyOfGeneralEnquiryFormWebsite-1669869759180" type="hidden" name="elqFormName">
                 <input value="1709896" type="hidden" name="elqSiteId">
                 <input name="elqCampaignId" type="hidden">
@@ -208,7 +138,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
               <script type="text/javascript" src="https://img07.en25.com/i/livevalidation_standalone.compressed.js">
               </script>
               <script>
-                function handleFormSubmit(ele) {
+                function form45HandleFormSubmit(ele) {
                   var submitButton = ele.querySelector('input[type=submit]');
                   var spinner = document.createElement('span');
                   spinner.setAttribute('class', 'loader');
@@ -218,22 +148,22 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                   return true;
                 }
 
-                function resetSubmitButton(e) {
+                function form45ResetSubmitButton(e) {
                   var submitButtons = e.target.form.getElementsByClassName('submit-button');
                   for (var i = 0; i < submitButtons.length; i++) {
                     submitButtons[i].disabled = false;
                   }
                 }
 
-                function addChangeHandler(elements) {
+                function form45AddChangeHandler(elements) {
                   for (var i = 0; i < elements.length; i++) {
-                    elements[i].addEventListener('change', resetSubmitButton);
+                    elements[i].addEventListener('change', form45ResetSubmitButton);
                   }
                 }
                 var form = document.getElementById('form45');
-                addChangeHandler(form.getElementsByTagName('input'));
-                addChangeHandler(form.getElementsByTagName('select'));
-                addChangeHandler(form.getElementsByTagName('textarea'));
+                form45AddChangeHandler(form.getElementsByTagName('input'));
+                form45AddChangeHandler(form.getElementsByTagName('select'));
+                form45AddChangeHandler(form.getElementsByTagName('textarea'));
                 var nodes = document.querySelectorAll('#form45 input[data-subscription]');
                 if (nodes) {
                   for (var i = 0, len = nodes.length; i < len; i++) {
@@ -366,17 +296,6 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                 });
               </script>
             </div>
-            <!-- <div class="my-6">
-              <div class="grid grid-cols-2 gap-3">
-                <input type="text" placeholder="First name*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
-                <input type="text" placeholder="Last name*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
-                <input type="text" placeholder="Email*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
-                <input type="text" placeholder="Postcode*" class="bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50">
-              </div>
-              <div class="mt-3">
-                <button type="button" class="bg-white px-12 py-3 rounded-full text-black font-medium hover:shadow-lg">Subscribe</button>
-              </div>
-            </div> -->
           <?php endif ?>
           <?php if ($subscribe_desciption) : ?>
             <div class="prose max-w-none leading-snug mr-auto text-left mb-6 xl:mb-6 text-white">

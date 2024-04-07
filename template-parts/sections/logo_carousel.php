@@ -103,10 +103,10 @@ $logo_link = isset($logo_carousel['logo_link']) ? $logo_carousel['logo_link'] : 
                 prevEl: ".<?php echo $carousel_id ?>--button-prev",
               },
               loop: true,
-              // autoplay: {
-              //   delay: 3000,
-              //   disableOnInteraction: false,
-              // }
+              autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+              }
             });
           </script>
         </div>

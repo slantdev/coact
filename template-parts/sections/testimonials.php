@@ -106,7 +106,7 @@ $testimonials_id = uniqid('testimonials-');
                         echo '<div class="text-brand-purple text-lg xl:text-3xl font-bold" style="color: var(--section-link-color)">' . $testimonial_text . '</div>';
                       } ?>
                       <?php if ($testimonial_title) {
-                        echo '<div class="mt-6 text-base xl:text-lg font-bold">' . $testimonial_title . '</div>';
+                        echo '<div class="mt-6 text-base xl:text-lg font-medium">' . $testimonial_title . '</div>';
                       } ?>
                     </div>
                 <?php
