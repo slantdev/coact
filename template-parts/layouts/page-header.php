@@ -46,22 +46,22 @@ if ($enable_page_header) :
               <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image['url'] ?>" alt="">
             </div>
           <?php endif; ?>
-          <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
+          <div class="absolute top-0 left-0  rounded-full bg-brand-sea bg-opacity-80 w-[640px] h-[640px] xl:w-[900px] xl:h-[900px] -translate-y-[20%] -translate-x-1/4 3xl:w-[1000px] 3xl:h-[1000px] 4xl:w-[1300px] 4xl:h-[1300px] 4xl-translate-y-1/4 4xl-translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
           <div class="relative z-10 px-4 py-8 xl:absolute xl:inset-0 xl:flex xl:items-center xl:p-12">
             <div class="container max-w-screen-xxl mx-auto">
-              <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
+              <div class="max-w-sm xl:max-w-lg font-montserrat" style="<?php echo $text_style ?>">
                 <?php if ($enable_breadcrumbs) : ?>
                   <?php
                   if (function_exists('yoast_breadcrumb')) {
-                    yoast_breadcrumb('<div class="breadcrumbs text-sm lg:text-base mb-8 xl:mb-16">', '</div>');
+                    yoast_breadcrumb('<div class="breadcrumbs text-sm xl:text-base mb-8 xl:mb-16">', '</div>');
                   }
                   ?>
                 <?php endif; ?>
                 <?php if ($title) : ?>
-                  <h2 class="text-3xl xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
+                  <h2 class="text-3xl xl:text-4xl 3xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
                 <?php endif; ?>
                 <?php if ($description) : ?>
-                  <div class="text-sm xl:text-xl xl:leading-snug font-medium mt-4">
+                  <div class="text-sm xl:text-lg 3xl:text-xl xl:leading-snug font-medium mt-4">
                     <?php echo $description ?>
                   </div>
                 <?php endif; ?>

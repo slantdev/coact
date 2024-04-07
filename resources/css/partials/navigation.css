@@ -12,7 +12,7 @@
   > li {
     @apply inline-flex justify-between;
     > a {
-      @apply relative block font-poppins font-semibold text-base py-3 px-2 xl:px-2 2xl:px-4 3xl:text-lg xl:pt-3 xl:pb-6 whitespace-nowrap;
+      @apply relative block font-poppins font-semibold text-base py-3 px-2 xl:px-2 2xl:px-3 2xl:text-lg 3xl:px-4 xl:pt-3 xl:pb-6 whitespace-nowrap;
       @apply xl:before:content-[''] xl:before:h-1 xl:before:rounded-full xl:before:w-full xl:before:absolute xl:before:top-0 xl:before:left-0 xl:before:right-0 xl:before:bg-transparent xl:before:-translate-x-4 xl:before:transition-all xl:before:duration-300;
       &:hover {
         @apply xl:before:bg-brand-sea xl:before:-translate-x-0;
