@@ -5771,6 +5771,10 @@ details.collapse summary::-webkit-details-marker {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -6057,6 +6061,11 @@ details.collapse summary::-webkit-details-marker {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+
 .border-neutral-100 {
   --tw-border-opacity: 1;
   border-color: rgb(245 245 245 / var(--tw-border-opacity));
@@ -6084,11 +6093,6 @@ details.collapse summary::-webkit-details-marker {
 .border-zinc-300 {
   --tw-border-opacity: 1;
   border-color: rgb(212 212 216 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
 .border-r-zinc-400 {
@@ -7269,10 +7273,11 @@ details.collapse summary::-webkit-details-marker {
 .main-nav--ul > li > a {
   position: relative;
   display: block;
+  white-space: nowrap;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   font-family: Poppins, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   line-height: 1.5rem;
@@ -7281,12 +7286,28 @@ details.collapse summary::-webkit-details-marker {
 
 @media (min-width: 1280px) {
   .main-nav--ul > li > a {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     padding-top: 0.75rem;
     padding-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main-nav--ul > li > a {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .main-nav--ul > li > a {
     font-size: 1.125rem;
     line-height: 1.75rem;
   }
+}
 
+@media (min-width: 1280px) {
   .main-nav--ul > li > a::before {
     position: absolute;
     top: 0px;
@@ -10294,6 +10315,10 @@ button.link_overlay-btn {
     display: block;
   }
 
+  .md\:inline-block {
+    display: inline-block;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -10354,6 +10379,10 @@ button.link_overlay-btn {
     align-items: center;
   }
 
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+
   .md\:gap-6 {
     gap: 1.5rem;
   }
@@ -10366,6 +10395,11 @@ button.link_overlay-btn {
   .md\:gap-x-24 {
     -moz-column-gap: 6rem;
          column-gap: 6rem;
+  }
+
+  .md\:gap-x-2 {
+    -moz-column-gap: 0.5rem;
+         column-gap: 0.5rem;
   }
 
   .md\:divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -10382,8 +10416,21 @@ button.link_overlay-btn {
     border-radius: 1.25rem;
   }
 
+  .md\:bg-transparent {
+    background-color: transparent;
+  }
+
+  .md\:px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .md\:pb-0 {
     padding-bottom: 0px;
+  }
+
+  .md\:pb-3 {
+    padding-bottom: 0.75rem;
   }
 
   .md\:text-2xl {
@@ -10884,6 +10931,14 @@ button.link_overlay-btn {
     right: 2rem;
   }
 
+  .xl\:right-0 {
+    right: 0px;
+  }
+
+  .xl\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .xl\:mb-0 {
     margin-bottom: 0px;
   }
@@ -10928,6 +10983,14 @@ button.link_overlay-btn {
     margin-top: 2rem;
   }
 
+  .xl\:block {
+    display: block;
+  }
+
+  .xl\:inline-block {
+    display: inline-block;
+  }
+
   .xl\:flex {
     display: flex;
   }
@@ -10964,16 +11027,24 @@ button.link_overlay-btn {
     width: 60%;
   }
 
-  .xl\:w-64 {
-    width: 16rem;
+  .xl\:w-56 {
+    width: 14rem;
   }
 
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .xl\:items-center {
     align-items: center;
+  }
+
+  .xl\:justify-normal {
+    justify-content: normal;
   }
 
   .xl\:gap-x-16 {
@@ -10985,8 +11056,17 @@ button.link_overlay-btn {
     border-radius: 1.75rem;
   }
 
+  .xl\:rounded-b-2xl {
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+
   .xl\:border-0 {
     border-width: 0px;
+  }
+
+  .xl\:bg-transparent {
+    background-color: transparent;
   }
 
   .xl\:p-12 {
@@ -11028,6 +11108,11 @@ button.link_overlay-btn {
     padding-bottom: 2rem;
   }
 
+  .xl\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   .xl\:pb-14 {
     padding-bottom: 3.5rem;
   }
@@ -11060,8 +11145,8 @@ button.link_overlay-btn {
     padding-bottom: 2rem;
   }
 
-  .xl\:pl-16 {
-    padding-left: 4rem;
+  .xl\:pl-6 {
+    padding-left: 1.5rem;
   }
 
   .xl\:pr-0 {
@@ -11151,9 +11236,17 @@ button.link_overlay-btn {
 }
 
 @media (min-width: 1536px) {
+  .\33xl\:w-64 {
+    width: 16rem;
+  }
+
   .\33xl\:gap-x-24 {
     -moz-column-gap: 6rem;
          column-gap: 6rem;
+  }
+
+  .\33xl\:pl-16 {
+    padding-left: 4rem;
   }
 }
 

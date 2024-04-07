@@ -8,38 +8,42 @@ $partners_logo = $header_logo['partners_logo'];
 ?>
 
 <header class="site-header bg-brand-light-gray relative z-40">
-  <div class="hidden lg:block bg-brand-sea h-6"></div>
+  <div class="hidden xl:block bg-brand-sea h-6"></div>
   <div class="mx-auto max-w-screen-4xl relative">
-    <div class="lg:absolute lg:right-0 lg:px-4">
-      <div class="block lg:flex">
-        <div class="hidden lg:block rounded-tr-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
-        <div class="lg:rounded-b-2xl bg-brand-sea text-white lg:px-2">
+    <div class="xl:absolute xl:right-0 xl:px-4">
+      <div class="block xl:flex">
+        <div class="hidden xl:block rounded-tr-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
+        <div class="xl:rounded-b-2xl bg-brand-sea text-white xl:px-2">
           <?php if ($top_nav_links) : ?>
-            <div class="flex gap-x-2 font-poppins font-semibold">
+            <div class="flex gap-x-2 md:justify-end font-poppins font-semibold">
               <?php foreach ($top_nav_links as $key => $link) : ?>
                 <?php if ($key == '0') { ?>
-                  <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="flex p-3 lg:px-4 lg:pb-3 bg-brand-purple lg:bg-transparent gap-x-2 hover:underline">
-                    <?php if ($link['link_icon']) {
-                      echo coact_icon(array('icon' => $link['link_icon'], 'group' => 'utilities', 'size' => '20', 'class' => 'text-white'));
-                    } ?>
-                    <span class="hidden lg:inline-block text-sm lg:text-base"><?php echo $link['link']['title'] ?></span>
-                  </a>
+                  <div class="">
+                    <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="inline-flex p-3 md:px-4 md:pb-3 bg-brand-purple md:bg-transparent gap-x-2 hover:underline">
+                      <?php if ($link['link_icon']) {
+                        echo coact_icon(array('icon' => $link['link_icon'], 'group' => 'utilities', 'size' => '20', 'class' => 'text-white'));
+                      } ?>
+                      <span class="hidden md:inline-block text-sm xl:text-base"><?php echo $link['link']['title'] ?></span>
+                    </a>
+                  </div>
                 <?php } else { ?>
-                  <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="flex grow p-3 lg:px-4 lg:pb-3 gap-x-2 hover:underline">
-                    <?php if ($link['link_icon']) {
-                      echo coact_icon(array('icon' => $link['link_icon'], 'group' => 'utilities', 'size' => '20', 'class' => 'text-white'));
-                    } ?>
-                    <span class="inline-block text-sm lg:text-base"><?php echo $link['link']['title'] ?></span>
-                  </a>
+                  <div class="flex justify-end">
+                    <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="inline-flex justify-end p-3 xl:px-4 xl:pb-3 gap-x-2 whitespace-nowrap hover:underline">
+                      <?php if ($link['link_icon']) {
+                        echo coact_icon(array('icon' => $link['link_icon'], 'group' => 'utilities', 'size' => '20', 'class' => 'text-white'));
+                      } ?>
+                      <span class="inline-block text-sm xl:text-base"><?php echo $link['link']['title'] ?></span>
+                    </a>
+                  </div>
                 <?php } ?>
               <?php endforeach ?>
             </div>
           <?php endif; ?>
         </div>
-        <div class="hidden lg:block rounded-tl-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
+        <div class="hidden xl:block rounded-tl-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
       </div>
     </div>
-    <div class="px-4 py-4 lg:py-8 flex items-center justify-between lg:justify-normal">
+    <div class="px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
       <button class="menu-open-btn xl:hidden">
         <?php echo coact_icon(array('icon' => 'menu', 'group' => 'utilities', 'size' => '24', 'class' => 'w-7 h-7')); ?>
       </button>
