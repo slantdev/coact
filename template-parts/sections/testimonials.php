@@ -103,7 +103,7 @@ $testimonials_id = uniqid('testimonials-');
                     ?>
                     <div class="swiper-slide text-center">
                       <?php if ($testimonial_text) {
-                        echo '<div class="text-brand-purple text-lg xl:text-3xl font-bold" style="color: var(--section-link-color)">' . $testimonial_text . '</div>';
+                        echo '<div class="text-brand-purple text-lg xl:text-3xl font-medium" style="color: var(--section-link-color)">' . $testimonial_text . '</div>';
                       } ?>
                       <?php if ($testimonial_title) {
                         echo '<div class="mt-6 text-base xl:text-lg font-medium">' . $testimonial_title . '</div>';

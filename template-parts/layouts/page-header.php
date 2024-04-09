@@ -72,7 +72,7 @@ if ($enable_page_header) :
                   $button_title = isset($button['title']) ? $button['title'] : '';
                   ?>
                   <div class="flex gap-x-4 mt-8">
-                    <a href="<?php echo $button_link ?>" target="<?php echo $button_target; ?>" class="text-sm px-5 py-1.5 xl:px-6 xl:py-3 rounded-full border border-solid font-semibold font-poppins xl:text-xl xl:leading-snug bg-white border-transparent text-black"><?php echo $button_title; ?></a>
+                    <a href="<?php echo $button_link ?>" target="<?php echo $button_target; ?>" class="text-sm px-5 py-1.5 xl:px-6 xl:py-3 rounded-full border border-solid font-medium font-poppins xl:text-xl xl:leading-snug bg-white border-transparent text-black"><?php echo $button_title; ?></a>
                   </div>
                 <?php endif; ?>
               </div>
