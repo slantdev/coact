@@ -6071,6 +6071,10 @@ details.collapse summary::-webkit-details-marker {
   border-radius: 1.25rem;
 }
 
+.\!rounded-full {
+  border-radius: 9999px !important;
+}
+
 .rounded-t-2xl {
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
@@ -6532,6 +6536,21 @@ details.collapse summary::-webkit-details-marker {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.\!px-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.\!py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.\!py-2\.5 {
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important;
 }
 
 .pb-0 {
@@ -9738,6 +9757,11 @@ details.collapse summary::-webkit-details-marker {
   .\32xl\:py-3 {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
+  }
+
+  .\32xl\:\!py-3 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
   }
 }
 
