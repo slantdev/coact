@@ -1,0 +1,47 @@
+[type="text"],
+input:where(:not([type])),
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+  @apply text-gray-600 bg-white border-gray-300 rounded-sm w-full text-base py-2 px-4 shadow-inner box-border outline-none font-normal;
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset; */
+}
+
+.site-content {
+  .elq-form {
+    .elq-field-style {
+      @apply pb-5;
+    }
+    .elq-label {
+      @apply mb-1 text-base font-medium;
+    }
+    .elq-item-label {
+      @apply text-base font-medium;
+    }
+    .submit-button-style {
+      @apply w-auto h-auto text-lg leading-none bg-brand-sea border border-brand-sea border-solid text-white font-normal rounded-full px-12 py-3 shadow-md my-4 cursor-pointer hover:brightness-125;
+    }
+  }
+}
+
+.subscribe_section-form {
+  .elq-form .elq-item-input {
+    @apply bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20;
+  }
+  .elq-form .elq-field-style input[type="submit"] {
+    &.submit-button-style {
+      @apply bg-white cursor-pointer px-12 py-3 rounded-full border-none text-black font-medium hover:shadow-lg;
+    }
+  }
+}

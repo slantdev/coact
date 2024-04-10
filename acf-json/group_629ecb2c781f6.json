@@ -524,6 +524,109 @@
             "acfe_group_modal_close": 0,
             "acfe_group_modal_button": "",
             "acfe_group_modal_size": "large"
+        },
+        {
+            "key": "field_6616b5bf0ca4f",
+            "label": "Show \/ Hide",
+            "name": "show_hide",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "acfe_seamless_style": 1,
+            "sub_fields": [
+                {
+                    "key": "field_6616b5cd0ca50",
+                    "label": "Hide on Small Screen",
+                    "name": "hide_on_sm",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Hide on screen < 768px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_6616b6660ca51",
+                    "label": "Hide on Medium Screen",
+                    "name": "hide_on_md",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Hide on screen >= 768px and < 1024px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_6616b6850ca52",
+                    "label": "Hide on Large Screen",
+                    "name": "hide_on_lg",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Hide on screen >= 1024px and < 1280px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_6616b72c0ca53",
+                    "label": "Hide on XL Screen",
+                    "name": "hide_on_xl",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Hide on screen >= 1280px",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                }
+            ],
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         }
     ],
     "location": [
@@ -551,7 +654,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707893210,
+    "modified": 1712766909,
     "acfe_categories": {
         "settings": "Settings"
     }

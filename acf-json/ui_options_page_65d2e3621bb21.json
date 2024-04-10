@@ -9,7 +9,7 @@
     "advanced_configuration": 1,
     "icon_url": "",
     "menu_title": "",
-    "position": "",
+    "position": 0,
     "redirect": false,
     "description": "",
     "update_button": "Update",
@@ -19,5 +19,5 @@
     "post_id": "",
     "autoload": 0,
     "_parent": 4354,
-    "modified": 1708319995
+    "modified": 1712768923
 }

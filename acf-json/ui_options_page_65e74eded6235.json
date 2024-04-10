@@ -6,10 +6,10 @@
     "page_title": "Eloqua Settings",
     "menu_slug": "eloqua",
     "parent_slug": "site-settings",
-    "advanced_configuration": 0,
+    "advanced_configuration": 1,
     "icon_url": "",
     "menu_title": "",
-    "position": "",
+    "position": 1,
     "redirect": false,
     "description": "",
     "update_button": "Update",
@@ -19,5 +19,5 @@
     "post_id": "",
     "autoload": 0,
     "_parent": 4354,
-    "modified": 1709660175
+    "modified": 1712768931
 }

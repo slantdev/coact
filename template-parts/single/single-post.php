@@ -2,62 +2,60 @@
 
 $enable_page_header = true;
 
-if ($enable_page_header) :
-  $text_color = '#000000';
-  $text_background_color = 'rgba(69,194,191,0.93)';
-  $background_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
-  $background_position = 'center';
-  $bg_image_class = '';
-  if ($background_position) {
-    $bg_image_class = ' object-' . $background_position;
-  }
+$text_color = '#000000';
+$text_background_color = 'rgba(69,194,191,0.93)';
+$background_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+$background_position = 'center';
+$bg_image_class = '';
+if ($background_position) {
+  $bg_image_class = ' object-' . $background_position;
+}
 
-  $title = get_the_title();
+$title = get_the_title();
 
-  $text_style = $text_color ? 'color: ' . $text_color . ';' : '';
+$text_style = $text_color ? 'color: ' . $text_color . ';' : '';
 
-  $text_bg_style = $text_background_color ? 'background-color: ' . $text_background_color . ';' : '';
+$text_bg_style = $text_background_color ? 'background-color: ' . $text_background_color . ';' : '';
 
-  $enable_breadcrumbs = true;
+$enable_breadcrumbs = true;
 
 ?>
-  <section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
-    <div class="max-w-screen-5xl px-4 mx-auto 4xl:px-8">
-      <div class="relative rounded-lg xl:aspect-w-16 xl:aspect-h-6 xl:rounded-3xl overflow-hidden">
-        <div class="bg-zinc-300 w-full h-full">
-          <?php if ($background_image) : ?>
-            <div class="absolute inset-0">
-              <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image ?>" alt="">
-            </div>
-          <?php endif; ?>
-          <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
-          <div class="relative z-10 px-4 py-8 xl:absolute xl:inset-0 xl:flex xl:items-center xl:p-12">
-            <div class="container max-w-screen-xxl mx-auto">
-              <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
-                <?php if ($enable_breadcrumbs) : ?>
-                  <?php
-                  if (function_exists('yoast_breadcrumb')) {
-                    yoast_breadcrumb('<div class="breadcrumbs text-sm lg:text-base mb-8 xl:mb-16">', '</div>');
-                  }
-                  ?>
-                <?php endif; ?>
-                <?php if ($title) : ?>
-                  <h2 class="text-xl xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
-                <?php endif; ?>
+<section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
+  <div class="max-w-screen-5xl px-4 mx-auto 4xl:px-8">
+    <div class="relative rounded-lg xl:aspect-w-16 xl:aspect-h-6 xl:rounded-3xl overflow-hidden">
+      <div class="bg-zinc-300 w-full h-full">
+        <?php if ($background_image) : ?>
+          <div class="absolute inset-0">
+            <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image ?>" alt="">
+          </div>
+        <?php endif; ?>
+        <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
+        <div class="relative z-10 px-4 py-8 xl:absolute xl:inset-0 xl:flex xl:items-center xl:p-12">
+          <div class="container max-w-screen-xxl mx-auto">
+            <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
+              <?php if ($enable_breadcrumbs) : ?>
                 <?php
-                $post_date = get_the_date('d F Y');
-                echo '<div class="text-base lg:text-lg text-black font-medium mt-8">' . $post_date . '</div>';
+                if (function_exists('yoast_breadcrumb')) {
+                  yoast_breadcrumb('<div class="breadcrumbs text-sm lg:text-base mb-8 xl:mb-16">', '</div>');
+                }
                 ?>
-              </div>
+              <?php endif; ?>
+              <?php if ($title) : ?>
+                <h2 class="text-xl xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
+              <?php endif; ?>
+              <?php
+              $post_date = get_the_date('d F Y');
+              echo '<div class="text-base lg:text-lg text-black font-medium mt-8">' . $post_date . '</div>';
+              ?>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-<?php endif; ?>
+  </div>
+</section>
 
-<section class="bg-white">
+<section class="bg-white" style="--section-link-color:#45C2BF;">
   <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-20 pb-12 lg:pb-20 xl:pb-36">
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
       <div class="w-full order-1 lg:w-2/3 xl:w-2/3 pt-4">
@@ -169,14 +167,21 @@ if ($enable_page_header) :
 <section class="bg-brand-light-gray">
   <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-20 pb-12 lg:pb-20 xl:pb-36">
     <?php
-    $previous_post = get_previous_post();
-    $previous_post_link = get_permalink($previous_post->ID);
-    $next_post = get_next_post();
-    $next_post_link = get_permalink($next_post->ID);
+    $previous_post = get_previous_post() ?? '';
+    $previous_post_link = '';
+    if ($previous_post) {
+      $previous_post_link = get_permalink($previous_post->ID) ?? '';
+    }
+    $next_post = get_next_post() ?? '';
+    $next_post_link = '';
+    if ($next_post) {
+      $next_post_link = get_permalink($next_post->ID) ?? '';
+    }
+
     if ($previous_post) {
       echo '<div class="grid grid-cols-2 divide-x divide-slate-300">';
     ?>
-      <div class="flex justify-start">
+      <div class="flex justify-start grow">
         <div class="max-w-md">
           <div class="mb-8 flex justify-start">
             <a class="flex gap-x-3 items-center text-brand-sea text-xl font-semibold" href="<?php echo esc_url($previous_post_link); ?>">
@@ -184,7 +189,7 @@ if ($enable_page_header) :
               <span class="inline-block py-2 border-b border-solid border-brand-sea">Previous post</span>
             </a>
           </div>
-          <a href="<?php echo esc_url($previous_post_link); ?>" class="hover:underline">
+          <a href="<?php echo esc_url($previous_post_link); ?>" class="block w-full hover:underline">
             <?php
             $the_thumbnail = get_the_post_thumbnail_url($previous_post->ID, 'large');
             if ($the_thumbnail) {
@@ -205,7 +210,7 @@ if ($enable_page_header) :
     }
     if ($next_post) {
     ?>
-      <div class="flex justify-end">
+      <div class="flex justify-end grow">
         <div class="max-w-md">
           <div class="mb-8 flex justify-end">
             <a class="flex gap-x-3 items-center text-brand-sea text-xl font-semibold" href="<?php echo esc_url($next_post_link); ?>">
@@ -213,7 +218,7 @@ if ($enable_page_header) :
               <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-6 h-6 text-brand-sea')); ?>
             </a>
           </div>
-          <a href="<?php echo esc_url($next_post_link); ?>" class="hover:underline">
+          <a href="<?php echo esc_url($next_post_link); ?>" class="block w-full hover:underline">
             <?php
             $the_thumbnail = get_the_post_thumbnail_url($next_post->ID, 'large');
             if ($the_thumbnail) {

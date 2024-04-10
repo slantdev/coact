@@ -18,7 +18,7 @@ $text_cards = $text_card_grid['text_cards']; // Repeater
 
 ?>
 
-<section <?php echo $section_id ?> style="<?php echo $section_style ?>">
+<section <?php echo $section_id ?> class="relative <?php echo $section_class ?>" style="<?php echo $section_style ?>">
   <?php get_template_part('template-parts/layouts/background_ornament', '', array('shape' => $ornament_shape, 'style' => $ornament_style, 'class' => 'max-w-screen-4xl')); ?>
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
     <?php if ($top_separator) : ?>

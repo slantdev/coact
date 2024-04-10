@@ -10,7 +10,7 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 
 $on_this_page = get_sub_field('on_this_page')['on_this_page'];
 ?>
-<section <?php echo $section_id ?> style="<?php echo $section_style ?>">
+<section <?php echo $section_id ?> class="relative <?php echo $section_class ?>" style="<?php echo $section_style ?>">
   <div class="relative <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>

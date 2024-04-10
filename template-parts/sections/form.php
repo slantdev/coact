@@ -13,7 +13,7 @@ $headline = $forms['headline'];
 $description = $forms['description'];
 $select_formidable_form = $forms['select_formidable_form'];
 ?>
-<section <?php echo $section_id ?> style="<?php echo $section_style ?>">
+<section <?php echo $section_id ?> class="relative <?php echo $section_class ?>" style="<?php echo $section_style ?>">
   <div class="relative container max-w-screen-xxl <?php echo $section_padding_top . ' ' . $section_padding_bottom ?>">
     <?php if ($top_separator) : ?>
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>

@@ -9,6 +9,7 @@ $section_text_color = $section_settings['section_text_color'] ?? '';
 $section_link_color = $section_settings['section_link_color'] ?? '';
 $add_section_anchor = $section_settings['add_section_anchor'] ?? false;
 $section_id = $add_section_anchor ? ($section_settings['section_id'] ?? '') : '';
+$section_class = '';
 
 $spacing_top = $section_settings['section_spacing']['spacing_top'] ?? '';
 $spacing_bottom = $section_settings['section_spacing']['spacing_bottom'] ?? '';
@@ -83,3 +84,69 @@ $entrance_animation_map = [
   'fadeInUp' => 'animation-item animation-fadeInUp',
 ];
 $entrance_animation_class = $entrance_animation_map[$entrance_animation] ?? '';
+
+$show_hide = $section_settings['show_hide'];
+$hide_on_sm = $show_hide['hide_on_sm'] ?? false;
+$hide_on_md = $show_hide['hide_on_md'] ?? false;
+$hide_on_lg = $show_hide['hide_on_lg'] ?? false;
+$hide_on_xl = $show_hide['hide_on_xl'] ?? false;
+
+$combined_flags = ($hide_on_sm ? 1 : 0) | ($hide_on_md ? 2 : 0) | ($hide_on_lg ? 4 : 0) | ($hide_on_xl ? 8 : 0);
+
+$show_hide_class = '';
+
+switch ($combined_flags) {
+  case 0: // Show on all sizes
+    $show_hide_class = '';
+    break;
+  case 1: // Hide on sm
+    $show_hide_class = 'hidden md:block lg:block xl:block';
+    break;
+  case 2: // Hide on md
+    $show_hide_class = 'md:hidden lg:block xl:block';
+    break;
+  case 3: // Hide on sm and md
+    $show_hide_class = 'hidden md:hidden lg:block xl:block';
+    break;
+  case 4: // Hide on lg
+    $show_hide_class = 'lg:hidden xl:block';
+    break;
+  case 5: // Hide on sm and lg
+    $show_hide_class = 'hidden md:block lg:hidden xl:block';
+    break;
+  case 6: // Hide on md and lg
+    $show_hide_class = 'md:hidden lg:hidden xl:block';
+    break;
+  case 7: // Hide on sm, md, and lg
+    $show_hide_class = 'hidden md:hidden lg:hidden xl:block';
+    break;
+  case 8: // Hide on xl
+    $show_hide_class = 'xl:hidden';
+    break;
+  case 9: // Hide on sm and xl
+    $show_hide_class = 'hidden md:block lg:block xl:hidden';
+    break;
+  case 10: // Hide on md and xl
+    $show_hide_class = 'md:hidden lg:block xl:hidden';
+    break;
+  case 11: // Hide on sm, md, and xl
+    $show_hide_class = 'hidden md:hidden lg:block xl:hidden';
+    break;
+  case 12: // Hide on lg and xl
+    $show_hide_class = 'lg:hidden xl:hidden';
+    break;
+  case 13: // Hide on sm, lg, and xl
+    $show_hide_class = 'hidden md:block lg:hidden xl:hidden';
+    break;
+  case 14: // Hide on md, lg, and xl
+    $show_hide_class = 'md:hidden lg:hidden xl:hidden';
+    break;
+  case 15: // Hide on all sizes
+    $show_hide_class = 'hidden';
+    break;
+  default:
+    $show_hide_class = '';
+    break;
+}
+
+$section_class .= $show_hide_class;

@@ -1878,17 +1878,17 @@ select {
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .container {
-    max-width: 600px;
+    max-width: 640px;
     padding-right: 2rem;
     padding-left: 2rem;
   }
 }
 
-@media (min-width: 782px) {
+@media (min-width: 786px) {
   .container {
-    max-width: 782px;
+    max-width: 786px;
   }
 }
 
@@ -2139,6 +2139,22 @@ select {
   z-index: 20;
   --tw-text-opacity: 1;
   color: var(--fallback-nc,oklch(var(--nc)/var(--tw-text-opacity)));
+}
+
+.checkbox {
+  flex-shrink: 0;
+  --chkbg: var(--fallback-bc,oklch(var(--bc)/1));
+  --chkfg: var(--fallback-b1,oklch(var(--b1)/1));
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: var(--rounded-btn, 0.5rem);
+  border-width: 1px;
+  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity)));
+  --tw-border-opacity: 0.2;
 }
 
 .collapse:not(td):not(tr):not(colgroup) {
@@ -3071,6 +3087,54 @@ select {
 .card.image-full :where(figure) {
   overflow: hidden;
   border-radius: inherit;
+}
+
+.checkbox:focus {
+  box-shadow: none;
+}
+
+.checkbox:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-color: var(--fallback-bc,oklch(var(--bc)/1));
+}
+
+.checkbox:checked,
+  .checkbox[checked="true"],
+  .checkbox[aria-checked="true"] {
+  background-repeat: no-repeat;
+  animation: checkmark var(--animation-input, 0.2s) ease-out;
+  background-color: var(--chkbg);
+  background-image: linear-gradient(-45deg, transparent 65%, var(--chkbg) 65.99%),
+      linear-gradient(45deg, transparent 75%, var(--chkbg) 75.99%),
+      linear-gradient(-45deg, var(--chkbg) 40%, transparent 40.99%),
+      linear-gradient(
+        45deg,
+        var(--chkbg) 30%,
+        var(--chkfg) 30.99%,
+        var(--chkfg) 40%,
+        transparent 40.99%
+      ),
+      linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%);
+}
+
+.checkbox:indeterminate {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  background-repeat: no-repeat;
+  animation: checkmark var(--animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(90deg, transparent 80%, var(--chkbg) 80%),
+      linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%),
+      linear-gradient(0deg, var(--chkbg) 43%, var(--chkfg) 43%, var(--chkfg) 57%, var(--chkbg) 57%);
+}
+
+.checkbox:disabled {
+  cursor: not-allowed;
+  border-color: transparent;
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+  opacity: 0.2;
 }
 
 @keyframes checkmark {
@@ -5632,7 +5696,7 @@ details.collapse summary::-webkit-details-marker {
 }
 
 .max-w-screen-md {
-  max-width: 782px;
+  max-width: 786px;
 }
 
 .max-w-screen-xl {
@@ -5645,6 +5709,18 @@ details.collapse summary::-webkit-details-marker {
 
 .max-w-sm {
   max-width: 24rem;
+}
+
+.max-w-screen-2xl {
+  max-width: 1440px;
+}
+
+.max-w-screen-sm {
+  max-width: 640px;
+}
+
+.max-w-screen-xs {
+  max-width: 480px;
 }
 
 .flex-none {
@@ -6912,7 +6988,7 @@ details.collapse summary::-webkit-details-marker {
   display: block;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 640px) {
   .alignleft:not(.wp-block-button) {
     margin-right: 0.5rem;
     float: left;
@@ -7309,7 +7385,7 @@ details.collapse summary::-webkit-details-marker {
   line-height: 1.25rem;
 }
 
-@media (min-width: 782px) {
+@media (min-width: 786px) {
   .btn {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -7793,7 +7869,7 @@ details.collapse summary::-webkit-details-marker {
   z-index: 20;
 }
 
-@media (min-width: 782px) {
+@media (min-width: 786px) {
   .md\:aspect-h-7 {
     --tw-aspect-h: 7;
   }
@@ -8724,7 +8800,13 @@ details.collapse summary::-webkit-details-marker {
   text-decoration-line: underline;
 }
 
-@media (min-width: 782px) {
+@media (min-width: 640px) {
+  .sm\:block {
+    display: block;
+  }
+}
+
+@media (min-width: 786px) {
   .md\:bottom-8 {
     bottom: 2rem;
   }
@@ -8761,6 +8843,10 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:flex {
     display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:h-24 {
@@ -8961,6 +9047,14 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:mt-20 {
     margin-top: 5rem;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:h-10 {
@@ -9706,7 +9800,7 @@ details.collapse summary::-webkit-details-marker {
   border-radius: 0.25rem;
 }
 
-@media (min-width: 782px) {
+@media (min-width: 786px) {
   .md\:\[\&\>\.swiper-pagination-bullet\]\:w-20>.swiper-pagination-bullet {
     width: 5rem;
   }
