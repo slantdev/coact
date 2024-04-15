@@ -233,3 +233,9 @@
     height: 100%;
   }
 }
+
+.collapse {
+  > [type="checkbox"] {
+    @apply w-full;
+  }
+}

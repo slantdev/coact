@@ -5679,6 +5679,10 @@ details.collapse summary::-webkit-details-marker {
   max-width: 65ch;
 }
 
+.max-w-screen-2xl {
+  max-width: 1440px;
+}
+
 .max-w-screen-3xl {
   max-width: 1536px;
 }
@@ -5699,8 +5703,16 @@ details.collapse summary::-webkit-details-marker {
   max-width: 786px;
 }
 
+.max-w-screen-sm {
+  max-width: 640px;
+}
+
 .max-w-screen-xl {
   max-width: 1280px;
+}
+
+.max-w-screen-xs {
+  max-width: 480px;
 }
 
 .max-w-screen-xxl {
@@ -5709,18 +5721,6 @@ details.collapse summary::-webkit-details-marker {
 
 .max-w-sm {
   max-width: 24rem;
-}
-
-.max-w-screen-2xl {
-  max-width: 1440px;
-}
-
-.max-w-screen-sm {
-  max-width: 640px;
-}
-
-.max-w-screen-xs {
-  max-width: 480px;
 }
 
 .flex-none {
@@ -5839,14 +5839,6 @@ details.collapse summary::-webkit-details-marker {
 
 .resize {
   resize: both;
-}
-
-.list-decimal {
-  list-style-type: decimal;
-}
-
-.list-disc {
-  list-style-type: disc;
 }
 
 .columns-4 {
@@ -6031,6 +6023,10 @@ details.collapse summary::-webkit-details-marker {
   white-space: nowrap;
 }
 
+.\!rounded-full {
+  border-radius: 9999px !important;
+}
+
 .rounded {
   border-radius: 0.5rem;
 }
@@ -6069,10 +6065,6 @@ details.collapse summary::-webkit-details-marker {
 
 .rounded-xl {
   border-radius: 1.25rem;
-}
-
-.\!rounded-full {
-  border-radius: 9999px !important;
 }
 
 .rounded-t-2xl {
@@ -6418,6 +6410,21 @@ details.collapse summary::-webkit-details-marker {
   padding: 10px;
 }
 
+.\!px-6 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.\!py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.\!py-2\.5 {
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important;
+}
+
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -6508,11 +6515,6 @@ details.collapse summary::-webkit-details-marker {
   padding-bottom: 0.5rem;
 }
 
-.py-2\.5 {
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
-}
-
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -6536,21 +6538,6 @@ details.collapse summary::-webkit-details-marker {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.\!px-6 {
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
-}
-
-.\!py-2 {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
-}
-
-.\!py-2\.5 {
-  padding-top: 0.625rem !important;
-  padding-bottom: 0.625rem !important;
 }
 
 .pb-0 {
@@ -6799,11 +6786,6 @@ details.collapse summary::-webkit-details-marker {
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 
 .text-brand-black {
@@ -7366,6 +7348,10 @@ details.collapse summary::-webkit-details-marker {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.collapse > [type="checkbox"] {
+  width: 100%;
 }
 
 .btn {
@@ -8819,12 +8805,6 @@ details.collapse summary::-webkit-details-marker {
   text-decoration-line: underline;
 }
 
-@media (min-width: 640px) {
-  .sm\:block {
-    display: block;
-  }
-}
-
 @media (min-width: 786px) {
   .md\:bottom-8 {
     bottom: 2rem;
@@ -9752,11 +9732,6 @@ details.collapse summary::-webkit-details-marker {
 
   .\32xl\:gap-10 {
     gap: 2.5rem;
-  }
-
-  .\32xl\:py-3 {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
   }
 
   .\32xl\:\!py-3 {
