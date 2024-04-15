@@ -56,7 +56,7 @@ $description = get_field('description');
   </div>
 </section>
 
-<section class="bg-white">
+<section class="bg-white" style="--section-link-color:#45C2BF;">
   <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-20 pb-12 lg:pb-20 xl:pb-36">
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
       <div class="w-full order-1 lg:w-2/3 xl:w-2/3">

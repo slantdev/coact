@@ -923,7 +923,7 @@ $section_anchor = $register_form['section_anchor'] ?? '';
 $section_id = $section_anchor ? 'id="' . $section_anchor . '"' : '';
 if ($form_shortcode) :
 ?>
-  <section <?php echo $section_id ?> class="bg-brand-light-gray">
+  <section <?php echo $section_id ?> class="bg-brand-light-gray" style="--section-link-color:#45C2BF;">
     <div class="relative container max-w-screen-xxl mx-auto pt-0 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
       <div class="relative container max-w-screen-md mx-auto z-10">
         <div class="mb-8">
@@ -932,7 +932,7 @@ if ($form_shortcode) :
               <h3 class="mb-4 xl:mb-8 text-center text-4xl font-bold"><?php echo $headline ?></h3>
             </div>
           <?php endif ?>
-          <?php if ($headline) : ?>
+          <?php if ($description) : ?>
             <div class="prose max-w-prose text-center"><?php echo $description ?></div>
           <?php endif ?>
         </div>
