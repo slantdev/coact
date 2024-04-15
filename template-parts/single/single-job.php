@@ -70,7 +70,7 @@ $enable_breadcrumbs = true;
           $target = isset($job_settings['external_link']['target']) ? $job_settings['external_link']['target'] : '_self';
           if ($url) {
             echo '<div class="mt-6 xl:mt-8">';
-            echo '<a href="' . $url . '" target="' . $target . '" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-orange text-white border border-transparent no-underline shadow-md hover:shadow-lg transition-all duration-200">' . $title . '</a>';
+            echo '<a href="' . $url . '" target="' . $target . '" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-orange !text-white border border-transparent no-underline shadow-md hover:shadow-lg transition-all duration-200">' . $title . '</a>';
             echo '</div>';
           }
           ?>
