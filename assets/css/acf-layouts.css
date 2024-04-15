@@ -7351,6 +7351,7 @@ details.collapse summary::-webkit-details-marker {
 }
 
 .collapse > [type="checkbox"] {
+  height: 100%;
   width: 100%;
 }
 
