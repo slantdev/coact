@@ -37,6 +37,10 @@
             "acfe_seamless_style": 1,
             "acfe_settings": "",
             "acfe_permissions": "",
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_65a04582200f1",
@@ -57,7 +61,7 @@
                     "acfe_permissions": ""
                 },
                 {
-                    "key": "field_659be4b655212",
+                    "key": "field_661eb90cfcab7",
                     "label": "Headline",
                     "name": "headline",
                     "aria-label": "",
@@ -80,8 +84,8 @@
                     "append": ""
                 },
                 {
-                    "key": "field_65a045f2200f5",
-                    "label": "Headline Color",
+                    "key": "field_661eb915fcab8",
+                    "label": "Color",
                     "name": "headline_color",
                     "aria-label": "",
                     "type": "color_picker",
@@ -89,7 +93,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "40",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
@@ -99,6 +103,42 @@
                     "acfe_settings": "",
                     "acfe_validate": "",
                     "acfe_permissions": ""
+                },
+                {
+                    "key": "field_661eb922fcaba",
+                    "label": "HTML Tag",
+                    "name": "headline_html_tag",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "h1": "H1",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "allow_null": 0,
+                    "acfe_permissions": "",
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": ""
                 },
                 {
                     "key": "field_65a04566200f0",
@@ -308,29 +348,6 @@
                     "search_placeholder": ""
                 },
                 {
-                    "key": "field_65a045be200f4",
-                    "label": "Background Ornament",
-                    "name": "background_ornament",
-                    "aria-label": "",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "33.33",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "acfe_settings": "",
-                    "acfe_validate": "",
-                    "acfe_permissions": "",
-                    "ui_on_text": "On",
-                    "ui_off_text": "Off",
-                    "ui": 1
-                },
-                {
                     "key": "field_65a06a5fa51b1",
                     "label": "Icon Links",
                     "name": "icon_links",
@@ -418,12 +435,31 @@
                             "parent_repeater": "field_65a06a5fa51b1"
                         }
                     ]
+                },
+                {
+                    "key": "field_65a045be200f4",
+                    "label": "Background Ornament",
+                    "name": "background_ornament",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "acfe_permissions": "",
+                    "ui_on_text": "On",
+                    "ui_off_text": "Off",
+                    "ui": 1
                 }
-            ],
-            "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large"
+            ]
         },
         {
             "key": "field_659be4b652388",
@@ -496,7 +532,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712036178,
+    "modified": 1713290257,
     "acfe_categories": {
         "layout": "Layout"
     }

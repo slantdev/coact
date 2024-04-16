@@ -17,7 +17,7 @@ $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color:' . $headline_color . ';';
 }
-$description = $text_center['description'];
+$description = $steps['description'];
 $steps_repeater = $steps['steps'];
 
 ?>
@@ -31,14 +31,14 @@ $steps_repeater = $steps['steps'];
     <div class="container mx-auto <?php echo $entrance_animation_class ?>">
       <div class="max-w-screen-lg mx-auto text-center z-[1]">
         <?php if ($headline) : ?>
-          <h3 class="text-black text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
+          <h3 class="text-black text-2xl md:text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
         <?php endif; ?>
         <?php if ($description) : ?>
           <div class="mt-6 text-lg font-medium"><?php echo $description ?></div>
         <?php endif; ?>
       </div>
       <?php if ($steps_repeater) : ?>
-        <div class="mt-20 flex gap-x-24 justify-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:flex lg:gap-x-24 lg:justify-center mt-8 lg:mt-20">
           <?php foreach ($steps_repeater as $key => $step) : ?>
             <?php
             $step_circle = $step['step_circle'];
@@ -53,19 +53,19 @@ $steps_repeater = $steps['steps'];
             $button = $step['button'];
             $lastElement = end($steps_repeater);
             ?>
-            <div class="text-center max-w-[240px] relative">
-              <div class="w-48 h-48 rounded-full mx-auto flex text-white items-center justify-center font-bold text-xl xl:text-2xl p-12" style="<?php echo $circle_style ?>"><?php echo $cicle_title ?></div>
+            <div class="relative flex gap-x-4 items-center lg:flex-col lg:text-center lg:max-w-[240px]">
+              <div class="flex-none w-24 h-24 lg:w-40 lg:h-40 xl:w-48 xl:h-48 rounded-full mx-auto flex text-white items-center justify-center font-bold text-center text-sm leading-tight lg:text-xl xl:text-2xl p-5 lg:p-10 xl:p-12" style="<?php echo $circle_style ?>"><?php echo $cicle_title ?></div>
               <?php if ($step != $lastElement) {
-                echo '<div class="absolute top-16 -right-24 -translate-x-1">' . coact_icon(array('icon' => 'steps-arrow', 'group' => 'utilities', 'size' => '80', 'class' => 'mx-auto text-gray-300')) . '</div>';
+                echo '<div class="hidden lg:block absolute top-16 -right-20 xl:-right-24 -translate-x-1">' . coact_icon(array('icon' => 'steps-arrow', 'group' => 'utilities', 'size' => '80', 'class' => 'w-12 h-12 xl:w-20 xl:h-20 mx-auto text-gray-300')) . '</div>';
               } ?>
-              <div class="mt-16 flex flex-col gap-y-8">
+              <div class="flex flex-col gap-y-4 lg:gap-y-4 lg:mt-10 xl:gap-y-8 xl:mt-16">
                 <?php if ($icon) {
-                  echo '<div class="w-full">';
-                  echo coact_icon(array('icon' => $icon, 'group' => 'content', 'size' => '80', 'class' => 'mx-auto'));
+                  echo '<div class="w-full hidden lg:block">';
+                  echo coact_icon(array('icon' => $icon, 'group' => 'content', 'size' => '80', 'class' => 'w-12 h-12 lg:w-12 lg:h-12 xl:w-20 xl:h-20 lg:mx-auto'));
                   echo '</div>';
                 } ?>
                 <?php if ($text) {
-                  echo '<div class="w-full">';
+                  echo '<div class="w-full mt-4 text-sm xl:text-base">';
                   echo $text;
                   echo '</div>';
                 } ?>

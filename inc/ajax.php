@@ -575,7 +575,7 @@ function load_state_suburb()
     $child_terms = get_term_children($parent_term_id, $taxonomy);
 
     if ($data_title) {
-      echo '<h4 class="text-2xl text-brand-sea mb-8 mt-4 font-bold">' . $data_title . '</h4>';
+      echo '<h4 class="text-xl md:text-2xl text-brand-sea mb-8 mt-4 font-bold">' . $data_title . '</h4>';
     }
 
     if (!empty($child_terms) && !is_wp_error($child_terms)) {
@@ -587,7 +587,7 @@ function load_state_suburb()
         return strcmp($term_a->name, $term_b->name);
       });
 
-      echo '<ul class="columns-4">';
+      echo '<ul class="suburb-columns">';
       foreach ($child_terms as $child_term_id) {
         $child_term = get_term_by('id', $child_term_id, $taxonomy);
         echo '<li>';
@@ -779,7 +779,7 @@ function filter_state_suburb()
   $child_terms = get_term_children($parent_term_id, $taxonomy);
   $response = '';
   if ($data_title) {
-    $response .= '<h4 class="text-2xl text-brand-sea mb-8 mt-4 font-bold">' . $data_title . '</h4>';
+    $response .= '<h4 class="text-xl md:text-2xl text-brand-sea mb-8 mt-4 font-bold">' . $data_title . '</h4>';
   }
   if (!empty($child_terms) && !is_wp_error($child_terms)) {
     // Sort the child terms alphabetically by name
@@ -788,11 +788,11 @@ function filter_state_suburb()
       $term_b = get_term($b, 'state-suburb');
       return strcmp($term_a->name, $term_b->name);
     });
-    $response .= '<ul class="columns-4">';
+    $response .= '<ul class="suburb-columns">';
     foreach ($child_terms as $child_term_id) {
       $child_term = get_term_by('id', $child_term_id, $taxonomy);
       $response .= '<li>';
-      $response .= '<button class="button-suburb text-xl underline hover:font-medium py-3" type="button">' . $child_term->name . '</button>';
+      $response .= '<button class="button-suburb text-base lg:text-xl underline hover:font-medium py-1.5 md:py-2 lg:py-3" type="button">' . $child_term->name . '</button>';
       $response .= '</li>';
     }
     $response .= '</ul>';

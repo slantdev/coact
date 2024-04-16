@@ -61,10 +61,10 @@ switch ($button_style) {
 
 switch ($button_size) {
   case "xs":
-    $print_button_class .= ' px-4 py-2 !text-xs';
+    $print_button_class .= ' px-4 !py-1.5 lg:!py-2 !text-xs';
     break;
   case "sm":
-    $print_button_class .= ' px-5 py-2 xl:px-8 !text-sm';
+    $print_button_class .= ' px-5 !py-1.5 xl:px-8 !text-sm';
     break;
   case "md":
     $print_button_class .= ' px-6 py-3 !text-sm xl:!text-base';
@@ -92,5 +92,5 @@ if ($button_style == 'custom') {
   }
 }
 if ($button_url) {
-  echo '<a href="' . $button_url . '" class="btn ' . $print_button_class . ' ' . $print_button_margin . '" style="' . $print_button_style . '" title="' . $button_title . '" target="' . $button_target . '"><span>' . $button_title . '</span></a>';
+  echo '<a href="' . $button_url . '" class="btn ' . $print_button_class . '" style="' . $print_button_style . '" title="' . $button_title . '" target="' . $button_target . '"><span>' . $button_title . '</span></a>';
 }

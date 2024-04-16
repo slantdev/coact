@@ -239,3 +239,18 @@
     @apply w-full h-full;
   }
 }
+
+.tw-columns-4 {
+  -moz-columns: 4;
+  columns: 4;
+}
+
+.tw-columns-2 {
+  -moz-columns: 2;
+  columns: 2;
+}
+
+.md\:tw-columns-3 {
+  -moz-columns: 3;
+  columns: 3;
+}

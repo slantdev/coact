@@ -16,6 +16,10 @@ $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
+$headline_html_tag = $image_text['headline_html_tag'] ?? '';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
 $description = $posts_grid['description'];
 $button = $posts_grid['button'];
 $button_color = $posts_grid['button_color'];
@@ -56,11 +60,17 @@ $posts_grid_id = uniqid();
     <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto z-10 <?php echo $entrance_animation_class ?>">
       <div>
-        <?php if ($headline) : ?>
-          <div class="not-prose">
-            <h3 class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
-          </div>
-        <?php endif; ?>
+        <?php
+        if ($headline) {
+          echo '<div class="not-prose">';
+          echo '<' . $headline_html_tag;
+          echo ' class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"';
+          echo ' style="' . $headline_style . '">';
+          echo $headline;
+          echo '</' . $headline_html_tag . '>';
+          echo '</div>';
+        }
+        ?>
         <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24">
           <?php if ($description) : ?>
             <div class="w-full lg:w-2/3">

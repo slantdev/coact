@@ -11,22 +11,26 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $image_text = get_sub_field('image_text'); // Group
-$headline = $image_text['headline'];
-$headline_color = $image_text['headline_color'];
+$headline = $image_text['headline'] ?? '';
+$headline_color = $image_text['headline_color'] ?? '';
 $headline_style = '';
 if ($headline_color) {
   $headline_style = 'color:' . $headline_color . ';';
 }
-$lead_text = $image_text['lead_text'];
-$leadtext_color = $image_text['leadtext_color'];
+$headline_html_tag = $image_text['headline_html_tag'] ?? '';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$lead_text = $image_text['lead_text'] ?? '';
+$leadtext_color = $image_text['leadtext_color'] ?? '';
 $leadtext_style = '';
 if ($leadtext_color) {
   $leadtext_style = 'color:' . $leadtext_color . ';';
 }
-$content = $image_text['content'];
-$components = $image_text['components'];
-$image = $image_text['image'];
-$rounded_corner = $image_text['rounded_corner'];
+$content = $image_text['content'] ?? '';
+$components = $image_text['components'] ?? '';
+$image = $image_text['image'] ?? '';
+$rounded_corner = $image_text['rounded_corner'] ?? '';
 
 $rounded_corner_map = [
   'none' => 'rounded-none',
@@ -41,8 +45,8 @@ $rounded_corner_map = [
 ];
 $rounded_class = $rounded_corner_map[$rounded_corner] ?? '';
 
-$background_ornament = $image_text['background_ornament'];
-$image_column_position = $image_text['image_column_position'];
+$background_ornament = $image_text['background_ornament'] ?? '';
+$image_column_position = $image_text['image_column_position'] ?? '';
 
 $column_img_class = 'order-1';
 $column_text_class = 'order-2';
@@ -51,7 +55,7 @@ if ($image_column_position == 'right') {
   $column_text_class = 'order-1';
 }
 
-$icon_links = $image_text['icon_links']; // Repeater
+$icon_links = $image_text['icon_links'] ?? ''; // Repeater
 
 ?>
 
@@ -108,11 +112,17 @@ $icon_links = $image_text['icon_links']; // Repeater
         </div>
 
         <div class="relative z-10 w-full lg:w-2/3 xl:w-3/5 pt-6 <?php echo $column_text_class ?>">
-          <?php if ($headline) : ?>
-            <div class="not-prose">
-              <h3 class="mb-8 xl:mb-12 text-left text-3xl lg:text-4xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
-            </div>
-          <?php endif; ?>
+          <?php
+          if ($headline) {
+            echo '<div class="not-prose">';
+            echo '<' . $headline_html_tag;
+            echo ' class="mb-8 xl:mb-12 text-left text-3xl lg:text-4xl font-bold"';
+            echo ' style="' . $headline_style . '">';
+            echo $headline;
+            echo '</' . $headline_html_tag . '>';
+            echo '</div>';
+          }
+          ?>
           <?php if ($lead_text) : ?>
             <div class="prose prose-lg lg:prose-xl max-w-none font-medium mb-6" style="<?php echo $leadtext_style ?>">
               <?php echo $lead_text ?>

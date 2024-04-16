@@ -51,3 +51,11 @@ select {
     }
   }
 }
+
+.container {
+  .elq-form {
+    .container-fluid {
+      @apply px-0;
+    }
+  }
+}

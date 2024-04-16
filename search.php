@@ -33,7 +33,7 @@ if (!empty($search_query) && class_exists('\\SearchWP\\Query')) {
 <section class="relative border-t border-slate-200">
   <div class="container max-w-4xl relative py-16">
     <form id="" class="relative" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-      <input id="searchresult-input" type="text" class="w-full shadow-inner rounded-full bg-white px-6 py-3 border border-solid border-slate-200 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="<?php echo $search_query ?>">
+      <input id="searchresult-input" type="text" class="w-full !shadow-inner !rounded-full bg-white !px-6 !py-3 !border !border-solid !border-slate-200 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="<?php echo $search_query ?>">
       <button type="submit" class="absolute right-4 top-3" style="<?php echo $search_icon_style ?>">
         <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea')); ?>
       </button>
@@ -76,7 +76,7 @@ if (!empty($search_query) && class_exists('\\SearchWP\\Query')) {
                   } elseif ($post_type == 'job') {
                     echo '<h4 class="font-medium text-sm mb-3 text-slate-500">CAREER</h4>';
                   } ?>
-                  <h3 class="search-title font-medium text-brand-sea text-xl lg:text-2xl"><?php the_title(); ?></h3>
+                  <h3 class="search-title font-medium text-brand-sea text-xl lg:text-2xl !leading-tight"><?php the_title(); ?></h3>
                   <?php if ($content) : ?>
                     <div class="search-excerpt text-sm mt-2 font-default text-slate-600"><?php the_excerpt() ?></div>
                   <?php endif; ?>

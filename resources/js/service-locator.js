@@ -128,7 +128,25 @@ jQuery(function ($) {
     $(".service_locator-sidepane").css("height", "auto");
     $(".service_locator-listing").css("height", "auto");
 
-    if (window.matchMedia("(min-width: 60rem)").matches) {
+    if (window.matchMedia("(max-width: 1024px)").matches) {
+      // functionality for screens above than 960px
+      // $(
+      //   ".service_locator, .service_locator-content_wrapper, .service_locator-wrap"
+      // ).css("height", map_height + "px");
+      //$(".service_locator-wrap").css("height", map_height + "px");
+      // $(".service_locator-content_wrapper").css("height", map_height + "px");
+      //$(".service_locator").css("height", map_height + "px");
+      // $(".service_locator-sidepane").css("height", map_height + "px");
+      // $(".service_locator-listing").css(
+      //   "height",
+      //   map_height -
+      //     service_locator_form_height -
+      //     service_locator_infobar_height +
+      //     "px"
+      // );
+    }
+
+    if (window.matchMedia("(min-width: 1024px)").matches) {
       // functionality for screens above than 992px
       // $(
       //   ".service_locator, .service_locator-content_wrapper, .service_locator-wrap"
@@ -776,7 +794,7 @@ jQuery(function ($) {
                   </a>
               </div>
               <div class="w-1/2">
-                  <a href="${link}" class="inline-flex gap-3 items-center hover:underline px-8 py-3">
+                  <a href="${link}" class="inline-flex gap-3 items-center hover:underline px-4 lg:px-8 py-3">
                       <svg class="w-4 h-4 text-brand-purple" width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M24.1072 0C19.3604 0 14.7203 1.40758 10.7735 4.04473C6.82672 6.68188 3.75058 10.4302 1.93408 14.8156C0.117577 19.201 -0.357704 24.0266 0.568342 28.6822C1.49439 33.3377 3.78017 37.6141 7.13663 40.9706C10.4931 44.327 14.7695 46.6128 19.425 47.5388C24.0806 48.4649 28.9062 47.9896 33.2916 46.1731C37.677 44.3566 41.4253 41.2805 44.0625 37.3337C46.6996 33.3869 48.1072 28.7468 48.1072 24C48.1072 17.6348 45.5786 11.5303 41.0778 7.02944C36.5769 2.52856 30.4724 0 24.1072 0ZM21.0368 38.6192L16.04 33.6208L25.6592 24L16.04 14.3808L21.0368 9.384L35.656 24L21.0368 38.6192Z" fill="currentColor" />
                       </svg>
@@ -1274,6 +1292,7 @@ jQuery(function ($) {
     e.preventDefault();
     $(this).addClass("active");
     $("#view-on-map").removeClass("active");
+    $(".service_locator-listing").show();
     $(".service_locator-listing_tabs").show();
     $(".service_locator-map").hide();
   });
@@ -1281,6 +1300,7 @@ jQuery(function ($) {
     e.preventDefault();
     $(this).addClass("active");
     $("#view-as-list").removeClass("active");
+    $(".service_locator-listing").hide();
     $(".service_locator-listing_tabs").hide();
     $(".service_locator-map").show();
   });
