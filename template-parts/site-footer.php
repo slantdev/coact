@@ -374,9 +374,14 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
           <?php if ($popular_links) : ?>
             <ul class="flex flex-col gap-3 text-white">
               <?php foreach ($popular_links as $link) : ?>
+                <?php
+                $link_url = $link['link']['url'] ?? '';
+                $link_title = $link['link']['title'] ?? '';
+                $link_target = $link['link']['target'] ?? '_self';
+                ?>
                 <li class="text-sm lg:text-base">
-                  <?php if ($link['link']) : ?>
-                    <div><a href="<?php echo $link['link']['url'] ?>" class="hover:underline"><?php echo $link['link']['title'] ?></a></div>
+                  <?php if ($link_url) : ?>
+                    <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
                   <?php endif; ?>
                 </li>
               <?php endforeach ?>
@@ -395,13 +400,14 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                 $icon = $link['icon'] ?? '';
                 $link_url = $link['link']['url'] ?? '';
                 $link_title = $link['link']['title'] ?? '';
+                $link_target = $link['link']['target'] ?? '_self';
                 ?>
                 <li class="flex gap-x-4 text-sm lg:text-base">
                   <?php if ($icon) : ?>
                     <div class="flex-none"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
                   <?php endif; ?>
                   <?php if ($link_url) : ?>
-                    <div><a href="<?php echo $link_url ?>" class="hover:underline"><?php echo $link_title ?></a></div>
+                    <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
                   <?php endif; ?>
                 </li>
               <?php endforeach ?>
@@ -419,10 +425,11 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                 <?php
                 $link_url = $link['link']['url'] ?? '';
                 $link_title = $link['link']['title'] ?? '';
+                $link_target = $link['link']['target'] ?? '_self';
                 ?>
                 <li class="text-sm lg:text-base">
                   <?php if ($link_url) : ?>
-                    <div><a href="<?php echo $link_url ?>" class="hover:underline"><?php echo $link_title ?></a></div>
+                    <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
                   <?php endif; ?>
                 </li>
               <?php endforeach ?>
