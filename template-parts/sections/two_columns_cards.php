@@ -11,10 +11,15 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $two_column_card = get_sub_field('two_column_card');
-$intro = $two_column_card['intro'];
-$headline = $intro['headline'];
-$description = $intro['description'];
-$content_cards = $two_column_card['content_cards']; // Repeater
+$intro = $two_column_card['intro'] ?? '';
+$headline = $intro['headline'] ?? '';
+$headline_color = $intro['headline_color'] ?? '';
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color:' . $headline_color . ';';
+}
+$description = $intro['description'] ?? '';
+$content_cards = $two_column_card['content_cards'] ?? []; // Repeater
 
 ?>
 
@@ -27,21 +32,21 @@ $content_cards = $two_column_card['content_cards']; // Repeater
     <div class="container max-w-screen-xxl mx-auto animation-wrapper">
       <div class="relative z-10 mx-auto <?php echo $entrance_animation_class ?>">
         <?php if ($headline || $description) : ?>
-          <div class="text-center max-w-prose mx-auto mb-14">
+          <div class="text-center max-w-prose mx-auto mb-10 lg:mb-14">
             <?php if ($headline) : ?>
               <div class="not-prose">
-                <h3 class="mb-8 xl:mb-12 text-4xl font-bold"><?php echo $headline ?></h3>
+                <h3 class="text-3xl lg:text-4xl font-bold mb-8 xl:mb-12" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
               </div>
             <?php endif; ?>
             <?php if ($description) : ?>
-              <div class="prose prose-xl max-w-none font-medium mb-6">
+              <div class="prose xl:prose-xl max-w-none font-medium">
                 <?php echo $description ?>
               </div>
             <?php endif; ?>
           </div>
         <?php endif; ?>
         <?php if ($content_cards) : ?>
-          <div class="grid grid-cols-2 gap-x-8 gap-y-12">
+          <div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-12">
             <?php foreach ($content_cards as $card) : ?>
               <?php
               $image = $card['image'];
@@ -73,7 +78,7 @@ $content_cards = $two_column_card['content_cards']; // Repeater
                   } ?>
                 <?php } ?>
                 <?php if ($excerpt) {
-                  echo '<div>' . $excerpt . '</div>';
+                  echo '<div class="text-base">' . $excerpt . '</div>';
                 } ?>
                 <?php if ($link) {
                   echo '<a href="' . $link['url'] . '" class="text-brand-purple underline font-medium inline-block mt-4 hover:no-underline" style="color: var(--section-link-color)">' . $link['title'] . '</a>';

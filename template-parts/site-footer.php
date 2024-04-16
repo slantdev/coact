@@ -1,39 +1,39 @@
 <?php
 
 $site_footer = get_field('site_footer', 'option');
-$footer_top = $site_footer['footer_top'];
-$columns = $footer_top['columns'];
+$footer_top = $site_footer['footer_top'] ?? '';
+$columns = $footer_top['columns'] ?? '';
 $column_count = '3';
 if ($columns) {
   $column_count = count($columns);
 }
-$about = $site_footer['about'];
-$address_heading = $about['address_heading'];
-$address = $about['address'];
-$phone = $about['phone'];
-$email = $about['email'];
-$logo = $about['logo'];
-$popular_content = $site_footer['popular_content'];
-$popular_heading = $popular_content['heading'];
-$popular_links = $popular_content['links'];
-$connect = $site_footer['connect'];
-$connect_heading = $connect['heading'];
-$connect_links = $connect['links'];
-$quick_links = $site_footer['quick_links'];
-$quick_links_heading = $quick_links['heading'];
-$quick_links_links = $quick_links['links'];
-$copyright_info = $site_footer['copyright_info'];
-$copyright_site_name = $copyright_info['copyright_site_name'];
-$copyright_links = $copyright_info['copyright_links'];
+$about = $site_footer['about'] ?? '';
+$address_heading = $about['address_heading'] ?? '';
+$address = $about['address'] ?? '';
+$phone = $about['phone'] ?? '';
+$email = $about['email'] ?? '';
+$logo = $about['logo'] ?? '';
+$popular_content = $site_footer['popular_content'] ?? '';
+$popular_heading = $popular_content['heading'] ?? '';
+$popular_links = $popular_content['links'] ?? '';
+$connect = $site_footer['connect'] ?? '';
+$connect_heading = $connect['heading'] ?? '';
+$connect_links = $connect['links'] ?? '';
+$quick_links = $site_footer['quick_links'] ?? '';
+$quick_links_heading = $quick_links['heading'] ?? '';
+$quick_links_links = $quick_links['links'] ?? '';
+$copyright_info = $site_footer['copyright_info'] ?? '';
+$copyright_site_name = $copyright_info['copyright_site_name'] ?? '';
+$copyright_links = $copyright_info['copyright_links'] ?? '';
 
-$subscribe = get_field('subscribe', 'option')['subscribe'];
-$subscribe_heading = $subscribe['heading'];
-$subscribe_desciption = $subscribe['description'];
-$subscribe_form_shortcode = $subscribe['form_shortcode'];
-$subscribe_image = $subscribe['image'];
-$subscribe_colors = $subscribe['subscribe_colors'];
-$subscribe_background_color = $subscribe_colors['background_color'];
-$subscribe_text_color = $subscribe_colors['text_color'];
+$subscribe = get_field('subscribe', 'option')['subscribe'] ?? '';
+$subscribe_heading = $subscribe['heading'] ?? '';
+$subscribe_desciption = $subscribe['description'] ?? '';
+$subscribe_form_shortcode = $subscribe['form_shortcode'] ?? '';
+$subscribe_image = $subscribe['image'] ?? '';
+$subscribe_colors = $subscribe['subscribe_colors'] ?? '';
+$subscribe_background_color = $subscribe_colors['background_color'] ?? '';
+$subscribe_text_color = $subscribe_colors['text_color'] ?? '';
 $subscribe_style = '';
 if ($subscribe_background_color) {
   $subscribe_style .= 'background-color: ' . $subscribe_background_color . ';';
@@ -104,23 +104,23 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                 <input value="copyOfGeneralEnquiryFormWebsite-1669869759180" type="hidden" name="elqFormName">
                 <input value="1709896" type="hidden" name="elqSiteId">
                 <input name="elqCampaignId" type="hidden">
-                <div class="layout grid grid-cols-2 gap-3">
-                  <div id="formElement0" class="elq-field-style form-element-layout">
+                <div class="layout grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div id="formElement0" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
                       <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="firstName" id="fe699" value="" placeholder="First Name *" style="width:100%;">
                     </div>
                   </div>
-                  <div id="formElement1" class="elq-field-style form-element-layout">
+                  <div id="formElement1" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
                       <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="lastName" id="fe700" value="" placeholder="Last Name *" style="width:100%;">
                     </div>
                   </div>
-                  <div id="formElement2" class="elq-field-style form-element-layout">
+                  <div id="formElement2" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
                       <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="emailAddress" id="fe701" value="" placeholder="Email Address *" style="width:100%;">
                     </div>
                   </div>
-                  <div id="formElement3" class="elq-field-style form-element-layout">
+                  <div id="formElement3" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
                       <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20" name="zipPostal" id="fe734" value="" placeholder="Post Code *" style="width:100%;">
                     </div>
@@ -341,8 +341,8 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
 
 <div class="bg-brand-black py-14 lg:py-28">
   <div class="mx-auto max-w-screen-4xl px-4 relative">
-    <div class="flex flex-col md:flex-row md:gap-x-24">
-      <div class="w-full md:w-1/4 pb-6 lg:pb-0">
+    <div class="flex flex-col lg:flex-row lg:gap-x-24">
+      <div class="w-full lg:w-1/4 pb-6 md:pb-10 lg:pb-0">
         <?php if ($logo) : ?>
           <a href="<?php echo site_url() ?>"><img src="<?php echo $logo['url'] ?>" alt="CoAct" class="h-24 lg:h-[128px] w-auto"></a>
         <?php else : ?>
@@ -365,7 +365,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-x-16">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-x-16">
         <div class="px-6 relative">
           <div class="h-28 w-px bg-brand-sea absolute top-0 left-0"></div>
           <?php if ($popular_heading) : ?>
@@ -391,12 +391,17 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
           <?php if ($connect_links) : ?>
             <ul class="flex flex-col gap-3 text-white">
               <?php foreach ($connect_links as $link) : ?>
+                <?php
+                $icon = $link['icon'] ?? '';
+                $link_url = $link['link']['url'] ?? '';
+                $link_title = $link['link']['title'] ?? '';
+                ?>
                 <li class="flex gap-x-4 text-sm lg:text-base">
-                  <?php if ($link['icon']) : ?>
+                  <?php if ($icon) : ?>
                     <div class="flex-none"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
                   <?php endif; ?>
-                  <?php if ($link['link']) : ?>
-                    <div><a href="<?php echo $link['link']['url'] ?>" class="hover:underline"><?php echo $link['link']['title'] ?></a></div>
+                  <?php if ($link_url) : ?>
+                    <div><a href="<?php echo $link_url ?>" class="hover:underline"><?php echo $link_title ?></a></div>
                   <?php endif; ?>
                 </li>
               <?php endforeach ?>
@@ -411,9 +416,13 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
           <?php if ($quick_links_links) : ?>
             <ul class="flex flex-col gap-3 text-white">
               <?php foreach ($quick_links_links as $link) : ?>
+                <?php
+                $link_url = $link['link']['url'] ?? '';
+                $link_title = $link['link']['title'] ?? '';
+                ?>
                 <li class="text-sm lg:text-base">
-                  <?php if ($link['link']) : ?>
-                    <div><a href="<?php echo $link['link']['url'] ?>" class="hover:underline"><?php echo $link['link']['title'] ?></a></div>
+                  <?php if ($link_url) : ?>
+                    <div><a href="<?php echo $link_url ?>" class="hover:underline"><?php echo $link_title ?></a></div>
                   <?php endif; ?>
                 </li>
               <?php endforeach ?>
@@ -434,7 +443,12 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
       <?php if ($copyright_site_name) : ?>
         <div class="text-sm md:text-base">
           <?php foreach ($copyright_links as $link) : ?>
-            <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="hover:underline font-semibold"><?php echo $link['link']['title'] ?></a>
+            <?php
+            $link_url = $link['link']['url'] ?? '';
+            $link_target = $link['link']['target'] ?? '_self';
+            $link_title = $link['link']['title'] ?? '';
+            ?>
+            <a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline font-semibold"><?php echo $link_title ?></a>
           <?php endforeach ?>
         </div>
       <?php endif ?>

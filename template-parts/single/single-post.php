@@ -182,10 +182,10 @@ $enable_breadcrumbs = true;
       echo '<div class="grid grid-cols-2 divide-x divide-slate-300">';
     ?>
       <div class="flex justify-start grow">
-        <div class="max-w-md">
+        <div class="max-w-sm pr-4">
           <div class="mb-8 flex justify-start">
-            <a class="flex gap-x-3 items-center text-brand-sea text-xl font-semibold" href="<?php echo esc_url($previous_post_link); ?>">
-              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-6 h-6 rotate-180 text-brand-sea')); ?>
+            <a class="flex gap-x-2 md:gap-x-3 items-center text-brand-sea text-base md:text-lg xl:text-xl font-semibold" href="<?php echo esc_url($previous_post_link); ?>">
+              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-4 h-4 md:w-6 md:h-6 rotate-180 text-brand-sea')); ?>
               <span class="inline-block py-2 border-b border-solid border-brand-sea">Previous post</span>
             </a>
           </div>
@@ -193,16 +193,16 @@ $enable_breadcrumbs = true;
             <?php
             $the_thumbnail = get_the_post_thumbnail_url($previous_post->ID, 'large');
             if ($the_thumbnail) {
-              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<div class="aspect-w-16 aspect-h-9 rounded md:rounded-md lg:rounded-xl overflow-hidden">';
               echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
               echo '</div>';
             } else {
-              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<div class="aspect-w-16 aspect-h-9 rounded md:rounded-md lg:rounded-xl overflow-hidden">';
               echo '<div class="bg-slate-200 w-full h-full"></div>';
               echo '</div>';
             }
             ?>
-            <h4 class="text-xl font-medium mt-5"><?php echo esc_html($previous_post->post_title); ?></h4>
+            <h4 class="text-sm md:text-base lg:text-lg font-medium mt-5"><?php echo esc_html($previous_post->post_title); ?></h4>
           </a>
         </div>
       </div>
@@ -211,27 +211,27 @@ $enable_breadcrumbs = true;
     if ($next_post) {
     ?>
       <div class="flex justify-end grow">
-        <div class="max-w-md">
+        <div class="max-w-md pl-4">
           <div class="mb-8 flex justify-end">
-            <a class="flex gap-x-3 items-center text-brand-sea text-xl font-semibold" href="<?php echo esc_url($next_post_link); ?>">
+            <a class="flex gap-x-3 items-center text-brand-sea text-base md:text-lg xl:text-xl font-semibold" href="<?php echo esc_url($next_post_link); ?>">
               <span class="inline-block py-2 border-b border-solid border-brand-sea">Next post</span>
-              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-6 h-6 text-brand-sea')); ?>
+              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-4 h-4 md:w-6 md:h-6 text-brand-sea')); ?>
             </a>
           </div>
           <a href="<?php echo esc_url($next_post_link); ?>" class="block w-full hover:underline">
             <?php
             $the_thumbnail = get_the_post_thumbnail_url($next_post->ID, 'large');
             if ($the_thumbnail) {
-              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<div class="aspect-w-16 aspect-h-9 rounded md:rounded-md lg:rounded-xl  overflow-hidden">';
               echo '<img src="' . $the_thumbnail . '" class="w-full h-full object-cover">';
               echo '</div>';
             } else {
-              echo '<div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">';
+              echo '<div class="aspect-w-16 aspect-h-9 rounded md:rounded-md lg:rounded-xl  overflow-hidden">';
               echo '<div class="bg-slate-200 w-full h-full"></div>';
               echo '</div>';
             }
             ?>
-            <h4 class="text-xl font-medium mt-5"><?php echo esc_html($next_post->post_title); ?></h4>
+            <h4 class="text-sm md:text-base lg:text-lg font-medium mt-5"><?php echo esc_html($next_post->post_title); ?></h4>
           </a>
         </div>
       </div>

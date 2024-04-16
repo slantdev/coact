@@ -74,6 +74,7 @@ jQuery(function ($) {
     }
   });
 
+  // Mobile Menu
   $(".menu-open-btn").click(function (e) {
     e.preventDefault();
     $(".main-nav--div").addClass("open");
@@ -93,5 +94,16 @@ jQuery(function ($) {
     e.preventDefault();
     $(this).parents(".mega-menu").removeClass("active");
     $(this).parents(".dropdown-menu").removeClass("active");
+  });
+
+  // Mobile Search
+  $(".menu-search-btn").click(function (e) {
+    e.preventDefault();
+    $("#mobile-search").show();
+    $("#searchform-mobile-input").focus();
+  });
+  $("#close-mobile-searchform").click(function (e) {
+    e.preventDefault();
+    $("#mobile-search").hide();
   });
 });

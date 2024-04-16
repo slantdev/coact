@@ -71,5 +71,14 @@
       $(this).parents(".mega-menu").removeClass("active");
       $(this).parents(".dropdown-menu").removeClass("active");
     });
+    $(".menu-search-btn").click(function(e) {
+      e.preventDefault();
+      $("#mobile-search").show();
+      $("#searchform-mobile-input").focus();
+    });
+    $("#close-mobile-searchform").click(function(e) {
+      e.preventDefault();
+      $("#mobile-search").hide();
+    });
   });
 })();

@@ -29,6 +29,8 @@ if ($button_color) {
   $button_style .= 'background-color : ' . $button_color . ';';
 }
 $select_category = isset($posts_grid['select_category']) ? $posts_grid['select_category'] : '';
+$select_tag = isset($posts_grid['select_tag']) ? $posts_grid['select_tag'] : '';
+preint_r($select_tag);
 $card_style = isset($posts_grid['card_style']) ? $posts_grid['card_style'] : '';
 $posts_per_page = isset($posts_grid['posts_per_page']) ? $posts_grid['posts_per_page'] : '';
 $show_pagination = isset($posts_grid['show_pagination']) ? $posts_grid['show_pagination'] : '';
@@ -167,7 +169,11 @@ $posts_grid_id = uniqid();
           function load_all_posts_<?php echo $posts_grid_id ?>(page) {
             $('.posts-grid-<?php echo $posts_grid_id ?>').next('.posts-loader').show();
             let select_category = <?php echo json_encode($select_category) ?>;
-            let select_tag = <?php echo json_encode($select_tag) ?>;
+            <?php if ($select_tag) {
+              echo 'let select_tag =' . json_encode($select_tag) . ';';
+            } else {
+              echo 'let select_tag = "";';
+            } ?>
             let terms = '';
             let pagination = '<?php echo $show_pagination ?>';
             if (select_category) {

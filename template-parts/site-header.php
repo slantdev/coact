@@ -43,7 +43,7 @@ $partners_logo = $header_logo['partners_logo'];
         <div class="hidden xl:block rounded-tl-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
       </div>
     </div>
-    <div class="px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
+    <div class="relative px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
       <button class="menu-open-btn xl:hidden">
         <?php echo coact_icon(array('icon' => 'menu', 'group' => 'utilities', 'size' => '24', 'class' => 'w-7 h-7')); ?>
       </button>
@@ -77,6 +77,23 @@ $partners_logo = $header_logo['partners_logo'];
       <button class="menu-search-btn xl:hidden">
         <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>
       </button>
+      <div id="mobile-search" class="absolute top-0 left-0 right-0 bottom-0 bg-brand-light-gray hidden">
+        <div class="px-4 py-4 flex items-center w-full h-full">
+          <div class="flex w-full gap-x-4 items-center">
+            <form id="header-mobile-searchform" class="relative grow" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+              <input id="searchform-mobile-input" type="text" class="w-auto xl:w-56 3xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="">
+              <button type="submit" class="absolute right-4 top-3" style="<?php echo $search_icon_style ?>">
+                <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea w-5 h-5 2xl:w-6 2xl:h-6')); ?>
+              </button>
+            </form>
+            <div class="flex-none">
+              <button id="close-mobile-searchform">
+                <?php echo coact_icon(array('icon' => 'close', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6 text-brand-purple')); ?>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <?php get_template_part('template-parts/components/megamenu'); ?>
   </div>
