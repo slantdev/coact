@@ -16,25 +16,30 @@ $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
-$headline_html_tag = $image_text['headline_html_tag'] ?? '';
+$headline_html_tag = $posts_grid['headline_html_tag'] ?? 'h2';
 if ($headline_html_tag == 'default') {
   $headline_html_tag = 'h2';
 }
-$description = $posts_grid['description'];
-$button = $posts_grid['button'];
-$button_color = $posts_grid['button_color'];
+$description = $posts_grid['description'] ?? '';
+$description_color = $posts_grid['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+$button = $posts_grid['button'] ?? '';
+$button_color = $posts_grid['button_color'] ?? '';
 $button_style = '';
 if ($button_color) {
   $button_style .= 'background-color : ' . $button_color . ';';
 }
-$select_category = $posts_grid['select_category'];
-$card_style = $posts_grid['card_style'];
-$posts_per_page = $posts_grid['posts_per_page'];
-$show_pagination = $posts_grid['show_pagination'];
-$filter_settings = $posts_grid['filter_settings'];
-$show_filter = $filter_settings['show_filter'];
-$filter_style = $filter_settings['filter_style'];
-$filter_categories = $filter_settings['filter_categories'];
+$select_category = $posts_grid['select_category'] ?? '';
+$card_style = $posts_grid['card_style'] ?? '';
+$posts_per_page = $posts_grid['posts_per_page'] ?? '';
+$show_pagination = $posts_grid['show_pagination'] ?? '';
+$filter_settings = $posts_grid['filter_settings'] ?? '';
+$show_filter = $filter_settings['show_filter'] ?? '';
+$filter_style = $filter_settings['filter_style'] ?? '';
+$filter_categories = $filter_settings['filter_categories'] ?? '';
 $filter_tags = '';
 
 //preint_r($filter_categories);
@@ -74,7 +79,7 @@ $posts_grid_id = uniqid();
         <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24">
           <?php if ($description) : ?>
             <div class="w-full lg:w-2/3">
-              <div class="prose xl:prose-lg mr-auto text-left">
+              <div class="prose xl:prose-lg mr-auto text-left" style="<?php echo $description_style ?>">
                 <?php echo $description ?>
               </div>
             </div>

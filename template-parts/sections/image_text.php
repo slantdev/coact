@@ -17,7 +17,7 @@ $headline_style = '';
 if ($headline_color) {
   $headline_style = 'color:' . $headline_color . ';';
 }
-$headline_html_tag = $image_text['headline_html_tag'] ?? '';
+$headline_html_tag = $image_text['headline_html_tag'] ?? 'h2';
 if ($headline_html_tag == 'default') {
   $headline_html_tag = 'h2';
 }

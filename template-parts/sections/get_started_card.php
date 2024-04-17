@@ -19,9 +19,23 @@ $section_style .= ' --section-card-hover-bg-color:' . $card_hover_bg_color . ';'
 
 $get_started_cards = get_sub_field('get_started_cards'); // Group
 $intro = $get_started_cards['intro']; // Group
-$headline = $intro['headline'];
-$description = $intro['description'];
-$content_cards = $get_started_cards['content_cards']; // Repeater
+$headline = $intro['headline'] ?? '';
+$headline_color = $intro['headline_color'] ?? '';
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color : ' . $headline_color . ';';
+}
+$headline_html_tag = $intro['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $intro['description'] ?? '';
+$description_color = $intro['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+$content_cards = $get_started_cards['content_cards'] ?? []; // Repeater
 $content_cards_count = count($content_cards);
 //preint_r($content_cards_count);
 
@@ -35,13 +49,21 @@ $content_cards_count = count($content_cards);
     <?php endif; ?>
     <div class=" <?php echo $entrance_animation_class ?>">
       <div class="relative container max-w-screen-xxl mx-auto">
-        <?php if ($headline) : ?>
+        <?php if ($headline || $description) : ?>
           <div class="max-w-screen-lg mx-auto text-center z-[1]">
-            <div class="not-prose">
-              <h3 class="mb-4 xl:mb-8 text-center text-2xl md:text-4xl font-bold"><?php echo $headline ?></h3>
-            </div>
+            <?php
+            if ($headline) {
+              echo '<div class="not-prose">';
+              echo '<' . $headline_html_tag;
+              echo ' class="mb-4 xl:mb-8 text-center text-2xl md:text-4xl font-bold"';
+              echo ' style="' . $headline_style . '">';
+              echo $headline;
+              echo '</' . $headline_html_tag . '>';
+              echo '</div>';
+            }
+            ?>
             <?php if ($description) : ?>
-              <div class="mt-6 text-base md:text-lg font-medium"><?php echo $description ?></div>
+              <div class="mt-6 text-base md:text-lg font-medium" style="<?php echo $description_style ?>"><?php echo $description ?></div>
             <?php endif; ?>
           </div>
         <?php endif; ?>

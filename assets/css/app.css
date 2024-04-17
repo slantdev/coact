@@ -6360,6 +6360,10 @@ details.collapse summary::-webkit-details-marker {
      object-position: top;
 }
 
+.\!p-0 {
+  padding: 0px !important;
+}
+
 .p-0 {
   padding: 0px;
 }
@@ -6394,10 +6398,6 @@ details.collapse summary::-webkit-details-marker {
 
 .p-\[10px\] {
   padding: 10px;
-}
-
-.\!p-0 {
-  padding: 0px !important;
 }
 
 .\!px-6 {
