@@ -9,20 +9,19 @@ $description = get_field('description');
 $description_2 = get_field('description_2');
 $proof_points = get_field('proof_points');
 $location_detail = get_field('location_detail');
-$opening_hours = isset($location_detail['opening_hours']) ? $location_detail['opening_hours'] : '';
-$sup_header = isset($location_detail['sup_header']) ? $location_detail['sup_header'] : '';
-$location_site_name = isset($location_detail['location_site_name']) ? $location_detail['location_site_name'] : '';
-$traditional_place_name = isset($location_detail['traditional_place_name']) ? $location_detail['traditional_place_name'] : '';
-$transportation = isset($location_detail['transportation']) ? $location_detail['transportation'] : '';
-$location = isset($location_detail['location']) ? $location_detail['location'] : ''; // Map
-$contact_numbers = isset($location_detail['contact_numbers']) ? $location_detail['contact_numbers'] : ''; // Repeater
-$contact_email = isset($location_detail['contact_email']) ? $location_detail['contact_email'] : ''; // Repeater
+$opening_hours = $location_detail['opening_hours'] ?? '';
+$sup_header = $location_detail['sup_header'] ?? '';
+$location_site_name = $location_detail['location_site_name'] ?? '';
+$traditional_place_name = $location_detail['traditional_place_name'] ?? '';
+$transportation = $location_detail['transportation'] ?? '';
+$location = $location_detail['location'] ?? ''; // Map
+$contact_numbers = $location_detail['contact_numbers'] ?? ''; // Repeater
+$contact_email = $location_detail['contact_email'] ?? ''; // Repeater
 $photo_gallery = get_field('photo_gallery');
 $enable_partner_stats = get_field('enable_partner_stats');
 if (!isset($enable_partner_stats)) {
   $enable_partner_stats = true;
 }
-$why_coact = get_field('why_coact');
 //preint_r($logo);
 
 if ($enable_page_header) :
@@ -493,17 +492,17 @@ if ($enable_page_header) :
 
 <?php
 $testimonials = get_field('partners_testimonials');
-$testimonials = isset($testimonials['partners_testimonials']) ? $testimonials['partners_testimonials'] : '';
-$intro = isset($testimonials['intro']) ? $testimonials['intro'] : '';
-$headline = isset($intro['headline']) ? $intro['headline'] : '';
-$headline_color = isset($intro['headline_color']) ? $intro['headline_color'] : '';
+$testimonials = $testimonials['partners_testimonials'] ?? '';
+$intro = $testimonials['intro'] ?? '';
+$headline = $intro['headline'] ?? '';
+$headline_color = $intro['headline_color'] ?? '';
 $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
-$dynamic_custom = isset($testimonials['dynamic_custom']) ? $testimonials['dynamic_custom'] : '';
-$choose_testimonial = isset($testimonials['choose_testimonial']) ? $testimonials['choose_testimonial'] : '';
-$select_testimonial_categories = isset($testimonials['select_testimonial_categories']) ? $testimonials['select_testimonial_categories'] : '';
+$dynamic_custom = $testimonials['dynamic_custom'] ?? '';
+$choose_testimonial = $testimonials['choose_testimonial'] ?? '';
+$select_testimonial_categories = $testimonials['select_testimonial_categories'] ?? '';
 $testimonials_id = uniqid('testimonials-');
 ?>
 
@@ -637,7 +636,7 @@ $testimonials_id = uniqid('testimonials-');
 
 <?php
 $partner_stats_numbers = get_field('partner_stats', 'option'); // Group
-$partner_stats_numbers = isset($partner_stats_numbers['icon_numbers']) ? $partner_stats_numbers['icon_numbers'] : ''; // Repeater
+$partner_stats_numbers = $partner_stats_numbers['icon_numbers'] ?? ''; // Repeater
 if ($enable_partner_stats && $partner_stats_numbers) :
 
   $grid_count = count($partner_stats_numbers);
@@ -652,13 +651,13 @@ if ($enable_partner_stats && $partner_stats_numbers) :
           <?php if ($partner_stats_numbers) : ?>
             <?php foreach ($partner_stats_numbers as $data) : ?>
               <?php
-              $svg_icon = $data['svg_icon'];
-              $image_icon = $data['image_icon'];
-              $prefix = $data['prefix'];
-              $number = $data['number'];
-              $suffix = $data['suffix'];
-              $color = $data['color'];
-              $label = $data['label'];
+              $svg_icon = $data['svg_icon'] ?? '';
+              $image_icon = $data['image_icon'] ?? '';
+              $prefix = $data['prefix'] ?? '';
+              $number = $data['number'] ?? '';
+              $suffix = $data['suffix'] ?? '';
+              $color = $data['color'] ?? '';
+              $label = $data['label'] ?? '';
               $color_style = '';
               if ($color) {
                 $color_style = 'color: ' . $color . ';';
@@ -692,11 +691,36 @@ if ($enable_partner_stats && $partner_stats_numbers) :
 <?php endif; ?>
 
 <?php
-$why_headline = isset($why_coact['headline']) ? $why_coact['headline'] : '';
-$why_lead_text = isset($why_coact['lead_text']) ? $why_coact['lead_text'] : '';
-$why_content = isset($why_coact['content']) ? $why_coact['content'] : '';
-$why_image = isset($why_coact['image']) ? $why_coact['image'] : '';
-if ($why_headline) :
+$enable_our_promise = get_field('enable_our_promise');
+if (!isset($enable_our_promise)) {
+  $enable_our_promise = true;
+}
+$why_coact = get_field('why_coact', 'option'); // Group
+$headline = $why_coact['headline'];
+$headline_color = $why_coact['headline_color'];
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color : ' . $headline_color . ';';
+}
+$headline_html_tag = $why_coact['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$lead_text = $why_coact['lead_text'] ?? '';
+$lead_text_color = $why_coact['leadtext_color'] ?? '';
+$lead_text_style = '';
+if ($lead_text_color) {
+  $lead_text_style .= 'color : ' . $lead_text_color . ';';
+}
+$content = $why_coact['content'] ?? '';
+$content_color = $why_coact['content_color'] ?? '';
+$content_style = '';
+if ($content_color) {
+  $content_style .= 'color : ' . $content_color . ';';
+}
+$image = $why_coact['image'] ?? '';
+
+if ($enable_our_promise && $headline) :
 ?>
   <section class="bg-white">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
@@ -706,29 +730,33 @@ if ($why_headline) :
             <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[660px] h-auto')); ?>
           </div>
           <div class="mb-8 mx-auto xl:mb-12 max-w-full aspect-w-1 aspect-h-1 rounded-full overflow-hidden">
-            <?php if ($why_image) : ?>
-              <img src="<?php echo $why_image['url'] ?>" class="rounded-full mx-auto h-full w-full object-center object-cover" alt="">
+            <?php if ($image) : ?>
+              <img src="<?php echo $image['url'] ?>" class="rounded-full mx-auto h-full w-full object-center object-cover" alt="">
             <?php else : ?>
               <div class="bg-slate-200 rounded-full h-full w-full"></div>
             <?php endif; ?>
           </div>
         </div>
         <div class="w-full order-2 lg:w-2/3 xl:w-3/5 pt-10">
-          <div class="not-prose">
-            <?php if ($why_headline) : ?>
-              <h3 class="mb-8 xl:mb-12 text-left text-4xl font-bold"><?php echo $why_headline ?></h3>
-            <?php else : ?>
-              <h3 class="mb-8 xl:mb-12 text-left text-4xl font-bold">Why <?php echo $site_name ?></h3>
-            <?php endif; ?>
-          </div>
-          <?php if ($why_lead_text) : ?>
-            <div class="prose prose-xl max-w-none font-medium mb-6">
-              <?php echo $why_lead_text ?>
+          <?php
+          if ($headline) {
+            echo '<div class="not-prose">';
+            echo '<' . $headline_html_tag;
+            echo ' class="mb-8 xl:mb-12 text-left text-4xl font-bold"';
+            echo ' style="' . $headline_style . '">';
+            echo $headline;
+            echo '</' . $headline_html_tag . '>';
+            echo '</div>';
+          }
+          ?>
+          <?php if ($lead_text) : ?>
+            <div class="prose prose-xl max-w-none font-medium mb-6" style="<?php echo $lead_text_style ?>">
+              <?php echo $lead_text ?>
             </div>
           <?php endif; ?>
-          <?php if ($why_content) : ?>
-            <div class="prose max-w-none xl:prose-lg mr-auto text-left mb-6 xl:mb-8">
-              <?php echo $why_content ?>
+          <?php if ($content) : ?>
+            <div class="prose max-w-none xl:prose-lg mr-auto text-left mb-6 xl:mb-8" style="<?php echo $content_style ?>">
+              <?php echo $content ?>
             </div>
           <?php endif; ?>
         </div>
@@ -738,25 +766,78 @@ if ($why_headline) :
 <?php endif; ?>
 
 <?php
-if (isset($proof_points['checkmark_list'])) :
-  $count = count($proof_points['checkmark_list']);
+$enable_our_promise = get_field('enable_our_promise');
+if (!isset($enable_our_promise)) {
+  $enable_our_promise = true;
+}
+$our_promise = get_field('our_promise', 'option'); // Group
+$intro = $our_promise['intro'] ?? [];
+$headline = $intro['headline'] ?? '';
+$headline_color = $intro['headline_color'];
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color : ' . $headline_color . ';';
+}
+$headline_html_tag = $intro['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $intro['description'] ?? '';
+$description_color = $intro['description_color'] ?? '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+$checkmark_list = $our_promise['checkmark_list'] ?? []; // Repeater
+$button = $our_promise['button'] ?? [];
+
+if ($enable_our_promise) :
 ?>
   <section class="bg-white">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 pb-12 lg:pb-20 xl:pb-36">
-      <h3 class="mb-8 xl:mb-12 text-center text-4xl font-bold">Our promise to you</h3>
-      <div class="grid grid-cols-<?php echo $count ?> gap-x-8">
-        <?php foreach ($proof_points['checkmark_list'] as $check) : ?>
-          <div class="bg-white shadow-lg rounded p-12 flex flex-col items-center">
-            <svg class="text-brand-sea" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71.028" height="52.179" viewBox="0 0 71.028 52.179">
+      <?php
+      if ($headline) {
+        echo '<div class="max-w-screen-md mx-auto">';
+        echo '<' . $headline_html_tag;
+        echo ' class="mb-6 lg:mb-8 xl:mb-12 text-center text-2xl lg:text-3xl xl:text-4xl font-bold"';
+        echo ' style="' . $headline_style . '">';
+        echo $headline;
+        echo '</' . $headline_html_tag . '>';
+        echo '</div>';
+      }
+      ?>
+      <?php if ($description) : ?>
+        <div class="max-w-screen-md mx-auto">
+          <div class="my-6 lg:my-8 text-base text-center xl:text-lg font-medium" style="<?php echo $description_style ?>"><?php echo $description ?></div>
+        </div>
+      <?php endif; ?>
+      <?php
+      if ($checkmark_list) :
+        $count = count($checkmark_list);
+      ?>
+        <div class="grid grid-cols-<?php echo $count ?> gap-x-8">
+          <?php foreach ($checkmark_list as $check) : ?>
+            <?php
+            $icon = $check['icon'] ?? '';
+            $text = $check['text'] ?? '';
+            ?>
+            <div class="bg-white shadow-lg rounded p-12 flex flex-col items-center">
+              <?php if ($icon) {
+                echo coact_icon(array('icon' => $icon, 'group' => 'content', 'size' => '72', 'class' => 'w-14 h-14 lg:w-16 lg:h-16 xl:w-[72px] xl:h-[72px] mx-auto text-brand-sea'));
+              } else {
+                echo '<svg class="text-brand-sea" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71.028" height="52.179" viewBox="0 0 71.028 52.179">
               <path d="M71.028,4.3a7.293,7.293,0,0,1-1.956,2.707Q47.165,28.894,25.28,50.8a3.617,3.617,0,0,1-3.93,1.184,4.556,4.556,0,0,1-1.664-1.07C13.521,44.786,7.4,38.618,1.227,32.5A3.586,3.586,0,0,1,2.7,26.306a3.4,3.4,0,0,1,2.951.6,8.191,8.191,0,0,1,.821.744q7.678,7.671,15.35,15.348c.179.179.339.378.672.752a5.8,5.8,0,0,1,.556-.8Q43.809,22.17,64.576,1.4A3.757,3.757,0,0,1,68.3.107a3.522,3.522,0,0,1,2.554,2.318c.047.121.116.234.174.35Z" transform="translate(0 0)" fill="currentColor" />
-            </svg>
-            <div class="text-center text-lg mt-8"><?php echo $check['point'] ?></div>
-          </div>
-        <?php endforeach; ?>
-      </div>
-      <div class="mt-6 xl:mt-12 text-center">
-        <a href="/our-promise-to-you/" target="" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View our customer promise</a>
-      </div>
+            </svg>';
+              } ?>
+              <?php if ($text) : ?>
+                <div class="text-center text-lg mt-8"><?php echo $text ?></div>
+              <?php endif; ?>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+      <?php if ($button) : ?>
+        <?php get_template_part('template-parts/components/buttons', '', array('field' => $button, 'class' => 'mt-6 xl:mt-12')); ?>
+      <?php endif; ?>
     </div>
   </section>
 <?php endif; ?>
@@ -776,16 +857,6 @@ if ($term_obj_list) :
             <?php echo $terms_string ?>
           </div>
         </div>
-        <!-- <div class="flex gap-x-10">
-        <div class="flex-none"><?php echo coact_icon(array('icon' => 'marker', 'group' => 'utilities', 'size' => '24', 'class' => 'mx-auto')); ?></div>
-        <div>
-          <ul>
-            <?php foreach ($contact_numbers as $contact) : ?>
-              <li><?php echo $contact['phone_label'] ?> : <?php echo $contact['phone_number'] ?></li>
-            <?php endforeach ?>
-          </ul>
-        </div>
-      </div> -->
       </div>
     </div>
   </section>
@@ -794,29 +865,29 @@ if ($term_obj_list) :
 <?php
 
 $posts_grid = get_field('stories_grid'); // Group
-$headline = isset($posts_grid['headline']) ? $posts_grid['headline'] : '';
-$headline_color = isset($posts_grid['headline_color']) ? $posts_grid['headline_color'] : '';
+$headline = $posts_grid['headline'] ?? '';
+$headline_color = $posts_grid['headline_color'] ?? '';
 $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
-$description = isset($posts_grid['description']) ? $posts_grid['description'] : '';
-$description_color = isset($posts_grid['description_color']) ? $posts_grid['description_color'] : '';
+$description = $posts_grid['description'] ?? '';
+$description_color = $posts_grid['description_color'] ?? '';
 $description_style = '';
 if ($description_color) {
   $description_style .= 'color : ' . $description_color . ';';
 }
-$button = isset($posts_grid['button']) ? $posts_grid['button'] : '';
-$button_color = isset($posts_grid['button_color']) ? $posts_grid['button_color'] : '';
+$button = $posts_grid['button'] ?? '';
+$button_color = $posts_grid['button_color'] ?? '';
 $button_style = '';
 if ($button_color) {
   $button_style .= 'background-color : ' . $button_color . ';';
 }
-$select_category = isset($posts_grid['select_category']) ? $posts_grid['select_category'] : '';
-$select_tag = isset($posts_grid['select_tag']) ? $posts_grid['select_tag'] : '';
-$card_style = isset($posts_grid['card_style']) ? $posts_grid['card_style'] : '';
-$posts_per_page = isset($posts_grid['posts_per_page']) ? $posts_grid['posts_per_page'] : '';
-$show_pagination = isset($posts_grid['show_pagination']) ? $posts_grid['show_pagination'] : '';
+$select_category = $posts_grid['select_category'] ?? '';
+$select_tag = $posts_grid['select_tag'] ?? '';
+$card_style = $posts_grid['card_style'] ?? '';
+$posts_per_page = $posts_grid['posts_per_page'] ?? '';
+$show_pagination = $posts_grid['show_pagination'] ?? '';
 $posts_grid_id = uniqid();
 
 if ($select_category) :
@@ -915,13 +986,17 @@ if ($select_category) :
 <?php endif; ?>
 
 <?php
+$enable_form = get_field('enable_form');
+if (!isset($enable_form)) {
+  $enable_form = true;
+}
 $register_form = get_field('register_form', 'option'); // Group
 $headline = $register_form['headline'] ?? '';
 $description = $register_form['description'] ?? '';
 $form_shortcode = $register_form['form_shortcode'] ?? '';
 $section_anchor = $register_form['section_anchor'] ?? '';
 $section_id = $section_anchor ? 'id="' . $section_anchor . '"' : '';
-if ($form_shortcode) :
+if ($enable_form && $form_shortcode) :
 ?>
   <section <?php echo $section_id ?> class="bg-brand-light-gray" style="--section-link-color:#45C2BF;">
     <div class="relative container max-w-screen-xxl mx-auto pt-0 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
