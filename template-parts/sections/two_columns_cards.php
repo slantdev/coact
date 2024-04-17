@@ -12,13 +12,24 @@ $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $two_column_card = get_sub_field('two_column_card');
 $intro = $two_column_card['intro'] ?? '';
+
 $headline = $intro['headline'] ?? '';
 $headline_color = $intro['headline_color'] ?? '';
 $headline_style = '';
 if ($headline_color) {
-  $headline_style .= 'color:' . $headline_color . ';';
+  $headline_style .= 'color : ' . $headline_color . ';';
+}
+$headline_html_tag = $intro['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
 }
 $description = $intro['description'] ?? '';
+$description_color = $intro['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+
 $content_cards = $two_column_card['content_cards'] ?? []; // Repeater
 
 ?>
@@ -33,13 +44,19 @@ $content_cards = $two_column_card['content_cards'] ?? []; // Repeater
       <div class="relative z-10 mx-auto <?php echo $entrance_animation_class ?>">
         <?php if ($headline || $description) : ?>
           <div class="text-center max-w-prose mx-auto mb-10 lg:mb-14">
-            <?php if ($headline) : ?>
-              <div class="not-prose">
-                <h3 class="text-3xl lg:text-4xl font-bold mb-8 xl:mb-12" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
-              </div>
-            <?php endif; ?>
+            <?php
+            if ($headline) {
+              echo '<div class="not-prose">';
+              echo '<' . $headline_html_tag;
+              echo ' class="text-3xl lg:text-4xl font-bold mb-8 xl:mb-12"';
+              echo ' style="' . $headline_style . '">';
+              echo $headline;
+              echo '</' . $headline_html_tag . '>';
+              echo '</div>';
+            }
+            ?>
             <?php if ($description) : ?>
-              <div class="prose xl:prose-xl max-w-none font-medium">
+              <div class="prose xl:prose-xl max-w-none font-medium" style="<?php echo $description_style ?>">
                 <?php echo $description ?>
               </div>
             <?php endif; ?>

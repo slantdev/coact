@@ -70,7 +70,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "70",
+                        "width": "60",
                         "class": "",
                         "id": ""
                     },
@@ -85,7 +85,7 @@
                 },
                 {
                     "key": "field_65b0815444030",
-                    "label": "Headline Color",
+                    "label": "Color",
                     "name": "headline_color",
                     "aria-label": "",
                     "type": "color_picker",
@@ -93,7 +93,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "30",
+                        "width": "20",
                         "class": "",
                         "id": ""
                     },
@@ -105,6 +105,42 @@
                     "acfe_permissions": ""
                 },
                 {
+                    "key": "field_661ffe1d65f9e",
+                    "label": "HTML Tag",
+                    "name": "headline_html_tag",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "h1": "H1",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "acfe_settings": "",
+                    "acfe_validate": "",
+                    "allow_null": 0,
+                    "acfe_permissions": "",
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": ""
+                },
+                {
                     "key": "field_659c1e00aac2b",
                     "label": "Description",
                     "name": "description",
@@ -114,7 +150,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "70",
+                        "width": "60",
                         "class": "",
                         "id": ""
                     },
@@ -126,11 +162,11 @@
                     "acfe_permissions": "",
                     "rows": 3,
                     "placeholder": "",
-                    "new_lines": ""
+                    "new_lines": "br"
                 },
                 {
                     "key": "field_65f67b471c570",
-                    "label": "Description Color",
+                    "label": "Color",
                     "name": "description_color",
                     "aria-label": "",
                     "type": "color_picker",
@@ -138,7 +174,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "30",
+                        "width": "40",
                         "class": "",
                         "id": ""
                     },
@@ -637,7 +673,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710652467,
+    "modified": 1713373151,
     "acfe_categories": {
         "layout": "Layout"
     }

@@ -10,8 +10,24 @@ $enable_page_header = get_field('enable_page_header', $the_id);
 
 if ($enable_page_header) :
   $page_header = get_field('page_header', $the_id)['page_header'];
+
   $title = $page_header['title'] ?? '';
+  $headline_color = $page_header['headline_color'] ?? '';
+  $headline_style = '';
+  if ($headline_color) {
+    $headline_style .= 'color : ' . $headline_color . ';';
+  }
+  $headline_html_tag = $page_header['headline_html_tag'] ?? 'h1';
+  if ($headline_html_tag == 'default') {
+    $headline_html_tag = 'h1';
+  }
   $description = $page_header['description'] ?? '';
+  $description_color = $page_header['description_color'] ?? '';
+  $description_style = '';
+  if ($description_color) {
+    $description_style .= 'color : ' . $description_color . ';';
+  }
+
   $button = $page_header['button'] ?? '';
   $settings = $page_header['settings'] ?? '';
   $text_color = $settings['text_color'] ?? '';
@@ -57,11 +73,19 @@ if ($enable_page_header) :
                   }
                   ?>
                 <?php endif; ?>
-                <?php if ($title) : ?>
-                  <h1 class="text-3xl xl:text-4xl 3xl:text-5xl font-bold mb-4"><?php echo $title ?></h1>
-                <?php endif; ?>
+                <?php
+                if ($title) {
+                  echo '<div class="not-prose">';
+                  echo '<' . $headline_html_tag;
+                  echo ' class="text-3xl xl:text-4xl 3xl:text-5xl font-bold mb-4"';
+                  echo ' style="' . $headline_style . '">';
+                  echo $title;
+                  echo '</' . $headline_html_tag . '>';
+                  echo '</div>';
+                }
+                ?>
                 <?php if ($description) : ?>
-                  <div class="text-sm xl:text-lg 3xl:text-xl xl:leading-snug font-medium mt-4">
+                  <div class="text-sm xl:text-lg 3xl:text-xl xl:leading-snug font-medium mt-4" style="<?php echo $description_style ?>">
                     <?php echo $description ?>
                   </div>
                 <?php endif; ?>

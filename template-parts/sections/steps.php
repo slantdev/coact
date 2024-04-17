@@ -11,14 +11,25 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $steps = get_sub_field('steps');
-$headline = $steps['headline'];
-$headline_color = $steps['headline_color'];
+
+$headline = $steps['headline'] ?? '';
+$headline_color = $steps['headline_color'] ?? '';
 $headline_style = '';
 if ($headline_color) {
-  $headline_style .= 'color:' . $headline_color . ';';
+  $headline_style .= 'color : ' . $headline_color . ';';
 }
-$description = $steps['description'];
-$steps_repeater = $steps['steps'];
+$headline_html_tag = $steps['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $steps['description'] ?? '';
+$description_color = $steps['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+
+$steps_repeater = $steps['steps'] ?? [];
 
 ?>
 
@@ -30,11 +41,19 @@ $steps_repeater = $steps['steps'];
     <?php endif; ?>
     <div class="container mx-auto <?php echo $entrance_animation_class ?>">
       <div class="max-w-screen-lg mx-auto text-center z-[1]">
-        <?php if ($headline) : ?>
-          <h3 class="text-black text-2xl md:text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
-        <?php endif; ?>
+        <?php
+        if ($headline) {
+          echo '<div class="not-prose">';
+          echo '<' . $headline_html_tag;
+          echo ' class="text-black text-2xl md:text-3xl font-bold"';
+          echo ' style="' . $headline_style . '">';
+          echo $headline;
+          echo '</' . $headline_html_tag . '>';
+          echo '</div>';
+        }
+        ?>
         <?php if ($description) : ?>
-          <div class="mt-6 text-lg font-medium"><?php echo $description ?></div>
+          <div class="mt-6 text-lg font-medium" style="<?php echo $description_style ?>"><?php echo $description ?></div>
         <?php endif; ?>
       </div>
       <?php if ($steps_repeater) : ?>

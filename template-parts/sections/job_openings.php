@@ -10,18 +10,29 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $job_openings = get_sub_field('job_openings'); // Group
-$headline = $job_openings['headline'];
-$headline_color = $job_openings['headline_color'];
+
+$headline = $job_openings['headline'] ?? '';
+$headline_color = $job_openings['headline_color'] ?? '';
 $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
-$description = $job_openings['description'];
-$select_category = $job_openings['select_category'];
-$posts_per_page = $job_openings['posts_per_page'];
-$show_pagination = $job_openings['show_pagination'];
-$filter_settings = $job_openings['filter_settings'];
-$show_filter = $filter_settings['show_filter'];
+$headline_html_tag = $job_openings['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $job_openings['description'] ?? '';
+$description_color = $job_openings['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+
+$select_category = $job_openings['select_category'] ?? '';
+$posts_per_page = $job_openings['posts_per_page'] ?? '';
+$show_pagination = $job_openings['show_pagination'] ?? '';
+$filter_settings = $job_openings['filter_settings'] ?? '';
+$show_filter = $filter_settings['show_filter'] ?? '';
 
 $job_openings_id = uniqid();
 
@@ -35,22 +46,23 @@ $job_openings_id = uniqid();
     <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto z-10 <?php echo $entrance_animation_class ?>">
       <div>
-        <?php if ($headline) : ?>
-          <div class="not-prose">
-            <h3 class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
-          </div>
-        <?php endif; ?>
+        <?php
+        if ($headline) {
+          echo '<div class="not-prose">';
+          echo '<' . $headline_html_tag;
+          echo ' class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"';
+          echo ' style="' . $headline_style . '">';
+          echo $headline;
+          echo '</' . $headline_html_tag . '>';
+          echo '</div>';
+        }
+        ?>
         <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24">
           <?php if ($description) : ?>
             <div class="w-full lg:w-2/3">
-              <div class="prose xl:prose-lg mr-auto text-left">
+              <div class="prose max-w-none xl:prose-lg mr-auto text-left" style="<?php echo $description_style ?>">
                 <?php echo $description ?>
               </div>
-            </div>
-          <?php endif; ?>
-          <?php if (isset($button['url'])) : ?>
-            <div class="w-full pt-4 lg:pt-0 lg:w-1/3 lg:text-right">
-              <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-orange text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200" style="<?php echo $button_style ?>"><?php echo $button['title'] ?></a>
             </div>
           <?php endif; ?>
         </div>

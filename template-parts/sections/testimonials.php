@@ -11,12 +11,27 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $testimonials = get_sub_field('testimonials');
-$intro = $testimonials['intro'];
-$headline = $intro['headline'];
-$description = $intro['description'];
-$dynamic_custom = $testimonials['dynamic_custom'];
-$choose_testimonial = $testimonials['choose_testimonial'];
-$select_testimonial_categories = $testimonials['select_testimonial_categories'];
+$intro = $testimonials['intro'] ?? '';
+$headline = $intro['headline'] ?? '';
+$headline_color = $intro['headline_color'] ?? '';
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color : ' . $headline_color . ';';
+}
+$headline_html_tag = $intro['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $intro['description'] ?? '';
+$description_color = $intro['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+
+$dynamic_custom = $testimonials['dynamic_custom'] ?? '';
+$choose_testimonial = $testimonials['choose_testimonial'] ?? '';
+$select_testimonial_categories = $testimonials['select_testimonial_categories'] ?? '';
 $testimonials_id = uniqid('testimonials-');
 ?>
 
@@ -29,13 +44,19 @@ $testimonials_id = uniqid('testimonials-');
     <div class="container mx-auto animation-wrapper">
       <div class="relative mx-auto z-[1] <?php echo $entrance_animation_class ?>">
         <div class="text-center max-w-prose mx-auto mb-14">
-          <?php if ($headline) : ?>
-            <div class="not-prose">
-              <h3 class="mb-6 xl:mb-12 text-2xl xl:text-4xl font-bold"><?php echo $headline ?></h3>
-            </div>
-          <?php endif; ?>
+          <?php
+          if ($headline) {
+            echo '<div class="not-prose">';
+            echo '<' . $headline_html_tag;
+            echo ' class="mb-6 xl:mb-12 text-2xl xl:text-4xl font-bold"';
+            echo ' style="' . $headline_style . '">';
+            echo $headline;
+            echo '</' . $headline_html_tag . '>';
+            echo '</div>';
+          }
+          ?>
           <?php if ($description) : ?>
-            <div class="mt-6 text-base xl:text-lg font-medium"><?php echo $description ?></div>
+            <div class="mt-6 text-base xl:text-lg font-medium" style="<?php echo $description_style ?>"><?php echo $description ?></div>
           <?php endif; ?>
         </div>
         <?php if ($dynamic_custom == 'custom' && $choose_testimonial) : ?>

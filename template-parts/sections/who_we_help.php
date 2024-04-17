@@ -11,16 +11,32 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $who_we_help = get_sub_field('who_we_help'); // Group
-$headline = $who_we_help['headline'];
-$description = $who_we_help['description'];
-$background_ornament = $who_we_help['background_ornament'];
-$button = $who_we_help['button'];
-$button_color = $who_we_help['button_color'];
+
+$headline = $who_we_help['headline'] ?? '';
+$headline_color = $who_we_help['headline_color'] ?? '';
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color : ' . $headline_color . ';';
+}
+$headline_html_tag = $who_we_help['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $who_we_help['description'] ?? '';
+$description_color = $who_we_help['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+
+$background_ornament = $who_we_help['background_ornament'] ?? '';
+$button = $who_we_help['button'] ?? '';
+$button_color = $who_we_help['button_color'] ?? '';
 $button_style = '';
 if ($button_color) {
   $button_style .= 'background-color : ' . $button_color . ';';
 }
-$image_cards = $who_we_help['image_cards']; // Repeater
+$image_cards = $who_we_help['image_cards'] ?? []; // Repeater
 ?>
 
 <section <?php echo $section_id ?> class="relative <?php echo $section_class ?>" style="<?php echo $section_style ?>">
@@ -34,15 +50,21 @@ $image_cards = $who_we_help['image_cards']; // Repeater
       <?php endif; ?>
       <div class="relative z-10 <?php echo $entrance_animation_class ?>">
         <div>
-          <?php if ($headline) : ?>
-            <div class="not-prose">
-              <h3 class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"><?php echo $headline ?></h3>
-            </div>
-          <?php endif; ?>
+          <?php
+          if ($headline) {
+            echo '<div class="not-prose">';
+            echo '<' . $headline_html_tag;
+            echo ' class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"';
+            echo ' style="' . $headline_style . '">';
+            echo $headline;
+            echo '</' . $headline_html_tag . '>';
+            echo '</div>';
+          }
+          ?>
           <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24 pb-12">
             <?php if ($description) : ?>
               <div class="w-full lg:w-2/3">
-                <div class="prose xl:prose-lg mr-auto text-left">
+                <div class="prose xl:prose-lg mr-auto text-left" style="<?php echo $description_style ?>">
                   <?php echo $description ?>
                 </div>
               </div>
@@ -58,9 +80,9 @@ $image_cards = $who_we_help['image_cards']; // Repeater
           <div class="grid grid-cols-1 gap-3 lg:grid-cols-3 lg:gap-5">
             <?php foreach ($image_cards as $card) : ?>
               <?php
-              $image = $card['image'];
-              $label = $card['label'];
-              $link = $card['link'];
+              $image = $card['image'] ?? '';
+              $label = $card['label'] ?? '';
+              $link = $card['link'] ?? '';
               ?>
               <div class="relative block">
                 <?php if (isset($link['url'])) : ?>

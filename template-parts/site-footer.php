@@ -68,7 +68,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
         <div class="w-full order-1 lg:w-2/3 xl:w-1/2 pt-10">
           <?php if ($subscribe_heading) : ?>
             <div class="not-prose">
-              <h3 class="mb-6 xl:mb-8 text-left text-3xl lg:text-5xl font-bold text-white"><?php echo $subscribe_heading ?></h3>
+              <h2 class="mb-6 xl:mb-8 text-left text-3xl lg:text-5xl font-bold text-white"><?php echo $subscribe_heading ?></h2>
             </div>
           <?php endif ?>
           <?php if ($subscribe_form_shortcode) : ?>

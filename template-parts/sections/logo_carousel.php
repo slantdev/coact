@@ -11,10 +11,25 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $logo_carousel = get_sub_field('logo_carousel'); // Group
-$headline = isset($logo_carousel['headline']) ? $logo_carousel['headline'] : '';
-$description = isset($logo_carousel['description']) ? $logo_carousel['description'] : '';
-$logo_gallery = isset($logo_carousel['logo_gallery']) ? $logo_carousel['logo_gallery'] : '';
-$logo_link = isset($logo_carousel['logo_link']) ? $logo_carousel['logo_link'] : ''; // Repeater
+$headline = $logo_carousel['headline'] ?? '';
+$headline_color = $logo_carousel['headline_color'] ?? '';
+$headline_style = '';
+if ($headline_color) {
+  $headline_style .= 'color : ' . $headline_color . ';';
+}
+$headline_html_tag = $logo_carousel['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $logo_carousel['description'] ?? '';
+$description_color = $logo_carousel['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
+
+$logo_gallery = $logo_carousel['logo_gallery'] ?? '';
+$logo_link = $logo_carousel['logo_link'] ?? ''; // Repeater
 
 ?>
 
@@ -27,13 +42,19 @@ $logo_link = isset($logo_carousel['logo_link']) ? $logo_carousel['logo_link'] : 
       <div class="relative container max-w-screen-xxl mx-auto">
         <?php if ($headline || $description) : ?>
           <div class="text-center max-w-prose mx-auto lg:mb-14">
-            <?php if ($headline) : ?>
-              <div class="not-prose">
-                <h3 class="mb-8 xl:mb-12 text-3xl lg:text-4xl font-bold"><?php echo $headline ?></h3>
-              </div>
-            <?php endif; ?>
+            <?php
+            if ($headline) {
+              echo '<div class="not-prose">';
+              echo '<' . $headline_html_tag;
+              echo ' class="mb-8 xl:mb-12 text-3xl lg:text-4xl font-bold"';
+              echo ' style="' . $headline_style . '">';
+              echo $headline;
+              echo '</' . $headline_html_tag . '>';
+              echo '</div>';
+            }
+            ?>
             <?php if ($description) : ?>
-              <div class="prose lg:prose-xl max-w-none font-medium mb-6">
+              <div class="prose lg:prose-xl max-w-none font-medium mb-6" style="<?php echo $description_style ?>">
                 <?php echo $description ?>
               </div>
             <?php endif; ?>

@@ -11,16 +11,25 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $text_center = get_sub_field('text_center');
-$headline = isset($text_center['headline']) ? $text_center['headline'] : '';
-$headline_color = isset($text_center['headline_color']) ? $text_center['headline_color'] : '';
+
+$headline = $text_center['headline'] ?? '';
+$headline_color = $text_center['headline_color'] ?? '';
 $headline_style = '';
 if ($headline_color) {
-  $headline_style .= 'color:' . $headline_color . ';';
+  $headline_style .= 'color : ' . $headline_color . ';';
 }
-$description = $text_center['description'];
-$description = isset($text_center['description']) ? $text_center['description'] : '';
+$headline_html_tag = $text_center['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $text_center['description'] ?? '';
+$description_color = $text_center['description_color'] ?? '';
+$description_style = '';
+if ($description_color) {
+  $description_style .= 'color : ' . $description_color . ';';
+}
 
-$components = isset($text_center['components']) ? $text_center['components'] : '';
+$components = $text_center['components'] ?? '';
 
 $column_settings = $text_center['column_settings'];
 $alignment = $column_settings['alignment'] ?? '';
@@ -57,11 +66,19 @@ $content_class = implode(' ', $class_list);
     <?php endif; ?>
     <div class="container mx-auto animation-wrapper">
       <div class="<?php echo $content_class ?> mx-auto text-center z-[1] <?php echo $entrance_animation_class ?>">
-        <?php if ($headline) : ?>
-          <h3 class="text-black text-2xl md:text-3xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
-        <?php endif; ?>
+        <?php
+        if ($headline) {
+          echo '<div class="not-prose">';
+          echo '<' . $headline_html_tag;
+          echo ' class="text-black text-2xl md:text-3xl font-bold"';
+          echo ' style="' . $headline_style . '">';
+          echo $headline;
+          echo '</' . $headline_html_tag . '>';
+          echo '</div>';
+        }
+        ?>
         <?php if ($description) : ?>
-          <div class="mt-6 text-base md:text-lg font-medium"><?php echo $description ?></div>
+          <div class="mt-6 text-base md:text-lg font-medium" style="<?php echo $description_style ?>"><?php echo $description ?></div>
         <?php endif; ?>
         <?php get_template_part('template-parts/components/components', '', array('field' => $components)); ?>
       </div>

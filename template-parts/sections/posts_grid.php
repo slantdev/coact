@@ -10,35 +10,41 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $section_id = $section_id ? 'id="' . $section_id . '"' : '';
 
 $posts_grid = get_sub_field('posts_grid'); // Group
-$headline = isset($posts_grid['headline']) ? $posts_grid['headline'] : '';
-$headline_color = isset($posts_grid['headline_color']) ? $posts_grid['headline_color'] : '';
+
+$headline = $posts_grid['headline'];
+$headline_color = $posts_grid['headline_color'];
 $headline_style = '';
 if ($headline_color) {
   $headline_style .= 'color : ' . $headline_color . ';';
 }
-$description = isset($posts_grid['description']) ? $posts_grid['description'] : '';
-$description_color = isset($posts_grid['description_color']) ? $posts_grid['description_color'] : '';
+$headline_html_tag = $posts_grid['headline_html_tag'] ?? 'h2';
+if ($headline_html_tag == 'default') {
+  $headline_html_tag = 'h2';
+}
+$description = $posts_grid['description'] ?? '';
+$description_color = $posts_grid['description_color'] ?? '';
 $description_style = '';
 if ($description_color) {
   $description_style .= 'color : ' . $description_color . ';';
 }
-$button = isset($posts_grid['button']) ? $posts_grid['button'] : '';
-$button_color = isset($posts_grid['button_color']) ? $posts_grid['button_color'] : '';
+
+$button = $posts_grid['button'] ?? '';
+$button_color = $posts_grid['button_color'] ?? '';
 $button_style = '';
 if ($button_color) {
   $button_style .= 'background-color : ' . $button_color . ';';
 }
-$select_category = isset($posts_grid['select_category']) ? $posts_grid['select_category'] : '';
-$select_tag = isset($posts_grid['select_tag']) ? $posts_grid['select_tag'] : '';
-preint_r($select_tag);
-$card_style = isset($posts_grid['card_style']) ? $posts_grid['card_style'] : '';
-$posts_per_page = isset($posts_grid['posts_per_page']) ? $posts_grid['posts_per_page'] : '';
-$show_pagination = isset($posts_grid['show_pagination']) ? $posts_grid['show_pagination'] : '';
-$filter_settings = isset($posts_grid['filter_settings']) ? $posts_grid['filter_settings'] : '';
-$show_filter = isset($posts_grid['show_filter']) ? $posts_grid['show_filter'] : '';
-$filter_style = isset($posts_grid['filter_style']) ? $posts_grid['filter_style'] : '';
-$filter_categories = isset($posts_grid['filter_categories']) ? $posts_grid['filter_categories'] : '';
-$filter_tags = isset($posts_grid['filter_tags']) ? $posts_grid['filter_tags'] : '';
+$select_category = $posts_grid['select_category'] ?? '';
+$select_tag = $posts_grid['select_tag'] ?? '';
+//preint_r($select_tag);
+$card_style = $posts_grid['card_style'] ?? '';
+$posts_per_page = $posts_grid['posts_per_page'] ?? '';
+$show_pagination = $posts_grid['show_pagination'] ?? '';
+$filter_settings = $posts_grid['filter_settings'] ?? '';
+$show_filter = $posts_grid['show_filter'] ?? '';
+$filter_style = $posts_grid['filter_style'] ?? '';
+$filter_categories = $posts_grid['filter_categories'] ?? '';
+$filter_tags = $posts_grid['filter_tags'] ?? '';
 
 // preint_r($filter_categories);
 // preint_r($filter_tags);
@@ -66,11 +72,17 @@ $posts_grid_id = uniqid();
     <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto z-10 <?php echo $entrance_animation_class ?>">
       <div>
-        <?php if ($headline) : ?>
-          <div class="not-prose">
-            <h3 class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold" style="<?php echo $headline_style ?>"><?php echo $headline ?></h3>
-          </div>
-        <?php endif; ?>
+        <?php
+        if ($headline) {
+          echo '<div class="not-prose">';
+          echo '<' . $headline_html_tag;
+          echo ' class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"';
+          echo ' style="' . $headline_style . '">';
+          echo $headline;
+          echo '</' . $headline_html_tag . '>';
+          echo '</div>';
+        }
+        ?>
         <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24">
           <?php if ($description) : ?>
             <div class="w-full lg:w-2/3">

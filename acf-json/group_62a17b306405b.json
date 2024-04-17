@@ -49,7 +49,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "60",
                         "class": "",
                         "id": ""
                     },
@@ -58,6 +58,57 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_661ffccc6bb1c",
+                    "label": "Color",
+                    "name": "headline_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string"
+                },
+                {
+                    "key": "field_661ffcce6bb1d",
+                    "label": "HTML Tag",
+                    "name": "headline_html_tag",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "h1": "H1",
+                        "h2": "H2",
+                        "h3": "H3",
+                        "h4": "H4",
+                        "h5": "H5",
+                        "h6": "H6"
+                    },
+                    "default_value": "default",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": ""
                 },
                 {
                     "key": "field_659c2bff1b8a6",
@@ -69,16 +120,34 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "60",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
                     "acfe_textarea_code": 0,
                     "maxlength": "",
-                    "rows": "",
+                    "rows": 3,
                     "placeholder": "",
-                    "new_lines": ""
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_661ffcd26bb1e",
+                    "label": "Color",
+                    "name": "description_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string"
                 },
                 {
                     "key": "field_659c2c141b8a7",
@@ -244,12 +313,13 @@
     "show_in_rest": 0,
     "acfe_display_title": "",
     "acfe_autosync": [
+        "php",
         "json"
     ],
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706033771,
+    "modified": 1713372482,
     "acfe_categories": {
         "layout": "Layout"
     }
