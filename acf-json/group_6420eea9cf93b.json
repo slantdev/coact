@@ -305,7 +305,7 @@
                             "name": "background_image",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "16:9",
+                            "instructions": "1856 x 812px",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -335,7 +335,7 @@
                             "name": "background_image_mobile",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "9:16",
+                            "instructions": "600 x 852px",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -455,7 +455,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713466418,
+    "modified": 1713468078,
     "acfe_categories": {
         "layout": "Layout"
     }
