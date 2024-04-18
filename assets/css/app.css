@@ -5643,6 +5643,10 @@ details.collapse summary::-webkit-details-marker {
   width: 3.5rem;
 }
 
+.w-3\/4 {
+  width: 75%;
+}
+
 .min-w-\[200px\] {
   min-width: 200px;
 }
@@ -6665,6 +6669,10 @@ details.collapse summary::-webkit-details-marker {
   padding-top: 180px;
 }
 
+.pr-6 {
+  padding-right: 1.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -6766,6 +6774,10 @@ details.collapse summary::-webkit-details-marker {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-\[28px\] {
+  font-size: 28px;
 }
 
 .font-bold {
@@ -9824,6 +9836,30 @@ select {
     bottom: 0;
     left: 0;
   }
+
+  .md\:aspect-h-1 {
+    --tw-aspect-h: 1;
+  }
+
+  .md\:aspect-w-1 {
+    position: relative;
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+    --tw-aspect-w: 1;
+  }
+
+  .md\:aspect-w-1 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .md\:aspect-h-9 {
+    --tw-aspect-h: 9;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -10323,6 +10359,26 @@ select {
 
   .lg\:aspect-h-11 {
     --tw-aspect-h: 11;
+  }
+
+  .lg\:aspect-h-7 {
+    --tw-aspect-h: 7;
+  }
+
+  .lg\:aspect-w-16 {
+    position: relative;
+    padding-bottom: calc(var(--tw-aspect-h) / var(--tw-aspect-w) * 100%);
+    --tw-aspect-w: 16;
+  }
+
+  .lg\:aspect-w-16 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -10840,6 +10896,10 @@ select {
     bottom: 0;
     left: 0;
   }
+
+  .xl\:aspect-h-7 {
+    --tw-aspect-h: 7;
+  }
 }
 
 .placeholder\:text-white\/50::-moz-placeholder {
@@ -10991,6 +11051,14 @@ select {
     right: 0px;
   }
 
+  .md\:bottom-3 {
+    bottom: 0.75rem;
+  }
+
+  .md\:bottom-2 {
+    bottom: 0.5rem;
+  }
+
   .md\:mx-16 {
     margin-left: 4rem;
     margin-right: 4rem;
@@ -11051,6 +11119,10 @@ select {
 
   .md\:w-full {
     width: 100%;
+  }
+
+  .md\:w-3\/4 {
+    width: 75%;
   }
 
   .md\:grid-cols-1 {
@@ -11156,6 +11228,14 @@ select {
     padding-bottom: 0.75rem;
   }
 
+  .md\:pr-0 {
+    padding-right: 0px;
+  }
+
+  .md\:pb-4 {
+    padding-bottom: 1rem;
+  }
+
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -11184,6 +11264,10 @@ select {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .md\:leading-tight {
+    line-height: 1.25;
   }
 
   .md\:after\:text-\[24px\]::after {
@@ -11219,6 +11303,10 @@ select {
 
   .lg\:top-\[12px\] {
     top: 12px;
+  }
+
+  .lg\:bottom-8 {
+    bottom: 2rem;
   }
 
   .lg\:col-span-1 {
@@ -12094,8 +12182,16 @@ select {
     font-size: 1.25rem;
   }
 
+  .xl\:text-\[64px\] {
+    font-size: 64px;
+  }
+
   .xl\:leading-snug {
     line-height: 1.375;
+  }
+
+  .xl\:leading-tight {
+    line-height: 1.25;
   }
 }
 
