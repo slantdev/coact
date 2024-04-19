@@ -3,23 +3,6 @@
     "title": "Site Settings - Footer",
     "fields": [
         {
-            "key": "field_65a4a0df9f0e4",
-            "label": "Footer Top",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 1
-        },
-        {
             "key": "field_65a4a0f79f0e6",
             "label": "Footer Top",
             "name": "footer_top",
@@ -35,6 +18,10 @@
             },
             "layout": "block",
             "acfe_seamless_style": 1,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_65a4a13e9f0e7",
@@ -55,7 +42,7 @@
                     "pagination": 0,
                     "min": 0,
                     "max": 0,
-                    "collapsed": "",
+                    "collapsed": "field_65a4a18e9f0ea",
                     "button_label": "Add Row",
                     "rows_per_page": 20,
                     "sub_fields": [
@@ -133,28 +120,7 @@
                         }
                     ]
                 }
-            ],
-            "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large"
-        },
-        {
-            "key": "field_65a4a0e99f0e5",
-            "label": "Footer Bottom",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
+            ]
         },
         {
             "key": "field_64ff210c6c648",
@@ -295,6 +261,10 @@
             },
             "layout": "block",
             "acfe_seamless_style": 1,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_65a485b1b5f89",
@@ -358,11 +328,7 @@
                         }
                     ]
                 }
-            ],
-            "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large"
+            ]
         },
         {
             "key": "field_65a48575b5f84",
@@ -380,6 +346,10 @@
             },
             "layout": "block",
             "acfe_seamless_style": 1,
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_65a48575b5f85",
@@ -460,11 +430,7 @@
                         }
                     ]
                 }
-            ],
-            "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large"
+            ]
         },
         {
             "key": "field_64ff230b6c65d",
@@ -552,23 +518,6 @@
             ]
         },
         {
-            "key": "field_65a4a21a06833",
-            "label": "Copyright",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
             "key": "field_65a4a23506834",
             "label": "Copyright Info",
             "name": "copyright_info",
@@ -621,7 +570,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709687153,
+    "modified": 1713547181,
     "acfe_categories": {
         "site-settings": "Site Settings"
     }

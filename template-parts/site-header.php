@@ -10,7 +10,7 @@ $partners_logo = $header_logo['partners_logo'];
 <header class="site-header bg-brand-light-gray relative z-40">
   <div class="hidden xl:block bg-brand-sea h-6"></div>
   <div class="mx-auto max-w-screen-4xl relative">
-    <div class="xl:absolute xl:right-0 xl:px-4 z-0">
+    <div class="xl:absolute xl:right-0 xl:px-4 z-10">
       <div class="block xl:flex">
         <div class="hidden xl:block rounded-tr-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
         <div class="xl:rounded-b-2xl bg-brand-sea text-white xl:px-2">
@@ -43,7 +43,7 @@ $partners_logo = $header_logo['partners_logo'];
         <div class="hidden xl:block rounded-tl-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
       </div>
     </div>
-    <div class="relative z-10 px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
+    <div class="relative z-0 px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
       <button class="menu-open-btn xl:hidden">
         <?php echo coact_icon(array('icon' => 'menu', 'group' => 'utilities', 'size' => '24', 'class' => 'w-7 h-7')); ?>
       </button>
