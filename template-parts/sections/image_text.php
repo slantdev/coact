@@ -71,11 +71,11 @@ $icon_links = $image_text['icon_links'] ?? ''; // Repeater
         <div class="w-full max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-2/5 relative <?php echo $column_img_class ?>">
           <?php if ($background_ornament) : ?>
             <?php if ($image_column_position == 'right') : ?>
-              <div class="absolute top-0 -right-1/2 translate-x-[15%] scale-x-[-1]">
+              <div class="absolute top-0 -right-1/2 translate-x-[15%] scale-x-[-1] -z-0">
                 <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[380px] lg:w-[660px] h-auto')); ?>
               </div>
             <?php else : ?>
-              <div class="absolute top-0 -left-1/2 -translate-x-[15%]">
+              <div class="absolute top-0 -left-1/2 -translate-x-[15%] -z-0">
                 <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[380px] lg:w-[660px] h-auto')); ?>
               </div>
             <?php endif ?>

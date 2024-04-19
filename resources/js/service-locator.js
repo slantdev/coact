@@ -689,14 +689,14 @@ jQuery(function ($) {
       // Show number of results text
       if (type == "nearby") {
         if (num > 0) {
-          var provider_result = "Showing " + num + " Service Partners";
+          var provider_result = "Showing " + num + " Sites";
           $(".service_locator-listing_title").html(provider_result);
         } else {
           var provider_result = "Sorry, no service providers found";
           $(".service_locator-listing_title").html(provider_result);
         }
       } else {
-        var provider_result = "Showing " + num + " Service Partners";
+        var provider_result = "Showing " + num + " Sites";
         $(".service_locator-listing_title").html(provider_result);
       }
     }).done(function (data) {
@@ -876,6 +876,8 @@ jQuery(function ($) {
     placeholder: "Select a service type",
     allowClear: true,
     minimumResultsForSearch: Infinity,
+    dropdownCssClass: "select_service",
+    selectionCssClass: "selection-container",
   });
 
   $(".select_service_type").on("select2:select", function (e) {

@@ -74,7 +74,7 @@ $description = $site_locator_settings['description'] ?? '';
               <div class="service_locator-view-mode">
                 <button id="view-as-list" class="active" type="button">View as List</button><button id="view-on-map" class="" type="button">View on Map</button>
               </div>
-              <div class="service_locator-listing_title relative z-10 bg-white text-sm lg:text-base pt-4 pl-4 pr-4 pb-4 lg:pt-8 lg:pl-14 lg:pr-8 lg:-mt-4">Showing all Service Partners</div>
+              <div class="service_locator-listing_title relative z-10 bg-white text-sm lg:text-base pt-4 pl-4 pr-4 pb-4 lg:pt-8 lg:pl-14 lg:pr-8 lg:-mt-4">Showing all Sites</div>
             </div>
             <div id="service_locator-listing" class="service_locator-listing grow overflow-y-auto relative z-20">
               <ul class="service_locator-listing_tabs">

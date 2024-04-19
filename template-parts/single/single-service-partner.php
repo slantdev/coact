@@ -53,24 +53,26 @@ if ($enable_page_header) :
 ?>
   <section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
     <div class="max-w-screen-5xl px-4 mx-auto 4xl:px-8">
-      <div class="aspect-w-16 aspect-h-5 rounded-3xl overflow-hidden">
+      <div class="relative rounded-lg lg:aspect-w-16 lg:aspect-h-7 xl:aspect-w-16 xl:aspect-h-6 xl:rounded-3xl overflow-hidden">
         <div class="bg-zinc-300 w-full h-full">
           <?php if ($background_image) : ?>
-            <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image; ?>" alt="">
+            <div class="absolute inset-0">
+              <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image; ?>" alt="">
+            </div>
           <?php endif; ?>
-          <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
-          <div class="absolute inset-0 flex items-center p-12">
+          <div class="absolute top-0 left-0  rounded-full bg-brand-sea bg-opacity-80 w-[640px] h-[640px] xl:w-[900px] xl:h-[900px] -translate-y-[20%] -translate-x-1/4 3xl:w-[1000px] 3xl:h-[1000px] 4xl:w-[1300px] 4xl:h-[1300px] 4xl-translate-y-1/4 4xl-translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
+          <div class="relative z-10 px-4 py-8 lg:absolute lg:inset-0 lg:flex lg:items-center lg:p-8 xl:p-12">
             <div class="container max-w-screen-xxl mx-auto">
-              <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
+              <div class="max-w-sm xl:max-w-lg font-montserrat" style="<?php echo $text_style ?>">
                 <?php if ($enable_breadcrumbs) : ?>
                   <?php
                   if (function_exists('yoast_breadcrumb')) {
-                    yoast_breadcrumb('<div class="breadcrumbs mb-10 text-black">', '</div>');
+                    yoast_breadcrumb('<div class="breadcrumbs text-sm xl:text-base mb-8 xl:mb-16">', '</div>');
                   }
                   ?>
                 <?php endif; ?>
                 <?php if ($title) : ?>
-                  <h2 class="text-4xl text-black font-bold mb-4"><?php echo $title ?></h2>
+                  <h2 class="text-3xl xl:text-4xl 3xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
                 <?php endif; ?>
                 <?php if ($button) : ?>
                   <?php
@@ -79,7 +81,7 @@ if ($enable_page_header) :
                   $button_title = isset($button['title']) ? $button['title'] : '';
                   ?>
                   <div class="flex gap-x-4 mt-8">
-                    <a href="<?php echo $button_link ?>" target="<?php echo $button_target; ?>" class="px-6 py-3 rounded-full border border-solid font-semibold font-poppins text-xl bg-white border-transparent text-black"><?php echo $button_title; ?></a>
+                    <a href="<?php echo $button_link ?>" target="<?php echo $button_target; ?>" class="text-sm px-5 py-1.5 xl:px-6 xl:py-3 rounded-full border border-solid font-medium font-poppins xl:text-xl xl:leading-snug bg-white border-transparent text-black"><?php echo $button_title; ?></a>
                   </div>
                 <?php endif; ?>
               </div>
@@ -364,12 +366,12 @@ if ($enable_page_header) :
   <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
       <div class="w-full order-1 lg:w-1/2 xl:w-1/2 pt-4">
-        <div class="flex divide-x divide-gray-500 gap-x-10 items-center mb-12">
-          <div>
-            <img src="<?php echo coact_asset('images/logo/logo-coact.svg') ?>" alt="CoAct" class="h-[100px] w-auto">
+        <div class="flex divide-x divide-gray-500 gap-x-4 md:gap-x-6 lg:gap-x-10 items-center mb-12">
+          <div class="flex-none">
+            <img src="<?php echo coact_asset('images/logo/logo-coact.svg') ?>" alt="CoAct" class="h-[64px] md:h-[70px] lg:h-[100px] w-auto">
           </div>
-          <div class="pl-10">
-            <img src="<?php echo $logo ?>" alt="<?php echo $site_name ?>" class="h-[88px] w-auto">
+          <div class="pl-4 md:pl-6 lg:pl-10">
+            <img src="<?php echo $logo ?>" alt="<?php echo $site_name ?>" class="max-h-[52px] md:max-h-[64px] lg:max-h-[88px] w-auto">
           </div>
         </div>
 
@@ -381,7 +383,7 @@ if ($enable_page_header) :
 
         <div class="flex flex-col gap-6 mb-6 xl:mb-8">
           <?php if ($location) : ?>
-            <div class="flex gap-x-10">
+            <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'marker', 'group' => 'utilities', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div><?php echo $location['address'] ?><br />
                 <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] ?>,<?php echo $location['lng'] ?>" class="underline hover:no-underline">Get Directions</a>
@@ -389,7 +391,7 @@ if ($enable_page_header) :
             </div>
           <?php endif; ?>
           <?php if ($contact_numbers) : ?>
-            <div class="flex gap-x-10">
+            <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'cellphone', 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div>
                 <ul>
@@ -401,7 +403,7 @@ if ($enable_page_header) :
             </div>
           <?php endif; ?>
           <?php if ($contact_email) : ?>
-            <div class="flex gap-x-10">
+            <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'mail', 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div>
                 <ul>
@@ -413,19 +415,19 @@ if ($enable_page_header) :
             </div>
           <?php endif; ?>
           <?php if ($opening_hours) : ?>
-            <div class="flex gap-x-10">
+            <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'clock', 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div><?php echo $opening_hours ?></div>
             </div>
           <?php endif; ?>
           <?php if ($traditional_place_name) : ?>
-            <div class="flex gap-x-10">
+            <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'marker', 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div>Traditional place name: <?php echo $traditional_place_name ?></div>
             </div>
           <?php endif; ?>
           <?php if ($transportation) : ?>
-            <div class="flex gap-x-10">
+            <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'bus', 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div><?php echo $transportation ?></div>
             </div>
@@ -442,7 +444,7 @@ if ($enable_page_header) :
             </div>
             <div class="flex flex-col gap-6 mb-6 xl:mb-8">
               <?php foreach ($term_obj_list as $term) : ?>
-                <div class="flex gap-x-10">
+                <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
                   <div class="flex-none"><?php echo coact_icon(array('icon' => 'briefcase', 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
                   <div><?php echo $term->name ?></div>
                 </div>
@@ -726,8 +728,8 @@ if ($enable_our_promise && $headline) :
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
       <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
         <div class="w-full order-1 max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-2/5 relative">
-          <div class="absolute top-0 -left-1/2 -translate-x-[15%]">
-            <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[660px] h-auto')); ?>
+          <div class="absolute top-0 -left-1/2 -translate-x-[15%] -z-0">
+            <?php echo coact_svg(array('svg' => 'shape-2', 'group' => 'shapes', 'size' => false, 'class' => 'text-brand-sea w-[380px] lg:w-[660px] h-auto')); ?>
           </div>
           <div class="mb-8 mx-auto xl:mb-12 max-w-full aspect-w-1 aspect-h-1 rounded-full overflow-hidden">
             <?php if ($image) : ?>
@@ -737,7 +739,7 @@ if ($enable_our_promise && $headline) :
             <?php endif; ?>
           </div>
         </div>
-        <div class="w-full order-2 lg:w-2/3 xl:w-3/5 pt-10">
+        <div class="w-full order-2 lg:w-2/3 xl:w-3/5 pt-10 relative z-0">
           <?php
           if ($headline) {
             echo '<div class="not-prose">';
@@ -814,7 +816,7 @@ if ($enable_our_promise) :
       if ($checkmark_list) :
         $count = count($checkmark_list);
       ?>
-        <div class="grid grid-cols-<?php echo $count ?> gap-x-8">
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
           <?php foreach ($checkmark_list as $check) : ?>
             <?php
             $icon = $check['icon'] ?? '';
@@ -825,10 +827,10 @@ if ($enable_our_promise) :
             }
             $text = $check['text'] ?? '';
             ?>
-            <div class="bg-white shadow-lg rounded p-12 flex flex-col items-center">
+            <div class="bg-white shadow-lg rounded p-4 md:p-8 xl:p-12 flex flex-col items-center">
               <?php if ($icon) {
                 echo '<div style="' . $icon_style . '">';
-                echo coact_icon(array('icon' => $icon, 'group' => 'content', 'size' => '72', 'class' => 'w-14 h-14 lg:w-16 lg:h-16 xl:w-[72px] xl:h-[72px] mx-auto text-brand-sea'));
+                echo coact_icon(array('icon' => $icon, 'group' => 'content', 'size' => '72', 'class' => 'w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-[72px] xl:h-[72px] mx-auto text-brand-sea'));
                 echo '</div>';
               } else {
                 echo '<svg class="text-brand-sea" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71.028" height="52.179" viewBox="0 0 71.028 52.179">
@@ -836,7 +838,7 @@ if ($enable_our_promise) :
             </svg>';
               } ?>
               <?php if ($text) : ?>
-                <div class="text-center text-lg mt-8"><?php echo $text ?></div>
+                <div class="text-center text-sm md:text-base xl:text-lg mt-6 lg:mt-8"><?php echo $text ?></div>
               <?php endif; ?>
             </div>
           <?php endforeach; ?>
