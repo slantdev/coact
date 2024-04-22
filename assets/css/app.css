@@ -5203,6 +5203,10 @@ details.collapse summary::-webkit-details-marker {
   bottom: 3.5rem;
 }
 
+.bottom-16 {
+  bottom: 4rem;
+}
+
 .-z-0 {
   z-index: 0;
 }
