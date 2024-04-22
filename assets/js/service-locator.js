@@ -498,8 +498,7 @@
       placeholder: "Select a service type",
       allowClear: true,
       minimumResultsForSearch: Infinity,
-      dropdownCssClass: "select_service",
-      selectionCssClass: "selection-container"
+      dropdownParent: $(".service_locator-panel")
     });
     $(".select_service_type").on("select2:select", function(e) {
       var data = e.params.data;

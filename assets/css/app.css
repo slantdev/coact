@@ -5191,6 +5191,18 @@ details.collapse summary::-webkit-details-marker {
   top: 87px;
 }
 
+.bottom-4 {
+  bottom: 1rem;
+}
+
+.bottom-8 {
+  bottom: 2rem;
+}
+
+.bottom-14 {
+  bottom: 3.5rem;
+}
+
 .-z-0 {
   z-index: 0;
 }
@@ -6882,6 +6894,11 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(161 161 170 / var(--tw-text-opacity));
 }
 
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -8172,6 +8189,7 @@ details.collapse summary::-webkit-details-marker {
   position: relative;
   margin: 0px;
   box-sizing: border-box;
+  display: block;
   vertical-align: middle;
 }
 

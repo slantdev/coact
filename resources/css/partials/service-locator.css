@@ -1,5 +1,5 @@
 .select2-container {
-  @apply box-border m-0 relative align-middle;
+  @apply block box-border m-0 relative align-middle;
   .select2-selection--single {
     @apply box-border block cursor-pointer select-none h-10;
     .select2-selection__rendered {
