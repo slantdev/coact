@@ -5207,6 +5207,22 @@ details.collapse summary::-webkit-details-marker {
   bottom: 4rem;
 }
 
+.bottom-2 {
+  bottom: 0.5rem;
+}
+
+.bottom-2\.5 {
+  bottom: 0.625rem;
+}
+
+.right-2 {
+  right: 0.5rem;
+}
+
+.right-2\.5 {
+  right: 0.625rem;
+}
+
 .-z-0 {
   z-index: 0;
 }
@@ -6989,6 +7005,12 @@ details.collapse summary::-webkit-details-marker {
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-\[0_0_8px_0_rgba\(0\2c 0\2c 0\2c 0\.5\)\] {
+  --tw-shadow: 0 0 8px 0 rgba(0,0,0,0.5);
+  --tw-shadow-colored: 0 0 8px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -11043,6 +11065,10 @@ select {
     right: 0px;
   }
 
+  .md\:bottom-\[2px\] {
+    bottom: 2px;
+  }
+
   .md\:mx-16 {
     margin-left: 4rem;
     margin-right: 4rem;
@@ -11093,6 +11119,10 @@ select {
     height: 70px;
   }
 
+  .md\:h-\[44px\] {
+    height: 44px;
+  }
+
   .md\:max-h-\[64px\] {
     max-height: 64px;
   }
@@ -11119,6 +11149,10 @@ select {
 
   .md\:w-\[500px\] {
     width: 500px;
+  }
+
+  .md\:w-\[44px\] {
+    width: 44px;
   }
 
   .md\:grid-cols-1 {
