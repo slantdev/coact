@@ -5547,6 +5547,10 @@ details.collapse summary::-webkit-details-marker {
   height: 100%;
 }
 
+.h-\[46px\] {
+  height: 46px;
+}
+
 .max-h-\[52px\] {
   max-height: 52px;
 }
@@ -5677,6 +5681,10 @@ details.collapse summary::-webkit-details-marker {
 
 .w-px {
   width: 1px;
+}
+
+.w-\[46px\] {
+  width: 46px;
 }
 
 .min-w-\[200px\] {
