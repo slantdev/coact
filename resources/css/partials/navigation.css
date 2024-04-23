@@ -93,12 +93,22 @@
   }
   .dropdown-wrapper {
     @apply bg-white py-2;
-    @apply xl:p-2 xl:min-w-[200px];
+    @apply xl:p-4 xl:min-w-[200px];
   }
   li {
     > a {
       @apply block text-sm hover:underline cursor-pointer py-1.5 px-4;
-      @apply xl:py-2 xl:px-3 xl:text-base xl:leading-snug;
+      @apply xl:py-3 xl:px-0 xl:text-base xl:leading-snug xl:border-b xl:border-solid xl:border-slate-200;
+    }
+    &:first-child {
+      > a {
+        @apply xl:pt-3;
+      }
+    }
+    &:last-child {
+      > a {
+        @apply xl:border-none;
+      }
     }
   }
 }

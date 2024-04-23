@@ -7872,7 +7872,7 @@ details.collapse summary::-webkit-details-marker {
 @media (min-width: 1280px) {
   .dropdown-menu .dropdown-wrapper {
     min-width: 200px;
-    padding: 0.5rem;
+    padding: 1rem;
   }
 }
 
@@ -7893,13 +7893,25 @@ details.collapse summary::-webkit-details-marker {
 
 @media (min-width: 1280px) {
   .dropdown-menu li > a {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    border-bottom-width: 1px;
+    border-style: solid;
+    --tw-border-opacity: 1;
+    border-color: rgb(226 232 240 / var(--tw-border-opacity));
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 0px;
+    padding-right: 0px;
     font-size: 1rem;
     line-height: 1.5rem;
     line-height: 1.375;
+  }
+
+  .dropdown-menu li:first-child > a {
+    padding-top: 0.75rem;
+  }
+
+  .dropdown-menu li:last-child > a {
+    border-style: none;
   }
 
   .has_submenu {
