@@ -12,7 +12,7 @@
 
 <?php wp_footer(); ?>
 
-<div class="fixed right-4 bottom-16 text-blue-600">
+<div class="fixed z-50 right-4 bottom-16 text-blue-600">
   <a href="#reciteme" class="text-blue-600">
     <?php echo coact_icon(array('icon' => 'accesibility', 'group' => 'utilities', 'size' => '48', 'class' => 'w-12 h-12')); ?>
   </a>

@@ -10271,6 +10271,11 @@ details.collapse summary::-webkit-details-marker {
     padding-bottom: 1.5rem;
   }
 
+  .xl\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   .xl\:pb-14 {
     padding-bottom: 3.5rem;
   }
