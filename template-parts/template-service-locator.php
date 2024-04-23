@@ -60,7 +60,7 @@ $description = $site_locator_settings['description'] ?? '';
         </div>
         <div class="service_locator-content flex flex-col lg:flex-row">
           <div class="service_locator-sidepane flex flex-col relative lg:w-96 xl:w-[500px] lg:shrink-0 overflow-hidden z-10 border-b border-[#ccc] bg-white rounded-tr-lg">
-            <div class="service_locator-search grow-0 border-b border-[#ccc]">
+            <div class="service_locator-search relative z-30 grow-0 border-b border-[#ccc]">
               <div class="service_locator-panel bg-brand-sea rounded-lg shadow-md p-4 xl:py-6 xl:px-10 relative z-20">
                 <div class="service_locator-title font-bold flex gap-x-3">
                   <svg class="w-5 h-5 md:w-6 md:h-6" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
