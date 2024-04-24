@@ -410,7 +410,6 @@ function pagination_load_jobs()
     $page = sanitize_text_field($_POST['page']);
     $per_page = sanitize_text_field($_POST['per_page']);
     $pagination = sanitize_text_field($_POST['pagination']);
-    $card_style = sanitize_text_field($_POST['card_style']);
     $terms = sanitize_text_field($_POST['terms']);
     $terms = json_decode(stripslashes($terms));
     $cur_page = $page;

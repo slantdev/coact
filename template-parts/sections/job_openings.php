@@ -132,7 +132,6 @@ $job_openings_id = uniqid();
               data_category = JSON.stringify(select_category);
             }
             let data_taxonomy = $(this).data('taxonomy');
-            let data_style = '<?php echo $card_style ?>';
             let pagination = '<?php echo $show_pagination ?>';
             $.ajax({
               type: 'POST',
@@ -143,7 +142,6 @@ $job_openings_id = uniqid();
                 data_id: data_id,
                 data_category: data_category,
                 data_taxonomy: data_taxonomy,
-                data_style: data_style,
                 per_page: <?php echo $posts_per_page ?>,
                 //page: page,
                 pagination: pagination,

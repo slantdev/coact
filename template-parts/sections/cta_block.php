@@ -26,6 +26,7 @@ if ($headline_html_tag == 'default') {
 }
 $description = $cta_block['description'] ?? '';
 $description_color = $cta_block['description_color'] ?? '';
+$description_style = '';
 if ($description_color) {
   $description_style .= 'color : ' . $description_color . ';';
 }
