@@ -34,7 +34,7 @@ if (!empty($search_query) && class_exists('\\SearchWP\\Query')) {
   <div class="container max-w-4xl relative py-16">
     <form id="" class="relative" method="get" action="<?php echo esc_url(home_url('/')); ?>">
       <input id="searchresult-input" type="text" class="w-full !shadow-inner !rounded-full bg-white !px-6 !py-3 !border !border-solid !border-slate-200 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="<?php echo $search_query ?>">
-      <button type="submit" class="absolute right-4 top-3" style="<?php echo $search_icon_style ?>">
+      <button type="submit" class="absolute right-4 top-3">
         <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea')); ?>
       </button>
     </form>

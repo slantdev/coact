@@ -48,11 +48,6 @@ if ($enable_page_header) :
                 <?php if ($title) : ?>
                   <h2 class="text-4xl text-black font-bold mb-4"><?php echo $title ?></h2>
                 <?php endif; ?>
-                <?php if ($description) : ?>
-                  <div class="text-xl text-black font-medium mt-4">
-                    <?php echo $description ?>
-                  </div>
-                <?php endif; ?>
               </div>
             </div>
           </div>
