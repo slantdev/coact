@@ -35,13 +35,13 @@ if ($icon_numbers) :
           <?php if ($icon_numbers) : ?>
             <?php foreach ($icon_numbers as $data) : ?>
               <?php
-              $svg_icon = $data['svg_icon'];
-              $image_icon = $data['image_icon'];
-              $prefix = $data['prefix'];
-              $number = $data['number'];
-              $suffix = $data['suffix'];
-              $color = $data['color'];
-              $label = $data['label'];
+              $svg_icon = $data['svg_icon'] ?? '';
+              $image_icon = $data['image_icon'] ?? '';
+              $prefix = $data['prefix'] ?? '';
+              $number = $data['number'] ?? '';
+              $suffix = $data['suffix'] ?? '';
+              $color = $data['color'] ?? '';
+              $label = $data['label'] ?? '';
               $color_style = '';
               if ($color) {
                 $color_style = 'color: ' . $color . ';';

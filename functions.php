@@ -19,3 +19,4 @@ require get_template_directory() . '/inc/ajax.php';
 require get_template_directory() . '/inc/shortcodes.php';
 require get_template_directory() . '/inc/cards.php';
 require get_template_directory() . '/inc/rest.php';
+require get_template_directory() . '/inc/search.php';

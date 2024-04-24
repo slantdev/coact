@@ -82,7 +82,7 @@ $partners_logo = $header_logo['partners_logo'];
           <div class="flex w-full gap-x-4 items-center">
             <form id="header-mobile-searchform" class="relative grow" method="get" action="<?php echo esc_url(home_url('/')); ?>">
               <input id="searchform-mobile-input" type="text" class="w-auto xl:w-56 3xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="">
-              <button type="submit" class="absolute right-4 top-3" style="<?php echo $search_icon_style ?>">
+              <button type="submit" class="absolute right-4 top-3">
                 <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea w-5 h-5 2xl:w-6 2xl:h-6')); ?>
               </button>
             </form>
