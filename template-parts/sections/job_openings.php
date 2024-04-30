@@ -45,27 +45,53 @@ $job_openings_id = uniqid();
       <div class="absolute h-12 w-px top-0 left-1/2 border-l border-solid border-brand-purple" style="<?php echo $top_separator_style ?>"></div>
     <?php endif; ?>
     <div class="relative container max-w-screen-xxl mx-auto z-10 <?php echo $entrance_animation_class ?>">
-      <div>
-        <?php
-        if ($headline) {
-          echo '<div class="not-prose">';
-          echo '<' . $headline_html_tag;
-          echo ' class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"';
-          echo ' style="' . $headline_style . '">';
-          echo $headline;
-          echo '</' . $headline_html_tag . '>';
-          echo '</div>';
-        }
-        ?>
-        <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24">
-          <?php if ($description) : ?>
-            <div class="w-full lg:w-2/3">
-              <div class="prose max-w-none xl:prose-lg mr-auto text-left" style="<?php echo $description_style ?>">
-                <?php echo $description ?>
+      <div class="flex flex-col gap-y-4 lg:flex-row lg:gap-x-10 xl:gap-x-20 lg:items-end">
+        <div class="w-full xl:w-2/3">
+          <?php
+          if ($headline) {
+            echo '<div class="not-prose">';
+            echo '<' . $headline_html_tag;
+            echo ' class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"';
+            echo ' style="' . $headline_style . '">';
+            echo $headline;
+            echo '</' . $headline_html_tag . '>';
+            echo '</div>';
+          }
+          ?>
+          <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-24">
+            <?php if ($description) : ?>
+              <div class="w-full lg:w-2/3">
+                <div class="prose max-w-none xl:prose-lg mr-auto text-left" style="<?php echo $description_style ?>">
+                  <?php echo $description ?>
+                </div>
               </div>
-            </div>
-          <?php endif; ?>
+            <?php endif; ?>
+          </div>
         </div>
+        <?php
+        if ($show_filter) :
+          $taxonomy = 'position-type';
+          $terms = get_terms(array(
+            'taxonomy' => 'position-type',
+            'hide_empty' => false
+          ));
+        ?>
+          <div class="w-full xl:w-1/3 flex justify-end">
+            <div class="filter-dropdown-<?php echo $job_openings_id ?> dropdown dropdown-end block gap-x-8 min-w-[300px] relative z-20">
+              <div tabindex="0" role="button" class="dropdown-button flex justify-between items-center font-bold border-b border-solid border-slate-300 pb-1 mb-1">
+                <span class="dropdown-title">Filter</span>
+                <?php echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '16', 'class' => 'w-3 h-3')); ?>
+              </div>
+              <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded border border-slate-200 w-[300px]">
+                <?php
+                foreach ($terms as $term) :
+                ?>
+                  <li><button class="filter-button" type="button" data-id="<?php echo $term->term_id ?>"><?php echo $term->name ?></button></li>
+                <?php endforeach ?>
+              </ul>
+            </div>
+          </div>
+        <?php endif ?>
       </div>
       <div class="relative pt-10">
         <div class="jobs-grid-<?php echo $job_openings_id ?>">
@@ -119,6 +145,40 @@ $job_openings_id = uniqid();
               );
               let page = $(this).data('page');
               load_all_posts_<?php echo $job_openings_id ?>(page);
+            }
+          );
+
+          function filter_jobsgrid_<?php echo $job_openings_id ?>(page, terms) {
+            $('.jobs-grid-<?php echo $job_openings_id ?>').next('.posts-loader').show();
+            let pagination = false;
+            // if (select_category) {
+            //   terms = JSON.stringify(select_category);
+            // }
+            //console.log(terms);
+            let data = {
+              page: page,
+              per_page: <?php echo $posts_per_page ?>,
+              terms: terms,
+              pagination: pagination,
+              action: 'filter_jobsgrid',
+            };
+            //console.log(data);
+            $.post(ajaxurl, data, function(response) {
+              //console.log(response);
+              $('.jobs-grid-<?php echo $job_openings_id ?>').html('').prepend(response);
+              $('.jobs-grid-<?php echo $job_openings_id ?>').next('.posts-loader').hide();
+            });
+          }
+
+          $(document).on(
+            'click',
+            '.filter-dropdown-<?php echo $job_openings_id ?> .filter-button',
+            function() {
+              $term_id = $(this).data('id');
+              $term_name = $(this).text();
+              $('.filter-dropdown-<?php echo $job_openings_id ?> .dropdown-title').text($term_name);
+              $(this).blur();
+              filter_jobsgrid_<?php echo $job_openings_id ?>(1, $term_id);
             }
           );
 
