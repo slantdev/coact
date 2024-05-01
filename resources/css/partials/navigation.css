@@ -2,7 +2,7 @@
   @apply fixed z-20 top-0 left-0 bottom-0 w-64 bg-white shadow-xl overflow-hidden -translate-x-full transition-all duration-500;
   @apply xl:relative xl:w-full xl:bg-transparent xl:shadow-none xl:flex xl:px-4 xl:items-center xl:overflow-visible xl:translate-x-0;
   &.open {
-    @apply translate-x-0;
+    @apply translate-x-0 z-[1000];
   }
 }
 
