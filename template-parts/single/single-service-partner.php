@@ -744,7 +744,7 @@ if ($enable_our_promise && $headline) :
           if ($headline) {
             echo '<div class="not-prose">';
             echo '<' . $headline_html_tag;
-            echo ' class="mb-8 xl:mb-12 text-left text-4xl font-bold"';
+            echo ' class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold"';
             echo ' style="' . $headline_style . '">';
             echo $headline;
             echo '</' . $headline_html_tag . '>';
@@ -752,7 +752,7 @@ if ($enable_our_promise && $headline) :
           }
           ?>
           <?php if ($lead_text) : ?>
-            <div class="prose prose-xl max-w-none font-medium mb-6" style="<?php echo $lead_text_style ?>">
+            <div class="prose xl:prose-xl max-w-none font-medium mb-6" style="<?php echo $lead_text_style ?>">
               <?php echo $lead_text ?>
             </div>
           <?php endif; ?>
@@ -858,9 +858,9 @@ if ($term_obj_list) :
 ?>
   <section class="bg-brand-light-gray">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
-      <h3 class="mb-8 xl:mb-12 text-left text-4xl font-bold">Areas we service:</h3>
+      <h3 class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold">Areas we service:</h3>
       <div class="flex flex-col gap-10">
-        <div class="flex gap-x-10">
+        <div class="flex gap-x-6 lg:gap-x-10">
           <div class="flex-none"><?php echo coact_icon(array('icon' => 'marker', 'group' => 'utilities', 'size' => '24', 'class' => 'mx-auto')); ?></div>
           <div>
             <?php echo $terms_string ?>
@@ -902,7 +902,7 @@ $posts_grid_id = uniqid();
 if ($select_category) :
 ?>
   <section class="relative" style="--section-link-color:#b2519e;">
-    <div class="pt-0 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
+    <div class="pt-12 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
       <div class="relative container max-w-screen-xxl mx-auto z-10">
         <div>
           <?php if ($headline) : ?>
@@ -1008,12 +1008,12 @@ $section_id = $section_anchor ? 'id="' . $section_anchor . '"' : '';
 if ($enable_form && $form_shortcode) :
 ?>
   <section <?php echo $section_id ?> class="bg-brand-light-gray" style="--section-link-color:#45C2BF;">
-    <div class="relative container max-w-screen-xxl mx-auto pt-0 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
+    <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
       <div class="relative container max-w-screen-md mx-auto z-10">
         <div class="mb-8">
           <?php if ($headline) : ?>
             <div class="not-prose">
-              <h3 class="mb-4 xl:mb-8 text-center text-4xl font-bold"><?php echo $headline ?></h3>
+              <h3 class="mb-4 xl:mb-8 text-center text-3xl lg:text-4xl font-bold"><?php echo $headline ?></h3>
             </div>
           <?php endif ?>
           <?php if ($description) : ?>
