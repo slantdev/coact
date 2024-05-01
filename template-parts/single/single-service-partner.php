@@ -362,7 +362,7 @@ if ($enable_page_header) :
   })(jQuery);
 </script>
 
-<section class="bg-white">
+<section class="bg-white" style="--section-link-color:#45C2BF;">
   <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
       <div class="w-full order-1 lg:w-1/2 xl:w-1/2 pt-4">
@@ -509,7 +509,7 @@ $testimonials_id = uniqid('testimonials-');
 ?>
 
 <?php if ($testimonials) : ?>
-  <section class="partners-testimonials bg-brand-light-gray" style=" --section-link-color:#B2519E;">
+  <section class="partners-testimonials bg-brand-light-gray">
     <div class="relative container mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
       <div class="absolute top-5 right-0">
         <?php echo coact_svg(array('svg' => 'shape-3', 'group' => 'shapes', 'size' => false, 'class' => 'text-black opacity-5 w-[500px] h-auto')); ?>
@@ -724,7 +724,7 @@ $image = $why_coact['image'] ?? '';
 
 if ($enable_our_promise && $headline) :
 ?>
-  <section class="bg-white">
+  <section class="bg-white" style="--section-link-color:#45C2BF;">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
       <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
         <div class="w-full order-1 max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-2/5 relative">
@@ -794,7 +794,7 @@ $button = $our_promise['button'] ?? [];
 
 if ($enable_our_promise) :
 ?>
-  <section class="bg-white" style="--section-link-color:#45C2BF;">
+  <section class="bg-white">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 pb-12 lg:pb-20 xl:pb-36">
       <?php
       if ($headline) {
