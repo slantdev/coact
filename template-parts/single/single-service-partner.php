@@ -386,7 +386,7 @@ if ($enable_page_header) :
             <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'marker', 'group' => 'utilities', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div><?php echo $location['address'] ?><br />
-                <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] ?>,<?php echo $location['lng'] ?>" class="underline hover:no-underline">Get Directions</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] ?>,<?php echo $location['lng'] ?>" class="underline hover:no-underline text-brand-sea">Get Directions</a>
               </div>
             </div>
           <?php endif; ?>
@@ -396,7 +396,7 @@ if ($enable_page_header) :
               <div>
                 <ul>
                   <?php foreach ($contact_numbers as $contact) : ?>
-                    <li><?php echo $contact['phone_label'] ?> : <a href="tel:<?php echo preg_replace('/\s+/', '', $contact['phone_number']); ?>" target="_blank" class="underline hover:no-underline"><?php echo $contact['phone_number'] ?></a></li>
+                    <li><?php echo $contact['phone_label'] ?> : <a href="tel:<?php echo preg_replace('/\s+/', '', $contact['phone_number']); ?>" target="_blank" class="underline hover:no-underline text-brand-sea"><?php echo $contact['phone_number'] ?></a></li>
                   <?php endforeach ?>
                 </ul>
               </div>
@@ -408,7 +408,7 @@ if ($enable_page_header) :
               <div>
                 <ul>
                   <?php foreach ($contact_email as $contact) : ?>
-                    <li><?php echo $contact['email_label'] ?> : <a href="mailto:<?php echo $contact['email_address'] ?>" target="_blank" class="underline hover:no-underline"><?php echo $contact['email_address'] ?></a></li>
+                    <li><?php echo $contact['email_label'] ?> : <a href="mailto:<?php echo $contact['email_address'] ?>" target="_blank" class="underline hover:no-underline text-brand-sea"><?php echo $contact['email_address'] ?></a></li>
                   <?php endforeach ?>
                 </ul>
               </div>
