@@ -5231,6 +5231,10 @@ details.collapse summary::-webkit-details-marker {
   z-index: 1;
 }
 
+.z-\[1000\] {
+  z-index: 1000;
+}
+
 .order-1 {
   order: 1;
 }

@@ -7,7 +7,7 @@ $partners_logo = $header_logo['partners_logo'];
 
 ?>
 
-<header class="site-header bg-brand-light-gray relative z-40">
+<header class="site-header bg-brand-light-gray relative z-[1000]">
   <div class="hidden xl:block bg-brand-sea h-6"></div>
   <div class="mx-auto max-w-screen-4xl relative">
     <div class="xl:absolute xl:right-0 xl:px-4 z-10">
