@@ -794,7 +794,7 @@ $button = $our_promise['button'] ?? [];
 
 if ($enable_our_promise) :
 ?>
-  <section class="bg-white">
+  <section class="bg-white" style="--section-link-color:#45C2BF;">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 pb-12 lg:pb-20 xl:pb-36">
       <?php
       if ($headline) {
