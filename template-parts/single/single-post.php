@@ -41,7 +41,7 @@ $enable_breadcrumbs = true;
                 ?>
               <?php endif; ?>
               <?php if ($title) : ?>
-                <h2 class="text-xl xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
+                <h1 class="text-xl xl:text-5xl font-bold mb-4"><?php echo $title ?></h1>
               <?php endif; ?>
               <?php
               $post_date = get_the_date('d F Y');

@@ -72,7 +72,7 @@ if ($enable_page_header) :
                   ?>
                 <?php endif; ?>
                 <?php if ($title) : ?>
-                  <h2 class="text-3xl xl:text-4xl 3xl:text-5xl font-bold mb-4"><?php echo $title ?></h2>
+                  <h1 class="text-3xl xl:text-4xl 3xl:text-5xl font-bold mb-4"><?php echo $title ?></h1>
                 <?php endif; ?>
                 <?php if ($button) : ?>
                   <?php

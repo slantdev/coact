@@ -46,7 +46,7 @@ $description = get_field('description');
                 ?>
               <?php endif; ?>
               <?php if ($title) : ?>
-                <h2 class="text-4xl text-black font-bold mb-4"><?php echo $title ?></h2>
+                <h1 class="text-4xl text-black font-bold mb-4"><?php echo $title ?></h1>
               <?php endif; ?>
             </div>
           </div>
