@@ -71,6 +71,11 @@
       $(this).parents(".mega-menu").removeClass("active");
       $(this).parents(".dropdown-menu").removeClass("active");
     });
+    $(".col-header--btn").click(function(e) {
+      e.preventDefault();
+      $(".main-nav--div").removeClass("open");
+      $("body").removeClass("overflow-hidden");
+    });
     $(".menu-search-btn").click(function(e) {
       e.preventDefault();
       $("#mobile-search").show();

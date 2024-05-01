@@ -95,6 +95,12 @@ jQuery(function ($) {
     $(this).parents(".mega-menu").removeClass("active");
     $(this).parents(".dropdown-menu").removeClass("active");
   });
+  // Mega Menu CTA
+  $(".col-header--btn").click(function (e) {
+    e.preventDefault();
+    $(".main-nav--div").removeClass("open");
+    $("body").removeClass("overflow-hidden");
+  });
 
   // Mobile Search
   $(".menu-search-btn").click(function (e) {
