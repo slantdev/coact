@@ -97,7 +97,6 @@ jQuery(function ($) {
   });
   // Mega Menu CTA
   $(".col-header--btn").click(function (e) {
-    e.preventDefault();
     $(".main-nav--div").removeClass("open");
     $("body").removeClass("overflow-hidden");
   });
