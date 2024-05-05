@@ -375,6 +375,63 @@
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
+                            "key": "field_6637d29a450a7",
+                            "label": "Use Image Icon",
+                            "name": "use_image_icon",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui_on_text": "Yes",
+                            "ui_off_text": "No",
+                            "ui": 1,
+                            "parent_repeater": "field_661f24531861b"
+                        },
+                        {
+                            "key": "field_6637d2de450a8",
+                            "label": "Image Icon",
+                            "name": "image_icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6637d29a450a7",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "uploader": "",
+                            "return_format": "array",
+                            "acfe_thumbnail": 0,
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "parent_repeater": "field_661f24531861b"
+                        },
+                        {
                             "key": "field_661f24841861d",
                             "label": "Icon",
                             "name": "icon",
@@ -382,9 +439,17 @@
                             "type": "icon-picker",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6637d29a450a7",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "20",
+                                "width": "15",
                                 "class": "",
                                 "id": ""
                             },
@@ -399,9 +464,17 @@
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6637d29a450a7",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "20",
+                                "width": "15",
                                 "class": "",
                                 "id": ""
                             },
@@ -420,7 +493,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "60",
+                                "width": "55",
                                 "class": "",
                                 "id": ""
                             },
@@ -492,5 +565,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713320547
+    "modified": 1714935298
 }

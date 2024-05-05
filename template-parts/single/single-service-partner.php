@@ -819,6 +819,8 @@ if ($enable_our_promise) :
         <div class="grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
           <?php foreach ($checkmark_list as $check) : ?>
             <?php
+            $use_image_icon = $check['use_image_icon'] ?? false;
+            $image_icon = $check['image_icon'] ?? '';
             $icon = $check['icon'] ?? '';
             $color = $check['color'] ?? '#45C2BF';
             $icon_style = '';
@@ -828,17 +830,17 @@ if ($enable_our_promise) :
             $text = $check['text'] ?? '';
             ?>
             <div class="bg-white shadow-lg rounded p-4 md:p-8 xl:p-12 flex flex-col items-center">
-              <?php if ($icon) {
+              <?php if (!$use_image_icon && $icon) {
                 echo '<div style="' . $icon_style . '">';
                 echo coact_icon(array('icon' => $icon, 'group' => 'content', 'size' => '72', 'class' => 'w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 xl:w-[72px] xl:h-[72px] mx-auto text-brand-sea'));
                 echo '</div>';
-              } else {
-                echo '<svg class="text-brand-sea" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="71.028" height="52.179" viewBox="0 0 71.028 52.179">
-              <path d="M71.028,4.3a7.293,7.293,0,0,1-1.956,2.707Q47.165,28.894,25.28,50.8a3.617,3.617,0,0,1-3.93,1.184,4.556,4.556,0,0,1-1.664-1.07C13.521,44.786,7.4,38.618,1.227,32.5A3.586,3.586,0,0,1,2.7,26.306a3.4,3.4,0,0,1,2.951.6,8.191,8.191,0,0,1,.821.744q7.678,7.671,15.35,15.348c.179.179.339.378.672.752a5.8,5.8,0,0,1,.556-.8Q43.809,22.17,64.576,1.4A3.757,3.757,0,0,1,68.3.107a3.522,3.522,0,0,1,2.554,2.318c.047.121.116.234.174.35Z" transform="translate(0 0)" fill="currentColor" />
-            </svg>';
+              } else if ($use_image_icon && $image_icon) {
+                echo '<div>';
+                echo '<img src="' . $image_icon['url'] . '" class="block w-20 h-20 md:w-24 md:h-24 mx-auto" />';
+                echo '</div>';
               } ?>
               <?php if ($text) : ?>
-                <div class="text-center text-sm md:text-base xl:text-lg mt-6 lg:mt-8"><?php echo $text ?></div>
+                <div class="text-center text-sm md:text-base xl:text-lg mt-4 lg:mt-8"><?php echo $text ?></div>
               <?php endif; ?>
             </div>
           <?php endforeach; ?>

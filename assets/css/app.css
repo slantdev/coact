@@ -11991,6 +11991,18 @@ select {
     height: 900px;
   }
 
+  .xl\:h-\[80px\] {
+    height: 80px;
+  }
+
+  .xl\:h-\[92px\] {
+    height: 92px;
+  }
+
+  .xl\:h-24 {
+    height: 6rem;
+  }
+
   .xl\:w-1\/2 {
     width: 50%;
   }
@@ -12037,6 +12049,18 @@ select {
 
   .xl\:w-\[900px\] {
     width: 900px;
+  }
+
+  .xl\:w-\[80px\] {
+    width: 80px;
+  }
+
+  .xl\:w-\[92px\] {
+    width: 92px;
+  }
+
+  .xl\:w-24 {
+    width: 6rem;
   }
 
   .xl\:max-w-lg {
