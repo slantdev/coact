@@ -12,7 +12,7 @@
   var map;
   var markerClusterer;
   var mapCenter = { lat: -30.48941970550993, lng: 133.59244824999996 };
-  var radius_km = 60;
+  var radius_km = 30;
   var location_distance;
   var markerImage = websiteData.urlTheme + "/assets/images/service-locator/common-location-purple.png";
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
@@ -263,7 +263,7 @@
           var contact_numbers = value.acf.contact_numbers;
           if (type == "nearby") {
             var distance_from_location = google.maps.geometry.spherical.computeDistanceBetween(pinLatLng, latLng);
-            if (distance_from_location <= radius_km * 1e3) {
+            if (distance_from_location <= radius * 1e3) {
               var list_provider_obj = {
                 id: provider_id,
                 distance: distance_from_location,
@@ -391,15 +391,12 @@
         });
         markerClusterer.addMarkers(markers);
         if (type == "nearby") {
-          if (num == 1) {
-            let provider_result2 = "There is " + num + " service provider nearby";
-            $("#service_locator-listing_title").html(provider_result2);
-          } else if (num > 1) {
-            let provider_result2 = "There are " + num + " service provider(s) nearby";
-            $("#service_locator-listing_title").html(provider_result2);
+          if (num > 0) {
+            var provider_result = "Showing " + num + " Sites";
+            $(".service_locator-listing_title").html(provider_result);
           } else {
-            let provider_result2 = "Sorry, no service providers found.";
-            $("#service_locator-listing_title").html(provider_result2);
+            var provider_result = "Sorry, no service providers found";
+            $(".service_locator-listing_title").html(provider_result);
           }
         } else {
           var provider_result = "Showing " + num + " Sites";
