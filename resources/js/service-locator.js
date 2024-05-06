@@ -94,7 +94,7 @@ var map;
 var type;
 var markerClusterer;
 var mapCenter = { lat: -30.48941970550993, lng: 133.59244824999996 };
-var radius_km = 30;
+var radius_km = 60;
 var location_distance;
 var markerImage =
   websiteData.urlTheme +
@@ -380,17 +380,26 @@ jQuery(function ($) {
   window.addEventListener("load", initializeMap, { once: true });
 
   // Put Markers
-  function putMarkers(type, serviceProvider, pinLatLng) {
+  function putMarkers(type, serviceProvider, pinLatLng, radius) {
     $(".service_locator-listing_tabs").empty();
     $(".service_locator-progress")
       .css("z-index", 100)
       .animate({ opacity: 1 }, 300);
     // Add Markers from Service Provider Json
     $.getJSON(serviceProvider, function (data) {
-      var num = 0;
+      // Add center marker
+      // let centerDot = new google.maps.Marker({
+      //   position: pinLatLng,
+      //   map: map,
+      //   icon: centerMarkerImage,
+      //   zIndex: 10000,
+      // });
+      // centerMarker.push(centerDot);
+
+      let num = 0;
 
       // Create nearby provider array
-      var nearby_provider_obj = [];
+      let nearby_provider_obj = [];
 
       //console.log(data);
 
@@ -632,22 +641,20 @@ jQuery(function ($) {
         }
       });
 
-      // Add center marker
-      // var centerDot = new google.maps.Marker({
-      //     position: pinLatLng,
-      //     map: map,
-      //     icon: centerMarkerImage,
-      //     zIndex: 10000
+      // var nearby_provider = nearby_provider_obj.sort(function (a, b) {
+      //   return parseFloat(a.distance) - parseFloat(b.distance);
       // });
-      // centerMarker.push(centerDot);
-
-      var nearby_provider = nearby_provider_obj.sort(function (a, b) {
-        return parseFloat(a.distance) - parseFloat(b.distance);
-      });
+      var nearby_provider = nearby_provider_obj.sort((a, b) =>
+        a.distance > b.distance ? 1 : -1
+      );
       //console.log(nearby_provider);
 
+      if (nearby_provider.length === 0) {
+        //console.log("No Provider");
+      }
+
       // Update service provider list
-      nearby_provider.forEach(function (element, index, array) {
+      nearby_provider.forEach((element, index, array) => {
         //console.log(element);
         serviceProviderItem(
           element.id,
@@ -688,12 +695,16 @@ jQuery(function ($) {
 
       // Show number of results text
       if (type == "nearby") {
-        if (num > 0) {
-          var provider_result = "Showing " + num + " Sites";
-          $(".service_locator-listing_title").html(provider_result);
+        if (num == 1) {
+          let provider_result = "There is " + num + " service provider nearby";
+          $("#service_locator-listing_title").html(provider_result);
+        } else if (num > 1) {
+          let provider_result =
+            "There are " + num + " service provider(s) nearby";
+          $("#service_locator-listing_title").html(provider_result);
         } else {
-          var provider_result = "Sorry, no service providers found";
-          $(".service_locator-listing_title").html(provider_result);
+          let provider_result = "Sorry, no service providers found.";
+          $("#service_locator-listing_title").html(provider_result);
         }
       } else {
         var provider_result = "Showing " + num + " Sites";
@@ -704,6 +715,88 @@ jQuery(function ($) {
         .css("z-index", -1)
         .animate({ opacity: 0 }, 300);
     });
+  }
+
+  function getNearestSitesRadius(serviceProvider, pinLatLng, radiusKm) {
+    let res = 0;
+    //let pinLatLng = pinLatLng;
+    let radius = radiusKm;
+    //console.log("Initial radius: ", radius);
+
+    for (let i = 0; res < 1; i++) {
+      //console.log(res);
+      $.ajax({
+        url: serviceProvider,
+        async: false,
+        success: function (data) {
+          let nearby_provider_obj = [];
+
+          // Create array
+          $.each(data, function (key, value) {
+            // let provider_id = value.id;
+            // let locations = value.acf.locations;
+
+            var provider_id = value.id;
+            var title = value.title.rendered;
+            var lat = value.acf.location.lat;
+            var lng = value.acf.location.lng;
+            var latLng = new google.maps.LatLng(lat, lng);
+
+            var location_name = value.title.rendered;
+            var location_city = value.acf.location.city;
+            var location_postcode = value.acf.location.post_code;
+            var service_types = value.service_types;
+            var location_address = value.acf.location.address;
+            var link = value.link;
+            var location_lat = value.acf.location.lat;
+            var location_lng = value.acf.location.lng;
+            var contact_numbers = value.acf.contact_numbers;
+
+            //distance in meters between your location and the marker
+            let distance_from_location =
+              google.maps.geometry.spherical.computeDistanceBetween(
+                pinLatLng,
+                latLng
+              );
+
+            if (distance_from_location <= radius * 1000) {
+              // Add to provider list array
+              let list_provider_obj = {
+                id: provider_id,
+                distance: distance_from_location,
+                latitude: lat,
+                longitude: lng,
+                location_name: location_name,
+                location_city: location_city,
+                location_postcode: location_postcode,
+                service_types: service_types,
+                location_address: location_address,
+                link: link,
+                location_lat: location_lat,
+                location_lng: location_lng,
+                contact_numbers: contact_numbers,
+              };
+
+              nearby_provider_obj.push(list_provider_obj);
+            }
+          });
+
+          let nearby_provider = nearby_provider_obj.sort((a, b) =>
+            a.distance > b.distance ? 1 : -1
+          );
+          res = nearby_provider.length;
+          if (res == 0) {
+            radius = radius + 50;
+            //console.log("Radius: ", radius);
+          } else {
+            res = 1;
+            //console.log("Stop loop at:", radius, " km");
+          }
+        },
+      });
+    }
+
+    return radius;
   }
 
   // Service Locator List
@@ -1075,9 +1168,15 @@ jQuery(function ($) {
         if (status == google.maps.GeocoderStatus.OK) {
           if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
             var pinLatLng = results[0].geometry.location;
+            let radiusKm = radius_km;
+            let radius = getNearestSitesRadius(
+              serviceProvider,
+              pinLatLng,
+              radiusKm
+            );
             radius_circle = new google.maps.Circle({
               center: pinLatLng,
-              radius: radius_km * 1000,
+              radius: radius * 1000,
               strokeColor: "#B86AAB",
               strokeOpacity: 0.6,
               strokeWeight: 2,
@@ -1090,7 +1189,7 @@ jQuery(function ($) {
               map.fitBounds(radius_circle.getBounds());
             }
 
-            putMarkers("nearby", serviceProvider, pinLatLng);
+            putMarkers("nearby", serviceProvider, pinLatLng, radius);
           } else {
             //alert("No results found while geocoding!");
             console.log("No results found while geocoding!");
