@@ -134,7 +134,7 @@ $enable_breadcrumbs = true;
                   <a href="<?php the_permalink(); ?>" class="block">
                     <?php if (has_post_thumbnail()) { ?>
                       <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
-                        <?php the_post_thumbnail('thumbnail'); ?>
+                        <?php the_post_thumbnail('thumbnail', array('class' => 'object-cover w-full h-full')); ?>
                       </div>
                     <?php } else { ?>
                       <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
