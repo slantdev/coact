@@ -37,12 +37,12 @@
     $(window).resize(function() {
       setMapHeight();
     });
+    var searchBoxInput = document.getElementById("pac-input");
+    var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
+      types: ["(regions)"],
+      componentRestrictions: { country: "au" }
+    });
     function initializeMap() {
-      var searchBoxInput2 = document.getElementById("pac-input");
-      var searchBox2 = new google.maps.places.Autocomplete(searchBoxInput2, {
-        types: ["(regions)"],
-        componentRestrictions: { country: "au" }
-      });
       const mapStyle = [
         {
           elementType: "geometry",

@@ -162,16 +162,16 @@ jQuery(function ($) {
     setMapHeight();
   });
 
+  var searchBoxInput = document.getElementById("pac-input");
+  //var searchBox = new google.maps.places.SearchBox(searchBoxInput);
+  var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
+    types: ["(regions)"],
+    //types: ['geocode'],
+    componentRestrictions: { country: "au" },
+  });
+
   // Initialize Map
   function initializeMap() {
-    var searchBoxInput = document.getElementById("pac-input");
-    //var searchBox = new google.maps.places.SearchBox(searchBoxInput);
-    var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
-      types: ["(regions)"],
-      //types: ['geocode'],
-      componentRestrictions: { country: "au" },
-    });
-
     const mapStyle = [
       {
         elementType: "geometry",
