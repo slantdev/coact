@@ -16,11 +16,6 @@
   var location_distance;
   var markerImage = websiteData.urlTheme + "/assets/images/service-locator/common-location-purple.png";
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
-  var searchBoxInput = document.getElementById("pac-input");
-  var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
-    types: ["(regions)"],
-    componentRestrictions: { country: "au" }
-  });
   jQuery(function($) {
     function setMapHeight() {
       const site_header_height = $(".site-header").outerHeight();
@@ -43,6 +38,11 @@
       setMapHeight();
     });
     function initializeMap() {
+      var searchBoxInput2 = document.getElementById("pac-input");
+      var searchBox2 = new google.maps.places.Autocomplete(searchBoxInput2, {
+        types: ["(regions)"],
+        componentRestrictions: { country: "au" }
+      });
       const mapStyle = [
         {
           elementType: "geometry",

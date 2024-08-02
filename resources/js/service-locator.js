@@ -101,13 +101,6 @@ var markerImage =
   "/assets/images/service-locator/common-location-purple.png";
 var centerMarkerImage =
   websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
-var searchBoxInput = document.getElementById("pac-input");
-//var searchBox = new google.maps.places.SearchBox(searchBoxInput);
-var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
-  types: ["(regions)"],
-  //types: ['geocode'],
-  componentRestrictions: { country: "au" },
-});
 
 /**
  * jQuery Functions
@@ -171,6 +164,14 @@ jQuery(function ($) {
 
   // Initialize Map
   function initializeMap() {
+    var searchBoxInput = document.getElementById("pac-input");
+    //var searchBox = new google.maps.places.SearchBox(searchBoxInput);
+    var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
+      types: ["(regions)"],
+      //types: ['geocode'],
+      componentRestrictions: { country: "au" },
+    });
+
     const mapStyle = [
       {
         elementType: "geometry",
