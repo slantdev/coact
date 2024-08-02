@@ -162,14 +162,6 @@ jQuery(function ($) {
     setMapHeight();
   });
 
-  var searchBoxInput = document.getElementById("pac-input");
-  //var searchBox = new google.maps.places.SearchBox(searchBoxInput);
-  var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
-    types: ["(regions)"],
-    //types: ['geocode'],
-    componentRestrictions: { country: "au" },
-  });
-
   // Initialize Map
   function initializeMap() {
     const mapStyle = [
@@ -1125,6 +1117,14 @@ jQuery(function ($) {
   });
 
   function searchSuburbListener() {
+    var searchBoxInput = document.getElementById("pac-input");
+    //var searchBox = new google.maps.places.SearchBox(searchBoxInput);
+    var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
+      types: ["(regions)"],
+      //types: ['geocode'],
+      componentRestrictions: { country: "au" },
+    });
+
     google.maps.event.addListener(searchBox, "place_changed", function () {
       var address = $("#pac-input").val();
       var sessionObj = JSON.parse(sessionStorage.getItem("service_locator"));
