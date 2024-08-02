@@ -225,10 +225,15 @@
       geocoder = new google.maps.Geocoder();
       var initMapCenter = map.getCenter();
       var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
+      var searchBoxInput2 = document.getElementById("pac-input");
+      var searchBox = new google.maps.places.Autocomplete(searchBoxInput2, {
+        types: ["(regions)"],
+        componentRestrictions: { country: "au" }
+      });
       putMarkers("", providerJson, initMapCenter);
       serviceLocatorList(providerJson);
       postcodeAutocomplete(providerJson);
-      searchSuburbListener();
+      searchSuburbListener(searchBox);
       sessionStorage.removeItem("service_locator");
       addToSessionStorageObject("service_locator", "provider_data", providerJson);
       addToSessionStorageObject("service_locator", "service_category", "");
@@ -658,12 +663,7 @@
       }, 500);
       document.getElementById("service-locator").scrollIntoView({ behavior: "smooth" });
     });
-    function searchSuburbListener() {
-      var searchBoxInput2 = document.getElementById("pac-input");
-      var searchBox = new google.maps.places.Autocomplete(searchBoxInput2, {
-        types: ["(regions)"],
-        componentRestrictions: { country: "au" }
-      });
+    function searchSuburbListener(searchBox) {
       google.maps.event.addListener(searchBox, "place_changed", function() {
         var address = $("#pac-input").val();
         var sessionObj = JSON.parse(sessionStorage.getItem("service_locator"));
