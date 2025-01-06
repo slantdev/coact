@@ -28,26 +28,32 @@ $description = get_field('description');
 ?>
 
 <section class="bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
-  <div class="max-w-screen-5xl px-4 mx-auto">
-    <div class="aspect-w-16 aspect-h-5 rounded-3xl overflow-hidden">
+  <div class="max-w-screen-5xl px-4 mx-auto 4xl:px-8">
+    <div class="relative rounded-lg xl:aspect-w-16 xl:aspect-h-6 xl:rounded-3xl overflow-hidden">
       <div class="bg-zinc-300 w-full h-full">
         <?php if ($background_image) : ?>
-          <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image; ?>" alt="">
+          <div class="absolute inset-0">
+            <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image ?>" alt="">
+          </div>
         <?php endif; ?>
         <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-sea bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
-        <div class="absolute inset-0 flex items-center p-12">
+        <div class="relative z-10 px-4 py-8 xl:absolute xl:inset-0 xl:flex xl:items-center xl:p-12">
           <div class="container max-w-screen-xxl mx-auto">
             <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
               <?php if ($enable_breadcrumbs) : ?>
                 <?php
                 if (function_exists('yoast_breadcrumb')) {
-                  yoast_breadcrumb('<div class="breadcrumbs mb-10 text-black">', '</div>');
+                  yoast_breadcrumb('<div class="breadcrumbs text-sm lg:text-base mb-8 xl:mb-16">', '</div>');
                 }
                 ?>
               <?php endif; ?>
               <?php if ($title) : ?>
-                <h1 class="text-4xl text-black font-bold mb-4"><?php echo $title ?></h1>
+                <h1 class="text-xl xl:text-5xl font-bold mb-4"><?php echo $title ?></h1>
               <?php endif; ?>
+              <?php
+              $post_date = get_the_date('d F Y');
+              echo '<div class="text-base lg:text-lg text-black font-medium mt-8">' . $post_date . '</div>';
+              ?>
             </div>
           </div>
         </div>
