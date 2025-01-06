@@ -15,6 +15,9 @@ function eloqua_shortcode($atts)
 
   $repeater_id = $atts['id'];
 
+  if (is_admin()) {
+    return;
+  }
   if ($eloqua_shortcode && $repeater_id) {
     $repeater_row = $repeater_id - 1;
     $eloqua_embed_code = $eloqua_shortcode[$repeater_row]['eloqua_embed_code'];
