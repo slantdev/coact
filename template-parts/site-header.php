@@ -1,10 +1,75 @@
 <?php
+$hello_bar = get_field('hello_bar', 'option')['hello_bar'];
+$set_active = $hello_bar['set_active'] ?? '';
+$hello_bar_text = $hello_bar['hello_bar_text'] ?? '';
+$message = $hello_bar_text['message'] ?? '';
+$description = $hello_bar_text['description'] ?? '';
+$link = $hello_bar_text['link'] ?? '';
+$link_url = $link['url'] ?? '';
+$link_title = $link['title'] ?? 'Learn more';
+$link_target = $link['target'] ?? '_self';
+
+$hello_bar_settings = $hello_bar['hello_bar_settings'] ?? '';
+$closeable = $hello_bar_settings['closeable'] ?? '';
+$background_color = $hello_bar_settings['background_color'] ?? '';
+$bg_style = '';
+if ($background_color) {
+  $bg_style = 'background-color: ' . $background_color . ';';
+}
+$text_color = $hello_bar_settings['text_color'] ?? '';
+$text_style = '';
+if ($text_color) {
+  $text_style = 'color: ' . $text_color . ';';
+}
+
+$print_link = '';
+if ($link_url) {
+  $print_link = '&nbsp;&nbsp;<a href="' . $link_url . '" target="' . $link_target . '" class="text-white underline hover:no-underline" style="' . $text_style . '">' . $link_title . '</a>';
+}
+
+if ($set_active) :
+?>
+  <div id="hello-bar" class="bg-red text-white py-3 px-4 hidden" style="<?php echo $bg_style ?>">
+    <div class="container mx-auto px-0">
+      <div class="flex items-center gap-x-4">
+        <div class="grow">
+          <?php if ($message) : ?>
+            <div class="text-sm lg:text-base font-normal" style="<?php echo $text_style ?>"><?php echo $message ?><?php echo $print_link ?></div>
+          <?php endif; ?>
+        </div>
+        <?php if ($closeable) : ?>
+          <div class="flex-none">
+            <a href="#" id="close-hello" class="text-white" style="<?php echo $text_style ?>"><?php echo coact_icon(array('icon' => 'close', 'group'  => 'utilities', 'size' => 16)); ?></a>
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+  <script>
+    jQuery(document).ready(function($) {
+      // Show the hello bar only if it hasn't been closed in the current session
+      if (sessionStorage.getItem('helloBarHidden') !== 'true') {
+        $('#hello-bar').show();
+      }
+
+      // Hide the hello bar and set session storage on click
+      $('#close-hello').on('click', function(e) {
+        e.preventDefault();
+        $('#hello-bar').hide();
+        sessionStorage.setItem('helloBarHidden', 'true');
+      });
+    });
+  </script>
+<?php
+endif;
+?>
+
+<?php
 $top_navigation = get_field('top_navigation', 'option')['top_navigation'];
 $top_nav_links = $top_navigation['links'];
 $header_logo = get_field('header_logo', 'option')['header_logo'];
 $site_logo = $header_logo['site_logo'];
 $partners_logo = $header_logo['partners_logo'];
-
 ?>
 
 <header class="site-header bg-brand-light-gray relative z-[1000]">
