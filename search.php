@@ -64,21 +64,21 @@ if (!empty($search_query) && class_exists('\\SearchWP\\Query')) {
               <div class="flex flex-wrap md:flex-nowrap">
                 <div class="w-full p-4 lg:p-8">
                   <?php if ($post_type == 'post') {
-                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">NEWS & RESOURCES</h4>';
+                    echo '<h4 class="font-medium text-sm mb-3 text-black">NEWS & RESOURCES</h4>';
                   } elseif ($post_type == 'page') {
-                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">PAGE</h4>';
+                    echo '<h4 class="font-medium text-sm mb-3 text-black">PAGE</h4>';
                   } elseif ($post_type == 'coact-tv') {
-                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">COACT TV</h4>';
+                    echo '<h4 class="font-medium text-sm mb-3 text-black">COACT TV</h4>';
                   } elseif ($post_type == 'service-partner') {
-                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">SERVICE PARTNER</h4>';
+                    echo '<h4 class="font-medium text-sm mb-3 text-black">SERVICE PARTNER</h4>';
                   } elseif ($post_type == 'services') {
-                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">SERVICES</h4>';
+                    echo '<h4 class="font-medium text-sm mb-3 text-black">SERVICES</h4>';
                   } elseif ($post_type == 'job') {
-                    echo '<h4 class="font-medium text-sm mb-3 text-slate-500">CAREER</h4>';
+                    echo '<h4 class="font-medium text-sm mb-3 text-black">CAREER</h4>';
                   } ?>
-                  <h3 class="search-title font-medium text-brand-sea text-xl lg:text-2xl !leading-tight"><?php the_title(); ?></h3>
+                  <h3 class="search-title font-medium text-black text-xl lg:text-2xl !leading-tight"><?php the_title(); ?></h3>
                   <?php if ($content) : ?>
-                    <div class="search-excerpt text-sm mt-2 font-default text-slate-600"><?php the_excerpt() ?></div>
+                    <div class="search-excerpt text-sm mt-2 font-default text-black"><?php the_excerpt() ?></div>
                   <?php endif; ?>
                 </div>
               </div>

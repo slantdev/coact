@@ -43,11 +43,11 @@
     @apply xl:w-3/4 xl:p-12 xl:bg-white;
   }
   .col-header--heading {
-    @apply text-2xl font-bold text-white;
+    @apply text-2xl font-bold text-black;
     @apply xl:text-[34px];
   }
   .col-header--desc {
-    @apply mt-4 text-sm text-white;
+    @apply mt-4 text-sm text-black;
     @apply xl:mt-6 xl:text-lg;
   }
   .col-header--button {
@@ -62,7 +62,7 @@
     @apply lg:grid-cols-3 lg:gap-10;
     @apply xl:grid-cols-4;
     .col-content--heading {
-      @apply text-lg font-bold text-brand-sea mb-2;
+      @apply text-lg font-bold text-black mb-2;
       @apply xl:text-xl xl:mb-4;
     }
     .col-content--link {

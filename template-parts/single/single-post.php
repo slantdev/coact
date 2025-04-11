@@ -83,7 +83,7 @@ $enable_breadcrumbs = true;
       </div>
       <div class="w-full order-2 lg:w-1/3 xl:w-1/3 pt-4">
         <div class="mb-12">
-          <h4 class="text-2xl font-semibold text-brand-sea mb-4">Post categories</h4>
+          <h4 class="text-2xl font-semibold text-brand-purple mb-4">Post categories</h4>
           <?php
           $categories = get_categories(array(
             'hide_empty' => true,
@@ -110,7 +110,7 @@ $enable_breadcrumbs = true;
           ?>
         </div>
         <div class="mb-12">
-          <h4 class="text-2xl font-semibold text-brand-sea mb-6">Recent posts</h4>
+          <h4 class="text-2xl font-semibold text-brand-purple mb-6">Recent posts</h4>
           <?php
           // Define query arguments to get the three most recent posts
           $args = array(
@@ -184,9 +184,9 @@ $enable_breadcrumbs = true;
       <div class="flex justify-start grow">
         <div class="max-w-sm pr-4">
           <div class="mb-8 flex justify-start">
-            <a class="flex gap-x-2 md:gap-x-3 items-center text-brand-sea text-base md:text-lg xl:text-xl font-semibold" href="<?php echo esc_url($previous_post_link); ?>">
-              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-4 h-4 md:w-6 md:h-6 rotate-180 text-brand-sea')); ?>
-              <span class="inline-block py-2 border-b border-solid border-brand-sea">Previous post</span>
+            <a class="flex gap-x-2 md:gap-x-3 items-center text-brand-purple text-base md:text-lg xl:text-xl font-semibold" href="<?php echo esc_url($previous_post_link); ?>">
+              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-4 h-4 md:w-6 md:h-6 rotate-180 text-brand-purple')); ?>
+              <span class="inline-block py-2">Previous post</span>
             </a>
           </div>
           <a href="<?php echo esc_url($previous_post_link); ?>" class="block w-full hover:underline">
@@ -213,9 +213,9 @@ $enable_breadcrumbs = true;
       <div class="flex justify-end grow">
         <div class="max-w-md pl-4">
           <div class="mb-8 flex justify-end">
-            <a class="flex gap-x-3 items-center text-brand-sea text-base md:text-lg xl:text-xl font-semibold" href="<?php echo esc_url($next_post_link); ?>">
-              <span class="inline-block py-2 border-b border-solid border-brand-sea">Next post</span>
-              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-4 h-4 md:w-6 md:h-6 text-brand-sea')); ?>
+            <a class="flex gap-x-3 items-center text-brand-purple text-base md:text-lg xl:text-xl font-semibold" href="<?php echo esc_url($next_post_link); ?>">
+              <span class="inline-block py-2">Next post</span>
+              <?php echo coact_icon(array('icon' => 'chevron-circle', 'group' => 'utilities', 'size' => '12', 'class' => 'w-4 h-4 md:w-6 md:h-6 text-brand-purple')); ?>
             </a>
           </div>
           <a href="<?php echo esc_url($next_post_link); ?>" class="block w-full hover:underline">

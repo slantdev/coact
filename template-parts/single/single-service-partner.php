@@ -74,12 +74,12 @@ if ($enable_page_header) :
                 <?php if ($title) : ?>
                   <h1 class="text-3xl xl:text-4xl 3xl:text-5xl font-bold mb-4"><?php echo $title ?></h1>
                 <?php endif; ?>
-                <?php if ($button) : ?>
-                  <?php
-                  $button_link = isset($button['url']) ? $button['url'] : '';
-                  $button_target = isset($button['target']) ? $button['target'] : '_self';
-                  $button_title = isset($button['title']) ? $button['title'] : '';
-                  ?>
+                <?php
+                $button_link = isset($button['url']) ? $button['url'] : '';
+                $button_target = isset($button['target']) ? $button['target'] : '_self';
+                $button_title = isset($button['title']) ? $button['title'] : '';
+                ?>
+                <?php if ($button_link && $button_title) : ?>
                   <div class="flex gap-x-4 mt-8">
                     <a href="<?php echo $button_link ?>" target="<?php echo $button_target; ?>" class="text-sm px-5 py-1.5 xl:px-6 xl:py-3 rounded-full border border-solid font-medium font-poppins xl:text-xl xl:leading-snug bg-white border-transparent text-black"><?php echo $button_title; ?></a>
                   </div>
@@ -386,7 +386,7 @@ if ($enable_page_header) :
             <div class="flex gap-x-4 md:gap-x-6 lg:gap-x-10">
               <div class="flex-none"><?php echo coact_icon(array('icon' => 'marker', 'group' => 'utilities', 'size' => '24', 'class' => 'mx-auto')); ?></div>
               <div><?php echo $location['address'] ?><br />
-                <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] ?>,<?php echo $location['lng'] ?>" class="underline hover:no-underline text-brand-sea">Get Directions</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=<?php echo $location['lat'] ?>,<?php echo $location['lng'] ?>" class="underline hover:no-underline text-brand-blue">Get Directions</a>
               </div>
             </div>
           <?php endif; ?>
@@ -396,7 +396,7 @@ if ($enable_page_header) :
               <div>
                 <ul>
                   <?php foreach ($contact_numbers as $contact) : ?>
-                    <li><?php echo $contact['phone_label'] ?> : <a href="tel:<?php echo preg_replace('/\s+/', '', $contact['phone_number']); ?>" target="_blank" class="underline hover:no-underline text-brand-sea"><?php echo $contact['phone_number'] ?></a></li>
+                    <li><?php echo $contact['phone_label'] ?> : <a href="tel:<?php echo preg_replace('/\s+/', '', $contact['phone_number']); ?>" target="_blank" class="underline hover:no-underline text-brand-blue"><?php echo $contact['phone_number'] ?></a></li>
                   <?php endforeach ?>
                 </ul>
               </div>
@@ -408,7 +408,7 @@ if ($enable_page_header) :
               <div>
                 <ul>
                   <?php foreach ($contact_email as $contact) : ?>
-                    <li><?php echo $contact['email_label'] ?> : <a href="mailto:<?php echo $contact['email_address'] ?>" target="_blank" class="underline hover:no-underline text-brand-sea"><?php echo $contact['email_address'] ?></a></li>
+                    <li><?php echo $contact['email_label'] ?> : <a href="mailto:<?php echo $contact['email_address'] ?>" target="_blank" class="underline hover:no-underline text-brand-blue"><?php echo $contact['email_address'] ?></a></li>
                   <?php endforeach ?>
                 </ul>
               </div>
@@ -509,7 +509,7 @@ $testimonials_id = uniqid('testimonials-');
 ?>
 
 <?php if ($testimonials) : ?>
-  <section class="partners-testimonials bg-brand-light-gray">
+  <section class="partners-testimonials bg-brand-light-gray/75">
     <div class="relative container mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
       <div class="absolute top-5 right-0">
         <?php echo coact_svg(array('svg' => 'shape-3', 'group' => 'shapes', 'size' => false, 'class' => 'text-black opacity-5 w-[500px] h-auto')); ?>
@@ -645,7 +645,7 @@ if ($enable_partner_stats && $partner_stats_numbers) :
   $grid_class = 'grid grid-cols-1 gap-y-8 md:grid-cols-' . $grid_count . ' md:divide-x';
 ?>
 
-  <section class="partner-stats bg-brand-light-gray">
+  <section class="partner-stats bg-brand-light-gray/75">
     <div class="relative pb-12 lg:pb-20 xl:pb-36">
       <div class="container max-w-screen-xxl mx-auto">
 
@@ -858,7 +858,7 @@ $term_obj_list = get_the_terms($post->ID, 'serviced_areas');
 if ($term_obj_list) :
   $terms_string = join(', ', wp_list_pluck($term_obj_list, 'name'));
 ?>
-  <section class="bg-brand-light-gray">
+  <section class="bg-brand-light-gray/75">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
       <h3 class="mb-4 xl:mb-8 text-left text-3xl lg:text-4xl font-bold">Areas we service:</h3>
       <div class="flex flex-col gap-10">
@@ -1009,7 +1009,7 @@ $section_anchor = $register_form['section_anchor'] ?? '';
 $section_id = $section_anchor ? 'id="' . $section_anchor . '"' : '';
 if ($enable_form && $form_shortcode) :
 ?>
-  <section <?php echo $section_id ?> class="bg-brand-light-gray">
+  <section <?php echo $section_id ?> class="bg-brand-light-gray/75">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
       <div class="relative container max-w-screen-md mx-auto z-10">
         <div class="mb-8">

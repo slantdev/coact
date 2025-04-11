@@ -3,13 +3,13 @@
   &.btn-filled {
     @apply text-white;
     &.btn-teal {
-      @apply bg-brand-sea border-transparent hover:brightness-[1.2];
+      @apply bg-brand-sea border-transparent hover:brightness-[1.2] text-black;
     }
     &.btn-purple {
-      @apply bg-brand-purple border-transparent hover:brightness-[1.2];
+      @apply bg-brand-purple border-transparent hover:brightness-[1.2] text-black;
     }
     &.btn-white {
-      @apply bg-white border-transparent hover:bg-black/5 text-gray-800;
+      @apply bg-white border-transparent hover:bg-black/5  text-black;
     }
   }
   &.btn-outline {

@@ -6328,6 +6328,10 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(244 244 244 / var(--tw-bg-opacity));
 }
 
+.bg-brand-light-gray\/75 {
+  background-color: rgb(244 244 244 / 0.75);
+}
+
 .bg-brand-orange {
   --tw-bg-opacity: 1;
   background-color: rgb(242 107 73 / var(--tw-bg-opacity));
@@ -6940,11 +6944,6 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-brand-black {
-  --tw-text-opacity: 1;
-  color: rgb(64 64 65 / var(--tw-text-opacity));
-}
-
 .text-brand-blue {
   --tw-text-opacity: 1;
   color: rgb(13 80 187 / var(--tw-text-opacity));
@@ -6983,16 +6982,6 @@ details.collapse summary::-webkit-details-marker {
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
-}
-
-.text-slate-500 {
-  --tw-text-opacity: 1;
-  color: rgb(100 116 139 / var(--tw-text-opacity));
-}
-
-.text-slate-600 {
-  --tw-text-opacity: 1;
-  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .text-white {
@@ -7397,6 +7386,7 @@ details.collapse summary::-webkit-details-marker {
 /* Posts Pagination */
 
 .posts-pagination > ul, .ajax-pagination > ul {
+  --section-link-color: #45c2bf;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -7430,14 +7420,7 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(69 194 191 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-#poststuff .acf-layout h1.posts-pagination > ul > li.selected, #poststuff .acf-layout h2.posts-pagination > ul > li.selected, #poststuff .acf-layout h3.posts-pagination > ul > li.selected, #poststuff .acf-layout h4.posts-pagination > ul > li.selected, #poststuff .acf-layout h5.posts-pagination > ul > li.selected, #poststuff .acf-layout h6.posts-pagination > ul > li.selected,#poststuff .acf-layout h1 .ajax-pagination > ul > li.selected, #poststuff .acf-layout h2 .ajax-pagination > ul > li.selected, #poststuff .acf-layout h3 .ajax-pagination > ul > li.selected, #poststuff .acf-layout h4 .ajax-pagination > ul > li.selected, #poststuff .acf-layout h5 .ajax-pagination > ul > li.selected, #poststuff .acf-layout h6 .ajax-pagination > ul > li.selected {
-  color: #ffffff;
-}
-
-.posts-pagination > ul > li.selected, .ajax-pagination > ul > li.selected {
+  color: rgb(0 0 0 / var(--tw-text-opacity));
   background-color: var(--section-link-color);
 }
 
@@ -7595,6 +7578,8 @@ details.collapse summary::-webkit-details-marker {
   border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(69 194 191 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .btn.btn-filled.btn-teal:hover {
@@ -7606,6 +7591,8 @@ details.collapse summary::-webkit-details-marker {
   border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(178 81 158 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .btn.btn-filled.btn-purple:hover {
@@ -7618,7 +7605,7 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 #poststuff .acf-layout [type="text"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="email"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="url"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="password"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="number"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="date"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="datetime-local"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="month"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="search"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="tel"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="time"].btn.btn-filled.btn-white, #poststuff .acf-layout [type="week"].btn.btn-filled.btn-white, #poststuff .acf-layout [multiple].btn.btn-filled.btn-white, #poststuff .acf-layout textarea.btn.btn-filled.btn-white, #poststuff .acf-layout select.btn.btn-filled.btn-white {

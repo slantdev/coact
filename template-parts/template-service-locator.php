@@ -46,7 +46,7 @@ $description = $site_locator_settings['description'] ?? '';
       </div>
       <div class="lg:ml-auto">
         <?php if ($button_url) : ?>
-          <a href="<?php echo $button_url ?>" class="inline-block bg-brand-sea px-4 py-1.5 lg:px-6 lg:py-4 rounded-full text-xs lg:text-base text-white whitespace-nowrap"><?php echo $button_title ?></a>
+          <a href="<?php echo $button_url ?>" class="inline-block bg-brand-sea px-4 py-1.5 lg:px-6 lg:py-4 rounded-full text-xs lg:text-base text-black font-medium whitespace-nowrap"><?php echo $button_title ?></a>
         <?php endif; ?>
       </div>
     </div>

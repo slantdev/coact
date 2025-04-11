@@ -1,5 +1,11 @@
 :root {
   --section-link-color: #0d50bb;
+  .prose {
+    --tw-prose-body: #000000;
+    --tw-prose-headings: #000000;
+    --tw-prose-lead: #000000;
+    --tw-prose-bullets: #000000;
+  }
 }
 .prose {
   h1,

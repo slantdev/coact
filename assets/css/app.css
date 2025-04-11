@@ -6328,6 +6328,10 @@ details.collapse summary::-webkit-details-marker {
   background-color: rgb(244 244 244 / var(--tw-bg-opacity));
 }
 
+.bg-brand-light-gray\/75 {
+  background-color: rgb(244 244 244 / 0.75);
+}
+
 .bg-brand-orange {
   --tw-bg-opacity: 1;
   background-color: rgb(242 107 73 / var(--tw-bg-opacity));
@@ -6980,16 +6984,6 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
-.text-slate-500 {
-  --tw-text-opacity: 1;
-  color: rgb(100 116 139 / var(--tw-text-opacity));
-}
-
-.text-slate-600 {
-  --tw-text-opacity: 1;
-  color: rgb(71 85 105 / var(--tw-text-opacity));
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -7180,6 +7174,13 @@ details.collapse summary::-webkit-details-marker {
 
 :root {
   --section-link-color: #0d50bb;
+}
+
+:root .prose {
+  --tw-prose-body: #000000;
+  --tw-prose-headings: #000000;
+  --tw-prose-lead: #000000;
+  --tw-prose-bullets: #000000;
 }
 
 .prose h1,
@@ -7395,6 +7396,7 @@ details.collapse summary::-webkit-details-marker {
 /* Posts Pagination */
 
 .posts-pagination > ul, .ajax-pagination > ul {
+  --section-link-color: #45c2bf;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -7428,7 +7430,7 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(69 194 191 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
   background-color: var(--section-link-color);
 }
 
@@ -7748,7 +7750,7 @@ details.collapse summary::-webkit-details-marker {
   line-height: 2rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 1280px) {
@@ -7762,7 +7764,7 @@ details.collapse summary::-webkit-details-marker {
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 1280px) {
@@ -7847,7 +7849,7 @@ details.collapse summary::-webkit-details-marker {
   line-height: 1.75rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(69 194 191 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 @media (min-width: 1280px) {
@@ -8118,6 +8120,8 @@ details.collapse summary::-webkit-details-marker {
   border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(69 194 191 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .btn.btn-filled.btn-teal:hover {
@@ -8129,6 +8133,8 @@ details.collapse summary::-webkit-details-marker {
   border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgb(178 81 158 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .btn.btn-filled.btn-purple:hover {
@@ -8141,7 +8147,7 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgb(31 41 55 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .btn.btn-filled.btn-white:hover {

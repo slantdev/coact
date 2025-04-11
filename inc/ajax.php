@@ -685,7 +685,7 @@ function pagination_load_faqs()
     if ($all_faqs->have_posts()) {
       while ($all_faqs->have_posts()) {
         $all_faqs->the_post();
-        echo '<div class="collapse collapse-plus bg-brand-light-gray rounded-lg border border-slate-300 shadow-md mb-6">';
+        echo '<div class="collapse collapse-plus bg-white rounded-lg border border-slate-300 shadow-md mb-6">';
         echo '<input type="checkbox" class="faq-radio-btn w-full h-full block" name="faq-' . $faq_id . '" />';
         echo '<div class="collapse-title bg-white text-xl lg:text-2xl border-b border-slate-300 font-medium py-5 pl-8 pr-12 after:font-thin after:!end-8 after:text-brand-sea after:!top-2 after:text-3xl after:lg:text-5xl">';
         echo get_the_title();
@@ -791,7 +791,7 @@ function filter_state_suburb()
     foreach ($child_terms as $child_term_id) {
       $child_term = get_term_by('id', $child_term_id, $taxonomy);
       $response .= '<li>';
-      $response .= '<button class="button-suburb text-base lg:text-xl underline hover:font-medium py-1.5 md:py-2 lg:py-3" type="button">' . $child_term->name . '</button>';
+      $response .= '<button class="button-suburb text-base lg:text-xl text-brand-blue underline hover:font-medium py-1.5 md:py-2 lg:py-3" type="button">' . $child_term->name . '</button>';
       $response .= '</li>';
     }
     $response .= '</ul>';
