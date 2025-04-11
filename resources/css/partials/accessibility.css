@@ -1,0 +1,17 @@
+:root {
+  --section-link-color: #0d50bb;
+}
+.prose {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    @apply text-black;
+  }
+  a {
+    @apply text-[#0d50bb] underline hover:underline;
+    color: var(--section-link-color);
+  }
+}

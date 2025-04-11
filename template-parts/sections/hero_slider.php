@@ -73,7 +73,7 @@ if ($hero_slider) : ?>
                           if ($headline_text) {
                             echo '<div class="not-prose">';
                             echo '<' . $headline_html_tag;
-                            echo ' class="hero-headline text-[28px] leading-tight md:text-4xl md:leading-tight xl:text-[64px] xl:leading-tight text-brand-black font-bold mb-4"';
+                            echo ' class="hero-headline text-[28px] leading-tight md:text-4xl md:leading-tight xl:text-[64px] xl:leading-tight text-black font-bold mb-4"';
                             echo ' style="' . $headline_style . '">';
                             echo $headline_text;
                             echo '</' . $headline_html_tag . '>';

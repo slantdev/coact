@@ -6945,6 +6945,11 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(64 64 65 / var(--tw-text-opacity));
 }
 
+.text-brand-blue {
+  --tw-text-opacity: 1;
+  color: rgb(13 80 187 / var(--tw-text-opacity));
+}
+
 .text-brand-orange {
   --tw-text-opacity: 1;
   color: rgb(242 107 73 / var(--tw-text-opacity));
@@ -7691,15 +7696,6 @@ details.collapse summary::-webkit-details-marker {
 
 .container .prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   line-height: 1.375em;
-}
-
-.container .prose a {
-  color: var(--section-link-color);
-  text-decoration-line: none;
-}
-
-.container .prose a:hover {
-  text-decoration-line: underline;
 }
 
 .container .prose table {

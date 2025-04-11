@@ -443,7 +443,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
 
 <div class="bg-brand-sea">
   <div class="mx-auto max-w-screen-4xl px-4 py-4 relative">
-    <div class="flex justify-between text-white">
+    <div class="flex justify-between text-black">
       <?php if ($copyright_site_name) : ?>
         <div class="text-sm md:text-base font-bold">&copy; <?php echo date('Y') ?> <?php echo $copyright_site_name ?></div>
       <?php endif ?>

@@ -20,7 +20,7 @@
 
 </head>
 
-<body <?php body_class('bg-white font-montserrat text-brand-black overflow-x-hidden'); ?>>
+<body <?php body_class('bg-white font-montserrat text-black overflow-x-hidden'); ?>>
 
   <?php do_action('coact_site_before'); ?>
 

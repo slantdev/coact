@@ -90,7 +90,7 @@ $description = $site_locator_settings['description'] ?? '';
 
 </div>
 
-<div id="filter-state" class="bg-white px-4 lg:px-6 py-16" style="--section-link-color:#45C2BF;">
+<div id="filter-state" class="bg-white px-4 lg:px-6 py-16">
   <div class="relative container max-w-screen-xxl mx-auto px-0">
     <div>
       <?php if ($headline) : ?>

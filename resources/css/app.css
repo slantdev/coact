@@ -2,6 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "partials/accessibility.css";
 @import "partials/components.css";
 @import "partials/navigation.css";
 @import "partials/buttons.css";

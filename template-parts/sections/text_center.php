@@ -53,7 +53,7 @@ $max_width_classes = [
 $max_width_class = $max_width_classes[$max_width] ?? '';
 
 // Combining classes
-$class_list = ['text-brand-dark-blue', $alignment_class, $max_width_class];
+$class_list = [$alignment_class, $max_width_class];
 $content_class = implode(' ', $class_list);
 
 ?>

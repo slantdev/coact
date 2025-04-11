@@ -6940,9 +6940,9 @@ details.collapse summary::-webkit-details-marker {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-brand-black {
+.text-brand-blue {
   --tw-text-opacity: 1;
-  color: rgb(64 64 65 / var(--tw-text-opacity));
+  color: rgb(13 80 187 / var(--tw-text-opacity));
 }
 
 .text-brand-orange {
@@ -7176,6 +7176,34 @@ details.collapse summary::-webkit-details-marker {
 .wp-caption-text {
   font-size: 0.875rem;
   color: #4b5563;
+}
+
+:root {
+  --section-link-color: #0d50bb;
+}
+
+.prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose p {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.prose a {
+  --tw-text-opacity: 1;
+  color: rgb(13 80 187 / var(--tw-text-opacity));
+  text-decoration-line: underline;
+}
+
+.prose a:hover {
+  text-decoration-line: underline;
+}
+
+.prose a {
+  color: var(--section-link-color);
 }
 
 /* Breadcrumbs */
@@ -8174,15 +8202,6 @@ details.collapse summary::-webkit-details-marker {
 
 .container .prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   line-height: 1.375em;
-}
-
-.container .prose a {
-  color: var(--section-link-color);
-  text-decoration-line: none;
-}
-
-.container .prose a:hover {
-  text-decoration-line: underline;
 }
 
 .container .prose table {
@@ -9870,10 +9889,10 @@ select {
   padding-bottom: 0.75rem;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);

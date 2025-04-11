@@ -362,7 +362,7 @@ if ($enable_page_header) :
   })(jQuery);
 </script>
 
-<section class="bg-white" style="--section-link-color:#45C2BF;">
+<section class="bg-white">
   <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
       <div class="w-full order-1 lg:w-1/2 xl:w-1/2 pt-4">
@@ -724,7 +724,7 @@ $image = $why_coact['image'] ?? '';
 
 if ($enable_our_promise && $headline) :
 ?>
-  <section class="bg-white" style="--section-link-color:#45C2BF;">
+  <section class="bg-white">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 xl:pt-36 pb-12 lg:pb-20 xl:pb-36">
       <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24">
         <div class="w-full order-1 max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-2/5 relative">
@@ -922,7 +922,7 @@ if ($select_category) :
             <?php endif; ?>
             <?php if (isset($button['url'])) : ?>
               <div class="w-full pt-4 lg:pt-0 lg:w-1/3 lg:text-right">
-                <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200" style="<?php echo $button_style ?>"><?php echo $button['title'] ?></a>
+                <a href="<?php echo $button['url'] ?>" target="<?php echo $button['target'] ?>" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-black border border-transparent shadow-md hover:shadow-lg transition-all duration-200" style="<?php echo $button_style ?>"><?php echo $button['title'] ?></a>
               </div>
             <?php endif; ?>
           </div>
@@ -1009,7 +1009,7 @@ $section_anchor = $register_form['section_anchor'] ?? '';
 $section_id = $section_anchor ? 'id="' . $section_anchor . '"' : '';
 if ($enable_form && $form_shortcode) :
 ?>
-  <section <?php echo $section_id ?> class="bg-brand-light-gray" style="--section-link-color:#45C2BF;">
+  <section <?php echo $section_id ?> class="bg-brand-light-gray">
     <div class="relative container max-w-screen-xxl mx-auto pt-12 lg:pt-20 pb-12 lg:pb-20 xl:pb-36">
       <div class="relative container max-w-screen-md mx-auto z-10">
         <div class="mb-8">

@@ -36,7 +36,7 @@ select {
       @apply text-base font-medium;
     }
     .submit-button-style {
-      @apply w-auto h-auto text-lg leading-none bg-brand-sea border border-brand-sea border-solid text-white font-normal rounded-full px-12 py-3 shadow-md my-4 cursor-pointer hover:brightness-125;
+      @apply w-auto h-auto text-lg leading-none bg-brand-sea border border-brand-sea border-solid text-black font-medium rounded-full px-12 py-3 shadow-md my-4 cursor-pointer hover:brightness-125;
     }
   }
 }

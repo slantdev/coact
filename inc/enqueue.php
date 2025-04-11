@@ -29,6 +29,10 @@ function coact_enqueue_scripts()
     wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), $theme->get('Version'), true);
     wp_enqueue_script('service-locator', coact_asset('js/service-locator.js'), array('jquery', 'google-maps'), $theme->get('Version'), true);
   }
+  wp_dequeue_style('wp-block-library');
+  wp_dequeue_style('wp-block-library-theme');
+  wp_dequeue_style('wc-block-style');
+  wp_dequeue_style('global-styles');
 }
 add_action('wp_enqueue_scripts', 'coact_enqueue_scripts', 999);
 

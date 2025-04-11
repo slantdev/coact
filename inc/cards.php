@@ -33,9 +33,9 @@ function shadow_card($link, $image, $title, $excerpt)
   }
   echo '</a>';
   echo '<div class="p-6 lg:p-8 bg-white">';
-  echo '<h4 class="post-title text-lg lg:text-xl font-semibold mb-4 text-brand-sea" style="color: var(--section-link-color);"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h4>';
+  echo '<h4 class="post-title text-lg lg:text-xl font-semibold mb-4"><a href="' . $link . '" class="hover:underline">' . $title . '</a></h4>';
   echo '<div class="text-sm">' . wp_trim_words($excerpt, 20) . '</div>';
-  echo '<a href="' . $link . '" class="text-brand-sea text-sm underline font-medium inline-block mt-8" style="color: var(--section-link-color);">Read more</a>';
+  echo '<a href="' . $link . '" class="text-brand-blue text-sm underline font-medium inline-block mt-8" style="color: var(--section-link-color);">Read more</a>';
   echo '</div>';
   echo '</div>';
 }

@@ -17,7 +17,7 @@ get_header();
         <img class="object-cover" src="<?php echo coact_asset('images/banner/banner-1.jpg') ?>" alt="">
         <div class="absolute inset-0 flex items-center p-12">
           <div class="w-1/2 font-montserrat">
-            <h2 class="text-[64px] text-brand-black font-bold mb-4">Help to find <span class="text-brand-sea">jobs</span></h2>
+            <h2 class="text-[64px] text-black font-bold mb-4">Help to find <span class="text-brand-sea">jobs</span></h2>
             <div class="text-2xl font-medium mt-4">
               Get the right job sooner through Disability Employment Services (DES) or Workforce Australia (WFA)
             </div>
@@ -56,7 +56,7 @@ get_header();
     <div class="px-12 lg:px-14 relative -mx-2 lg:-mx-0">
       <div id="case-studies-filter" class="swiper mt-10 px-2 pt-2 pb-4 swiper-initialized swiper-horizontal swiper-pointer-events">
         <div class="swiper-wrapper filter-case-study-buttons" id="swiper-wrapper-98301056e5f198879" aria-live="polite">
-          <div class="swiper-slide w-auto swiper-slide-active" role="group" aria-label="1 / 18" style="margin-right: 30px;"><button type="button" class="filter-case-study filter-active inline-block rounded-full px-6 py-1.5 h-9 lg:h-auto text-sm lg:text-base lg:px-10 lg:py-2.5 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200" data-id="all" data-postsperpage="9">All</button></div>
+          <div class="swiper-slide w-auto swiper-slide-active" role="group" aria-label="1 / 18" style="margin-right: 30px;"><button type="button" class="filter-case-study filter-active inline-block rounded-full px-6 py-1.5 h-9 lg:h-auto text-sm lg:text-base lg:px-10 lg:py-2.5 bg-brand-sea text-black border border-transparent shadow-md hover:shadow-lg transition-all duration-200" data-id="all" data-postsperpage="9">All</button></div>
           <div class="swiper-slide w-auto swiper-slide-next" role="group" aria-label="2 / 18" style="margin-right: 30px;"><button type="button" class="filter-case-study inline-block rounded-full px-6 py-1.5 h-9 lg:h-auto text-sm lg:text-base lg:px-10 lg:py-2.5 bg-white border border-neutral-100 shadow-md hover:shadow-lg transition-all duration-200" data-id="7" data-postsperpage="9">Disability Employment Services</button></div>
           <div class="swiper-slide w-auto" role="group" aria-label="3 / 18" style="margin-right: 30px;"><button type="button" class="filter-case-study inline-block rounded-full px-6 py-1.5 h-9 lg:h-auto text-sm lg:text-base lg:px-10 lg:py-2.5 bg-white border border-neutral-100 shadow-md hover:shadow-lg transition-all duration-200" data-id="8" data-postsperpage="9">Transition to Work</button></div>
           <div class="swiper-slide w-auto" role="group" aria-label="4 / 18" style="margin-right: 30px;"><button type="button" class="filter-case-study inline-block rounded-full px-6 py-1.5 h-9 lg:h-auto text-sm lg:text-base lg:px-10 lg:py-2.5 bg-white border border-neutral-100 shadow-md hover:shadow-lg transition-all duration-200" data-id="9" data-postsperpage="9">Indigenous employment</button></div>
@@ -198,7 +198,7 @@ get_header();
             </div>
           </div>
           <div class="w-full lg:w-1/3 text-right">
-            <a class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200">Talk to us</a>
+            <a class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-black border border-transparent shadow-md hover:shadow-lg transition-all duration-200">Talk to us</a>
           </div>
         </div>
       </div>
@@ -434,7 +434,7 @@ get_header();
             </div>
           </div>
           <div class="w-full lg:w-1/3 text-right">
-            <a class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View all</a>
+            <a class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-black border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View all</a>
           </div>
         </div>
       </div>
@@ -483,7 +483,7 @@ get_header();
             </div>
           </div>
           <div class="w-full lg:w-1/3 text-right">
-            <a class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-white border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View all</a>
+            <a class="inline-block rounded-full font-poppins font-semibold px-6 py-3 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-sea text-black border border-transparent shadow-md hover:shadow-lg transition-all duration-200">View all</a>
           </div>
         </div>
       </div>
