@@ -369,7 +369,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
         <div class="px-6 relative">
           <div class="h-28 w-px bg-brand-sea absolute top-0 left-0"></div>
           <?php if ($popular_heading) : ?>
-            <h5 class="text-brand-sea font-bold text-xl md:text-2xl mb-4"><?php echo $popular_heading ?></h5>
+            <h5 class="text-white font-bold text-xl md:text-2xl mb-4"><?php echo $popular_heading ?></h5>
           <?php endif; ?>
           <?php if ($popular_links) : ?>
             <ul class="flex flex-col gap-3 text-white">
