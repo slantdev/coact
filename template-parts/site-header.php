@@ -34,7 +34,7 @@ if ($set_active) :
       <div class="flex items-center gap-x-4">
         <div class="grow">
           <?php if ($message) : ?>
-            <div class="text-sm lg:text-base font-normal" style="<?php echo $text_style ?>">
+            <div class="text-sm lg:text-base text-center font-normal" style="<?php echo $text_style ?>">
               <div class="inline"><?php echo strip_tags($message, '<a><b><strong><i><u><em><br><span>'); ?></div>
               <div class="inline"><?php echo $print_link ?></div>
             </div>
