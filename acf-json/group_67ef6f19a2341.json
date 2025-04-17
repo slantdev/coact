@@ -61,7 +61,7 @@
                             "label": "Message",
                             "name": "message",
                             "aria-label": "",
-                            "type": "text",
+                            "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -71,10 +71,10 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
+                            "tabs": "all",
+                            "toolbar": "basic",
+                            "media_upload": 0,
+                            "delay": 0
                         },
                         {
                             "key": "field_67ef6fdd26edd",
@@ -210,7 +210,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1743747301,
+    "modified": 1744908866,
     "acfe_categories": {
         "site-settings": "Site Settings"
     }

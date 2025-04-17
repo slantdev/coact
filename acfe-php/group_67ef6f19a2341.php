@@ -65,7 +65,7 @@ acf_add_local_field_group(array(
 							'label' => 'Message',
 							'name' => 'message',
 							'aria-label' => '',
-							'type' => 'text',
+							'type' => 'wysiwyg',
 							'instructions' => '',
 							'required' => 0,
 							'conditional_logic' => 0,
@@ -75,10 +75,10 @@ acf_add_local_field_group(array(
 								'id' => '',
 							),
 							'default_value' => '',
-							'maxlength' => '',
-							'placeholder' => '',
-							'prepend' => '',
-							'append' => '',
+							'tabs' => 'all',
+							'toolbar' => 'basic',
+							'media_upload' => 0,
+							'delay' => 0,
 						),
 						array(
 							'key' => 'field_67ef6fdd26edd',
@@ -217,7 +217,7 @@ acf_add_local_field_group(array(
 	'acfe_categories' => array(
 		'site-settings' => 'Site Settings',
 	),
-	'modified' => 1743747301,
+	'modified' => 1744908866,
 ));
 
 endif;
