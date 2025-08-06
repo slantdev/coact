@@ -1,5 +1,6 @@
 <?php
-define('GOOGLE_MAPS_API', 'AIzaSyALa7CVVKAaAPSw9-zopXMh2C7wcn6Zo10');
+//define('GOOGLE_MAPS_API', 'AIzaSyALa7CVVKAaAPSw9-zopXMh2C7wcn6Zo10');
+define('GOOGLE_MAPS_API', 'AIzaSyDL8GzKrkpTKKaHbL1q_AYRpwYlry1B9m0');
 
 /**
  * REQUIRED FILES
