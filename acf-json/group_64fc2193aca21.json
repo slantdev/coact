@@ -51,7 +51,7 @@
                             "label": "Link Icon",
                             "name": "link_icon",
                             "aria-label": "",
-                            "type": "icon-picker",
+                            "type": "svg_icon_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -60,6 +60,7 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "return_format": "value",
                             "initial_value": "",
                             "parent_repeater": "field_64fc224210cb3"
                         },
@@ -110,7 +111,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1705287184,
+    "modified": 1757511973,
     "acfe_categories": {
         "site-settings": "Site Settings"
     }

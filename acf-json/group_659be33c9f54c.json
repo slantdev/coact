@@ -68,7 +68,7 @@
                             "label": "SVG Icon",
                             "name": "svg_icon",
                             "aria-label": "",
-                            "type": "icon-picker",
+                            "type": "svg_icon_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -78,6 +78,7 @@
                                 "id": ""
                             },
                             "acfe_permissions": "",
+                            "return_format": "value",
                             "acfe_settings": "",
                             "acfe_validate": "",
                             "initial_value": "",
@@ -313,7 +314,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1704996348,
+    "modified": 1757512345,
     "acfe_categories": {
         "layout": "Layout"
     }

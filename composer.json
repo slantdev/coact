@@ -1,0 +1,5 @@
+{
+    "require": {
+        "smithfield-studio/acf-svg-icon-picker": "^4.2"
+    }
+}

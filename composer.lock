@@ -1,0 +1,79 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "af338678e4c00e4a269092d0568d96a8",
+    "packages": [
+        {
+            "name": "smithfield-studio/acf-svg-icon-picker",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smithfield-studio/acf-svg-icon-picker.git",
+                "reference": "79ef5b0260180eda9f9129c235de6959aafca48e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smithfield-studio/acf-svg-icon-picker/zipball/79ef5b0260180eda9f9129c235de6959aafca48e",
+                "reference": "79ef5b0260180eda9f9129c235de6959aafca48e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "10up/phpcs-composer": "^3.0",
+                "php-stubs/acf-pro-stubs": "^6.0",
+                "phpcompatibility/php-compatibility": "^9",
+                "phpstan/phpstan": "^1.7",
+                "phpunit/phpunit": "^9.0",
+                "szepeviktor/phpstan-wordpress": "^1.1",
+                "wp-coding-standards/wpcs": "^3.1",
+                "wpackagist-plugin/advanced-custom-fields": "^6.0",
+                "yoast/phpunit-polyfills": "^3.0"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Sheppard",
+                    "email": "mike@smithfield.studio",
+                    "homepage": "https://smithfield.studio"
+                },
+                {
+                    "name": "Erik van der Bas",
+                    "email": "erik@basedonline.nl",
+                    "homepage": "https://basedonline.nl"
+                },
+                {
+                    "name": "houke"
+                }
+            ],
+            "description": "Add ACF field for selecting SVG icons.",
+            "keywords": [
+                "acf",
+                "field",
+                "icon",
+                "picker",
+                "svg",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/smithfield-studio/acf-svg-icon-picker/issues",
+                "source": "https://github.com/smithfield-studio/acf-svg-icon-picker"
+            },
+            "time": "2025-04-15T17:56:17+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
+}

@@ -436,7 +436,7 @@
                             "label": "Icon",
                             "name": "icon",
                             "aria-label": "",
-                            "type": "icon-picker",
+                            "type": "svg_icon_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": [
@@ -453,6 +453,7 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "return_format": "value",
                             "initial_value": "",
                             "parent_repeater": "field_661f24531861b"
                         },
@@ -565,5 +566,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1714935298
+    "modified": 1757512370
 }

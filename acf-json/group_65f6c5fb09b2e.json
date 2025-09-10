@@ -20,6 +20,10 @@
             "acfe_seamless_style": 1,
             "acfe_settings": "",
             "acfe_permissions": "",
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_65f6c5fb2ab68",
@@ -51,7 +55,7 @@
                             "label": "SVG Icon",
                             "name": "svg_icon",
                             "aria-label": "",
-                            "type": "icon-picker",
+                            "type": "svg_icon_picker",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -61,6 +65,7 @@
                                 "id": ""
                             },
                             "acfe_permissions": "",
+                            "return_format": "value",
                             "acfe_settings": "",
                             "acfe_validate": "",
                             "initial_value": "",
@@ -219,11 +224,7 @@
                         }
                     ]
                 }
-            ],
-            "acfe_group_modal": 0,
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large"
+            ]
         }
     ],
     "location": [
@@ -252,7 +253,7 @@
     "acfe_form": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710696795,
+    "modified": 1757512249,
     "acfe_categories": {
         "options": "Options",
         "service-locator": "Service Locator"
