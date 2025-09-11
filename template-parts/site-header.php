@@ -73,6 +73,7 @@ $top_nav_links = $top_navigation['links'];
 $header_logo = get_field('header_logo', 'option')['header_logo'];
 $site_logo = $header_logo['site_logo'];
 $partners_logo = $header_logo['partners_logo'];
+
 ?>
 
 <header class="site-header bg-brand-light-gray relative z-[1000]">
