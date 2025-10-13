@@ -394,7 +394,7 @@
             });
           }
         };
-        markerClusterer = new MarkerClusterer({
+        markerClusterer = new markerClusterer.MarkerClusterer({
           map,
           markers,
           renderer

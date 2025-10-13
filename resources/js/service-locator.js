@@ -698,7 +698,7 @@ jQuery(function ($) {
       };
 
       // Add a marker clusterer to manage the markers.
-      markerClusterer = new MarkerClusterer({
+      markerClusterer = new markerClusterer.MarkerClusterer({
         map,
         markers,
         renderer,
