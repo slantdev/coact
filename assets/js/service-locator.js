@@ -371,7 +371,7 @@
         nearby_provider.forEach((element, index, array) => {
           serviceProviderItem(element.id, element.location_name, element.location_city, element.location_postcode, element.distance, element.service_types, element.location_address, element.link, element.location_lat, element.location_lng, element.contact_numbers);
         });
-        var markerClusterer2 = new MarkerClusterer(map, markers, {
+        markerClusterer = new MarkerClusterer(map, markers, {
           imagePath: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.svg",
           averageCenter: true,
           enableRetinaIcons: true,
@@ -389,7 +389,7 @@
             }
           ]
         });
-        markerClusterer2.addMarkers(markers);
+        markerClusterer.addMarkers(markers);
         if (type == "nearby") {
           if (num > 0) {
             var provider_result = "Showing " + num + " Sites";
