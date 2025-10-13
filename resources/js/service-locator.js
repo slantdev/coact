@@ -1,3 +1,4 @@
+import { MarkerClusterer } from "@googlemaps/markerclusterer";
 // Google Maps Dynamic Library Import
 // ((g) => {
 //   var h,
@@ -676,32 +677,31 @@ jQuery(function ($) {
         );
       });
 
-      const renderer = {
-        render: ({ count, position }, stats) => {
-          return new google.maps.Marker({
-            position,
-            icon: {
-              url: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.png",
-              scaledSize: new google.maps.Size(40, 40),
-            },
-            label: {
-              text: String(count),
-              color: "white",
-              fontSize: "14px",
-              fontWeight: "bold",
-              fontFamily: "Arial, sans-serif",
-            },
-            // Adjust zIndex to be higher than other markers
-            zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
-          });
-        },
-      };
-
       // Add a marker clusterer to manage the markers.
-      markerClusterer = new markerClusterer.MarkerClusterer({
-        map,
-        markers,
-        renderer,
+      markerClusterer = new MarkerClusterer({
+        markers: markers,
+        map: map,
+        algorithmOptions: {
+          gridSize: 68,
+        },
+        renderer: {
+          render: ({ count, position }) =>
+            new google.maps.Marker({
+              label: {
+                text: String(count),
+                color: "white",
+                fontSize: "14px",
+                fontWeight: "bold",
+              },
+              position,
+              icon: {
+                url: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.png",
+                scaledSize: new google.maps.Size(40, 40),
+              },
+              // Adjust zIndex to be above other markers
+              zIndex: 1000 + count,
+            }),
+        },
       });
 
       // Show number of results text
@@ -1022,7 +1022,7 @@ jQuery(function ($) {
       radius_circle = null;
     }
     deleteMarkers();
-    markerClusterer.clear();
+    markerClusterer.clearMarkers();
     $(".service_locator-listing_tabs").empty();
 
     var markCenter = map.getCenter();
@@ -1118,6 +1118,7 @@ jQuery(function ($) {
     $("#pac-input").val(buttonText);
 
     function noop() {}
+    var searchBoxInput = document.getElementById("pac-input");
     google.maps.event.trigger(searchBoxInput, "focus", {});
     setTimeout(() => {
       google.maps.event.trigger(searchBoxInput, "keydown", {
@@ -1167,7 +1168,7 @@ jQuery(function ($) {
       radius_circle = null;
     }
     deleteMarkers();
-    markerClusterer.clear();
+    markerClusterer.clearMarkers();
     $("#service_locator-list").empty();
 
     // Display Markers

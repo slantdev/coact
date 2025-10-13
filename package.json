@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.33",
+    "@googlemaps/markerclusterer": "^2.6.2",
     "animate.css": "^4.1.1",
     "counterup2": "^2.0.2"
   }
