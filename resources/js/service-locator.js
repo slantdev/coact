@@ -676,27 +676,33 @@ jQuery(function ($) {
         );
       });
 
+      const renderer = {
+        render: ({ count, position }, stats) => {
+          return new google.maps.Marker({
+            position,
+            icon: {
+              url: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.png",
+              scaledSize: new google.maps.Size(40, 40),
+            },
+            label: {
+              text: String(count),
+              color: "white",
+              fontSize: "14px",
+              fontWeight: "bold",
+              fontFamily: "Arial, sans-serif",
+            },
+            // Adjust zIndex to be higher than other markers
+            zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
+          });
+        },
+      };
+
       // Add a marker clusterer to manage the markers.
-      markerClusterer = new MarkerClusterer(map, markers, {
-        imagePath:
-          "/wp-content/themes/coact/assets/images/service-locator/common-cluster.svg",
-        averageCenter: true,
-        enableRetinaIcons: true,
-        gridSize: 68,
-        styles: [
-          {
-            height: 40,
-            textColor: "white",
-            textSize: 14,
-            url: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.png",
-            width: 40,
-            textLineHeight: 40,
-            fontWeight: "bold",
-            fontFamily: "Arial, sans-serif",
-          },
-        ],
+      markerClusterer = new MarkerClusterer({
+        map,
+        markers,
+        renderer,
       });
-      markerClusterer.addMarkers(markers);
 
       // Show number of results text
 
@@ -1016,7 +1022,7 @@ jQuery(function ($) {
       radius_circle = null;
     }
     deleteMarkers();
-    markerClusterer.clearMarkers();
+    markerClusterer.clear();
     $(".service_locator-listing_tabs").empty();
 
     var markCenter = map.getCenter();
@@ -1161,7 +1167,7 @@ jQuery(function ($) {
       radius_circle = null;
     }
     deleteMarkers();
-    markerClusterer.clearMarkers();
+    markerClusterer.clear();
     $("#service_locator-list").empty();
 
     // Display Markers
