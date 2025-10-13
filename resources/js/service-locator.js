@@ -1111,8 +1111,6 @@ jQuery(function ($) {
     var buttonText = $(this).text();
     $("#pac-input").val(buttonText);
 
-    var searchBoxInput = document.getElementById("pac-input");
-
     function noop() {}
     google.maps.event.trigger(searchBoxInput, "focus", {});
     setTimeout(() => {
