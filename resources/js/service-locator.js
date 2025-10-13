@@ -102,6 +102,8 @@ var markerImage =
 var centerMarkerImage =
   websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
 
+let AdvancedMarkerElement;
+
 /**
  * jQuery Functions
  */
@@ -163,7 +165,9 @@ jQuery(function ($) {
   });
 
   // Initialize Map
-  function initializeMap() {
+  async function initializeMap() {
+    AdvancedMarkerElement = (await google.maps.importLibrary("marker"))
+      .AdvancedMarkerElement;
     const mapStyle = [
       {
         elementType: "geometry",
@@ -343,6 +347,7 @@ jQuery(function ($) {
       center: mapCenter,
       styles: mapStyle,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapId: "DEMO_MAP_ID",
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
@@ -452,10 +457,12 @@ jQuery(function ($) {
 
             nearby_provider_obj.push(list_provider_obj);
 
-            var marker = new google.maps.Marker({
+            const markerImg = document.createElement("img");
+            markerImg.src = markerImage;
+            var marker = new AdvancedMarkerElement({
               position: latLng,
               map: map,
-              icon: markerImage,
+              content: markerImg,
             });
             markers.push(marker);
 
@@ -564,10 +571,12 @@ jQuery(function ($) {
           nearby_provider_obj.push(list_provider_obj);
           //console.log(nearby_provider_obj);
 
-          var marker = new google.maps.Marker({
+          const markerImg = document.createElement("img");
+          markerImg.src = markerImage;
+          var marker = new AdvancedMarkerElement({
             position: latLng,
             map: map,
-            icon: markerImage,
+            content: markerImg,
           });
           markers.push(marker);
 

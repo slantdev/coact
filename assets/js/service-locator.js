@@ -16,6 +16,7 @@
   var location_distance;
   var markerImage = websiteData.urlTheme + "/assets/images/service-locator/common-location-purple.png";
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
+  var AdvancedMarkerElement;
   jQuery(function($) {
     function setMapHeight() {
       const site_header_height = $(".site-header").outerHeight();
@@ -37,7 +38,8 @@
     $(window).resize(function() {
       setMapHeight();
     });
-    function initializeMap() {
+    async function initializeMap() {
+      AdvancedMarkerElement = (await google.maps.importLibrary("marker")).AdvancedMarkerElement;
       const mapStyle = [
         {
           elementType: "geometry",
@@ -214,6 +216,7 @@
         center: mapCenter,
         styles: mapStyle,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapId: "DEMO_MAP_ID",
         mapTypeControl: false,
         streetViewControl: false,
         fullscreenControl: false,
@@ -280,10 +283,12 @@
                 contact_numbers
               };
               nearby_provider_obj.push(list_provider_obj);
-              var marker = new google.maps.Marker({
+              const markerImg = document.createElement("img");
+              markerImg.src = markerImage;
+              var marker = new AdvancedMarkerElement({
                 position: latLng,
                 map,
-                icon: markerImage
+                content: markerImg
               });
               markers.push(marker);
               var service_type_tags = "";
@@ -333,10 +338,12 @@
               contact_numbers
             };
             nearby_provider_obj.push(list_provider_obj);
-            var marker = new google.maps.Marker({
+            const markerImg = document.createElement("img");
+            markerImg.src = markerImage;
+            var marker = new AdvancedMarkerElement({
               position: latLng,
               map,
-              icon: markerImage
+              content: markerImg
             });
             markers.push(marker);
             var service_type_tags = "";
