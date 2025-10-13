@@ -96,11 +96,14 @@ var markerClusterer;
 var mapCenter = { lat: -30.48941970550993, lng: 133.59244824999996 };
 var radius_km = 30;
 var location_distance;
+var searchBoxInput;
 var markerImage =
   websiteData.urlTheme +
   "/assets/images/service-locator/common-location-purple.png";
 var centerMarkerImage =
   websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
+
+let AdvancedMarkerElement;
 
 /**
  * jQuery Functions
@@ -163,7 +166,9 @@ jQuery(function ($) {
   });
 
   // Initialize Map
-  function initializeMap() {
+  async function initializeMap() {
+    AdvancedMarkerElement = (await google.maps.importLibrary("marker"))
+      .AdvancedMarkerElement;
     const mapStyle = [
       {
         elementType: "geometry",
@@ -343,6 +348,7 @@ jQuery(function ($) {
       center: mapCenter,
       styles: mapStyle,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapId: "DEMO_MAP_ID",
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
@@ -358,7 +364,7 @@ jQuery(function ($) {
       "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
     //console.log(initMapCenter);
 
-    var searchBoxInput = document.getElementById("pac-input");
+    searchBoxInput = document.getElementById("pac-input");
     var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
       types: ["(regions)"],
       //types: ['geocode'],
@@ -452,10 +458,12 @@ jQuery(function ($) {
 
             nearby_provider_obj.push(list_provider_obj);
 
-            var marker = new google.maps.Marker({
+            const markerImg = document.createElement("img");
+            markerImg.src = markerImage;
+            var marker = new AdvancedMarkerElement({
               position: latLng,
               map: map,
-              icon: markerImage,
+              content: markerImg,
             });
             markers.push(marker);
 
@@ -564,10 +572,12 @@ jQuery(function ($) {
           nearby_provider_obj.push(list_provider_obj);
           //console.log(nearby_provider_obj);
 
-          var marker = new google.maps.Marker({
+          const markerImg = document.createElement("img");
+          markerImg.src = markerImage;
+          var marker = new AdvancedMarkerElement({
             position: latLng,
             map: map,
-            icon: markerImage,
+            content: markerImg,
           });
           markers.push(marker);
 
