@@ -677,25 +677,29 @@ jQuery(function ($) {
       });
 
       // Add a marker clusterer to manage the markers.
-      markerClusterer = new MarkerClusterer(map, markers, {
-        imagePath:
-          "/wp-content/themes/coact/assets/images/service-locator/common-cluster.svg",
-        averageCenter: true,
-        enableRetinaIcons: true,
-        gridSize: 68,
-        styles: [
-          {
-            height: 40,
-            textColor: "white",
-            textSize: 14,
-            url: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.png",
-            width: 40,
-            textLineHeight: 40,
-            fontWeight: "bold",
-            fontFamily: "Arial, sans-serif",
-          },
-        ],
-      });
+      const renderer = {
+        render: ({ count, position }) => {
+          const div = document.createElement("div");
+          div.style.backgroundImage = 'url("/wp-content/themes/coact/assets/images/service-locator/common-cluster.png")';
+          div.style.width = "40px";
+          div.style.height = "40px";
+          div.style.display = "flex";
+          div.style.justifyContent = "center";
+          div.style.alignItems = "center";
+          div.style.color = "white";
+          div.style.fontSize = "14px";
+          div.style.fontWeight = "bold";
+          div.style.fontFamily = "Arial, sans-serif";
+          div.style.zIndex = 1000 + count;
+          div.textContent = count;
+
+          return new AdvancedMarkerElement({
+            position,
+            content: div,
+          });
+        },
+      };
+      markerClusterer = new markerClusterer.MarkerClusterer({ map, markers, renderer });
       markerClusterer.addMarkers(markers);
 
       // Show number of results text
