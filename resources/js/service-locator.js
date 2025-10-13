@@ -673,7 +673,7 @@ jQuery(function ($) {
       });
 
       // Add a marker clusterer to manage the markers.
-      markerClusterer = new MarkerClusterer(map, markers, {
+      var markerClusterer = new MarkerClusterer(map, markers, {
         imagePath:
           "/wp-content/themes/coact/assets/images/service-locator/common-cluster.svg",
         averageCenter: true,
