@@ -225,8 +225,8 @@
       geocoder = new google.maps.Geocoder();
       var initMapCenter = map.getCenter();
       var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
-      var searchBoxInput2 = document.getElementById("pac-input");
-      var searchBox = new google.maps.places.Autocomplete(searchBoxInput2, {
+      var searchBoxInput = document.getElementById("pac-input");
+      var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
         types: ["(regions)"],
         componentRestrictions: { country: "au" }
       });
@@ -653,6 +653,7 @@
     $(document).on("click", ".button-suburb", function(e) {
       var buttonText = $(this).text();
       $("#pac-input").val(buttonText);
+      var searchBoxInput = document.getElementById("pac-input");
       function noop() {
       }
       google.maps.event.trigger(searchBoxInput, "focus", {});
