@@ -16,7 +16,6 @@
   var location_distance;
   var markerImage = websiteData.urlTheme + "/assets/images/service-locator/common-location-purple.png";
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
-  var AdvancedMarkerElement;
   jQuery(function($) {
     function setMapHeight() {
       const site_header_height = $(".site-header").outerHeight();
@@ -38,8 +37,7 @@
     $(window).resize(function() {
       setMapHeight();
     });
-    async function initializeMap() {
-      AdvancedMarkerElement = (await google.maps.importLibrary("marker")).AdvancedMarkerElement;
+    function initializeMap() {
       const mapStyle = [
         {
           elementType: "geometry",
@@ -216,7 +214,6 @@
         center: mapCenter,
         styles: mapStyle,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapId: "DEMO_MAP_ID",
         mapTypeControl: false,
         streetViewControl: false,
         fullscreenControl: false,
@@ -283,12 +280,10 @@
                 contact_numbers
               };
               nearby_provider_obj.push(list_provider_obj);
-              const markerImg = document.createElement("img");
-              markerImg.src = markerImage;
-              var marker = new AdvancedMarkerElement({
+              var marker = new google.maps.Marker({
                 position: latLng,
                 map,
-                content: markerImg
+                icon: markerImage
               });
               markers.push(marker);
               var service_type_tags = "";
@@ -338,12 +333,10 @@
               contact_numbers
             };
             nearby_provider_obj.push(list_provider_obj);
-            const markerImg = document.createElement("img");
-            markerImg.src = markerImage;
-            var marker = new AdvancedMarkerElement({
+            var marker = new google.maps.Marker({
               position: latLng,
               map,
-              content: markerImg
+              icon: markerImage
             });
             markers.push(marker);
             var service_type_tags = "";
@@ -382,28 +375,24 @@
         nearby_provider.forEach((element, index, array) => {
           serviceProviderItem(element.id, element.location_name, element.location_city, element.location_postcode, element.distance, element.service_types, element.location_address, element.link, element.location_lat, element.location_lng, element.contact_numbers);
         });
-        const renderer = {
-          render: ({ count, position }) => {
-            const div = document.createElement("div");
-            div.style.backgroundImage = 'url("/wp-content/themes/coact/assets/images/service-locator/common-cluster.png")';
-            div.style.width = "40px";
-            div.style.height = "40px";
-            div.style.display = "flex";
-            div.style.justifyContent = "center";
-            div.style.alignItems = "center";
-            div.style.color = "white";
-            div.style.fontSize = "14px";
-            div.style.fontWeight = "bold";
-            div.style.fontFamily = "Arial, sans-serif";
-            div.style.zIndex = 1e3 + count;
-            div.textContent = count;
-            return new AdvancedMarkerElement({
-              position,
-              content: div
-            });
-          }
-        };
-        markerClusterer = new markerClusterer.MarkerClusterer({ map, markers, renderer });
+        markerClusterer = new MarkerClusterer(map, markers, {
+          imagePath: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.svg",
+          averageCenter: true,
+          enableRetinaIcons: true,
+          gridSize: 68,
+          styles: [
+            {
+              height: 40,
+              textColor: "white",
+              textSize: 14,
+              url: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.png",
+              width: 40,
+              textLineHeight: 40,
+              fontWeight: "bold",
+              fontFamily: "Arial, sans-serif"
+            }
+          ]
+        });
         markerClusterer.addMarkers(markers);
         if (type == "nearby") {
           if (num > 0) {

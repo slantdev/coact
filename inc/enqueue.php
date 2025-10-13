@@ -24,8 +24,8 @@ function coact_enqueue_scripts()
     wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . GOOGLE_MAPS_API . '&loading=async&libraries=places,geometry', array(), $theme->get('Version'), true);
   }
   if (is_page_template('template-parts/template-service-locator.php')) {
-    //wp_enqueue_script('marker-clusterer', 'https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js', array('google-maps'), $theme->get('Version'), true);
-    wp_enqueue_script('marker-clusterer', 'https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js', array('google-maps'), $theme->get('Version'), true);
+    wp_enqueue_script('marker-clusterer', 'https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js', array('google-maps'), $theme->get('Version'), true);
+    //wp_enqueue_script('marker-clusterer', 'https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js', array('google-maps'), $theme->get('Version'), true);
     //wp_enqueue_script('marker-clusterer', coact_asset('js/markerclustererplus.js'), array('google-maps'), $theme->get('Version'), true);
     wp_enqueue_script('select2', 'https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js', array('jquery'), $theme->get('Version'), true);
     wp_enqueue_script('service-locator', coact_asset('js/service-locator.js'), array('jquery', 'google-maps'), $theme->get('Version'), true);

@@ -102,8 +102,6 @@ var markerImage =
 var centerMarkerImage =
   websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
 
-let AdvancedMarkerElement;
-
 /**
  * jQuery Functions
  */
@@ -165,9 +163,7 @@ jQuery(function ($) {
   });
 
   // Initialize Map
-  async function initializeMap() {
-    AdvancedMarkerElement = (await google.maps.importLibrary("marker"))
-      .AdvancedMarkerElement;
+  function initializeMap() {
     const mapStyle = [
       {
         elementType: "geometry",
@@ -347,7 +343,6 @@ jQuery(function ($) {
       center: mapCenter,
       styles: mapStyle,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapId: "DEMO_MAP_ID",
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
@@ -457,12 +452,10 @@ jQuery(function ($) {
 
             nearby_provider_obj.push(list_provider_obj);
 
-            const markerImg = document.createElement("img");
-            markerImg.src = markerImage;
-            var marker = new AdvancedMarkerElement({
+            var marker = new google.maps.Marker({
               position: latLng,
               map: map,
-              content: markerImg,
+              icon: markerImage,
             });
             markers.push(marker);
 
@@ -571,12 +564,10 @@ jQuery(function ($) {
           nearby_provider_obj.push(list_provider_obj);
           //console.log(nearby_provider_obj);
 
-          const markerImg = document.createElement("img");
-          markerImg.src = markerImage;
-          var marker = new AdvancedMarkerElement({
+          var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            content: markerImg,
+            icon: markerImage,
           });
           markers.push(marker);
 
@@ -686,29 +677,25 @@ jQuery(function ($) {
       });
 
       // Add a marker clusterer to manage the markers.
-      const renderer = {
-        render: ({ count, position }) => {
-          const div = document.createElement("div");
-          div.style.backgroundImage = 'url("/wp-content/themes/coact/assets/images/service-locator/common-cluster.png")';
-          div.style.width = "40px";
-          div.style.height = "40px";
-          div.style.display = "flex";
-          div.style.justifyContent = "center";
-          div.style.alignItems = "center";
-          div.style.color = "white";
-          div.style.fontSize = "14px";
-          div.style.fontWeight = "bold";
-          div.style.fontFamily = "Arial, sans-serif";
-          div.style.zIndex = 1000 + count;
-          div.textContent = count;
-
-          return new AdvancedMarkerElement({
-            position,
-            content: div,
-          });
-        },
-      };
-      markerClusterer = new markerClusterer.MarkerClusterer({ map, markers, renderer });
+      markerClusterer = new MarkerClusterer(map, markers, {
+        imagePath:
+          "/wp-content/themes/coact/assets/images/service-locator/common-cluster.svg",
+        averageCenter: true,
+        enableRetinaIcons: true,
+        gridSize: 68,
+        styles: [
+          {
+            height: 40,
+            textColor: "white",
+            textSize: 14,
+            url: "/wp-content/themes/coact/assets/images/service-locator/common-cluster.png",
+            width: 40,
+            textLineHeight: 40,
+            fontWeight: "bold",
+            fontFamily: "Arial, sans-serif",
+          },
+        ],
+      });
       markerClusterer.addMarkers(markers);
 
       // Show number of results text
