@@ -19,6 +19,7 @@
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
   var AdvancedMarkerElement;
   jQuery(function($) {
+    searchBoxInput = document.getElementById("pac-input");
     function setMapHeight() {
       const site_header_height = $(".site-header").outerHeight();
       const service_locator_form_height = $(".service_locator-search").outerHeight();
@@ -229,7 +230,6 @@
       geocoder = new google.maps.Geocoder();
       var initMapCenter = map.getCenter();
       var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
-      searchBoxInput = document.getElementById("pac-input");
       var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
         types: ["(regions)"],
         componentRestrictions: { country: "au" }
