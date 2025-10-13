@@ -96,20 +96,16 @@ var markerClusterer;
 var mapCenter = { lat: -30.48941970550993, lng: 133.59244824999996 };
 var radius_km = 30;
 var location_distance;
-var searchBoxInput;
 var markerImage =
   websiteData.urlTheme +
   "/assets/images/service-locator/common-location-purple.png";
 var centerMarkerImage =
   websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
 
-let AdvancedMarkerElement;
-
 /**
  * jQuery Functions
  */
 jQuery(function ($) {
-  searchBoxInput = document.getElementById("pac-input");
   function setMapHeight() {
     // Set container height
     const site_header_height = $(".site-header").outerHeight();
@@ -167,9 +163,7 @@ jQuery(function ($) {
   });
 
   // Initialize Map
-  async function initializeMap() {
-    AdvancedMarkerElement = (await google.maps.importLibrary("marker"))
-      .AdvancedMarkerElement;
+  function initializeMap() {
     const mapStyle = [
       {
         elementType: "geometry",
@@ -349,7 +343,6 @@ jQuery(function ($) {
       center: mapCenter,
       styles: mapStyle,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      mapId: "DEMO_MAP_ID",
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
@@ -365,6 +358,7 @@ jQuery(function ($) {
       "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
     //console.log(initMapCenter);
 
+    var searchBoxInput = document.getElementById("pac-input");
     var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
       types: ["(regions)"],
       //types: ['geocode'],
@@ -458,12 +452,10 @@ jQuery(function ($) {
 
             nearby_provider_obj.push(list_provider_obj);
 
-            const markerImg = document.createElement("img");
-            markerImg.src = markerImage;
-            var marker = new AdvancedMarkerElement({
+            var marker = new google.maps.Marker({
               position: latLng,
               map: map,
-              content: markerImg,
+              icon: markerImage,
             });
             markers.push(marker);
 
@@ -572,12 +564,10 @@ jQuery(function ($) {
           nearby_provider_obj.push(list_provider_obj);
           //console.log(nearby_provider_obj);
 
-          const markerImg = document.createElement("img");
-          markerImg.src = markerImage;
-          var marker = new AdvancedMarkerElement({
+          var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            content: markerImg,
+            icon: markerImage,
           });
           markers.push(marker);
 
@@ -1257,7 +1247,7 @@ jQuery(function ($) {
           list_contact_numbers +=
             '<div class="service_locator-proofPoint">' +
             '<span class="svg_icon"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="injected-svg" data-src="' +
-            "/wp-content/themes/coact/assets/images/service-locator/common-phone.svg" + '"><path class="svg_inherit" d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"></path></svg></div></div></span>' +
+            '/wp-content/themes/coact/assets/images/service-locator/common-phone.svg"><path class="svg_inherit" d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"></path></svg></div></div></span>' +
             '<a href="tel:' +
             tel +
             '" class="phantom-phone-number">' +
@@ -1278,7 +1268,7 @@ jQuery(function ($) {
         checkmark_data.forEach(function (element) {
           checkmark_list +=
             '<div class="service_locator-proofPoint"><span class="svg_icon"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="injected-svg" data-src="' +
-            "/wp-content/themes/coact/assets/images/service-locator/common-tick.svg" + '"><title>icon / tick</title><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"></path><path fill="#45C2BF" fill-rule="nonzero" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path></g></svg></div></div></span><span>' +
+            '/wp-content/themes/coact/assets/images/service-locator/common-tick.svg"><title>icon / tick</title><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"></path><path fill="#45C2BF" fill-rule="nonzero" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"></path></g></svg></div></div></span><span>' +
             element.point +
             "</span></div>";
         });
@@ -1309,7 +1299,7 @@ jQuery(function ($) {
         details_body +=
           '<div class="service_locator-proofPoint">' +
           '<span class="svg_icon"><div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="injected-svg" data-src="' +
-          "/wp-content/themes/coact/assets/images/service-locator/common-location.svg" + '"><path class="svg_inherit" d="M12 0C7.3 0 3.5 3.76 3.5 8.4 3.5 14.7 12 24 12 24s8.5-9.3 8.5-15.6C20.5 3.76 16.7 0 12 0zm0 12a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"></path></svg></div></div></span>' +
+          '/wp-content/themes/coact/assets/images/service-locator/common-location.svg"><path class="svg_inherit" d="M12 0C7.3 0 3.5 3.76 3.5 8.4 3.5 14.7 12 24 12 24s8.5-9.3 8.5-15.6C20.5 3.76 16.7 0 12 0zm0 12a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"></path></svg></div></div></span>' +
           "<span>" +
           address_data +
           "</span>" +

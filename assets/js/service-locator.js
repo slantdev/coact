@@ -14,12 +14,9 @@
   var mapCenter = { lat: -30.48941970550993, lng: 133.59244824999996 };
   var radius_km = 30;
   var location_distance;
-  var searchBoxInput;
   var markerImage = websiteData.urlTheme + "/assets/images/service-locator/common-location-purple.png";
   var centerMarkerImage = websiteData.urlTheme + "/assets/images/service-locator/bluedot48.png";
-  var AdvancedMarkerElement;
   jQuery(function($) {
-    searchBoxInput = document.getElementById("pac-input");
     function setMapHeight() {
       const site_header_height = $(".site-header").outerHeight();
       const service_locator_form_height = $(".service_locator-search").outerHeight();
@@ -40,8 +37,7 @@
     $(window).resize(function() {
       setMapHeight();
     });
-    async function initializeMap() {
-      AdvancedMarkerElement = (await google.maps.importLibrary("marker")).AdvancedMarkerElement;
+    function initializeMap() {
       const mapStyle = [
         {
           elementType: "geometry",
@@ -218,7 +214,6 @@
         center: mapCenter,
         styles: mapStyle,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        mapId: "DEMO_MAP_ID",
         mapTypeControl: false,
         streetViewControl: false,
         fullscreenControl: false,
@@ -230,7 +225,8 @@
       geocoder = new google.maps.Geocoder();
       var initMapCenter = map.getCenter();
       var providerJson = "/wp-json/wp/v2/service-partner?status=publish&per_page=500";
-      var searchBox = new google.maps.places.Autocomplete(searchBoxInput, {
+      var searchBoxInput2 = document.getElementById("pac-input");
+      var searchBox = new google.maps.places.Autocomplete(searchBoxInput2, {
         types: ["(regions)"],
         componentRestrictions: { country: "au" }
       });
@@ -284,12 +280,10 @@
                 contact_numbers
               };
               nearby_provider_obj.push(list_provider_obj);
-              const markerImg = document.createElement("img");
-              markerImg.src = markerImage;
-              var marker = new AdvancedMarkerElement({
+              var marker = new google.maps.Marker({
                 position: latLng,
                 map,
-                content: markerImg
+                icon: markerImage
               });
               markers.push(marker);
               var service_type_tags = "";
@@ -339,12 +333,10 @@
               contact_numbers
             };
             nearby_provider_obj.push(list_provider_obj);
-            const markerImg = document.createElement("img");
-            markerImg.src = markerImage;
-            var marker = new AdvancedMarkerElement({
+            var marker = new google.maps.Marker({
               position: latLng,
               map,
-              content: markerImg
+              icon: markerImage
             });
             markers.push(marker);
             var service_type_tags = "";
