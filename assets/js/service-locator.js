@@ -1862,8 +1862,7 @@
                   </div>
               </div>
               <div class="text-sm my-4">
-                  New enquiries: <a href="tel:61${new_enquiries.split(" ").join("")}" class="text-brand-blue underline hover:no-underline">${new_enquiries}</a><br />
-                  Existing clients: <a href="tel:61${existing_client.split(" ").join("")}" class="text-brand-blue underline hover:no-underline">${existing_client}</a>
+                  Call: <a href="tel:61${new_enquiries.split(" ").join("")}" class="text-brand-blue underline hover:no-underline">${new_enquiries}</a>
               </div>
               <div class="mt-4">
                   <div class="flex flex-wrap gap-3">${service_type_tags}</div>
