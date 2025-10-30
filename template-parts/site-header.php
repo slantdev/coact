@@ -84,24 +84,24 @@ $partners_logo = $header_logo['partners_logo'];
         <div class="hidden xl:block rounded-tr-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
         <div class="xl:rounded-b-2xl bg-brand-sea text-black xl:px-2">
           <?php if ($top_nav_links) : ?>
-            <div class="flex gap-x-2 md:justify-end font-poppins font-semibold">
+            <div class="flex gap-x-1 justify-between md:gap-x-2 md:justify-end font-poppins font-semibold">
               <?php foreach ($top_nav_links as $key => $link) : ?>
                 <?php if ($key == '0') { ?>
                   <div class="">
-                    <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="inline-flex p-3 md:px-4 md:pb-3 bg-brand-purple md:bg-transparent gap-x-2 hover:underline">
+                    <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="inline-flex px-3 py-3 md:px-4 md:pb-3 bg-brand-purple md:bg-transparent gap-x-1 md:gap-x-2 hover:underline">
                       <?php if ($link['link_icon']) {
                         echo coact_icon(array('icon' => $link['link_icon'], 'group' => 'content', 'size' => '20', 'class' => 'text-black'));
                       } ?>
-                      <span class="hidden md:inline-block text-sm xl:text-base"><?php echo $link['link']['title'] ?></span>
+                      <span class="hidden md:inline-block text-[12px] md:text-sm xl:text-base"><?php echo $link['link']['title'] ?></span>
                     </a>
                   </div>
                 <?php } else { ?>
                   <div class="flex justify-end">
-                    <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="inline-flex justify-end p-3 xl:px-4 xl:pb-3 gap-x-2 whitespace-nowrap hover:underline">
+                    <a href="<?php echo $link['link']['url'] ?>" target="<?php echo $link['link']['target'] ?>" class="inline-flex justify-end px-3 py-3 md:px-4 xl:pb-3 gap-x-1 md:gap-x-2 whitespace-nowrap hover:underline">
                       <?php if ($link['link_icon']) {
                         echo coact_icon(array('icon' => $link['link_icon'], 'group' => 'content', 'size' => '20', 'class' => 'text-black'));
                       } ?>
-                      <span class="inline-block text-sm xl:text-base"><?php echo $link['link']['title'] ?></span>
+                      <span class="inline-block text-[12px] md:text-sm xl:text-base"><?php echo $link['link']['title'] ?></span>
                     </a>
                   </div>
                 <?php } ?>
