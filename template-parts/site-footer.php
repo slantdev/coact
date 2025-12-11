@@ -358,7 +358,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
             <?php endif; ?>
             <?php if ($phone) : ?>
             <?php endif; ?>
-            <strong>Freecall:</strong> <a href="<?php echo $phone['url'] ?>" class="hover:underline"><?php echo $phone['title'] ?></a> &nbsp;&nbsp;<span class="text-brand-sea">|</span>
+            <strong>Freecall:</strong> <a href="<?php echo $phone['url'] ?>" class="hover:underline"><?php echo $phone['title'] ?></a> &nbsp;&nbsp;<span class="text-white">|</span>
             <?php if ($email) : ?>
               &nbsp;&nbsp; <strong>Email:</strong> <a href="<?php echo $email['url'] ?>" class="hover:underline"><?php echo $email['title'] ?></a>
             <?php endif; ?>
