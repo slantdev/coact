@@ -296,10 +296,13 @@ if ($enable_page_header) :
         lng: parseFloat(lng)
       };
 
+      var title = $marker.data('title') || '';
+
       // Create marker instance.
       var marker = new google.maps.Marker({
         position: latLng,
-        map: map
+        map: map,
+        title: title
       });
 
       // Append to reference for later use.
@@ -471,7 +474,7 @@ if ($enable_page_header) :
           <div class="mb-8 mx-auto xl:mb-12 max-w-full aspect-w-1 aspect-h-1 rounded-md overflow-hidden">
             <div class="w-full h-full bg-slate-100 flex items-center justify-center">
               <div class="acf-map" data-zoom="15">
-                <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>
+                <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>" data-title="<?php echo esc_attr($site_name); ?>"></div>
               </div>
             </div>
           </div>
