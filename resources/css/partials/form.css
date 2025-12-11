@@ -43,7 +43,7 @@ select {
 
 .subscribe_section-form {
   .elq-form .elq-item-input {
-    @apply bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/50 focus:ring-white/20;
+    @apply bg-black/70 w-full rounded-full border-none py-3 px-6 text-white placeholder:text-white/70 focus:ring-white/20;
   }
   .elq-form .elq-field-style input[type="submit"] {
     &.submit-button-style {

@@ -107,22 +107,22 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                 <div class="layout grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div id="formElement0" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/50 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="firstName" id="fe699" value="" placeholder="First Name *" style="width:100%;">
+                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="firstName" id="fe699" value="" placeholder="First Name *" style="width:100%;">
                     </div>
                   </div>
                   <div id="formElement1" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/50 w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="lastName" id="fe700" value="" placeholder="Last Name *" style="width:100%;">
+                      <input type="text" class="elq-item-input bg-black/70 w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="lastName" id="fe700" value="" placeholder="Last Name *" style="width:100%;">
                     </div>
                   </div>
                   <div id="formElement2" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/50 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="emailAddress" id="fe701" value="" placeholder="Email Address *" style="width:100%;">
+                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="emailAddress" id="fe701" value="" placeholder="Email Address *" style="width:100%;">
                     </div>
                   </div>
                   <div id="formElement3" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/50 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="zipPostal" id="fe734" value="" placeholder="Post Code *" style="width:100%;">
+                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="zipPostal" id="fe734" value="" placeholder="Post Code *" style="width:100%;">
                     </div>
                   </div>
                 </div>
