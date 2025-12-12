@@ -13,6 +13,11 @@
           "color": "#45C2BF"
         },
         {
+          "name": "Brand Dark Sea",
+          "slug": "brand-dark-sea",
+          "color": "#076361"
+        },
+        {
           "name": "Brand Orange",
           "slug": "brand-orange",
           "color": "#F26B49"
