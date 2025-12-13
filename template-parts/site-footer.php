@@ -62,7 +62,7 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
       <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-16 xl:gap-x-16 3xl:gap-x-24 items-center">
         <div class="w-full order-2 max-w-[360px] lg:max-w-none lg:w-1/3 xl:w-1/2 relative">
           <?php if ($subscribe_image) : ?>
-            <div class="mb-8 mx-auto xl:mb-0 max-w-full"><img src="<?php echo $subscribe_image['url'] ?>" class="" alt="<?php echo $subscribe_image['alt'] ?>"></div>
+            <div class="mb-8 mx-auto xl:mb-0 max-w-full"><img src="<?php echo $subscribe_image['url'] ?>" class="" alt="<?php echo esc_attr($subscribe_image['alt'] ?: 'Subscribe Image') ?>"></div>
           <?php endif ?>
         </div>
         <div class="w-full order-1 lg:w-2/3 xl:w-1/2 pt-10">
