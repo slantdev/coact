@@ -177,3 +177,57 @@ function hexToRgb($hex)
   // Return the RGB values as an associative array
   return array('r' => $r, 'g' => $g, 'b' => $b);
 }
+
+/**
+ * Accessible Caption Links
+ *
+ * Filter the caption shortcode output to improve accessibility.
+ * If an image link has empty alt text, inject the caption text
+ * as an aria-label on the anchor tag.
+ */
+function coact_accessible_caption_links($output, $attr, $content)
+{
+  $atts = shortcode_atts(array(
+    'id'      => '',
+    'align'   => 'alignnone',
+    'width'   => '',
+    'caption' => '',
+    'class'   => '',
+  ), $attr, 'caption');
+
+  $atts['width'] = (int) $atts['width'];
+
+  if ($atts['width'] < 1 || empty($atts['caption'])) {
+    return $content;
+  }
+
+  if (!empty($atts['id'])) {
+    $atts['id'] = 'id="' . esc_attr($atts['id']) . '" ';
+  }
+
+  $class = trim('wp-caption ' . $atts['align'] . ' ' . $atts['class']);
+
+  $html5 = current_theme_supports('html5', 'caption');
+
+  // Parse the content to find <a> tag wrapping an <img> with empty alt.
+  if (preg_match('/<a([^>]*)>(.*?)<\/a>/is', $content, $matches)) {
+    $a_attrs     = $matches[1];
+    $img_content = $matches[2];
+
+    if (preg_match('/<img[^>]*alt=["\']\s*["\'][^>]*>/i', $img_content)) {
+      // Inject aria-label with caption text.
+      $caption_text = strip_tags($atts['caption']);
+      $new_a_tag    = '<a' . $a_attrs . ' aria-label="' . esc_attr($caption_text) . '">' . $img_content . '</a>';
+      $content      = str_replace($matches[0], $new_a_tag, $content);
+    }
+  }
+
+  if ($html5) {
+    return '<figure ' . $atts['id'] . 'class="' . esc_attr($class) . '">'
+      . do_shortcode($content) . '<figcaption class="wp-caption-text">' . $atts['caption'] . '</figcaption></figure>';
+  }
+
+  return '<div ' . $atts['id'] . 'class="' . esc_attr($class) . '">'
+    . do_shortcode($content) . '<p class="wp-caption-text">' . $atts['caption'] . '</p></div>';
+}
+add_filter('img_caption_shortcode', 'coact_accessible_caption_links', 10, 3);
