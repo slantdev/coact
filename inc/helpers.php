@@ -214,7 +214,7 @@ function coact_accessible_caption_links($output, $attr, $content)
     $a_attrs     = $matches[1];
     $img_content = $matches[2];
 
-    if (preg_match('/<img[^>]*alt=["\']\s*["\'][^>]*>/i', $img_content)) {
+    if (strpos($img_content, '<img') !== false) {
       // Inject aria-label with caption text.
       $caption_text = strip_tags($atts['caption']);
       $new_a_tag    = '<a' . $a_attrs . ' aria-label="' . esc_attr($caption_text) . '">' . $img_content . '</a>';
