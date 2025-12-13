@@ -231,3 +231,25 @@ function coact_accessible_caption_links($output, $attr, $content)
     . do_shortcode($content) . '<p class="wp-caption-text">' . $atts['caption'] . '</p></div>';
 }
 add_filter('img_caption_shortcode', 'coact_accessible_caption_links', 10, 3);
+
+/**
+ * Add fallback alt text to images in post content
+ */
+function coact_add_missing_alt_text($content)
+{
+  if (!is_admin() && preg_match_all('/<img[^>]+>/i', $content, $images)) {
+    $post_title = get_the_title();
+    foreach ($images[0] as $image) {
+      if (!preg_match('/alt=["\'](.*?)["\']/i', $image, $alt) || empty(trim($alt[1]))) {
+        $new_image = preg_replace('/<img/i', '<img alt="' . esc_attr($post_title) . '"', $image);
+        // If alt existed but was empty, remove it first to avoid duplicate
+        if (preg_match('/alt=["\']\s*["\']/i', $image)) {
+           $new_image = preg_replace('/alt=["\']\s*["\']/i', 'alt="' . esc_attr($post_title) . '"', $image);
+        }
+        $content = str_replace($image, $new_image, $content);
+      }
+    }
+  }
+  return $content;
+}
+add_filter('the_content', 'coact_add_missing_alt_text');
