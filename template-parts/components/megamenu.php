@@ -117,7 +117,7 @@ function output_megamenu($megamenu_items)
     return;
   }
 ?>
-  <div class="mega-menu" tabindex="0">
+  <div class="mega-menu">
     <div class="menu-back-wrapper">
       <button class="menu-back-btn">
         <?php echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 rotate-90')); ?><span class="text-sm font-semibold">Back</span>
@@ -196,7 +196,7 @@ function output_dropdown_menu($dropdown_menu_items)
     return;
   }
 ?>
-  <div class="dropdown-menu" tabindex="0">
+  <div class="dropdown-menu">
     <div class="menu-back-wrapper">
       <button class="menu-back-btn">
         <?php echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 rotate-90')); ?><span class="text-sm font-semibold">Back</span>
