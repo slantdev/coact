@@ -59,7 +59,7 @@ if ($enable_page_header) :
         <div class="bg-zinc-300 w-full h-full">
           <?php if ($background_image) : ?>
             <div class="absolute inset-0">
-              <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image['url'] ?>" alt="">
+              <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image['url'] ?>" alt="<?php echo esc_attr($title) ?>">
             </div>
           <?php endif; ?>
           <div class="absolute top-0 left-0  rounded-full bg-brand-sea bg-opacity-80 w-[640px] h-[640px] xl:w-[900px] xl:h-[900px] -translate-y-[20%] -translate-x-1/4 3xl:w-[1000px] 3xl:h-[1000px] 4xl:w-[1300px] 4xl:h-[1300px] 4xl-translate-y-1/4 4xl-translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
