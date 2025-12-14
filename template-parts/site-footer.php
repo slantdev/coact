@@ -455,7 +455,9 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
             $link_target = $link['link']['target'] ?? '_self';
             $link_title = $link['link']['title'] ?? '';
             ?>
-            <a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline font-semibold"><?php echo $link_title ?></a>
+            <?php if ($link_url) : ?>
+              <a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline font-semibold" aria-label="<?php echo esc_attr($link_title) ?>"><?php echo $link_title ?></a>
+            <?php endif; ?>
           <?php endforeach ?>
         </div>
       <?php endif ?>
