@@ -79,9 +79,9 @@ $logo_link = $logo_carousel['logo_link'] ?? ''; // Repeater
                       <div class="flex flex-col items-center justify-center">
                         <?php
                         if ($logo_link) {
-                          echo '<a href="' . $logo_link . '" target="_blank">';
+                          echo '<a href="' . $logo_link . '" target="_blank" aria-label="Visit ' . esc_attr($logo_image['alt'] ?: 'partner') . ' website">';
                         } ?>
-                        <img class="w-full h-full object-contain" src="<?php echo esc_url($logo_image['url']); ?>" />
+                        <img class="w-full h-full object-contain" src="<?php echo esc_url($logo_image['url']); ?>" alt="<?php echo esc_attr($logo_image['alt'] ?: 'Partner Logo'); ?>" />
                         <?php
                         if ($logo_link) {
                           echo '</a>';
