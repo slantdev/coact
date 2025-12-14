@@ -484,7 +484,7 @@ if ($enable_page_header) :
             <div id="galleryCarousel" class="f-carousel rounded-md overflow-hidden">
               <?php foreach ($photo_gallery as $photo) : ?>
                 <div class="f-carousel__slide aspect-w-6 aspect-h-4" data-thumb-src="<?php echo $photo['sizes']['thumbnail'] ?>" data-fancybox="gallery" data-src="<?php echo $photo['url'] ?>">
-                  <img alt="" class="object-cover w-full h-full" data-lazy-src="<?php echo $photo['sizes']['medium_large'] ?>" />
+                  <img alt="<?php echo esc_attr($photo['alt'] ?: $site_name . ' Gallery Image') ?>" class="object-cover w-full h-full" data-lazy-src="<?php echo $photo['sizes']['medium_large'] ?>" />
                 </div>
               <?php endforeach ?>
             </div>
