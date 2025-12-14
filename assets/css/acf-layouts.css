@@ -7071,7 +7071,12 @@ details.collapse summary::-webkit-details-marker {
 
 .text-brand-blue {
   --tw-text-opacity: 1;
-  color: rgb(13 80 187 / var(--tw-text-opacity));
+  color: rgb(12 76 178 / var(--tw-text-opacity));
+}
+
+.text-brand-dark-sea {
+  --tw-text-opacity: 1;
+  color: rgb(7 99 97 / var(--tw-text-opacity));
 }
 
 .text-brand-orange {
@@ -7117,11 +7122,6 @@ details.collapse summary::-webkit-details-marker {
 .text-zinc-400 {
   --tw-text-opacity: 1;
   color: rgb(161 161 170 / var(--tw-text-opacity));
-}
-
-.text-brand-dark-sea {
-  --tw-text-opacity: 1;
-  color: rgb(7 99 97 / var(--tw-text-opacity));
 }
 
 .underline {
