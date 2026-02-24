@@ -1,6 +1,6 @@
-<div class="main-nav--div">
+<nav id="main-navigation" class="main-nav--div" aria-label="Main Navigation">
   <div class="menu-close-wrapper">
-    <button class="menu-close-btn">
+    <button class="menu-close-btn" aria-label="Close Menu">
       <?php echo coact_icon(array('icon' => 'close', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>
     </button>
   </div>
@@ -32,13 +32,17 @@
             $megamenu_items = null;
           }
           $link_class = get_menu_link_class($current_post_id, $link_post_id, $post_ancestors, $megamenu_items, $dropdown_menu_items);
+          $aria_current = ($link_class === 'current-menu') ? ' aria-current="page"' : '';
 
           // Output menu item
           echo '<li class="' . $li_class . '">';
-          echo '<a href="' . esc_url($menu_url) . '" target="' . esc_attr($menu_item['target']) . '" data-id="' . esc_attr($link_post_id) . '" class="' . esc_attr($link_class) . '">' . esc_html($menu_item['title']) . '</a>';
-          echo '<button class="menu-right-btn">';
-          echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 -rotate-90'));
-          echo '</button>';
+          echo '<a href="' . esc_url($menu_url) . '" target="' . esc_attr($menu_item['target']) . '" data-id="' . esc_attr($link_post_id) . '" class="' . esc_attr($link_class) . '"' . $aria_current . '>' . esc_html($menu_item['title']) . '</a>';
+          
+          if ($li_class === 'has_submenu') {
+            echo '<button class="menu-right-btn" aria-label="Open Submenu" aria-expanded="false">';
+            echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 -rotate-90'));
+            echo '</button>';
+          }
 
           // Output submenu if exists
           if ($submenu_type == 'megamenu' && $megamenu_items) {
@@ -56,14 +60,15 @@
   <div class="flex-none border-t border-solid border-slate-200 px-4 py-6 mt-4 xl:border-0 xl:pl-6 3xl:pl-16 xl:pr-0 xl:pt-0 xl:pb-3 xl:mt-0 xl:ml-auto">
     <div class="relative">
       <form id="header-searchform" class="relative" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-        <input id="searchform-input" type="text" class="w-auto xl:w-56 3xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="">
-        <button type="submit" class="absolute right-4 top-3">
+        <label for="searchform-input" class="sr-only">Search</label>
+        <input id="searchform-input" type="text" class="w-auto xl:w-56 3xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="" aria-label="Search">
+        <button type="submit" class="absolute right-4 top-3" aria-label="Submit Search">
           <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea w-5 h-5 2xl:w-6 2xl:h-6')); ?>
         </button>
       </form>
     </div>
   </div>
-</div>
+</nav>
 
 <?php
 function get_menu_link_class($current_post_id, $link_post_id, $post_ancestors, $megamenu_items, $dropdown_menu_items)

@@ -1,0 +1,27 @@
+# Accessibility Improvement Tasks (WCAG 2.1 AA)
+
+- [X] Fundamental Structure & Global Elements
+    -- [X] Add "Skip to Content" link to `header.php`
+    -- [X] Add `aria-label` to primary and top navigation landmarks
+    -- [X] Ensure `<main>` has a unique `id` for skip link target
+- [X] Header & Navigation Accessibility
+    -- [X] Add `aria-label` and `aria-expanded` to mobile menu toggle (`.menu-open-btn`)
+    -- [X] Add `aria-label` and `aria-controls` to mobile search toggle (`.menu-search-btn`)
+    -- [X] Add `aria-label` to close buttons in menu and search
+    -- [X] Implement focus management for mobile menu in `app.js` (trap focus, restore on close)
+    -- [X] Implement Escape key listener for closing menu and search in `app.js`
+    -- [X] Add `aria-current="page"` to active menu items in `megamenu.php`
+- [X] Footer & Global Components
+    -- [X] Add `aria-label` to social media and footer navigation groups in `site-footer.php`
+    -- [X] Ensure footer logos have appropriate `alt` text
+- [X] Forms & Interactive Elements
+    -- [X] Add `<label>` or `aria-label` to all search input fields
+    -- [X] Audit newsletter form in `site-footer.php` for `id`/`for` label associations
+    -- [X] Add `aria-required="true"` to mandatory fields in newsletter form
+- [X] Template & Section Audits (Iterative)
+    -- [X] Audit `hero_slider.php` for keyboard navigation and screen reader support
+    -- [X] Audit `faq.php` (Accordion) for `aria-expanded` and proper button usage
+    -- [X] Audit `posts_grid.php` for semantic link structure
+- [X] Visual & Media
+    -- [X] Verify color contrast for brand colors (Sea, Purple, Light Gray)
+    -- [X] Ensure all ACF images have fallback `alt` attributes

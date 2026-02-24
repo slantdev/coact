@@ -82,7 +82,7 @@ $partners_logo = $header_logo['partners_logo'];
     <div class="xl:absolute xl:right-0 xl:px-4 z-10">
       <div class="block xl:flex">
         <div class="hidden xl:block rounded-tr-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
-        <div class="xl:rounded-b-2xl bg-brand-sea text-black xl:px-2">
+        <nav class="xl:rounded-b-2xl bg-brand-sea text-black xl:px-2" aria-label="Top Navigation">
           <?php if ($top_nav_links) : ?>
             <div class="flex gap-x-1 justify-between md:gap-x-2 md:justify-end font-poppins font-semibold">
               <?php foreach ($top_nav_links as $key => $link) : ?>
@@ -108,12 +108,12 @@ $partners_logo = $header_logo['partners_logo'];
               <?php endforeach ?>
             </div>
           <?php endif; ?>
-        </div>
+        </nav>
         <div class="hidden xl:block rounded-tl-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
       </div>
     </div>
     <div class="relative z-0 px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
-      <button class="menu-open-btn xl:hidden">
+      <button class="menu-open-btn xl:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="main-navigation">
         <?php echo coact_icon(array('icon' => 'menu', 'group' => 'utilities', 'size' => '24', 'class' => 'w-7 h-7')); ?>
       </button>
       <?php if ($site_logo) : ?>
@@ -143,20 +143,21 @@ $partners_logo = $header_logo['partners_logo'];
           <?php endforeach ?>
         </div>
       <?php endif; ?>
-      <button class="menu-search-btn xl:hidden">
+      <button class="menu-search-btn xl:hidden" aria-label="Open Search" aria-expanded="false" aria-controls="mobile-search">
         <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>
       </button>
-      <div id="mobile-search" class="absolute top-0 left-0 right-0 bottom-0 bg-brand-light-gray hidden">
+      <div id="mobile-search" class="absolute top-0 left-0 right-0 bottom-0 bg-brand-light-gray hidden" role="dialog" aria-label="Mobile Search">
         <div class="px-4 py-4 flex items-center w-full h-full">
           <div class="flex w-full gap-x-4 items-center">
             <form id="header-mobile-searchform" class="relative grow" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+              <label for="searchform-mobile-input" class="sr-only">Search</label>
               <input id="searchform-mobile-input" type="text" class="w-auto xl:w-56 3xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="" role="searchbox" aria-label="Search">
-              <button type="submit" class="absolute right-4 top-3" aria-label="Search">
+              <button type="submit" class="absolute right-4 top-3" aria-label="Submit Search">
                 <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea w-5 h-5 2xl:w-6 2xl:h-6')); ?>
               </button>
             </form>
             <div class="flex-none">
-              <button id="close-mobile-searchform">
+              <button id="close-mobile-searchform" aria-label="Close Search">
                 <?php echo coact_icon(array('icon' => 'close', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6 text-brand-purple')); ?>
               </button>
             </div>

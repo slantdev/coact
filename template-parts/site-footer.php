@@ -56,6 +56,8 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
 
 ?>
 
+<footer id="colophon" class="site-footer" role="contentinfo">
+
 <?php if ($subscribe && !$disable_subscribe) : ?>
   <section class="bg-brand-purple" style="<?php echo $subscribe_style ?>">
     <div class="relative container max-w-screen-xxl mx-auto py-12">
@@ -107,22 +109,26 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
                 <div class="layout grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div id="formElement0" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="firstName" id="fe699" value="" placeholder="First Name *" style="width:100%;">
+                      <label for="fe699" class="sr-only">First Name *</label>
+                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="firstName" id="fe699" value="" placeholder="First Name *" style="width:100%;" aria-required="true">
                     </div>
                   </div>
                   <div id="formElement1" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/70 w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="lastName" id="fe700" value="" placeholder="Last Name *" style="width:100%;">
+                      <label for="fe700" class="sr-only">Last Name *</label>
+                      <input type="text" class="elq-item-input bg-black/70 w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="lastName" id="fe700" value="" placeholder="Last Name *" style="width:100%;" aria-required="true">
                     </div>
                   </div>
                   <div id="formElement2" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="emailAddress" id="fe701" value="" placeholder="Email Address *" style="width:100%;">
+                      <label for="fe701" class="sr-only">Email Address *</label>
+                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="emailAddress" id="fe701" value="" placeholder="Email Address *" style="width:100%;" aria-required="true">
                     </div>
                   </div>
                   <div id="formElement3" class="elq-field-style form-element-layout !p-0">
                     <div class="field-control-wrapper">
-                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="zipPostal" id="fe734" value="" placeholder="Post Code *" style="width:100%;">
+                      <label for="fe734" class="sr-only">Post Code *</label>
+                      <input type="text" class="elq-item-input bg-black/70 text-white w-full rounded-full border-none py-3 px-6 placeholder:text-white/70 focus:ring-white/20" name="zipPostal" id="fe734" value="" placeholder="Post Code *" style="width:100%;" aria-required="true">
                     </div>
                   </div>
                 </div>
@@ -372,20 +378,22 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
             <h5 class="text-white font-bold text-xl md:text-2xl mb-4"><?php echo $popular_heading ?></h5>
           <?php endif; ?>
           <?php if ($popular_links) : ?>
-            <ul class="flex flex-col gap-3 text-white">
-              <?php foreach ($popular_links as $link) : ?>
-                <?php
-                $link_url = $link['link']['url'] ?? '';
-                $link_title = $link['link']['title'] ?? '';
-                $link_target = $link['link']['target'] ?? '_self';
-                ?>
-                <li class="text-sm lg:text-base">
-                  <?php if ($link_url) : ?>
-                    <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
-                  <?php endif; ?>
-                </li>
-              <?php endforeach ?>
-            </ul>
+            <nav aria-label="Popular Links">
+              <ul class="flex flex-col gap-3 text-white">
+                <?php foreach ($popular_links as $link) : ?>
+                  <?php
+                  $link_url = $link['link']['url'] ?? '';
+                  $link_title = $link['link']['title'] ?? '';
+                  $link_target = $link['link']['target'] ?? '_self';
+                  ?>
+                  <li class="text-sm lg:text-base">
+                    <?php if ($link_url) : ?>
+                      <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
+                    <?php endif; ?>
+                  </li>
+                <?php endforeach ?>
+              </ul>
+            </nav>
           <?php endif; ?>
         </div>
         <div class="px-6 relative">
@@ -394,24 +402,26 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
             <h5 class="text-white font-bold text-xl md:text-2xl mb-4"><?php echo $connect_heading ?></h5>
           <?php endif; ?>
           <?php if ($connect_links) : ?>
-            <ul class="flex flex-col gap-3 text-white">
-              <?php foreach ($connect_links as $link) : ?>
-                <?php
-                $icon = $link['icon'] ?? '';
-                $link_url = $link['link']['url'] ?? '';
-                $link_title = $link['link']['title'] ?? '';
-                $link_target = $link['link']['target'] ?? '_self';
-                ?>
-                <li class="flex gap-x-4 text-sm lg:text-base">
-                  <?php if ($icon) : ?>
-                    <div class="flex-none"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
-                  <?php endif; ?>
-                  <?php if ($link_url) : ?>
-                    <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
-                  <?php endif; ?>
-                </li>
-              <?php endforeach ?>
-            </ul>
+            <nav aria-label="Social Media">
+              <ul class="flex flex-col gap-3 text-white">
+                <?php foreach ($connect_links as $link) : ?>
+                  <?php
+                  $icon = $link['icon'] ?? '';
+                  $link_url = $link['link']['url'] ?? '';
+                  $link_title = $link['link']['title'] ?? '';
+                  $link_target = $link['link']['target'] ?? '_self';
+                  ?>
+                  <li class="flex gap-x-4 text-sm lg:text-base">
+                    <?php if ($icon) : ?>
+                      <div class="flex-none"><?php echo coact_icon(array('icon' => $link['icon'], 'group' => 'content', 'size' => '24', 'class' => 'mx-auto')); ?></div>
+                    <?php endif; ?>
+                    <?php if ($link_url) : ?>
+                      <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
+                    <?php endif; ?>
+                  </li>
+                <?php endforeach ?>
+              </ul>
+            </nav>
           <?php endif; ?>
         </div>
         <div class="px-6 relative">
@@ -420,20 +430,22 @@ $disable_subscribe = get_field('disable_subscribe', $the_id);
             <h5 class="text-white font-bold text-xl md:text-2xl mb-4"><?php echo $quick_links_heading ?></h5>
           <?php endif; ?>
           <?php if ($quick_links_links) : ?>
-            <ul class="flex flex-col gap-3 text-white">
-              <?php foreach ($quick_links_links as $link) : ?>
-                <?php
-                $link_url = $link['link']['url'] ?? '';
-                $link_title = $link['link']['title'] ?? '';
-                $link_target = $link['link']['target'] ?? '_self';
-                ?>
-                <li class="text-sm lg:text-base">
-                  <?php if ($link_url) : ?>
-                    <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
-                  <?php endif; ?>
-                </li>
-              <?php endforeach ?>
-            </ul>
+            <nav aria-label="Quick Links">
+              <ul class="flex flex-col gap-3 text-white">
+                <?php foreach ($quick_links_links as $link) : ?>
+                  <?php
+                  $link_url = $link['link']['url'] ?? '';
+                  $link_title = $link['link']['title'] ?? '';
+                  $link_target = $link['link']['target'] ?? '_self';
+                  ?>
+                  <li class="text-sm lg:text-base">
+                    <?php if ($link_url) : ?>
+                      <div><a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="hover:underline"><?php echo $link_title ?></a></div>
+                    <?php endif; ?>
+                  </li>
+                <?php endforeach ?>
+              </ul>
+            </nav>
           <?php endif; ?>
         </div>
       </div>

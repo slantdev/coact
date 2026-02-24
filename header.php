@@ -22,6 +22,8 @@
 
 <body <?php body_class('bg-white font-montserrat text-black overflow-x-hidden'); ?>>
 
+  <a class="sr-only focus:not-sr-only focus:absolute focus:z-[2000] focus:bg-white focus:p-4 focus:text-brand-blue" href="#primary-content">Skip to content</a>
+
   <?php do_action('coact_site_before'); ?>
 
   <div id="page" class="min-h-screen flex flex-col overflow-hidden">
@@ -34,4 +36,4 @@
 
       <?php do_action('coact_content_start'); ?>
 
-      <main>
+      <main id="primary-content">

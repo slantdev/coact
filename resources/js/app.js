@@ -79,36 +79,113 @@ jQuery(function ($) {
     e.preventDefault();
     $(".main-nav--div").addClass("open");
     $("body").addClass("overflow-hidden");
+    $(this).attr("aria-expanded", "true");
+    $(".menu-close-btn").focus();
+    trapFocus($(".main-nav--div"));
   });
+
   $(".menu-close-btn").click(function (e) {
     e.preventDefault();
+    closeMobileMenu();
+  });
+
+  function closeMobileMenu() {
     $(".main-nav--div").removeClass("open");
     $("body").removeClass("overflow-hidden");
-  });
+    $(".menu-open-btn").attr("aria-expanded", "false").focus();
+    untrapFocus();
+  }
+
   $(".menu-right-btn").click(function (e) {
     e.preventDefault();
+    $(this).attr("aria-expanded", "true");
     $(this).siblings(".mega-menu").addClass("active");
     $(this).siblings(".dropdown-menu").addClass("active");
+    $(this).siblings(".mega-menu, .dropdown-menu").find(".menu-back-btn").focus();
   });
+
   $(".menu-back-btn").click(function (e) {
     e.preventDefault();
-    $(this).parents(".mega-menu").removeClass("active");
-    $(this).parents(".dropdown-menu").removeClass("active");
-  });
-  // Mega Menu CTA
-  $(".col-header--btn").click(function (e) {
-    $(".main-nav--div").removeClass("open");
-    $("body").removeClass("overflow-hidden");
+    var $parentMenu = $(this).parents(".mega-menu, .dropdown-menu");
+    $parentMenu.removeClass("active");
+    $parentMenu.siblings(".menu-right-btn").attr("aria-expanded", "false").focus();
   });
 
   // Mobile Search
   $(".menu-search-btn").click(function (e) {
     e.preventDefault();
     $("#mobile-search").show();
+    $(this).attr("aria-expanded", "true");
     $("#searchform-mobile-input").focus();
   });
+
   $("#close-mobile-searchform").click(function (e) {
     e.preventDefault();
-    $("#mobile-search").hide();
+    closeMobileSearch();
   });
+
+  function closeMobileSearch() {
+    $("#mobile-search").hide();
+    $(".menu-search-btn").attr("aria-expanded", "false").focus();
+  }
+
+  // FAQ Accordion
+  $(document).on('click', '.faq-toggle-btn', function (e) {
+    e.preventDefault();
+    const $btn = $(this);
+    const $content = $('#' + $btn.attr('aria-controls'));
+    const isExpanded = $btn.attr('aria-expanded') === 'true';
+
+    $btn.attr('aria-expanded', !isExpanded);
+    $content.toggleClass('hidden');
+
+    if (!isExpanded) {
+      setTimeout(() => {
+        $('html, body').animate({
+          scrollTop: $btn.offset().top - 100
+        }, 200);
+      }, 100);
+    }
+  });
+
+  // Escape key listener
+  $(document).keydown(function (e) {
+    if (e.key === "Escape") {
+      if ($(".main-nav--div").hasClass("open")) {
+        closeMobileMenu();
+      }
+      if ($("#mobile-search").is(":visible")) {
+        closeMobileSearch();
+      }
+    }
+  });
+
+  // Focus Trapping
+  let tabHandler;
+  function trapFocus($element) {
+    const focusableElements = $element.find('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    tabHandler = function (e) {
+      if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+    $(document).on('keydown', tabHandler);
+  }
+
+  function untrapFocus() {
+    $(document).off('keydown', tabHandler);
+  }
 });
