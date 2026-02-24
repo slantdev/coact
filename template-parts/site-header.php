@@ -114,6 +114,7 @@ $partners_logo = $header_logo['partners_logo'];
     </div>
     <div class="relative z-0 px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
       <button class="menu-open-btn xl:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="main-navigation">
+        <span class="sr-only">Open Menu</span>
         <?php echo coact_icon(array('icon' => 'menu', 'group' => 'utilities', 'size' => '24', 'class' => 'w-7 h-7')); ?>
       </button>
       <?php if ($site_logo) : ?>
@@ -144,6 +145,7 @@ $partners_logo = $header_logo['partners_logo'];
         </div>
       <?php endif; ?>
       <button class="menu-search-btn xl:hidden" aria-label="Open Search" aria-expanded="false" aria-controls="mobile-search">
+        <span class="sr-only">Open Search</span>
         <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>
       </button>
       <div id="mobile-search" class="absolute top-0 left-0 right-0 bottom-0 bg-brand-light-gray hidden" role="dialog" aria-label="Mobile Search">
@@ -158,6 +160,7 @@ $partners_logo = $header_logo['partners_logo'];
             </form>
             <div class="flex-none">
               <button id="close-mobile-searchform" aria-label="Close Search">
+                <span class="sr-only">Close Search</span>
                 <?php echo coact_icon(array('icon' => 'close', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6 text-brand-purple')); ?>
               </button>
             </div>

@@ -1,6 +1,7 @@
 <nav id="main-navigation" class="main-nav--div" aria-label="Main Navigation">
   <div class="menu-close-wrapper">
     <button class="menu-close-btn" aria-label="Close Menu">
+      <span class="sr-only">Close Menu</span>
       <?php echo coact_icon(array('icon' => 'close', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>
     </button>
   </div>
@@ -40,6 +41,7 @@
           
           if ($li_class === 'has_submenu') {
             echo '<button class="menu-right-btn" aria-label="Open Submenu" aria-expanded="false">';
+            echo '<span class="sr-only">Open Submenu</span>';
             echo coact_icon(array('icon' => 'chevron-down', 'group' => 'utilities', 'size' => '12', 'class' => 'w-3 h-3 -rotate-90'));
             echo '</button>';
           }
@@ -63,6 +65,7 @@
         <label for="searchform-input" class="sr-only">Search</label>
         <input id="searchform-input" type="text" class="w-auto xl:w-56 3xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="" aria-label="Search">
         <button type="submit" class="absolute right-4 top-3" aria-label="Submit Search">
+          <span class="sr-only">Submit Search</span>
           <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea w-5 h-5 2xl:w-6 2xl:h-6')); ?>
         </button>
       </form>

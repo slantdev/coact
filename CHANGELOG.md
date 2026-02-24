@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.12] - 2026-02-25
+
+### Fixed
+- Added `aria-label` attributes to testimonial slider navigation buttons in `single-service-partner.php`.
+- Added a `label` to the `coact_icon` function call for the "Previous post" and "Next post" links in `single-post.php` to improve accessibility.
+- Added `type="button"` to decorative buttons in `get_started_card.php`.
+- Added visually hidden text to the "Play/Pause" button in `hero_slider.php`.
+
 ## [0.2.11] - 2026-02-24
 
 ### Added

@@ -103,6 +103,7 @@ if ($hero_slider) : ?>
             <div class="container max-w-screen-3xl mx-auto flex items-center gap-4">
               <div class="swiper-pagination text-left relative !w-auto" style="--swiper-pagination-bullet-size:12px;--swiper-pagination-bullet-inactive-color:#fff;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
               <button class="swiper-play-pause text-white focus:outline-none" aria-label="Pause Autoplay">
+                <span class="sr-only">Pause Autoplay</span>
                 <?php echo coact_icon(array('icon' => 'pause', 'group' => 'utilities', 'size' => '16', 'class' => 'pause-icon')); ?>
                 <?php echo coact_icon(array('icon' => 'play', 'group' => 'utilities', 'size' => '16', 'class' => 'play-icon hidden')); ?>
               </button>
