@@ -185,10 +185,10 @@ $content_cards_count = count($content_cards);
                               <div class="card-excerpt">
                                 <?php echo wp_trim_words($excerpt, 20) ?>
                               </div>
-                              <button type="button" class="bg-white p-4 absolute right-6 bottom-6 rounded-full w-8 h-8 xl:w-12 xl:h-12" aria-hidden="true">
+                              <div class="bg-white p-4 absolute right-6 bottom-6 rounded-full w-8 h-8 xl:w-12 xl:h-12">
                                 <span class="block w-4 h-1 bg-brand-sea absolute top-1/2 -translate-y-1/2"></span>
                                 <span class="block w-1 h-4 bg-brand-sea absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"></span>
-                              </button>
+                              </div>
                             </div>
                           </a>
                         </div>
