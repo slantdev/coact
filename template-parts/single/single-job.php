@@ -24,7 +24,7 @@ $enable_breadcrumbs = true;
           <?php if ($background_image) : ?>
             <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image; ?>" alt="">
           <?php endif; ?>
-          <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-orange bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
+          <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-orange text-black no-underline bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
           <div class="absolute inset-0 flex items-center p-12">
             <div class="container max-w-screen-xxl mx-auto">
               <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
