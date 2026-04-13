@@ -112,18 +112,19 @@ $partners_logo = $header_logo['partners_logo'];
         <div class="hidden xl:block rounded-tl-2xl w-4 h-8 bg-transparent shadow-[0_-14px_0_0_rgb(69,194,191)]"></div>
       </div>
     </div>
-    <div class="relative z-0 px-4 py-4 lg:py-8 flex items-center justify-between xl:justify-normal">
+    <div class="relative z-0 px-4 py-4 lg:py-8 xl:pt-8 xl:pb-0 flex items-center justify-between xl:justify-normal">
       <button class="menu-open-btn xl:hidden" aria-label="Open Menu" aria-expanded="false" aria-controls="main-navigation">
         <span class="sr-only">Open Menu</span>
         <?php echo coact_icon(array('icon' => 'menu', 'group' => 'utilities', 'size' => '24', 'class' => 'w-7 h-7')); ?>
       </button>
+
       <?php if ($site_logo) : ?>
-        <a href="<?php echo site_url() ?>"><img src="<?php echo $site_logo['url'] ?>" alt="CoAct" class="h-20 lg:h-[100px] w-auto max-w-full"></a>
+        <a href="<?php echo site_url() ?>"><img src="<?php echo $site_logo['url'] ?>" alt="CoAct" class="h-20 lg:h-[100px] w-auto max-w-full xl:mb-8"></a>
       <?php else : ?>
-        <a href="<?php echo site_url() ?>"><img src="<?php echo coact_asset('images/logo/logo-coact.svg') ?>" alt="CoAct" class="h-[100px] w-auto max-w-full"></a>
+        <a href="<?php echo site_url() ?>"><img src="<?php echo coact_asset('images/logo/logo-coact.svg') ?>" alt="CoAct" class="h-[100px] w-auto max-w-full xl:mb-8"></a>
       <?php endif; ?>
       <?php if ($partners_logo) : ?>
-        <div class="hidden xl:flex items-center gap-x-8">
+        <div class="hidden xl:flex items-center gap-x-8 xl:mb-8">
           <div class="pl-8 h-16 border-r border-r-zinc-400 border-solid w-px"></div>
           <?php foreach ($partners_logo as $partner) : ?>
             <?php
@@ -144,6 +145,20 @@ $partners_logo = $header_logo['partners_logo'];
           <?php endforeach ?>
         </div>
       <?php endif; ?>
+
+      <div class="hidden xl:flex flex-none border-t border-solid border-slate-200 px-4 py-6 mt-8 xl:border-0 xl:pr-4 xl:pt-0 xl:pb-0 xl:pl-0 xl:mt-0 xl:ml-auto">
+        <div class="relative">
+          <form id="header-searchform" class="relative" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+            <label for="searchform-input" class="sr-only">Search</label>
+            <input id="searchform-input" type="text" class="w-auto xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="" aria-label="Search">
+            <button type="submit" class="absolute right-4 top-3" aria-label="Submit Search">
+              <span class="sr-only">Submit Search</span>
+              <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea w-5 h-5 2xl:w-6 2xl:h-6')); ?>
+            </button>
+          </form>
+        </div>
+      </div>
+
       <button class="menu-search-btn xl:hidden" aria-label="Open Search" aria-expanded="false" aria-controls="mobile-search">
         <span class="sr-only">Open Search</span>
         <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'w-6 h-6')); ?>

@@ -38,7 +38,7 @@
           // Output menu item
           echo '<li class="' . $li_class . '">';
           echo '<a href="' . esc_url($menu_url) . '" target="' . esc_attr($menu_item['target']) . '" data-id="' . esc_attr($link_post_id) . '" class="' . esc_attr($link_class) . '"' . $aria_current . '>' . esc_html($menu_item['title']) . '</a>';
-          
+
           if ($li_class === 'has_submenu') {
             echo '<button class="menu-right-btn" aria-label="Open Submenu" aria-expanded="false">';
             echo '<span class="sr-only">Open Submenu</span>';
@@ -59,18 +59,6 @@
     </ul>
   <?php endif; ?>
 
-  <div class="flex-none border-t border-solid border-slate-200 px-4 py-6 mt-4 xl:border-0 xl:pl-6 3xl:pl-16 xl:pr-0 xl:pt-0 xl:pb-3 xl:mt-0 xl:ml-auto">
-    <div class="relative">
-      <form id="header-searchform" class="relative" method="get" action="<?php echo esc_url(home_url('/')); ?>">
-        <label for="searchform-input" class="sr-only">Search</label>
-        <input id="searchform-input" type="text" class="w-auto xl:w-56 3xl:w-64 border-gray-300 shadow-inner !rounded-full bg-white !px-6 !py-2.5 2xl:!py-3 focus:border-brand-sea focus:ring-brand-sea" name="s" placeholder="Search" value="" aria-label="Search">
-        <button type="submit" class="absolute right-4 top-3" aria-label="Submit Search">
-          <span class="sr-only">Submit Search</span>
-          <?php echo coact_icon(array('icon' => 'search', 'group' => 'utilities', 'size' => '24', 'class' => 'text-brand-sea w-5 h-5 2xl:w-6 2xl:h-6')); ?>
-        </button>
-      </form>
-    </div>
-  </div>
 </nav>
 
 <?php
