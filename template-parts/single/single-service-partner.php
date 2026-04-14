@@ -551,8 +551,8 @@ $testimonials_id = uniqid('testimonials-');
                   <div class="swiper-pagination text-center relative [&>.swiper-pagination-bullet]:rounded-full" style="--swiper-pagination-bullet-height:12px;--swiper-pagination-bullet-width:12px;--swiper-pagination-bullet-inactive-color:#E2E2E2;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:var(--section-link-color);--swiper-pagination-bullet-inactive-opacity:1;"></div>
                 </div>
               </div>
-              <div class="swiper-button-prev -left-4 lg:left-8 after:content-['prev'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full"></div>
-              <div class="swiper-button-next -right-4 lg:right-8 after:content-['next'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full"></div>
+              <div class="swiper-button-prev -left-4 lg:left-8 after:content-['prev'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full" aria-label="Previous testimonial"></div>
+              <div class="swiper-button-next -right-4 lg:right-8 after:content-['next'] after:text-lg after:lg:text-4xl text-brand-purple font-bold -mt-12 -translate-y-full" aria-label="Next testimonial"></div>
             </div>
           <?php endif; ?>
           <?php if ($dynamic_custom == 'dynamic' && $select_testimonial_categories) : ?>

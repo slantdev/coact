@@ -15,7 +15,7 @@ include get_template_directory() . '/template-parts/layouts/section_settings.php
 $hero_slider = get_sub_field('hero_slider');
 
 if ($hero_slider) : ?>
-  <section <?php echo $section_id ?> class="relative <?php echo $section_class ?>" style="<?php echo $section_style ?>">
+  <section <?php echo $section_id ?> class="relative <?php echo $section_class ?>" style="<?php echo $section_style ?>" aria-roledescription="carousel" aria-label="Hero Slider">
     <div class="relative bg-gradient-to-b from-brand-light-gray from-90% via-white via-90% to-white">
       <div class="max-w-screen-5xl px-4 4xl:px-8 mx-auto <?php echo $entrance_animation_class ?>">
         <div id="hero-slider" class="swiper relative rounded-xl md:rounded-2xl lg:rounded-3xl">
@@ -52,16 +52,16 @@ if ($hero_slider) : ?>
                 $overlay_style = 'background-color: ' . $bg_overlay;
               }
               ?>
-              <div class="swiper-slide">
+              <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="<?php echo esc_attr($headline_text) ?>">
                 <div class="aspect-w-4 aspect-h-6 md:aspect-w-16 md:aspect-h-9 xl:aspect-w-16 xl:aspect-h-7">
                   <?php if ($slide_image || $slide_image_mobile) : ?>
                     <div class="absolute inset-0">
                       <div class="absolute inset-0 mix-blend-multiply" style="<?php echo $overlay_style ?>"></div>
                       <?php if ($slide_image_mobile) : ?>
-                        <img src="<?php echo $slide_image_mobile['url'] ?>" alt="<?php echo $slide_image_mobile['alt'] ?>" class="object-cover h-full w-full opacity-100 lg:hidden">
-                        <img src="<?php echo $slide_image['url'] ?>" alt="<?php echo $slide_image['alt'] ?>" class="object-cover h-full w-full opacity-100 hidden md:block">
+                        <img src="<?php echo $slide_image_mobile['url'] ?>" alt="<?php echo $slide_image_mobile['alt'] ?: '' ?>" class="object-cover h-full w-full opacity-100 lg:hidden">
+                        <img src="<?php echo $slide_image['url'] ?>" alt="<?php echo $slide_image['alt'] ?: '' ?>" class="object-cover h-full w-full opacity-100 hidden md:block">
                       <?php else : ?>
-                        <img src="<?php echo $slide_image['url'] ?>" alt="<?php echo $slide_image['alt'] ?>" class="object-cover h-full w-full opacity-100">
+                        <img src="<?php echo $slide_image['url'] ?>" alt="<?php echo $slide_image['alt'] ?: '' ?>" class="object-cover h-full w-full opacity-100">
                       <?php endif ?>
                     </div>
                   <?php endif; ?>
@@ -99,13 +99,18 @@ if ($hero_slider) : ?>
               </div>
             <?php endforeach; ?>
           </div>
-          <div class="absolute left-0 bottom-3 md:bottom-2 lg:bottom-8 right-0">
-            <div class="container max-w-screen-3xl mx-auto">
-              <div class="swiper-pagination text-left relative" style="--swiper-pagination-bullet-size:12px;--swiper-pagination-bullet-inactive-color:#fff;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
+          <div class="absolute left-0 bottom-3 md:bottom-2 lg:bottom-8 right-0 z-10">
+            <div class="container max-w-screen-3xl mx-auto flex items-center gap-4">
+              <div class="swiper-pagination text-left relative !w-auto" style="--swiper-pagination-bullet-size:12px;--swiper-pagination-bullet-inactive-color:#fff;--swiper-pagination-bullet-horizontal-gap:6px;--swiper-theme-color:#45C2BF;--swiper-pagination-bullet-inactive-opacity:1;"></div>
+              <button class="swiper-play-pause text-white focus:outline-none" aria-label="Pause Autoplay">
+                <span class="sr-only">Pause Autoplay</span>
+                <?php echo coact_icon(array('icon' => 'pause', 'group' => 'utilities', 'size' => '16', 'class' => 'pause-icon')); ?>
+                <?php echo coact_icon(array('icon' => 'play', 'group' => 'utilities', 'size' => '16', 'class' => 'play-icon hidden')); ?>
+              </button>
             </div>
           </div>
-          <div class="swiper-button-prev hidden md:block left-0 lg:left-4 xl:left-8 after:content-['prev'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
-          <div class="swiper-button-next hidden md:block right-0 lg:right-4 xl:right-8 after:content-['next'] after:text-lg after:lg:text-3xl text-brand-sea font-bold"></div>
+          <div class="swiper-button-prev hidden md:block left-0 lg:left-4 xl:left-8 after:content-['prev'] after:text-lg after:lg:text-3xl text-brand-sea font-bold" aria-label="Previous slide"></div>
+          <div class="swiper-button-next hidden md:block right-0 lg:right-4 xl:right-8 after:content-['next'] after:text-lg after:lg:text-3xl text-brand-sea font-bold" aria-label="Next slide"></div>
         </div>
         <script>
           const swiper = new Swiper('#hero-slider', {
@@ -115,6 +120,7 @@ if ($hero_slider) : ?>
             speed: 1000,
             autoplay: {
               delay: 8000,
+              disableOnInteraction: false,
             },
             navigation: {
               nextEl: '#hero-slider .swiper-button-next',
@@ -122,7 +128,37 @@ if ($hero_slider) : ?>
             },
             pagination: {
               el: "#hero-slider .swiper-pagination",
+              clickable: true,
+              renderBullet: function (index, className) {
+                return '<button class="' + className + '" aria-label="Go to slide ' + (index + 1) + '"></button>';
+              },
             },
+            on: {
+              init: function() {
+                this.el.addEventListener('mouseenter', () => {
+                  this.autoplay.stop();
+                });
+                this.el.addEventListener('mouseleave', () => {
+                  if (!this.el.querySelector('.swiper-play-pause').classList.contains('is-paused')) {
+                    this.autoplay.start();
+                  }
+                });
+              }
+            }
+          });
+
+          document.querySelector('.swiper-play-pause').addEventListener('click', function() {
+            this.classList.toggle('is-paused');
+            const isPaused = this.classList.contains('is-paused');
+            this.querySelector('.pause-icon').classList.toggle('hidden', isPaused);
+            this.querySelector('.play-icon').classList.toggle('hidden', !isPaused);
+            this.setAttribute('aria-label', isPaused ? 'Play Autoplay' : 'Pause Autoplay');
+            
+            if (isPaused) {
+              swiper.autoplay.stop();
+            } else {
+              swiper.autoplay.start();
+            }
           });
         </script>
       </div>

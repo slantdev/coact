@@ -24,7 +24,7 @@ $enable_breadcrumbs = true;
           <?php if ($background_image) : ?>
             <img class="object-cover w-full h-full <?php echo $bg_image_class ?>" src="<?php echo $background_image; ?>" alt="">
           <?php endif; ?>
-          <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-orange bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
+          <div class="absolute top-0 left-0 w-[1300px] h-[1300px] rounded-full bg-brand-orange !text-black !no-underline bg-opacity-80 -translate-y-1/4 -translate-x-1/4" style="<?php echo $text_bg_style ?>"></div>
           <div class="absolute inset-0 flex items-center p-12">
             <div class="container max-w-screen-xxl mx-auto">
               <div class="max-w-lg font-montserrat" style="<?php echo $text_style ?>">
@@ -70,7 +70,7 @@ $enable_breadcrumbs = true;
           $target = isset($job_settings['external_link']['target']) ? $job_settings['external_link']['target'] : '_self';
           if ($url) {
             echo '<div class="mt-6 xl:mt-8">';
-            echo '<a href="' . $url . '" target="' . $target . '" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-orange !text-white border border-transparent no-underline shadow-md hover:shadow-lg transition-all duration-200">' . $title . '</a>';
+            echo '<a href="' . $url . '" target="' . $target . '" class="inline-block rounded-full font-poppins font-semibold px-6 py-2 text-sm lg:text-xl lg:px-10 lg:py-4 bg-brand-orange !text-black border border-transparent !no-underline shadow-md hover:shadow-lg transition-all duration-200">' . $title . '</a>';
             echo '</div>';
           }
           ?>

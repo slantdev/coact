@@ -171,41 +171,41 @@ function pagination_load_posts()
       }
       // Pagination Buttons logic
 ?>
-      <div class='posts-pagination mt-10 pt-4 border-t border-slate-200'>
+      <nav class='posts-pagination mt-10 pt-4 border-t border-slate-200' aria-label="Pagination">
         <ul>
           <?php if ($first_btn && $cur_page > 1) { ?>
-            <li data-page='1' class='active'>&laquo;</li>
+            <li data-page='1' class='active'><button aria-label="Go to first page">&laquo;</button></li>
           <?php } else if ($first_btn) { ?>
-            <li data-page='1' class='inactive'>&laquo;</li>
+            <li data-page='1' class='inactive' aria-disabled="true">&laquo;</li>
           <?php } ?>
           <?php if ($previous_btn && $cur_page > 1) {
             $pre = $cur_page - 1;
           ?>
-            <li data-page='<?php echo $pre; ?>' class='active'>&lsaquo;</li>
+            <li data-page='<?php echo $pre; ?>' class='active'><button aria-label="Go to previous page">&lsaquo;</button></li>
           <?php } else if ($previous_btn) { ?>
-            <li class='inactive p-2'>&lsaquo;</li>
+            <li class='inactive p-2' aria-disabled="true">&lsaquo;</li>
           <?php } ?>
           <?php for ($i = $start_loop; $i <= $end_loop; $i++) {
             if ($cur_page == $i) {
           ?>
-              <li data-page='<?php echo $i; ?>' class='selected'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='selected'><button aria-label="Page <?php echo $i; ?>" aria-current="page"><?php echo $i; ?></button></li>
             <?php } else { ?>
-              <li data-page='<?php echo $i; ?>' class='active'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='active'><button aria-label="Go to page <?php echo $i; ?>"><?php echo $i; ?></button></li>
           <?php }
           } ?>
           <?php if ($next_btn && $cur_page < $no_of_paginations) {
             $nex = $cur_page + 1; ?>
-            <li data-page='<?php echo $nex; ?>' class='active'>&rsaquo;</li>
+            <li data-page='<?php echo $nex; ?>' class='active'><button aria-label="Go to next page">&rsaquo;</button></li>
           <?php } else if ($next_btn) { ?>
-            <li class='inactive'>&rsaquo;</li>
+            <li class='inactive' aria-disabled="true">&rsaquo;</li>
           <?php } ?>
           <?php if ($last_btn && $cur_page < $no_of_paginations) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='active'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='active'><button aria-label="Go to last page">&raquo;</button></li>
           <?php } else if ($last_btn) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive' aria-disabled="true">&raquo;</li>
           <?php } ?>
         </ul>
-      </div>
+      </nav>
     <?php
     endif;
   }
@@ -345,7 +345,7 @@ function pagination_load_coact_tv()
           $start_loop = $no_of_paginations - 6;
           $end_loop = $no_of_paginations;
         } else {
-          $end_loop = $no_of_paginations;
+          $end_loop = $end_loop = $no_of_paginations;
         }
       } else {
         $start_loop = 1;
@@ -356,41 +356,41 @@ function pagination_load_coact_tv()
       }
       // Pagination Buttons logic
     ?>
-      <div class='posts-pagination mt-10 pt-4 border-t border-slate-200'>
+      <nav class='posts-pagination mt-10 pt-4 border-t border-slate-200' aria-label="Pagination">
         <ul>
           <?php if ($first_btn && $cur_page > 1) { ?>
-            <li data-page='1' class='active'>&laquo;</li>
+            <li data-page='1' class='active'><button aria-label="Go to first page">&laquo;</button></li>
           <?php } else if ($first_btn) { ?>
-            <li data-page='1' class='inactive'>&laquo;</li>
+            <li data-page='1' class='inactive' aria-disabled="true">&laquo;</li>
           <?php } ?>
           <?php if ($previous_btn && $cur_page > 1) {
             $pre = $cur_page - 1;
           ?>
-            <li data-page='<?php echo $pre; ?>' class='active'>&lsaquo;</li>
+            <li data-page='<?php echo $pre; ?>' class='active'><button aria-label="Go to previous page">&lsaquo;</button></li>
           <?php } else if ($previous_btn) { ?>
-            <li class='inactive p-2'>&lsaquo;</li>
+            <li class='inactive p-2' aria-disabled="true">&lsaquo;</li>
           <?php } ?>
           <?php for ($i = $start_loop; $i <= $end_loop; $i++) {
             if ($cur_page == $i) {
           ?>
-              <li data-page='<?php echo $i; ?>' class='selected'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='selected'><button aria-label="Page <?php echo $i; ?>" aria-current="page"><?php echo $i; ?></button></li>
             <?php } else { ?>
-              <li data-page='<?php echo $i; ?>' class='active'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='active'><button aria-label="Go to page <?php echo $i; ?>"><?php echo $i; ?></button></li>
           <?php }
           } ?>
           <?php if ($next_btn && $cur_page < $no_of_paginations) {
             $nex = $cur_page + 1; ?>
-            <li data-page='<?php echo $nex; ?>' class='active'>&rsaquo;</li>
+            <li data-page='<?php echo $nex; ?>' class='active'><button aria-label="Go to next page">&rsaquo;</button></li>
           <?php } else if ($next_btn) { ?>
-            <li class='inactive'>&rsaquo;</li>
+            <li class='inactive' aria-disabled="true">&rsaquo;</li>
           <?php } ?>
           <?php if ($last_btn && $cur_page < $no_of_paginations) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='active'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='active'><button aria-label="Go to last page">&raquo;</button></li>
           <?php } else if ($last_btn) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive' aria-disabled="true">&raquo;</li>
           <?php } ?>
         </ul>
-      </div>
+      </nav>
     <?php
     endif;
   }
@@ -516,41 +516,41 @@ function pagination_load_jobs()
       }
       // Pagination Buttons logic
     ?>
-      <div class='ajax-pagination mt-10 pt-4'>
+      <nav class='ajax-pagination mt-10 pt-4 border-t border-slate-200' aria-label="Pagination">
         <ul>
           <?php if ($first_btn && $cur_page > 1) { ?>
-            <li data-page='1' class='active'>&laquo;</li>
+            <li data-page='1' class='active'><button aria-label="Go to first page">&laquo;</button></li>
           <?php } else if ($first_btn) { ?>
-            <li data-page='1' class='inactive'>&laquo;</li>
+            <li data-page='1' class='inactive' aria-disabled="true">&laquo;</li>
           <?php } ?>
           <?php if ($previous_btn && $cur_page > 1) {
             $pre = $cur_page - 1;
           ?>
-            <li data-page='<?php echo $pre; ?>' class='active'>&lsaquo;</li>
+            <li data-page='<?php echo $pre; ?>' class='active'><button aria-label="Go to previous page">&lsaquo;</button></li>
           <?php } else if ($previous_btn) { ?>
-            <li class='inactive p-2'>&lsaquo;</li>
+            <li class='inactive p-2' aria-disabled="true">&lsaquo;</li>
           <?php } ?>
           <?php for ($i = $start_loop; $i <= $end_loop; $i++) {
             if ($cur_page == $i) {
           ?>
-              <li data-page='<?php echo $i; ?>' class='selected'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='selected'><button aria-label="Page <?php echo $i; ?>" aria-current="page"><?php echo $i; ?></button></li>
             <?php } else { ?>
-              <li data-page='<?php echo $i; ?>' class='active'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='active'><button aria-label="Go to page <?php echo $i; ?>"><?php echo $i; ?></button></li>
           <?php }
           } ?>
           <?php if ($next_btn && $cur_page < $no_of_paginations) {
             $nex = $cur_page + 1; ?>
-            <li data-page='<?php echo $nex; ?>' class='active'>&rsaquo;</li>
+            <li data-page='<?php echo $nex; ?>' class='active'><button aria-label="Go to next page">&rsaquo;</button></li>
           <?php } else if ($next_btn) { ?>
-            <li class='inactive'>&rsaquo;</li>
+            <li class='inactive' aria-disabled="true">&rsaquo;</li>
           <?php } ?>
           <?php if ($last_btn && $cur_page < $no_of_paginations) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='active'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='active'><button aria-label="Go to last page">&raquo;</button></li>
           <?php } else if ($last_btn) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive' aria-disabled="true">&raquo;</li>
           <?php } ?>
         </ul>
-      </div>
+      </nav>
     <?php
     endif;
   }
@@ -685,12 +685,14 @@ function pagination_load_faqs()
     if ($all_faqs->have_posts()) {
       while ($all_faqs->have_posts()) {
         $all_faqs->the_post();
+        $faq_item_id = 'faq-content-' . get_the_ID() . '-' . uniqid();
         echo '<div class="collapse collapse-plus bg-white rounded-lg border border-slate-300 shadow-md mb-6">';
-        echo '<input type="checkbox" class="faq-radio-btn w-full h-full block" name="faq-' . $faq_id . '" />';
+        echo '<button class="faq-toggle-btn w-full h-full text-left" aria-expanded="false" aria-controls="' . $faq_item_id . '">';
         echo '<div class="collapse-title bg-white text-xl lg:text-2xl border-b border-slate-300 font-medium py-5 pl-8 pr-12 after:font-thin after:!end-8 after:text-brand-sea after:!top-2 after:text-3xl after:lg:text-5xl">';
         echo get_the_title();
         echo '</div>';
-        echo '<div class="collapse-content p-0">';
+        echo '</button>';
+        echo '<div id="' . $faq_item_id . '" class="collapse-content p-0 hidden">';
         echo '<div class="p-8">';
         echo '<div class="prose lg:prose-lg max-w-none">';
         the_content();
@@ -723,41 +725,41 @@ function pagination_load_faqs()
       }
       // Pagination Buttons logic
     ?>
-      <div class='posts-pagination mt-10 pt-4 border-t border-slate-200'>
+      <nav class='posts-pagination mt-10 pt-4 border-t border-slate-200' aria-label="Pagination">
         <ul>
           <?php if ($first_btn && $cur_page > 1) { ?>
-            <li data-page='1' class='active'>&laquo;</li>
+            <li data-page='1' class='active'><button aria-label="Go to first page">&laquo;</button></li>
           <?php } else if ($first_btn) { ?>
-            <li data-page='1' class='inactive'>&laquo;</li>
+            <li data-page='1' class='inactive' aria-disabled="true">&laquo;</li>
           <?php } ?>
           <?php if ($previous_btn && $cur_page > 1) {
             $pre = $cur_page - 1;
           ?>
-            <li data-page='<?php echo $pre; ?>' class='active'>&lsaquo;</li>
+            <li data-page='<?php echo $pre; ?>' class='active'><button aria-label="Go to previous page">&lsaquo;</button></li>
           <?php } else if ($previous_btn) { ?>
-            <li class='inactive p-2'>&lsaquo;</li>
+            <li class='inactive p-2' aria-disabled="true">&lsaquo;</li>
           <?php } ?>
           <?php for ($i = $start_loop; $i <= $end_loop; $i++) {
             if ($cur_page == $i) {
           ?>
-              <li data-page='<?php echo $i; ?>' class='selected'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='selected'><button aria-label="Page <?php echo $i; ?>" aria-current="page"><?php echo $i; ?></button></li>
             <?php } else { ?>
-              <li data-page='<?php echo $i; ?>' class='active'><?php echo $i; ?></li>
+              <li data-page='<?php echo $i; ?>' class='active'><button aria-label="Go to page <?php echo $i; ?>"><?php echo $i; ?></button></li>
           <?php }
           } ?>
           <?php if ($next_btn && $cur_page < $no_of_paginations) {
             $nex = $cur_page + 1; ?>
-            <li data-page='<?php echo $nex; ?>' class='active'>&rsaquo;</li>
+            <li data-page='<?php echo $nex; ?>' class='active'><button aria-label="Go to next page">&rsaquo;</button></li>
           <?php } else if ($next_btn) { ?>
-            <li class='inactive'>&rsaquo;</li>
+            <li class='inactive' aria-disabled="true">&rsaquo;</li>
           <?php } ?>
           <?php if ($last_btn && $cur_page < $no_of_paginations) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='active'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='active'><button aria-label="Go to last page">&raquo;</button></li>
           <?php } else if ($last_btn) { ?>
-            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive'>&raquo;</li>
+            <li data-page='<?php echo $no_of_paginations; ?>' class='inactive' aria-disabled="true">&raquo;</li>
           <?php } ?>
         </ul>
-      </div>
+      </nav>
       <?php
     endif;
   }
@@ -1041,12 +1043,14 @@ function filter_faqs()
       $content = apply_filters('the_content', $content);
       $content = str_replace(']]>', ']]&gt;', $content);
 
+      $faq_item_id = 'faq-content-' . $id . '-' . uniqid();
       $response .= '<div class="collapse collapse-plus bg-brand-light-gray rounded-lg border border-slate-300 shadow-md mb-6">';
-      $response .=  '<input type="radio" class="faq-radio-btn w-full h-full block" name="faq-' . $faq_id . '" />';
+      $response .= '<button class="faq-toggle-btn w-full h-full text-left" aria-expanded="false" aria-controls="' . $faq_item_id . '">';
       $response .=  '<div class="collapse-title bg-white text-xl lg:text-2xl border-b border-slate-300 font-medium py-5 pl-8 pr-12 after:font-thin after:!end-8 after:text-brand-sea after:!top-2 after:text-3xl after:lg:text-5xl">';
       $response .=  get_the_title();
       $response .=  '</div>';
-      $response .=  '<div class="collapse-content p-0">';
+      $response .= '</button>';
+      $response .=  '<div id="' . $faq_item_id . '" class="collapse-content p-0 hidden">';
       $response .=  '<div class="p-8">';
       $response .=  '<div class="prose lg:prose-lg max-w-none">';
       $response .= $content;
@@ -1181,41 +1185,41 @@ function filter_jobsgrid()
         }
         // Pagination Buttons logic
       ?>
-        <div class='posts-pagination mt-10 pt-4 border-t border-slate-200'>
+        <nav class='posts-pagination mt-10 pt-4 border-t border-slate-200' aria-label="Pagination">
           <ul>
             <?php if ($first_btn && $cur_page > 1) { ?>
-              <li data-page='1' class='active'>&laquo;</li>
+              <li data-page='1' class='active'><button aria-label="Go to first page">&laquo;</button></li>
             <?php } else if ($first_btn) { ?>
-              <li data-page='1' class='inactive'>&laquo;</li>
+              <li data-page='1' class='inactive' aria-disabled="true">&laquo;</li>
             <?php } ?>
             <?php if ($previous_btn && $cur_page > 1) {
               $pre = $cur_page - 1;
             ?>
-              <li data-page='<?php echo $pre; ?>' class='active'>&lsaquo;</li>
+              <li data-page='<?php echo $pre; ?>' class='active'><button aria-label="Go to previous page">&lsaquo;</button></li>
             <?php } else if ($previous_btn) { ?>
-              <li class='inactive p-2'>&lsaquo;</li>
+              <li class='inactive p-2' aria-disabled="true">&lsaquo;</li>
             <?php } ?>
             <?php for ($i = $start_loop; $i <= $end_loop; $i++) {
               if ($cur_page == $i) {
             ?>
-                <li data-page='<?php echo $i; ?>' class='selected'><?php echo $i; ?></li>
+                <li data-page='<?php echo $i; ?>' class='selected'><button aria-label="Page <?php echo $i; ?>" aria-current="page"><?php echo $i; ?></button></li>
               <?php } else { ?>
-                <li data-page='<?php echo $i; ?>' class='active'><?php echo $i; ?></li>
+                <li data-page='<?php echo $i; ?>' class='active'><button aria-label="Go to page <?php echo $i; ?>"><?php echo $i; ?></button></li>
             <?php }
             } ?>
             <?php if ($next_btn && $cur_page < $no_of_paginations) {
               $nex = $cur_page + 1; ?>
-              <li data-page='<?php echo $nex; ?>' class='active'>&rsaquo;</li>
+              <li data-page='<?php echo $nex; ?>' class='active'><button aria-label="Go to next page">&rsaquo;</button></li>
             <?php } else if ($next_btn) { ?>
-              <li class='inactive'>&rsaquo;</li>
+              <li class='inactive' aria-disabled="true">&rsaquo;</li>
             <?php } ?>
             <?php if ($last_btn && $cur_page < $no_of_paginations) { ?>
-              <li data-page='<?php echo $no_of_paginations; ?>' class='active'>&raquo;</li>
+              <li data-page='<?php echo $no_of_paginations; ?>' class='active'><button aria-label="Go to last page">&raquo;</button></li>
             <?php } else if ($last_btn) { ?>
-              <li data-page='<?php echo $no_of_paginations; ?>' class='inactive'>&raquo;</li>
+              <li data-page='<?php echo $no_of_paginations; ?>' class='inactive' aria-disabled="true">&raquo;</li>
             <?php } ?>
           </ul>
-        </div>
+        </nav>
 <?php
       endif;
     endif;

@@ -81,7 +81,7 @@ $icon_links = $image_text['icon_links'] ?? ''; // Repeater
             <?php endif ?>
           <?php endif; ?>
           <?php if ($image) : ?>
-            <div class="mb-8 mx-auto xl:mb-12 max-w-full aspect-w-1 aspect-h-1 overflow-hidden <?php echo $rounded_class ?>"><img src="<?php echo $image['url'] ?>" class="mx-auto h-full w-full object-center object-cover <?php echo $rounded_class ?>" alt=""></div>
+            <div class="mb-8 mx-auto xl:mb-12 max-w-full aspect-w-1 aspect-h-1 overflow-hidden <?php echo $rounded_class ?>"><img src="<?php echo $image['url'] ?>" class="mx-auto h-full w-full object-center object-cover <?php echo $rounded_class ?>" alt="<?php echo esc_attr($image['alt'] ?: '') ?>"></div>
           <?php endif; ?>
           <?php if ($icon_links) : ?>
             <div class="flex flex-col gap-3 lg:gap-6">

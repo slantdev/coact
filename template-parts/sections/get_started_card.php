@@ -98,7 +98,7 @@ $content_cards_count = count($content_cards);
                   <?php endforeach; ?>
                 </div>
               </div>
-              <button type="button" class="filter-button-prev absolute left-0 top-2 lg:top-[12px] w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-gray-500 hover:text-white transition-all duration-200 swiper-button-disabled">
+              <button type="button" class="filter-button-prev absolute left-0 top-2 lg:top-[12px] w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center bg-white rounded-full shadow-md text-gray-500 hover:text-white transition-all duration-200 swiper-button-disabled" aria-label="Previous">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7.49994 1.00001C7.63154 0.999249 7.76201 1.02447 7.88384 1.07424C8.00568 1.124 8.1165 1.19733 8.20994 1.29001C8.30367 1.38297 8.37806 1.49357 8.42883 1.61543C8.4796 1.73729 8.50574 1.868 8.50574 2.00001C8.50574 2.13202 8.4796 2.26273 8.42883 2.38459C8.37806 2.50645 8.30367 2.61705 8.20994 2.71001L4.89994 6.00001L8.07994 9.31001C8.26619 9.49737 8.37073 9.75082 8.37073 10.015C8.37073 10.2792 8.26619 10.5326 8.07994 10.72C7.98698 10.8137 7.87637 10.8881 7.75452 10.9389C7.63266 10.9897 7.50195 11.0158 7.36994 11.0158C7.23793 11.0158 7.10722 10.9897 6.98536 10.9389C6.8635 10.8881 6.7529 10.8137 6.65994 10.72L2.79994 6.72001C2.61671 6.53308 2.51408 6.28176 2.51408 6.02001C2.51408 5.75826 2.61671 5.50694 2.79994 5.32001L6.79994 1.32001C6.8897 1.22308 6.99777 1.14489 7.11792 1.08997C7.23807 1.03504 7.36791 1.00447 7.49994 1.00001V1.00001Z" fill="currentColor"></path>
                 </svg>
@@ -175,7 +175,7 @@ $content_cards_count = count($content_cards);
                           <a href="<?php echo $permalink; ?>" class="card-hover block h-full rounded-lg md:rounded-xl bg-slate-100 relative overflow-hidden cursor-pointer shadow-md">
                             <div class="aspect-w-1 aspect-h-1">
                               <?php if ($image) : ?>
-                                <img class="card-image object-center object-cover" src="<?php echo $image; ?>">
+                                <img class="card-image object-center object-cover" src="<?php echo $image; ?>" alt="<?php echo esc_attr($title); ?>">
                               <?php else : ?>
                                 <div class="w-full h-full bg-slate-100"></div>
                               <?php endif; ?>
@@ -185,10 +185,10 @@ $content_cards_count = count($content_cards);
                               <div class="card-excerpt">
                                 <?php echo wp_trim_words($excerpt, 20) ?>
                               </div>
-                              <button type="button" class="bg-white p-4 absolute right-6 bottom-6 rounded-full w-8 h-8 xl:w-12 xl:h-12">
+                              <div class="bg-white p-4 absolute right-6 bottom-6 rounded-full w-8 h-8 xl:w-12 xl:h-12">
                                 <span class="block w-4 h-1 bg-brand-sea absolute top-1/2 -translate-y-1/2"></span>
                                 <span class="block w-1 h-4 bg-brand-sea absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"></span>
-                              </button>
+                              </div>
                             </div>
                           </a>
                         </div>
