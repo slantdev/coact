@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed `TypeError` in `buttons.php` when `button_link` returns as a string instead of an array.
+- Fixed variable variable typo (`$$link_style`) causing PHP warnings in `image_text.php`.
+- Fixed PHP warnings in `coact_tv.php` by filtering out non-object values before sorting taxonomy terms.
+
 ## [0.2.12] - 2026-02-25
 
 ### Fixed

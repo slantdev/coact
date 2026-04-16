@@ -31,13 +31,13 @@ if ($buttons_repeater) {
 
   echo '<div class="mb-6 xl:mb-0 ' . $button_container_class . '">';
   foreach ($buttons_repeater as $button) {
-    $button_link = $button['button_link'];
-    $button_title = $button_link['title'];
-    $button_url = $button_link['url'];
-    $button_target = $button_link['target'];
+    $button_link = is_array($button['button_link'] ?? null) ? $button['button_link'] : [];
+    $button_title = $button_link['title'] ?? '';
+    $button_url = $button_link['url'] ?? '';
+    $button_target = $button_link['target'] ?? '';
 
-    $button_size = $button['button_size'];
-    $button_style = $button['button_style'];
+    $button_size = $button['button_size'] ?? '';
+    $button_style = $button['button_style'] ?? '';
     $button_bg_color = $button['button_bg_color'] ?? '';
     $button_border_color = $button['button_border_color'] ?? '';
     $button_text_color = $button['button_text_color'] ?? '';

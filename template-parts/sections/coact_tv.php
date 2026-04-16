@@ -39,13 +39,16 @@ $show_pagination = $posts_grid['show_pagination'] ?? '';
 $filter_settings = $posts_grid['filter_settings'] ?? '';
 $show_filter = $filter_settings['show_filter'] ?? '';
 $filter_style = $filter_settings['filter_style'] ?? '';
-$filter_categories = $filter_settings['filter_categories'] ?? '';
-$filter_tags = '';
+$filter_categories = is_array($filter_settings['filter_categories'] ?? null) ? $filter_settings['filter_categories'] : [];
+$filter_tags = [];
 
 //preint_r($filter_categories);
 // preint_r($filter_tags);
 
-$mergedFilters = array_merge((array) $filter_categories, (array) $filter_tags);
+$mergedFilters = array_merge($filter_categories, $filter_tags);
+$mergedFilters = array_filter($mergedFilters, function($item) {
+  return is_object($item) && isset($item->name);
+});
 
 usort($mergedFilters, function ($a, $b) {
   return strcmp($a->name, $b->name);
