@@ -686,13 +686,12 @@ function pagination_load_faqs()
       while ($all_faqs->have_posts()) {
         $all_faqs->the_post();
         $faq_item_id = 'faq-content-' . get_the_ID() . '-' . uniqid();
-        echo '<div class="collapse collapse-plus bg-white rounded-lg border border-slate-300 shadow-md mb-6">';
-        echo '<button class="faq-toggle-btn w-full h-full text-left" aria-expanded="false" aria-controls="' . $faq_item_id . '">';
-        echo '<div class="collapse-title bg-white text-xl lg:text-2xl border-b border-slate-300 font-medium py-5 pl-8 pr-12 after:font-thin after:!end-8 after:text-brand-sea after:!top-2 after:text-3xl after:lg:text-5xl">';
-        echo get_the_title();
-        echo '</div>';
+        echo '<div class="coact-accordion-item bg-white rounded-lg border border-slate-300 shadow-md mb-6 overflow-hidden">';
+        echo '<button type="button" class="faq-toggle-btn w-full text-left bg-white text-xl lg:text-2xl border-b border-slate-300 font-medium py-5 pl-8 pr-8 flex justify-between items-center gap-4" aria-expanded="false" aria-controls="' . $faq_item_id . '">';
+        echo '<span>' . get_the_title() . '</span>';
+        echo '<span class="text-brand-sea text-3xl lg:text-4xl font-thin faq-icon leading-none transition-transform duration-300">+</span>';
         echo '</button>';
-        echo '<div id="' . $faq_item_id . '" class="collapse-content p-0 hidden">';
+        echo '<div id="' . $faq_item_id . '" class="faq-content-wrapper" style="display: none;">';
         echo '<div class="p-8">';
         echo '<div class="prose lg:prose-lg max-w-none">';
         the_content();
@@ -1044,20 +1043,19 @@ function filter_faqs()
       $content = str_replace(']]>', ']]&gt;', $content);
 
       $faq_item_id = 'faq-content-' . $id . '-' . uniqid();
-      $response .= '<div class="collapse collapse-plus bg-brand-light-gray rounded-lg border border-slate-300 shadow-md mb-6">';
-      $response .= '<button class="faq-toggle-btn w-full h-full text-left" aria-expanded="false" aria-controls="' . $faq_item_id . '">';
-      $response .=  '<div class="collapse-title bg-white text-xl lg:text-2xl border-b border-slate-300 font-medium py-5 pl-8 pr-12 after:font-thin after:!end-8 after:text-brand-sea after:!top-2 after:text-3xl after:lg:text-5xl">';
-      $response .=  get_the_title();
-      $response .=  '</div>';
+      $response .= '<div class="coact-accordion-item bg-brand-light-gray rounded-lg border border-slate-300 shadow-md mb-6 overflow-hidden">';
+      $response .= '<button type="button" class="faq-toggle-btn w-full text-left bg-white text-xl lg:text-2xl border-b border-slate-300 font-medium py-5 pl-8 pr-8 flex justify-between items-center gap-4" aria-expanded="false" aria-controls="' . $faq_item_id . '">';
+      $response .= '<span>' . get_the_title() . '</span>';
+      $response .= '<span class="text-brand-sea text-3xl lg:text-4xl font-thin faq-icon leading-none transition-transform duration-300">+</span>';
       $response .= '</button>';
-      $response .=  '<div id="' . $faq_item_id . '" class="collapse-content p-0 hidden">';
-      $response .=  '<div class="p-8">';
-      $response .=  '<div class="prose lg:prose-lg max-w-none">';
+      $response .= '<div id="' . $faq_item_id . '" class="faq-content-wrapper" style="display: none;">';
+      $response .= '<div class="p-8">';
+      $response .= '<div class="prose lg:prose-lg max-w-none">';
       $response .= $content;
-      $response .=  '</div>';
-      $response .=  '</div>';
-      $response .=  '</div>';
-      $response .=  '</div>';
+      $response .= '</div>';
+      $response .= '</div>';
+      $response .= '</div>';
+      $response .= '</div>';
     }
   } else {
     $response = '<div class="text-center py-4 px-8">No FAQs Found</div>';

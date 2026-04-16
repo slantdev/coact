@@ -128,15 +128,37 @@ $faqs_id = uniqid();
 
             $(document).on(
               'click',
-              '.faqs-accordion-<?php echo $faqs_id ?> .faq-radio-btn',
-              function() {
-                setTimeout(() => {
-                  $('html, body').animate({
-                    scrollTop: $(this).offset().top - 100
-                  }, 200);
-                }, 400);
-                //let page = $(this).data('page');
-                //load_faqs_<?php echo $faqs_id ?>(page);
+              '.faqs-accordion-<?php echo $faqs_id ?> .faq-toggle-btn',
+              function(event) {
+                event.preventDefault();
+                const $button = $(this);
+                const $item = $button.closest('.coact-accordion-item');
+                const $content = $button.next('.faq-content-wrapper');
+                const isExpanded = $button.attr('aria-expanded') === 'true';
+
+                // Implement accordion behavior (close others)
+                $('.faqs-accordion-<?php echo $faqs_id ?> .faq-content-wrapper').not($content).slideUp(300);
+                let $otherButtons = $('.faqs-accordion-<?php echo $faqs_id ?> .faq-toggle-btn').not($button);
+                $otherButtons.attr('aria-expanded', 'false');
+                $otherButtons.find('.faq-icon').text('+').removeClass('rotate-180');
+
+                // Toggle logic
+                if (isExpanded) {
+                  $content.slideUp(300);
+                  $button.attr('aria-expanded', 'false');
+                  $button.find('.faq-icon').text('+').removeClass('rotate-180');
+                } else {
+                  $content.slideDown(300);
+                  $button.attr('aria-expanded', 'true');
+                  $button.find('.faq-icon').text('−').addClass('rotate-180');
+
+                  // Smooth scroll to the active accordion
+                  setTimeout(() => {
+                    $('html, body').animate({
+                      scrollTop: $item.offset().top - 100
+                    }, 200);
+                  }, 350);
+                }
               }
             );
 

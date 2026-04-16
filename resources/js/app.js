@@ -129,24 +129,7 @@ jQuery(function ($) {
     $(".menu-search-btn").attr("aria-expanded", "false").focus();
   }
 
-  // FAQ Accordion
-  $(document).on('click', '.faq-toggle-btn', function (e) {
-    e.preventDefault();
-    const $btn = $(this);
-    const $content = $('#' + $btn.attr('aria-controls'));
-    const isExpanded = $btn.attr('aria-expanded') === 'true';
 
-    $btn.attr('aria-expanded', !isExpanded);
-    $content.toggleClass('hidden');
-
-    if (!isExpanded) {
-      setTimeout(() => {
-        $('html, body').animate({
-          scrollTop: $btn.offset().top - 100
-        }, 200);
-      }, 100);
-    }
-  });
 
   // Escape key listener
   $(document).keydown(function (e) {

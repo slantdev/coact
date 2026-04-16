@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed `TypeError` in `buttons.php` when `button_link` returns as a string instead of an array.
 - Fixed variable variable typo (`$$link_style`) causing PHP warnings in `image_text.php`.
 - Fixed PHP warnings in `coact_tv.php` by filtering out non-object values before sorting taxonomy terms.
+- Refactored FAQ Accordion in `faq.php` and `ajax.php` to use custom semantic HTML and jQuery slide down animations, removing deprecated DaisyUI dependencies and resolving a conflicting toggle listener in `app.js`.
 
 ## [0.2.12] - 2026-02-25
 
