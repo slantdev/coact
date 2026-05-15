@@ -1,4 +1,25 @@
 <?php
+/*
+* Check if landing page settings has a setting to remove site header
+*/
+$term_id = '';
+if (is_archive()) {
+  $term_id = get_queried_object()->term_id;
+}
+if ($term_id) {
+  $the_id = 'term_' . $term_id;
+} else {
+  $the_id = get_the_ID();
+}
+$remove_site_header = get_field('landing_page_settings', $the_id)['remove_site_header'];
+
+if($remove_site_header) {
+  return;
+}
+
+/*
+* Get hello bar settings
+*/
 $hello_bar = get_field('hello_bar', 'option')['hello_bar'];
 $set_active = $hello_bar['set_active'] ?? '';
 $hello_bar_text = $hello_bar['hello_bar_text'] ?? '';
@@ -68,6 +89,9 @@ endif;
 ?>
 
 <?php
+/*
+* Get top navigation settings
+*/
 $top_navigation = get_field('top_navigation', 'option')['top_navigation'];
 $top_nav_links = $top_navigation['links'];
 $header_logo = get_field('header_logo', 'option')['header_logo'];

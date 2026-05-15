@@ -62,7 +62,7 @@ $testimonials_id = uniqid('testimonials-');
         <?php if ($dynamic_custom == 'custom' && $choose_testimonial) : ?>
           <div id="<?php echo $testimonials_id ?>" class="testimonial-swiper relative pb-16 xl:pb-20">
             <div class="swiper container max-w-screen-lg mx-auto">
-              <div class="swiper-wrapper">
+              <div class="swiper-wrapper items-center">
                 <?php foreach ($choose_testimonial as $testimony) : ?>
                   <?php
                   $testimonial_title = get_the_title($testimony->ID);

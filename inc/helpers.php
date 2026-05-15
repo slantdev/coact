@@ -95,6 +95,65 @@ function coact_icon($atts = array())
   return $svg;
 }
 
+function coact_acf_icon($atts = array())
+{
+  static $icon_cache = [];
+
+  $atts = shortcode_atts(array(
+    'icon'  => '',
+    'group' => 'utility',
+    'size'  => false,
+    'class' => '',
+    'label' => '',
+  ), $atts);
+
+  if (empty($atts['icon'])) return '';
+
+  // Map ACF Icon Picker tab keys to folder paths
+  $group_map = [
+    'heroicons_solid'   => 'heroicons/solid',
+    'heroicons_outline' => 'heroicons/outline',
+  ];
+
+  $group_path = $group_map[$atts['group']] ?? str_replace('_', '/', $atts['group']);
+  $icon_path  = get_template_directory() . '/assets/icons/' . $group_path . '/' . $atts['icon'] . '.svg';
+
+  // Return cached version if available (without instance-specific attributes)
+  $cache_key = $group_path . ':' . $atts['icon'];
+  if (!isset($icon_cache[$cache_key])) {
+    if (!file_exists($icon_path)) {
+      $icon_cache[$cache_key] = false;
+      return '';
+    }
+    $svg = file_get_contents($icon_path);
+    // Basic cleanup
+    $svg = preg_replace("/([\n\t]+)/", ' ', $svg);
+    $svg = preg_replace('/>\s*</', '><', $svg);
+    $icon_cache[$cache_key] = $svg;
+  }
+
+  if (!$icon_cache[$cache_key]) return '';
+
+  $svg = $icon_cache[$cache_key];
+
+  // Prepare instance-specific attributes
+  $classes = trim('coact-svg-icon svg-icon ' . $atts['class']);
+  $attrs   = sprintf(' class="%s" role="img" focusable="false"', esc_attr($classes));
+
+  if ($atts['size']) {
+    $attrs .= sprintf(' width="%d" height="%d"', $atts['size'], $atts['size']);
+  }
+
+  if ($atts['label']) {
+    $attrs .= sprintf(' aria-label="%s"', esc_attr($atts['label']));
+  } else {
+    $attrs .= ' aria-hidden="true"';
+  }
+
+  // Inject attributes into the opening <svg> tag
+  return preg_replace('/<svg/', '<svg' . $attrs, $svg, 1);
+}
+
 
 function coact_svg($atts = array())
 {

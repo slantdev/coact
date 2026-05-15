@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.17] - 2026-05-16
+
+### Added
+- Added `form.php` component for rendering Formidable Forms with background, padding, shadow, and border settings.
+- Added Heroicons Solid tab to the ACF Icon Picker with `coact_acf_icon()` helper function to render SVGs dynamically.
+- Migrated the single WYSIWYG editor into a `content_editor` group with a fallback migration script in `inc/acf.php` to preserve existing database content.
+
+### Changed
+- Updated `custom_box.php` with new class prefixes (`coact-` instead of `civ-`), dynamic top/bottom separators, and inline custom link attributes.
+- Updated `icons_list.php` and `icon.php` to use the new `coact_acf_icon` function instead of `civ_icon`.
+- Updated admin styles for ACF fields and Formidable Forms in `admin-style.css`.
+- Replaced `my-8` class with `component-wrapper` in `components.php`.
+- Aligned items to the center in the testimonial swiper wrapper.
+
 ## [0.2.16] - 2026-04-16
 
 ### Fixed

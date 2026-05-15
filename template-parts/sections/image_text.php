@@ -1,14 +1,20 @@
 <?php
 include get_template_directory() . '/template-parts/layouts/section_settings.php';
-/*
+/**
  * Available section variables
- * $section_id
- * $section_style
- * $section_padding_top
- * $section_padding_bottom
-*/
+ * @var string $section_id
+ * @var string $section_style
+ * @var string $section_class
+ * @var string $section_padding_top
+ * @var string $section_padding_bottom
+ * @var string $top_separator_style
+ * @var string $bottom_separator_style
+ * @var string $entrance_animation_class
+ * @var bool   $top_separator
+ * @var bool   $bottom_separator
+ */
 
-$section_id = $section_id ? 'id="' . $section_id . '"' : '';
+$section_id = !empty($section_id) ? 'id="' . $section_id . '"' : '';
 
 $image_text = get_sub_field('image_text'); // Group
 $headline = $image_text['headline'] ?? '';

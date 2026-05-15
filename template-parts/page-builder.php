@@ -64,6 +64,15 @@ if (have_rows('section', $the_id)) :
     elseif (get_row_layout() == 'steps') :
       get_template_part('template-parts/sections/steps');
 
+    elseif (get_row_layout() == 'one_column') :
+      get_template_part('template-parts/sections/one_column');
+
+    elseif (get_row_layout() == 'two_columns') :
+      get_template_part('template-parts/sections/two_columns');
+
+    elseif (get_row_layout() == 'custom_box') :
+      get_template_part('template-parts/sections/custom_box');      
+
     endif;
 
   // End loop.
