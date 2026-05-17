@@ -88,7 +88,7 @@ $border_style = $border_settings['border_style'] ?? 'none';
 $border_color = $border_settings['border_color'] ?? '#d1d5db';
 
 $box_classes = [
-  'group block relative w-full h-full min-h-[300px] flex flex-col overflow-hidden transition-all duration-300',
+  'group block relative w-full h-full flex flex-col overflow-hidden transition-all duration-300',
   $rounded_class,
   $shadow_class
 ];
