@@ -62,27 +62,27 @@ if ($accordion_repeater) { ?>
     ?>
       <details
         class="coact-accordion-item group rounded-lg transition-all duration-400 border
-          bg-(--acc-header-bg,var(--color-gray-100)) 
-          border-(--acc-header-border,var(--color-gray-300)) 
-          open:bg-(--acc-header-bg-open,var(--color-white)) 
-          open:border-(--acc-header-border-open,var(--color-gray-200)) 
-          open:ring-1 open:ring-(--acc-header-border-open,var(--color-gray-200))"
+          bg-[var(--acc-header-bg,theme(colors.gray.100))] 
+          border-[var(--acc-header-border,theme(colors.gray.300))] 
+          open:bg-[var(--acc-header-bg-open,theme(colors.white))] 
+          open:border-[var(--acc-header-border-open,theme(colors.gray.200))] 
+          open:ring-1 open:ring-[var(--acc-header-border-open,theme(colors.gray.200))]"
         name="<?php echo esc_attr($accordion_id); ?>">
 
         <!-- Summary (Title) -->
         <summary class="coact-accordion-header flex items-center justify-between cursor-pointer py-4 px-5 lg:py-5 lg:pl-8 lg:pr-8 text-xl font-semibold list-none marker:hidden focus:outline-none
-          text-(--acc-header-text,var(--color-gray-900))
-          group-open:text-(--acc-header-text-open,var(--color-gray-900))">
+          text-[var(--acc-header-text,theme(colors.gray.900))]
+          group-open:text-[var(--acc-header-text-open,theme(colors.gray.900))]">
           <span><?php echo esc_html($title); ?></span>
 
           <!-- Icon (+ / -) -->
           <span class="coact-accordion-icon-wrapper relative ml-4 h-6 w-6 shrink-0">
             <svg class="absolute inset-0 w-6 h-6 transition-transform duration-200 ease-out group-open:rotate-180 group-open:opacity-0
-              text-(--acc-icon,var(--color-gray-900))" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              text-[var(--acc-icon,theme(colors.gray.900))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
             </svg>
             <svg class="absolute inset-0 w-6 h-6 transition-transform duration-200 ease-out opacity-0 rotate-90 group-open:rotate-0 group-open:opacity-100
-              text-(--acc-icon-open,var(--color-gray-900))" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              text-[var(--acc-icon-open,theme(colors.gray.900))]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
             </svg>
           </span>
@@ -90,9 +90,9 @@ if ($accordion_repeater) { ?>
 
         <!-- Content -->
         <div class="coact-accordion-content px-5 pb-6 lg:px-8 lg:pb-8 prose max-w-none border-t mt-2 pt-4
-          text-(--acc-content-text,inherit)
-          bg-(--acc-content-bg,transparent)
-          border-(--acc-content-border,var(--color-gray-200))">
+          text-[var(--acc-content-text,inherit)]
+          bg-[var(--acc-content-bg,transparent)]
+          border-[var(--acc-content-border,theme(colors.gray.200))]">
           <?php echo wp_kses_post($content); ?>
         </div>
 
