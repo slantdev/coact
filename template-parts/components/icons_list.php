@@ -106,18 +106,39 @@ if ($repeater) : ?>
         // Container classes for the icon
         $icon_container_classes = array_filter([
           'icon-wrapper shrink-0 flex items-center justify-center transition-all',
-          $style_key === 'circled' ? 'rounded-full bg-(--icon-bg) ' . $padding_class : '',
+          $style_key === 'circled' ? 'rounded-full ' . $padding_class : '',
         ]);
+        $icon_container_style = array_filter([
+          '',
+          $style_key === 'circled' ? 'background-color: var(--icon-bg)' : '',
+        ]);
+
+        // Inline style for the icon
+        $icon_style = '';
+        if ($icon_color) $icon_style .= "color: var(--icon-color);";
+
+        // Inline style for the title
+        $title_style = '';
+        if ($title_color) $title_style .= "color: var(--title-color);";
+
+        // Inline style for the description
+        $description_style = '';
+        if ($description_color) $description_style .= "color: var(--description-color);";
+
+        // Inline style for the horizontal line
+        $hr_style = '';
+        if ($horizontal_line && $hr_color) $hr_style .= "border-color: var(--hr-color);";
       ?>
         <div class="coact-icons-list-item flex items-start gap-3 lg:gap-4 group <?php echo $horizontal_line ? 'py-4' : ''; ?>">
 
           <?php if ($icon_name) : ?>
-            <div class="<?php echo esc_attr(implode(' ', $icon_container_classes)); ?>">
+            <div class="<?php echo esc_attr(implode(' ', $icon_container_classes)); ?>" style="<?php echo esc_attr(implode(' ', $icon_container_style)); ?>">
               <?php echo coact_acf_icon([
                 'icon'  => $icon_name,
                 'group' => $icon_group,
                 'size'  => $icon_pixel_size,
-                'class' => 'text-(--icon-color) w-auto h-auto'
+                'class' => 'w-auto h-auto',
+                'style' => $icon_style,
               ]); ?>
             </div>
           <?php endif; ?>
@@ -125,10 +146,10 @@ if ($repeater) : ?>
           <?php if ($title || $description) : ?>
             <div class="coact-icons-list-content content-wrapper text-left">
               <?php if ($title) : ?>
-                <div class="coact-icons-list-title prose max-w-none pt-0.5 text-(--title-color) <?php echo esc_attr($title_font_style_class . ' ' . $title_font_weight_class); ?>"><?php echo esc_html($title); ?></div>
+                <div class="coact-icons-list-title prose max-w-none pt-0.5 <?php echo esc_attr($title_font_style_class . ' ' . $title_font_weight_class); ?>" style="<?php echo esc_attr($title_style); ?>"><?php echo esc_html($title); ?></div>
               <?php endif; ?>
               <?php if ($description) : ?>
-                <div class="coact-icons-list-description prose max-w-none mt-2 text-(--description-color)">
+                <div class="coact-icons-list-description prose max-w-none mt-2" style="<?php echo esc_attr($description_style); ?>">
                   <?php echo wp_kses_post($description); ?>
                 </div>
               <?php endif; ?>
@@ -138,7 +159,7 @@ if ($repeater) : ?>
         </div>
 
         <?php if ($horizontal_line && $index < count($repeater) - 1) : ?>
-          <hr class="border-(--hr-color) m-0" />
+          <hr class="m-0" style="<?php echo esc_attr($hr_style); ?>" />
         <?php endif; ?>
       <?php endforeach; ?>
     </div>

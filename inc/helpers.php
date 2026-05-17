@@ -105,6 +105,7 @@ function coact_acf_icon($atts = array())
     'size'  => false,
     'class' => '',
     'label' => '',
+    'style' => '',
   ), $atts);
 
   if (empty($atts['icon'])) return '';
@@ -149,6 +150,10 @@ function coact_acf_icon($atts = array())
   } else {
     $attrs .= ' aria-hidden="true"';
   }
+
+  if ($atts['style']) {
+    $attrs .= sprintf(' style="%s"', $atts['style']);
+  }  
 
   // Inject attributes into the opening <svg> tag
   return preg_replace('/<svg/', '<svg' . $attrs, $svg, 1);

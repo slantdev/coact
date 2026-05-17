@@ -11,7 +11,7 @@ if ($term_id) {
 } else {
   $the_id = get_the_ID();
 }
-$remove_site_header = get_field('landing_page_settings', $the_id)['remove_site_header'];
+$remove_site_header = get_field('landing_page_settings', $the_id)['remove_site_header'] ?? false;
 
 if($remove_site_header) {
   return;

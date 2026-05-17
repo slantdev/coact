@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.18] - 2026-05-18
+
+### Added
+- Added custom inline style support to the `coact_acf_icon` helper function for dynamic SVG customization.
+- Applied dynamic inline styles for text, icons, and separators in the `icons_list` component based on ACF color picker settings.
+
+### Changed
+- Updated `site-header.php` to use the null-coalescing operator (`?? false`) for the `remove_site_header` setting to prevent undefined array key warnings.
+- Cleaned up CSS transitions in `components.css` for better readability and removed unused `.content-cards-grid` pagination styles.
+- Added standard `line-clamp: 2` rule to `.line-clamp-2` utility for broader compatibility alongside `-webkit-line-clamp`.
+
 ## [0.2.17] - 2026-05-16
 
 ### Added
