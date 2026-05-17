@@ -218,13 +218,14 @@
                                                 "id": ""
                                             },
                                             "choices": {
-                                                "default": "Default",
+                                                "none": "None",
                                                 "tighter": "Tighter",
                                                 "tight": "Tight",
+                                                "normal": "Normal",
                                                 "wide": "Wide",
                                                 "wider": "Wider"
                                             },
-                                            "default_value": "Default",
+                                            "default_value": "none",
                                             "return_format": "value",
                                             "multiple": 0,
                                             "allow_null": 0,
@@ -708,7 +709,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1778882112,
+    "modified": 1779040957,
     "acfe_categories": {
         "sections": "Sections"
     }

@@ -59,9 +59,10 @@ $box_paddings = $more_settings['box_paddings'] ?? [];
 $padding_size = $box_paddings['padding_size'] ?? 'default';
 
 $padding_map = [
+  'none'    => 'p-0',
   'tighter' => 'p-4',
   'tight'   => 'p-6',
-  'default' => 'p-8',
+  'normal' => 'p-8',
   'wide'    => 'p-10',
   'wider'   => 'p-12',
 ];
