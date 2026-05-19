@@ -149,3 +149,45 @@ function load_forms_function($field)
   return $field;
 }
 add_filter('acf/load_field/name=select_formidable_form', 'load_forms_function');
+
+/**
+ * Prevent specific shortcodes from rendering during ACFE Dynamic Render preview in the backend
+ */
+function coact_prevent_shortcodes_in_acfe_preview($return, $tag, $attr, $m) {
+    if ($tag !== 'wpcode') {
+        return $return;
+    }
+
+    $is_editor = false;
+
+    // 1. Regular WP Admin screens (Classic Editor relies on post.php and post-new.php)
+    global $pagenow;
+    if (in_array($pagenow, ['post.php', 'post-new.php']) && !wp_doing_ajax()) {
+        $is_editor = true;
+    }
+    // Fallback for is_admin() just in case
+    elseif (is_admin() && !wp_doing_ajax()) {
+        $is_editor = true;
+    }
+    // 2. ACF or ACFE AJAX requests (block previews, flexible content previews)
+    elseif (wp_doing_ajax() && isset($_REQUEST['action']) && strpos($_REQUEST['action'], 'acf') !== false) {
+        $is_editor = true;
+    }
+    // 3. REST API requests (Gutenberg saves, block renders)
+    elseif (defined('REST_REQUEST') && REST_REQUEST && current_user_can('edit_posts')) {
+        $is_editor = true;
+    }
+    
+    // 4. ACFE specific dynamic preview check
+    if (function_exists('acfe_is_dynamic_preview') && acfe_is_dynamic_preview()) {
+        $is_editor = true;
+    }
+
+    if ($is_editor) {
+        $id = isset($attr['id']) ? $attr['id'] : 'Unknown';
+        return '<div style="padding: 15px; background: #f9fafb; border: 2px dashed #d1d5db; color: #6b7280; text-align: center; border-radius: 8px; font-family: sans-serif; font-size: 14px; margin: 10px 0;">[WPCode Snippet ID: ' . esc_html($id) . ' Placeholder]</div>';
+    }
+
+    return $return;
+}
+add_filter('pre_do_shortcode_tag', 'coact_prevent_shortcodes_in_acfe_preview', 10, 4);
