@@ -182,3 +182,18 @@ function coact_add_heroicons_icons(array $icons): array
   return $icons;
 }
 add_filter('acf/fields/icon_picker/heroicons_solid/icons', 'coact_add_heroicons_icons');
+
+/**
+ * Prevent specific shortcodes from rendering during ACFE Dynamic Render preview in the backend
+ */
+function coact_prevent_shortcodes_in_acfe_preview($return, $tag, $attr, $m) {
+    // Check if we are in an ACF/ACFE AJAX preview request
+    if (is_admin() && wp_doing_ajax() && isset($_POST['action']) && strpos($_POST['action'], 'acf') !== false) {
+        if ($tag === 'wpcode') {
+            $id = isset($attr['id']) ? $attr['id'] : 'Unknown';
+            return '<div style="padding: 15px; background: #f9fafb; border: 2px dashed #d1d5db; color: #6b7280; text-align: center; border-radius: 8px; font-family: sans-serif; font-size: 14px; margin: 10px 0;">[WPCode Snippet ID: ' . esc_html($id) . ' Placeholder]</div>';
+        }
+    }
+    return $return;
+}
+add_filter('pre_do_shortcode_tag', 'coact_prevent_shortcodes_in_acfe_preview', 10, 4);
