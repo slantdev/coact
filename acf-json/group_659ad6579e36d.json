@@ -49,14 +49,14 @@
                 "acfe_flexible_modal_settings_close_label": ""
             },
             "layouts": {
-                "layout_6a003833b4c74": {
-                    "key": "layout_6a003833b4c74",
+                "layout_6a0eb3ed260c9": {
+                    "key": "layout_6a0eb3ed260c9",
                     "name": "one_column",
                     "label": "One Column",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_6a003833b4c76",
+                            "key": "field_6a0eb3ee260cb",
                             "label": "One Column",
                             "name": "one_column",
                             "aria-label": "",
@@ -70,7 +70,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_659bdf0a1dd00"
+                                "group_659bdf0a1dd01"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -91,7 +91,7 @@
                     "acfe_flexible_render_template": "acf-layouts\/one_column.php",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_modal_edit_size": "large",
                     "acfe_flexible_thumbnail": "",
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": false
@@ -1080,5 +1080,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1778787981
+    "modified": 1779348552
 }

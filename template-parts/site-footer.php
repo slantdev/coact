@@ -11,7 +11,7 @@ if ($term_id) {
 } else {
   $the_id = get_the_ID();
 }
-$remove_site_footer = get_field('landing_page_settings', $the_id)['remove_site_footer'];
+$remove_site_footer = get_field('landing_page_settings', $the_id)['remove_site_footer'] ?? '';
 
 if($remove_site_footer) {
   return;

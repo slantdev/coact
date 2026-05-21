@@ -33,7 +33,7 @@ $max_width_map = [
   'md'      => 'max-w-5xl',
   'lg'      => 'max-w-screen-lg',
   'xl'      => 'max-w-screen-xl',
-  '2xl'     => 'max-w-screen-2xl',
+  '2xl'     => 'max-w-screen-xxl',
   'default' => '',
 ];
 $mw_key = $column_settings['max_width'] ?? 'default';

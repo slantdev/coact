@@ -13,6 +13,50 @@ if ($term_id) {
 }
 $remove_site_header = get_field('landing_page_settings', $the_id)['remove_site_header'] ?? false;
 
+$show_logo = get_field('landing_page_settings', $the_id)['show_logo'] ?? false;
+$cta_group = get_field('landing_page_settings', $the_id)['cta'] ?? [];
+$link_icon = $cta_group['link_icon'] ?? '';
+$link = $cta_group['link'] ?? [];
+$link_title = $link['title'] ?? '';
+$link_url = $link['url'] ?? '';
+$link_target = $link['target'] ?? '_self';
+
+$header_logo = get_field('header_logo', 'option')['header_logo'];
+$site_logo = $header_logo['site_logo'];
+
+if ($show_logo || $link_title || $link_url) { ?>
+<header class="site-header relative z-[1000]">
+  <div class="relative container mx-auto z-10 ">
+    <div class="relative z-0 py-4 lg:py-8 flex items-center justify-between">
+      <div>
+        <?php if ($show_logo) : ?>
+          <?php if ($site_logo) : ?>
+            <a href="<?php echo site_url() ?>">
+              <img src="<?php echo $site_logo['url'] ?>" alt="CoAct" class="h-20 lg:h-[100px] w-auto max-w-full">
+            </a>
+          <?php else : ?>
+            <a href="<?php echo site_url() ?>">
+              <img src="<?php echo coact_asset('images/logo/logo-coact.svg') ?>" alt="CoAct" class="h-[100px] w-auto max-w-full xl:mb-8">
+            </a>
+          <?php endif; ?>
+        <?php endif; ?>
+      </div>
+      <div>
+        <?php if ($link_title || $link_url) : ?>
+          <a href="<?php echo $link_url ?>" target="<?php echo $link_target ?>" class="inline-flex gap-x-1 md:gap-x-2 hover:underline items-center">
+            <?php if ($link_icon) {
+              echo coact_icon(array('icon' => $link_icon, 'group' => 'content', 'size' => '24', 'class' => 'text-black'));
+            } ?>
+            <span class="xl:text-lg font-semibold"><?php echo $link_title ?></span>
+          </a>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div>
+</header>
+<?php
+}
+
 if($remove_site_header) {
   return;
 }

@@ -115,7 +115,7 @@ $max_width_map = [
   'md'      => 'max-w-screen-md',
   'lg'      => 'max-w-screen-lg',
   'xl'      => 'max-w-screen-xl',
-  '2xl'     => 'max-w-screen-2xl',
+  '2xl'     => 'max-w-screen-xxl',
   'default' => '',
 ];
 $mw_class = $max_width_map[$max_width_key] ?? '';
