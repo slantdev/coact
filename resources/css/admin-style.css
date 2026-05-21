@@ -5,84 +5,108 @@ html {
 }
 
 .acf-fields {
-  > .acf-field {
+  >.acf-field {
     select {
       @apply min-w-[6rem];
     }
+
     .acf-label {
       margin: 0 0 4px;
     }
+
     &.hide-group-label,
     &.label-hidden {
       @apply pt-0;
-      > .acf-label {
+
+      >.acf-label {
         @apply hidden;
       }
     }
+
     &.field-hidden {
       @apply hidden;
     }
+
     &.field-inline-flex {
       @apply inline-flex gap-4 items-center;
-      > .acf-label {
+
+      >.acf-label {
         margin-bottom: 0;
       }
     }
+
     &.bt-1 {
       border-top: 1px solid #eeeeee;
     }
+
     &.br-1 {
       border-right: 1px solid #eeeeee;
     }
+
     &.bb-1 {
       border-bottom: 1px solid #eeeeee;
     }
+
     &.bl-1 {
       border-left: 1px solid #eeeeee;
     }
+
     &.bt-0 {
       @apply !border-t-0;
+
       &.acfe-field-group-layout-row {
-        > .acf-input {
-          > .acf-fields {
+        >.acf-input {
+          >.acf-fields {
             @apply !border-t-0;
           }
         }
       }
     }
+
     &.br-0 {
       @apply !border-r-0;
     }
+
     &.bb-0 {
       @apply !border-b-0;
     }
+
     &.bl-0 {
       @apply !border-l-0;
     }
+
     &.pad-t-0 {
       @apply !pt-0;
     }
+
     &.pad-r-0 {
       @apply !pr-0;
     }
+
     &.pad-b-0 {
       @apply !pb-0;
     }
+
     &.pad-l-0 {
       @apply !pl-0;
     }
+
     &.pad-t-15 {
       @apply !pt-[15px];
     }
+
     &.pad-2 {
       @apply p-2;
     }
+
     &.pad-x-2 {
       @apply px-2;
     }
+
     &.pad-y-2 {
       @apply py-2;
     }
+
     &.field-switch {
       .acf-switch {
         width: 42px;
@@ -90,10 +114,12 @@ html {
         border: none;
         background-color: #d0d5dd;
         border-radius: 12px;
+
         &.-on {
           background: #0d99d5;
           border-color: #007cba;
         }
+
         span {
           display: block;
           float: left;
@@ -103,14 +129,17 @@ html {
           padding: 4px 10px;
           min-width: 15px;
         }
+
         .acf-switch-on,
         .acf-switch-off {
           visibility: hidden;
         }
+
         .acf-switch-on {
           color: #fff;
           text-shadow: #007cba 0 1px 0;
         }
+
         .acf-switch-slider {
           width: 20px;
           height: 20px;
@@ -121,6 +150,7 @@ html {
             0px 1px 2px rgba(16, 24, 40, 0.06);
           left: 2px;
         }
+
         &.-on {
           .acf-switch-slider {
             left: 20px;
@@ -128,6 +158,7 @@ html {
         }
       }
     }
+
     &.field-modal,
     &.acf-field-group {
       .acf-button {
@@ -136,42 +167,61 @@ html {
         }
       }
     }
+
+    &.field-modal,
+    &.acf-field-group {
+      .acf-button {
+        .dashicons {
+          @apply p-0 leading-normal;
+        }
+
+        &.button {
+          @apply min-h-[32px] px-2 py-0 leading-normal;
+        }
+      }
+    }
+
     &.acf-field-group {
       &.fields-flex-row {
-        > .acf-input {
-          > .acf-fields {
+        >.acf-input {
+          >.acf-fields {
             @apply flex flex-row;
           }
         }
       }
+
       &.fields-flex {
         &-justify-start {
-          > .acf-input {
-            > .acf-fields {
+          >.acf-input {
+            >.acf-fields {
               @apply justify-start;
             }
           }
         }
+
         &-justify-end {
-          > .acf-input {
-            > .acf-fields {
+          >.acf-input {
+            >.acf-fields {
               @apply justify-end;
             }
           }
         }
+
         &-justify-between {
-          > .acf-input {
-            > .acf-fields {
+          >.acf-input {
+            >.acf-fields {
               @apply justify-between;
             }
           }
         }
       }
+
       &.group-flex {
         @apply flex;
       }
     }
   }
+
   /* &.-left {
     > .acf-field {
       @apply before:hidden!;
@@ -185,68 +235,80 @@ html {
       }
     }
   } */
-  > .acf-tab-wrap {
+  >.acf-tab-wrap {
     overflow: initial;
   }
+
   &.-sidebar {
     height: 100%;
   }
+
   .acf-field-color-picker {
     @apply bg-white;
   }
+
   .acf-color-picker {
     .wp-picker-container {
       .wp-color-result-text {
         @apply hidden;
       }
+
       input[type="text"].wp-color-picker {
         @apply !w-[140px];
       }
     }
+
     .iris-picker {
       @apply pt-2.5 px-2.5 !pb-2.5 !w-[210px] !h-auto;
+
       .iris-square {
         @apply mr-0 float-none;
         @apply !w-[182.125px];
       }
+
       .iris-strip {
         @apply ml-0 float-none;
         @apply !w-[24px] !h-[182px];
       }
+
       .iris-palette {
         @apply !ml-0 float-none !w-6 !h-6;
       }
     }
+
     .iris-border {
       .iris-picker-inner {
         @apply static;
       }
+
       .iris-palette-container {
         @apply static;
         @apply grid grid-cols-8 gap-0.5 mt-1;
       }
     }
+
     .iris-picker-inner {
       @apply flex gap-x-1;
     }
   }
+
   .acf-columns-flex-nowrap {
-    > .acf-input {
-      > .acfe-column-wrapper {
+    >.acf-input {
+      >.acfe-column-wrapper {
         @apply flex-nowrap;
       }
     }
   }
+
   .acf-actions.acfe-fc-stylised-button {
     @apply px-5 py-3;
   }
-  .acf-field-repeater
-    > .acf-input
-    > .acf-repeater
-    > .acfe-repeater-stylised-button {
+
+  .acf-field-repeater>.acf-input>.acf-repeater>.acfe-repeater-stylised-button {
     @apply px-5 py-7;
   }
 }
+
 .frm_insert_form svg {
   @apply inline-block;
 }
@@ -255,14 +317,16 @@ html {
   .acf-flexible-content .layout .layout {
     .acf-fc-layout-handle {
       @apply bg-[#f9f9f9];
+
       .acf-fc-layout-order {
         @apply bg-white;
         border: 1px solid #b5bcc2;
         line-height: 18px;
       }
     }
+
     &.active-layout {
-      > .acf-fc-layout-actions-wrap {
+      >.acf-fc-layout-actions-wrap {
         .acf-fc-layout-handle {
           @apply bg-[#2271b1];
         }
