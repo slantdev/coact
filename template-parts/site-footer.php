@@ -1,5 +1,25 @@
 <?php
+/*
+* Check if landing page settings has a setting to remove site footer
+*/
+$term_id = '';
+if (is_archive()) {
+  $term_id = get_queried_object()->term_id;
+}
+if ($term_id) {
+  $the_id = 'term_' . $term_id;
+} else {
+  $the_id = get_the_ID();
+}
+$remove_site_footer = get_field('landing_page_settings', $the_id)['remove_site_footer'] ?? '';
 
+if($remove_site_footer) {
+  return;
+}
+
+/*
+* Get site footer settings
+*/
 $site_footer = get_field('site_footer', 'option');
 $footer_top = $site_footer['footer_top'] ?? '';
 $columns = $footer_top['columns'] ?? '';
@@ -26,6 +46,9 @@ $copyright_info = $site_footer['copyright_info'] ?? '';
 $copyright_site_name = $copyright_info['copyright_site_name'] ?? '';
 $copyright_links = $copyright_info['copyright_links'] ?? '';
 
+/*
+* Get subscribe settings
+*/
 $subscribe = get_field('subscribe', 'option')['subscribe'] ?? '';
 $subscribe_heading = $subscribe['heading'] ?? '';
 $subscribe_desciption = $subscribe['description'] ?? '';
@@ -41,17 +64,6 @@ if ($subscribe_background_color) {
 if ($subscribe_text_color) {
   $subscribe_style .= 'color: ' . $subscribe_text_color . ';';
 }
-
-$term_id = '';
-if (is_archive()) {
-  $term_id = get_queried_object()->term_id;
-}
-if ($term_id) {
-  $the_id = 'term_' . $term_id;
-} else {
-  $the_id = get_the_ID();
-}
-//echo $the_id;
 $disable_subscribe = get_field('disable_subscribe', $the_id);
 
 ?>

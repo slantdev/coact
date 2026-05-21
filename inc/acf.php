@@ -3,37 +3,6 @@
 function coact_acf_init()
 {
   if (function_exists('get_field')) {
-    // acf_add_options_page(array(
-    //   'menu_slug' => 'site_settings',
-    //   'page_title' => 'Site Settings',
-    //   'active' => true,
-    //   'menu_title' => 'Site Settings',
-    //   'capability' => 'edit_posts',
-    //   'parent_slug' => '',
-    //   'position' => '',
-    //   'icon_url' => '',
-    //   'redirect' => true,
-    //   'post_id' => 'options',
-    //   'autoload' => false,
-    //   'update_button' => 'Update',
-    //   'updated_message' => 'Options Updated',
-    // ));
-
-    // acf_add_options_page(array(
-    //   'menu_slug' => 'theme_settings',
-    //   'page_title' => 'Theme Settings',
-    //   'active' => true,
-    //   'menu_title' => 'Theme Settings',
-    //   'capability' => 'edit_posts',
-    //   'parent_slug' => 'site_settings',
-    //   'position' => '',
-    //   'icon_url' => '',
-    //   'redirect' => true,
-    //   'post_id' => 'options',
-    //   'autoload' => false,
-    //   'update_button' => 'Update',
-    //   'updated_message' => 'Options Updated',
-    // ));
     if (defined('GOOGLE_MAPS_API')) {
       acf_update_setting('google_api_key', GOOGLE_MAPS_API);
     }
@@ -126,7 +95,6 @@ function accordion_layout_thumbnail($thumbnail, $field, $layout)
   return get_stylesheet_directory_uri() . '/assets/images/layouts/accordion.jpg';
 }
 
-
 /* helper function to get formidable forms to ACF: */
 function get_formidable_forms()
 {
@@ -149,6 +117,71 @@ function load_forms_function($field)
   return $field;
 }
 add_filter('acf/load_field/name=select_formidable_form', 'load_forms_function');
+
+
+/* Migrate old wysiwyg_editor field to new group field */
+function migrate_wysiwyg_to_group($value, $post_id, $field) {
+    // If the new field already has a value, return it (migration already happened)
+    if (!empty($value)) {
+        return $value;
+    }
+
+    // We need to figure out the old meta key based on the field's current name structure.
+    // ACF passes the field name which will look like: 
+    // section_0_text_center_components_0_content_editor_wysiwyg_editor
+    
+    // Let's replace the new structure with the old structure to find the old key
+    $old_meta_key = str_replace('_content_editor_wysiwyg_editor', '_wysiwyg_editor', $field['name']);
+    
+    // Attempt to get the old value directly from the database
+    $old_value = get_post_meta($post_id, $old_meta_key, true);
+
+    if (!empty($old_value)) {
+        return $old_value; // Return the old value to populate the new field
+    }
+
+    return $value;
+}
+// Use the exact field key of your new WYSIWYG field (after moving it into the group)
+add_filter('acf/load_value/key=field_65ce45c32bf83', 'migrate_wysiwyg_to_group', 10, 3);
+
+
+/**
+ * Add Heroicons tab to ACF Icon Picker
+ */
+function coact_acf_icon_picker_tabs($tabs)
+{
+  $tabs['heroicons_solid'] = 'Heroicons Solid';
+
+  return $tabs;
+}
+add_filter('acf/fields/icon_picker/tabs', 'coact_acf_icon_picker_tabs');
+
+function coact_add_heroicons_icons(array $icons): array
+{
+  $icons_path = get_template_directory() . '/assets/icons/heroicons/solid/';
+  $base_url   = get_template_directory_uri() . '/assets/icons/heroicons/solid/';
+
+  // Scan directory for SVG files
+  $files = glob($icons_path . '*.svg');
+
+  if ($files) {
+    foreach ($files as $file) {
+      $filename = basename($file);
+      $key      = str_replace('.svg', '', $filename);
+      $label    = ucwords(str_replace(['-', '_'], ' ', $key));
+
+      $icons[] = [
+        'url'   => $base_url . $filename,
+        'key'   => $key,
+        'label' => $label,
+      ];
+    }
+  }
+
+  return $icons;
+}
+add_filter('acf/fields/icon_picker/heroicons_solid/icons', 'coact_add_heroicons_icons');
 
 /**
  * Prevent specific shortcodes from rendering during ACFE Dynamic Render preview in the backend

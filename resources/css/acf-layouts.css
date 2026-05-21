@@ -11,7 +11,7 @@
 }
 
 #poststuff {
-  .acf-layout {
+  /* .acf-layout {
     font-size: 1rem;
     line-height: 1.5;
     h1,
@@ -165,7 +165,8 @@
       &.shadow-inner {
         --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
         --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
           var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
       }
       &.bg-white {
@@ -189,11 +190,13 @@
         padding: 1rem;
       }
       &.shadow-md {
-        --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
-          0 2px 4px -2px rgb(0 0 0 / 0.1);
-        --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color),
+        --tw-shadow:
+          0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --tw-shadow-colored:
+          0 4px 6px -1px var(--tw-shadow-color),
           0 2px 4px -2px var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+        box-shadow:
+          var(--tw-ring-offset-shadow, 0 0 #0000),
           var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
       }
     }
@@ -235,6 +238,7 @@
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
     }
     h3.card-title,
     h4.post-title {
@@ -243,7 +247,7 @@
       font-weight: 600;
       line-height: 1.375;
     }
-  }
+  } */
   .layout > .acfe-fc-placeholder > a {
     @apply z-30;
   }
@@ -254,4 +258,41 @@
   .layout > .acfe-fc-placeholder:hover .acfe-fc-overlay {
     @apply z-20;
   }
+}
+
+#poststuff {
+  .acf-layout {
+    @apply font-sans text-[16px] leading-normal;
+    h2 {
+      @apply p-0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: inherit;
+      margin: 0;
+    }
+    p {
+      @apply text-[16px] leading-normal mt-0;
+    }
+    .container {
+      @apply w-auto;
+    }
+    .prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+      @apply my-[1.5em];
+    }
+    .prose
+      :where(.prose > :first-child):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ) {
+      @apply mt-0;
+    }
+  }
+}
+
+.post-attributes-label-wrapper {
+  @apply text-[13px] mt-[1em];
 }

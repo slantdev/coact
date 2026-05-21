@@ -7,6 +7,58 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.20] - 2026-05-21
+
+### Added
+- Added "Show Logo" and "CTA" link options to Page Settings for landing pages.
+- Added conditional standalone header rendering in `site-header.php` to display logo and CTA for landing pages when configured.
+- Added "Section - One Column" ACF field group configuration.
+
+### Changed
+- Updated "Layout - Text Center" ACF settings to include color pickers for headlines and descriptions, as well as alignment and max-width column settings.
+- Re-routed "One Column" layout clone settings in "Section Builder" to the new "Section - One Column" field group.
+- Mapped the `2xl` column max-width option to Tailwind's custom `max-w-screen-xxl` (1380px) class in custom box, one column, and two column templates.
+- Added null-coalescing fallback for `remove_site_footer` to prevent undefined index PHP warnings.
+
+## [0.2.19] - 2026-05-20
+
+### Added
+- Implemented accordion component styling and functionality.
+- Implemented Tailwind CSS compilation config for Advanced Custom Fields (`tailwind-acf.config.js`) to handle admin and layout styles.
+
+### Changed
+- Removed `min-h-300px` class from custom box component classes for flexible vertical sizing.
+- Added "none" padding option and renamed default to "normal" in custom box settings.
+
+### Fixed
+- Prevented WPCode shortcodes from rendering inside ACF Extended admin previews to avoid layout breakage.
+
+
+## [0.2.18] - 2026-05-18
+
+### Added
+- Added custom inline style support to the `coact_acf_icon` helper function for dynamic SVG customization.
+- Applied dynamic inline styles for text, icons, and separators in the `icons_list` component based on ACF color picker settings.
+
+### Changed
+- Updated `site-header.php` to use the null-coalescing operator (`?? false`) for the `remove_site_header` setting to prevent undefined array key warnings.
+- Cleaned up CSS transitions in `components.css` for better readability and removed unused `.content-cards-grid` pagination styles.
+- Added standard `line-clamp: 2` rule to `.line-clamp-2` utility for broader compatibility alongside `-webkit-line-clamp`.
+
+## [0.2.17] - 2026-05-16
+
+### Added
+- Added `form.php` component for rendering Formidable Forms with background, padding, shadow, and border settings.
+- Added Heroicons Solid tab to the ACF Icon Picker with `coact_acf_icon()` helper function to render SVGs dynamically.
+- Migrated the single WYSIWYG editor into a `content_editor` group with a fallback migration script in `inc/acf.php` to preserve existing database content.
+
+### Changed
+- Updated `custom_box.php` with new class prefixes (`coact-` instead of `civ-`), dynamic top/bottom separators, and inline custom link attributes.
+- Updated `icons_list.php` and `icon.php` to use the new `coact_acf_icon` function instead of `civ_icon`.
+- Updated admin styles for ACF fields and Formidable Forms in `admin-style.css`.
+- Replaced `my-8` class with `component-wrapper` in `components.php`.
+- Aligned items to the center in the testimonial swiper wrapper.
+
 ## [0.2.16] - 2026-04-16
 
 ### Fixed
