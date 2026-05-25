@@ -187,7 +187,7 @@ add_filter('acf/fields/icon_picker/heroicons_solid/icons', 'coact_add_heroicons_
  * Prevent specific shortcodes from rendering during ACFE Dynamic Render preview in the backend
  */
 function coact_prevent_shortcodes_in_acfe_preview($return, $tag, $attr, $m) {
-    if ($tag !== 'wpcode') {
+    if ($tag !== 'wpcode' && $tag !== 'formidable') {
         return $return;
     }
 
@@ -217,8 +217,13 @@ function coact_prevent_shortcodes_in_acfe_preview($return, $tag, $attr, $m) {
     }
 
     if ($is_editor) {
-        $id = isset($attr['id']) ? $attr['id'] : 'Unknown';
-        return '<div style="padding: 15px; background: #f9fafb; border: 2px dashed #d1d5db; color: #6b7280; text-align: center; border-radius: 8px; font-family: sans-serif; font-size: 14px; margin: 10px 0;">[WPCode Snippet ID: ' . esc_html($id) . ' Placeholder]</div>';
+        if ($tag === 'wpcode') {
+            $id = isset($attr['id']) ? $attr['id'] : 'Unknown';
+            return '<div style="padding: 15px; background: #f9fafb; border: 2px dashed #d1d5db; color: #6b7280; text-align: center; border-radius: 8px; font-family: sans-serif; font-size: 14px; margin: 10px 0;">[WPCode Snippet ID: ' . esc_html($id) . ' Placeholder]</div>';
+        } elseif ($tag === 'formidable') {
+            $id = isset($attr['id']) ? $attr['id'] : (isset($attr['key']) ? $attr['key'] : (isset($attr['title']) ? $attr['title'] : 'Unknown'));
+            return '<div style="padding: 15px; background: #f9fafb; border: 2px dashed #d1d5db; color: #6b7280; text-align: center; border-radius: 8px; font-family: sans-serif; font-size: 14px; margin: 10px 0;">[Formidable Form ID: ' . esc_html($id) . ' Placeholder]</div>';
+        }
     }
 
     return $return;
