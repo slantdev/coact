@@ -407,21 +407,25 @@ jQuery(function ($) {
 
       // Add markers to the map.
       $.each(data, function (key, value) {
+        if (!value || !value.acf || !value.acf.location || !value.acf.location.lat || !value.acf.location.lng) {
+          return true;
+        }
         var provider_id = value.id;
-        var title = value.title.rendered;
-        var lat = value.acf.location.lat;
-        var lng = value.acf.location.lng;
+        var title = value.title ? value.title.rendered : "";
+        var location = value.acf.location;
+        var lat = location.lat;
+        var lng = location.lng;
         var latLng = new google.maps.LatLng(lat, lng);
 
-        var location_name = value.title.rendered;
-        var location_city = value.acf.location.city;
-        var location_postcode = value.acf.location.post_code;
-        var service_types = value.service_types;
-        var location_address = value.acf.location.address;
-        var link = value.link;
-        var location_lat = value.acf.location.lat;
-        var location_lng = value.acf.location.lng;
-        var contact_numbers = value.acf.contact_numbers;
+        var location_name = title;
+        var location_city = location.city || "";
+        var location_postcode = location.post_code || "";
+        var service_types = value.service_types || [];
+        var location_address = location.address || "";
+        var link = value.link || "";
+        var location_lat = lat;
+        var location_lng = lng;
+        var contact_numbers = value.acf.contact_numbers || null;
 
         if (type == "nearby") {
           //distance in meters between your location and the marker
@@ -741,24 +745,26 @@ jQuery(function ($) {
 
           // Create array
           $.each(data, function (key, value) {
-            // let provider_id = value.id;
-            // let locations = value.acf.locations;
+            if (!value || !value.acf || !value.acf.location || !value.acf.location.lat || !value.acf.location.lng) {
+              return true;
+            }
 
             var provider_id = value.id;
-            var title = value.title.rendered;
-            var lat = value.acf.location.lat;
-            var lng = value.acf.location.lng;
+            var title = value.title ? value.title.rendered : "";
+            var location = value.acf.location;
+            var lat = location.lat;
+            var lng = location.lng;
             var latLng = new google.maps.LatLng(lat, lng);
 
-            var location_name = value.title.rendered;
-            var location_city = value.acf.location.city;
-            var location_postcode = value.acf.location.post_code;
-            var service_types = value.service_types;
-            var location_address = value.acf.location.address;
-            var link = value.link;
-            var location_lat = value.acf.location.lat;
-            var location_lng = value.acf.location.lng;
-            var contact_numbers = value.acf.contact_numbers;
+            var location_name = title;
+            var location_city = location.city || "";
+            var location_postcode = location.post_code || "";
+            var service_types = value.service_types || [];
+            var location_address = location.address || "";
+            var link = value.link || "";
+            var location_lat = lat;
+            var location_lng = lng;
+            var contact_numbers = value.acf.contact_numbers || null;
 
             //distance in meters between your location and the marker
             let distance_from_location =
@@ -813,20 +819,24 @@ jQuery(function ($) {
     $.getJSON(serviceProvider, function (data) {
       //console.log(data);
       $.each(data, function (key, value) {
+        if (!value || !value.acf) {
+          return true;
+        }
+        var location = value.acf.location || {};
         var provider_id = value.id;
 
-        var location_name = value.title.rendered;
-        var location_address = value.acf.location.address;
-        var location_city = value.acf.location.city;
-        var location_postcode = value.acf.location.post_code;
+        var location_name = value.title ? value.title.rendered : "";
+        var location_address = location.address || "";
+        var location_city = location.city || "";
+        var location_postcode = location.post_code || "";
 
-        var service_types = value.service_types;
-        var link = value.link;
+        var service_types = value.service_types || [];
+        var link = value.link || "";
 
-        var location_lat = value.acf.location.lat;
-        var location_lng = value.acf.location.lng;
+        var location_lat = location.lat || "";
+        var location_lng = location.lng || "";
 
-        var contact_numbers = value.acf.contact_numbers;
+        var contact_numbers = value.acf.contact_numbers || null;
 
         serviceProviderItem(
           provider_id,
@@ -871,10 +881,8 @@ jQuery(function ($) {
               </div>
               <div class="text-sm my-4">
                   Call: <a href="tel:61${new_enquiries
-                    .split(" ")
-                    .join(
-                      ""
-                    )}" class="text-brand-blue underline hover:no-underline">${new_enquiries}</a>
+                    ? new_enquiries.split(" ").join("")
+                    : ""}" class="text-brand-blue underline hover:no-underline">${new_enquiries || ""}</a>
               </div>
               <div class="mt-4">
                   <div class="flex flex-wrap gap-3">${service_type_tags}</div>
@@ -1238,7 +1246,7 @@ jQuery(function ($) {
             "</span>";
         }
       }
-      var contact_numbers = data.acf.contact_numbers;
+      var contact_numbers = (data.acf && data.acf.contact_numbers) ? data.acf.contact_numbers : null;
       var list_contact_numbers = "";
       if (contact_numbers) {
         contact_numbers.forEach(function (element) {
@@ -1261,10 +1269,10 @@ jQuery(function ($) {
         });
       }
 
-      var address_data = data.acf.location.address;
-      var description_data = data.acf.description;
+      var address_data = (data.acf && data.acf.location && data.acf.location.address) ? data.acf.location.address : "";
+      var description_data = (data.acf && data.acf.description) ? data.acf.description : "";
 
-      var checkmark_data = data.acf.checkmark_list;
+      var checkmark_data = (data.acf && data.acf.checkmark_list) ? data.acf.checkmark_list : null;
       var checkmark_list = "";
       if (checkmark_data) {
         checkmark_data.forEach(function (element) {
